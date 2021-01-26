@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part "utils.g.dart";
 
 enum Exchange {
+  NONE,
   BINANCE,
 }
 
@@ -25,13 +26,11 @@ class Pair {
 
 @JsonSerializable()
 class Ticker {
-  final Exchange exchange;
   final Pair pair;
   double price;
   DateTime date;
 
   Ticker({
-    this.exchange,
     this.pair,
     this.price,
     this.date,

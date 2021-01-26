@@ -55,12 +55,12 @@ T _$enumDecodeNullable<T>(
 }
 
 const _$ExchangeEnumMap = {
+  Exchange.NONE: 'NONE',
   Exchange.BINANCE: 'BINANCE',
 };
 
 Ticker _$TickerFromJson(Map<String, dynamic> json) {
   return Ticker(
-    exchange: _$enumDecodeNullable(_$ExchangeEnumMap, json['exchange']),
     pair: json['pair'] == null
         ? null
         : Pair.fromJson(json['pair'] as Map<String, dynamic>),
@@ -70,7 +70,6 @@ Ticker _$TickerFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$TickerToJson(Ticker instance) => <String, dynamic>{
-      'exchange': _$ExchangeEnumMap[instance.exchange],
       'pair': instance.pair,
       'price': instance.price,
       'date': instance.date?.toIso8601String(),

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/models/watch_list_model.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:provider/provider.dart';
 
 class WatchListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var model = Provider.of<WatchListModel>(context);
+
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
-        ...List(100).map((e) => buildCryptoListItem(context)),
+        ...model.items.map((item) => buildCryptoListItem(context, item)),
       ],
     );
   }
 
-  buildCryptoListItem(BuildContext context) {
+  buildCryptoListItem(BuildContext context, Ticker ticker) {
     var style1 = Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 20);
     var style2 = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 16);
     var style3 = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 12);
@@ -45,10 +50,11 @@ class WatchListView extends StatelessWidget {
               Column(
                 children: [
                   RichText(
-                    text: TextSpan(style: style1, text: '32 7117.34'),
+                    text: TextSpan(style: style1, text: "${ticker.price}"),
                   ),
                   RichText(
-                    text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
+                    text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
+                    // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
                   ),
                 ],
               ),

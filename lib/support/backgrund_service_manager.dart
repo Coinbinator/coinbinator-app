@@ -63,8 +63,6 @@ class BackgroundServiceManager {
 
     print("  load tickers");
     var tickers = (await _binance.getTickerPrice()).map((ticker) => new Ticker(
-          //
-          exchange: Exchange.BINANCE,
           pair: _meta.pairs.firstWhere((element) => element.exchangePair == ticker.symbol),
           price: ticker.price,
         ));

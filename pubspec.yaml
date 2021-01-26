@@ -37,6 +37,8 @@ dependencies:
   sembast: ^2.4.8+1
   # https://pub.dev/packages/json_annotation
   json_annotation: ^3.1.1
+  # https://pub.dev/packages/provider
+  provider: ^4.3.3
 
 
 dev_dependencies:
