@@ -79,19 +79,19 @@ class BackgroundServiceManager {
         ticker.price = binanceTicker.price;
         ticker.date = DateTime.now();
 
-        if (ticker.pair.pair == "BTC/USDC") {
-          _service.setNotificationInfo(
-            title: "${ticker.pair}",
-            content: "${ticker.price} @ ${DateTime.now()}",
-          );
+        // if (ticker.pair.pair == "BTC/USDC") {
+        //   _service.setNotificationInfo(
+        //     title: "${ticker.pair}",
+        //     content: "${ticker.price} @ ${DateTime.now()}",
+        //   );
 
-          print("send data");
+          // print("send data");
           _service.sendData({"type": MessageTypes.TICKER, "data": TickerMessage(ticker)});
 
           // _service.sendData(
           //   {"current_date": DateTime.now().toIso8601String()},
           // );
-        }
+        // }
       });
     } catch (e) {
       print(e);

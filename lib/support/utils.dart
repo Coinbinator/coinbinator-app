@@ -5,6 +5,7 @@ part "utils.g.dart";
 enum Exchange {
   NONE,
   BINANCE,
+  COINBASE,
 }
 
 @JsonSerializable()

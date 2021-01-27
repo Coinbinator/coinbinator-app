@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/comps/watch_list_view.dart';
+import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
 import 'package:le_crypto_alerts/main.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 

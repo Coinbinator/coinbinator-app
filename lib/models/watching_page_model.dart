@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
-class WatchListModel extends ChangeNotifier {
+class WatchingPageModel extends ChangeNotifier {
   final List<Ticker> items = [
     Ticker(pair: Pair(exchange: Exchange.BINANCE, exchangePair: "BTCUSDC", base: "BTC", quote: "USDC"), price: 0),
   ];
 
   void updateTicker(Ticker ticker) {
-    var item = items.firstWhere((item) => item.pair.pair == ticker.pair.pair);
+    var item = items.firstWhere((item) => item.pair.pair == ticker.pair.pair, orElse: () => null);
 
-    item?.price = ticker.price;
-    item?.date = ticker.date;
+    if (item == null) return;
+
+    item.price = ticker.price;
+    item.date = ticker.date;
 
     notifyListeners();
   }
