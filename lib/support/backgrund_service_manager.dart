@@ -61,11 +61,16 @@ class BackgroundServiceManager {
     var pairs = await _binance.getExchangePairs();
     _meta.pairs.addAll(pairs);
 
+    // print(pairs);
+
     print("  load tickers");
-    var tickers = (await _binance.getTickerPrice()).map((ticker) => new Ticker(
-          pair: _meta.pairs.firstWhere((element) => element.exchangePair == ticker.symbol),
-          price: ticker.price,
-        ));
+    var tickers = (await _binance.getTickerPrice())
+        //
+        .map((ticker) => new Ticker(
+              pair: _meta.pairs.firstWhere((pair) => _binance.convertPairToSymbol(pair) == ticker.symbol),
+              price: ticker.price,
+              date: DateTime.now(),
+            ));
     _meta.tickers.addAll(tickers);
 
     print("  done");
@@ -75,25 +80,15 @@ class BackgroundServiceManager {
     try {
       print("Check cryptos ( binance )");
       (await _binance.getTickerPrice()).forEach((binanceTicker) {
-        var ticker = _meta.tickers.firstWhere((element) => element.pair.exchangePair == binanceTicker.symbol);
+        var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
+        //TODO: criar novo ticker se não existir ainda
         ticker.price = binanceTicker.price;
         ticker.date = DateTime.now();
-
-        // if (ticker.pair.pair == "BTC/USDC") {
-        //   _service.setNotificationInfo(
-        //     title: "${ticker.pair}",
-        //     content: "${ticker.price} @ ${DateTime.now()}",
-        //   );
-
-          // print("send data");
-          _service.sendData({"type": MessageTypes.TICKER, "data": TickerMessage(ticker)});
-
-          // _service.sendData(
-          //   {"current_date": DateTime.now().toIso8601String()},
-          // );
-        // }
       });
+      _service.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(_meta.tickers)});
+      print("  done");
     } catch (e) {
+      print("err:");
       print(e);
     }
   }

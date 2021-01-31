@@ -9,16 +9,6 @@ class AddWatchDialogModel extends ChangeNotifier {
     Exchange.COINBASE,
   ];
 
-  List<String> bases = [
-    "BTC",
-    "ETH",
-  ];
-
-  List<String> quotes = [
-    "USDC",
-    "USDT",
-  ];
-
   Exchange selectedExchange;
 
   String selectedBase;
@@ -44,7 +34,7 @@ class AddWatchDialogModel extends ChangeNotifier {
 class AddWatchDialog extends StatelessWidget {
   final BuildContext parentContext;
 
-  const AddWatchDialog({Key key, this.parentContext}) : super(key: key);
+  AddWatchDialog({Key key, this.parentContext}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +48,8 @@ class AddWatchDialog extends StatelessWidget {
             title: new Text("Add Pair"),
             content: Column(
               children: [
+                //
+                // EXCHANGE
                 DropdownButton(
                   items: model.exchanges
                       .map((e) => DropdownMenuItem(
@@ -68,37 +60,47 @@ class AddWatchDialog extends StatelessWidget {
                   value: model.selectedExchange,
                   onChanged: (value) => model.selectExchange(value),
                 ),
-                Row(
-                  children: [
-                    DropdownButton(
-                      items: model.bases
-                          .map((e) => DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              ))
-                          .toList(),
-                      value: model.selectedBase,
-                      onChanged: (value) => model.selectBase(value),
-                    ),
-                    DropdownButton(
-                      items: model.quotes
-                          .map((e) => DropdownMenuItem(
-                                child: Text(e),
-                                value: e,
-                              ))
-                          .toList(),
-                      value: model.selectedQuote,
-                      onChanged: (value) => model.selectQuote(value),
-                    ),
-                  ],
-                )
+
+                //
+                // BASE ASSET
+                DropdownButton(
+                  items: watchingPageModel.tickers
+                      .map((ticker) => ticker.pair.base)
+                      .toSet()
+                      .map((baseSymbol) => DropdownMenuItem(
+                            child: Text(baseSymbol),
+                            value: baseSymbol,
+                          ))
+                      .toList(),
+                  value: model.selectedBase,
+                  onChanged: (value) => model.selectBase(value),
+                ),
+
+                //
+                // QUOTE ASSET
+                DropdownButton(
+                  items: watchingPageModel.tickers
+                      .where((ticker) => ticker.pair.base == model.selectedBase)
+                      .map((ticker) => ticker.pair.quote)
+                      .toSet()
+                      .map((quoteSymbol) => DropdownMenuItem(
+                            child: Text(quoteSymbol),
+                            value: quoteSymbol,
+                          ))
+                      .toList(),
+                  value: model.selectedQuote,
+                  onChanged: (value) => model.selectQuote(value),
+                ),
               ],
             ),
             actions: <Widget>[
               FlatButton(
                 child: Text('Close me!'),
                 onPressed: () {
-                  watchingPageModel.addTicker(new Ticker(pair: Pair(exchange: model.selectedExchange, base: model.selectedBase, quote: model.selectedQuote)));
+                  var newPairWatch = Pair(exchange: model.selectedExchange, base: model.selectedBase, quote: model.selectedQuote);
+                  var newTickerWatch = new Ticker(pair: newPairWatch, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0));
+                  watchingPageModel.addWatchingTicker(newTickerWatch);
+
                   Navigator.of(context).pop();
                 },
               )

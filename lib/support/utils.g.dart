@@ -9,7 +9,6 @@ part of 'utils.dart';
 Pair _$PairFromJson(Map<String, dynamic> json) {
   return Pair(
     exchange: _$enumDecodeNullable(_$ExchangeEnumMap, json['exchange']),
-    exchangePair: json['exchangePair'] as String,
     base: json['base'] as String,
     quote: json['quote'] as String,
   );
@@ -17,7 +16,6 @@ Pair _$PairFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$PairToJson(Pair instance) => <String, dynamic>{
       'exchange': _$ExchangeEnumMap[instance.exchange],
-      'exchangePair': instance.exchangePair,
       'base': instance.base,
       'quote': instance.quote,
     };
@@ -57,6 +55,7 @@ T _$enumDecodeNullable<T>(
 const _$ExchangeEnumMap = {
   Exchange.NONE: 'NONE',
   Exchange.BINANCE: 'BINANCE',
+  Exchange.COINBASE: 'COINBASE',
 };
 
 Ticker _$TickerFromJson(Map<String, dynamic> json) {

@@ -55,7 +55,12 @@ class BinanceRepository {
 
     return List.from(exchangeInfo['symbols'])
         //
-        .map((symbol) => new Pair(exchange: Exchange.BINANCE, exchangePair: symbol['symbol'], base: symbol['baseAsset'], quote: symbol['quoteAsset']))
+        .map((symbol) => new Pair(exchange: Exchange.BINANCE, base: symbol['baseAsset'], quote: symbol['quoteAsset']))
         .toList();
+  }
+
+  String convertPairToSymbol(Pair pair) {
+    if (pair == null) return null;
+    return pair.base + pair.quote;
   }
 }

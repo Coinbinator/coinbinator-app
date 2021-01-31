@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
@@ -37,13 +38,20 @@ void backgroundServiceOnStart() {
 }
 
 void backgroundServiceSentMessage(Map<String, dynamic> event) {
-  // print("receive on mian");
-  // print(event);
-
   if (event["type"] == MessageTypes.TICKER) {
     var message = TickerMessage.fromJson(event["data"]);
     leApp.watchListModel.updateTicker(message.ticker);
+    return;
   }
+
+  if (event["type"] == MessageTypes.TICKERS) {
+    var message = TickersMessage.fromJson(event["data"]);
+    leApp.watchListModel.updateTickers(message.tickers);
+    return;
+  }
+
+  print("Service message nao processada:");
+  print(event);
 }
 
 class LeApp extends StatelessWidget {

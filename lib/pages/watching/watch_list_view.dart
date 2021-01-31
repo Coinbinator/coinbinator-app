@@ -11,7 +11,7 @@ class WatchListView extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.vertical,
       children: [
-        ...model.items.map((item) => buildCryptoListItem(context, item)),
+        ...model.watchingTickers.map((item) => buildCryptoListItem(context, item)),
       ],
     );
   }

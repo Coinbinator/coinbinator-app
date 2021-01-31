@@ -11,14 +11,27 @@ enum Exchange {
 @JsonSerializable()
 class Pair {
   final Exchange exchange;
-  final String exchangePair;
+
+  // final String exchangePair;
 
   final String base; // (BTC)/USDC
   final String quote; // BTC/(USDC)
 
-  Pair({this.exchange, this.exchangePair, this.base, this.quote});
+  Pair({this.exchange, this.base, this.quote}) {
+    assert(exchange != null, "pair.exchange nao pode ser null");
+    assert(base != null && base.isNotEmpty, "pair.base nao pode estar em branco");
+    assert(quote != null && quote.isNotEmpty, "pair.quote nao pode estar em branco");
+  }
 
   get pair => "$base/$quote";
+
+  bool eq(Pair pair) {
+    if (exchange != pair.exchange) return false;
+    if (base != pair.base) return false;
+    if (quote != pair.quote) return false;
+
+    return true;
+  }
 
   Map<String, dynamic> toJson() => _$PairToJson(this);
 
@@ -35,7 +48,11 @@ class Ticker {
     this.pair,
     this.price,
     this.date,
-  });
+  }) {
+    assert(this.pair != null, "ticker.pair nao pode ser null");
+    assert(this.price != null, "ticker.price nao pode ser null");
+    assert(this.date != null, "ticker.date nao pode ser null");
+  }
 
   Map<String, dynamic> toJson() => _$TickerToJson(this);
 
