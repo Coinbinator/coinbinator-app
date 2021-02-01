@@ -43,8 +43,8 @@ class _WatchingPageState extends State<WatchingPage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          FlatButton(onPressed: null, child: Icon(Icons.emoji_transportation_outlined)),
-          FlatButton(onPressed: null, child: Icon(Icons.sort_rounded)),
+          // FlatButton(onPressed: null, child: Icon(Icons.emoji_transportation_outlined)),
+          // FlatButton(onPressed: null, child: Icon(Icons.sort_rounded)),
         ],
       ),
       body: WatchListView(),

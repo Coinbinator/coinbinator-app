@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:le_crypto_alerts/database/Persistence.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
@@ -59,7 +60,14 @@ class LeApp extends StatelessWidget {
 
   final watchListModel = WatchingPageModel();
 
-  LeApp({this.backgroundServiceOnStart}) : super();
+  final persistence = Persistence();
+
+  LeApp({this.backgroundServiceOnStart}) : super() {
+    // () async {
+    //   await persistence.open();
+    //   print("persistence initialized");
+    // }();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +79,11 @@ class LeApp extends StatelessWidget {
       ),
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => watchListModel),
+          ChangeNotifierProvider<WatchingPageModel>(create: (context) {
+            watchListModel.initialize();
+
+            return watchListModel;
+          }),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),
         builder: (context, child) {

@@ -9,9 +9,9 @@ class AddWatchDialogModel extends ChangeNotifier {
     Exchange.COINBASE,
   ];
 
-  Exchange selectedExchange;
+  Exchange selectedExchange = Exchange.BINANCE;
 
-  String selectedBase;
+  String selectedBase = "BTC";
 
   String selectedQuote;
 

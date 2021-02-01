@@ -8,13 +8,14 @@ enum Exchange {
   COINBASE,
 }
 
+exchangeToString(Exchange exchange) => _$ExchangeEnumMap[exchange];
+
 @JsonSerializable()
 class Pair {
-  final Exchange exchange;
-
-  // final String exchangePair;
+  final Exchange exchange; // Bincance
 
   final String base; // (BTC)/USDC
+
   final String quote; // BTC/(USDC)
 
   Pair({this.exchange, this.base, this.quote}) {
@@ -22,6 +23,8 @@ class Pair {
     assert(base != null && base.isNotEmpty, "pair.base nao pode estar em branco");
     assert(quote != null && quote.isNotEmpty, "pair.quote nao pode estar em branco");
   }
+
+  get key => "${exchangeToString(exchange)}:$base:$quote";
 
   get pair => "$base/$quote";
 
