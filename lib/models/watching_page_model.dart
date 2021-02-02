@@ -98,4 +98,18 @@ class WatchingPageModel extends ChangeNotifier {
     working = false;
     notifyListeners();
   }
+
+  FutureOr<void> removeWatchingTicker(Ticker ticker) async {
+    await Persistence.instance.openx((db) async {
+      await db.delete(
+          //
+          Persistence.WHATCHING_TICKERS,
+          where: "id = ?",
+          whereArgs: [ticker.pair.key]);
+    });
+
+    watchingTickers.removeWhere((element) => element.pair.eq(ticker.pair));
+
+    notifyListeners();
+  }
 }

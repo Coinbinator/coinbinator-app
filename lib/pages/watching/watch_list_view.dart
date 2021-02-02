@@ -30,58 +30,49 @@ class WatchListView extends StatelessWidget {
 
     // final watchListViewModel = Provider.of<WatchListViewModel>(context, listen: true);
 
-    return WillPopScope(
-      onWillPop: () async {
-        if (page.selectingTickers()) {
-          page.clearSelectedTickers();
-          return false;
-        }
-        return true;
+    return GestureDetector(
+      onLongPress: () => page.selectTicker(ticker),
+      onTap: () {
+        if (page.selectingTickers()) return page.toggleTicker(ticker);
       },
-      child: GestureDetector(
-        onLongPress: () => page.selectTicker(ticker),
-        onTap: () {
-          if (page.selectingTickers()) return page.toggleTicker(ticker);
-        },
-        child: Card(
-            margin: EdgeInsets.all(4),
-            child: Padding(
-              padding: EdgeInsets.all(4),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      RichText(
-                        text: TextSpan(children: [
-                          TextSpan(style: style1, text: page.selectedTickers.contains(ticker.pair.key) ? 'O' : '.'),
-                          TextSpan(style: style1, text: ticker.pair.base),
-                          TextSpan(style: style2, text: '/'),
-                          TextSpan(style: style2, text: ticker.pair.quote),
-                        ]),
-                      ),
-                      RichText(
-                        text: TextSpan(children: [
-                          TextSpan(style: style3, text: ticker.pair.exchange.toString()),
-                        ]),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      RichText(
-                        text: TextSpan(style: style1, text: "${ticker.price}"),
-                      ),
-                      RichText(
-                        text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
-                        // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )),
-      ),
+      child: Card(
+          margin: EdgeInsets.all(4),
+          child: Padding(
+            padding: EdgeInsets.all(4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    RichText(
+                      text: TextSpan(children: [
+                        TextSpan(style: style1, text: page.selectedTickers.contains(ticker.pair.key) ? 'O' : '.'),
+                        TextSpan(style: style1, text: ticker.pair.base),
+                        TextSpan(style: style2, text: '/'),
+                        TextSpan(style: style2, text: ticker.pair.quote),
+                      ]),
+                    ),
+                    RichText(
+                      text: TextSpan(children: [
+                        TextSpan(style: style3, text: ticker.pair.exchange.toString()),
+                      ]),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    RichText(
+                      text: TextSpan(style: style1, text: "${ticker.price}"),
+                    ),
+                    RichText(
+                      text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
+                      // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )),
     );
   }
 }
