@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 
 import 'add_watch_dialog.dart';
 
@@ -9,32 +10,45 @@ class WatchingPage extends StatefulWidget {
   final String title;
 
   @override
-  _WatchingPageState createState() => _WatchingPageState();
+  WatchingPageState createState() => WatchingPageState();
 }
 
-class _WatchingPageState extends State<WatchingPage> {
-  int _counter = 0;
+class WatchingPageState extends State<WatchingPage> {
+  List<String> selectedTickers = [];
 
-  void _showAddWatchForm(BuildContext context) {
+  bool selectingTickers() {
+    if (selectedTickers.length > 0) return true;
+    return false;
+  }
+
+  void selectTicker(Ticker ticker) {
+    setState(() {
+      selectedTickers.add(ticker.pair.key);
+    });
+  }
+
+  void toggleTicker(Ticker ticker) {
+    setState(() {
+      if (selectedTickers.contains(ticker.pair.key)) {
+        selectedTickers.remove(ticker.pair.key);
+        return;
+      }
+      selectedTickers.add(ticker.pair.key);
+    });
+  }
+
+  void clearSelectedTickers() {
+    setState(() {
+      selectedTickers.clear();
+    });
+  }
+
+  void showAddWatchForm(BuildContext context) {
     showDialog(
         context: context,
         builder: (_) => AddWatchDialog(
               parentContext: context,
             ));
-
-    // var app = context.findAncestorWidgetOfExactType<LeApp>();
-    // app.watchListModel.addTicker(new Ticker(pair: Pair(base: "asd", quote: "qwe")));
-
-    // () async {
-    //   FlutterBackgroundService().sendData({"action": "stopService"});
-    //
-    //   await Future.delayed(Duration(seconds: 2));
-    //   FlutterBackgroundService.initialize(LeApp.backgroundServiceOnStart);
-    // }();
-
-    // setState(() {
-    //   _counter++;
-    // });
   }
 
   @override
@@ -42,14 +56,21 @@ class _WatchingPageState extends State<WatchingPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
+        actions: () {
+          if (selectingTickers()) {
+            return [
+              FlatButton(onPressed: null, child: Icon(Icons.delete)),
+            ];
+          }
+          return List<Widget>();
           // FlatButton(onPressed: null, child: Icon(Icons.emoji_transportation_outlined)),
           // FlatButton(onPressed: null, child: Icon(Icons.sort_rounded)),
-        ],
+          // ]
+        }(),
       ),
       body: WatchListView(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _showAddWatchForm(context),
+        onPressed: () => showAddWatchForm(context),
         tooltip: 'Add Pair',
         child: Icon(Icons.add),
       ),
