@@ -73,7 +73,7 @@ class WatchingPageState extends State<WatchingPage> {
   }
 
   void showAddWatchForm(BuildContext context) {
-    showDialog(
+    showModalBottomSheet(
         context: context,
         builder: (_) => AddWatchDialog(
               parentContext: context,
@@ -123,31 +123,21 @@ class WatchingPageState extends State<WatchingPage> {
                 child: Icon(Icons.delete),
                 onPressed: () => deleteSelectedTickers(),
               ),
-            ]
+            ],
+            if (!selectingTickers()) ...[
+              DropdownButton(
+                items: [
+                  DropdownMenuItem<String>(value: "USD", child: Text("USD")),
+                  DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
+                ],
+                value: "BTC",
+                onChanged: (value) => null,
+                // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
+                // child: Text("USD"),
+                // onPressed: () => null,
+              ),
+            ],
           ],
-          //     () {
-          //   // if (selectingTickers()) {
-          //   final List<Widget> actions = [];
-          //
-          //   if (allTickerSelected())
-          //     actions.add(FlatButton(
-          //         //
-          //         child: Icon(Icons.check_box_outlined),
-          //         onPressed: () => deselectSelectedTickers()));
-          //
-          //   if (!allTickerSelected())
-          //     actions.add(FlatButton(
-          //         //
-          //         child: Icon(Icons.check_box_outline_blank),
-          //         onPressed: () => selectAllTickers()));
-          //
-          //   actions.add(FlatButton(
-          //       //
-          //       child: Icon(Icons.delete),
-          //       onPressed: () => deleteSelectedTickers()));
-          //
-          //   return actions;
-          // }(),
         ),
         body: WatchListView(),
         floatingActionButton: () {

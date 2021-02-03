@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part "utils.g.dart";
@@ -65,4 +66,12 @@ class Ticker {
 class ExchangesMeta {
   var pairs = new List<Pair>();
   var tickers = new List<Ticker>();
+}
+
+abstract class E {
+  static String currency(value, {String locale, String name, String symbol, int decimalDigits: 2}) {
+    final formatter = new NumberFormat.currency(locale: locale, name: name, symbol: symbol, decimalDigits: decimalDigits);
+
+    return formatter.format(value);
+  }
 }

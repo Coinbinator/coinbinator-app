@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
@@ -18,6 +19,8 @@ import 'package:provider/provider.dart';
 LeApp leApp;
 
 void main() {
+  Intl.defaultLocale = "en_US";
+
   backgroundServiceInit();
 
   runApp(leApp = LeApp(backgroundServiceOnStart: backgroundServiceOnStart));

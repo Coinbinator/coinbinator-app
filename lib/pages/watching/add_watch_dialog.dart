@@ -45,53 +45,60 @@ class AddWatchDialog extends StatelessWidget {
           var watchingPageModel = Provider.of<WatchingPageModel>(parentContext);
 
           return new AlertDialog(
-            title: new Text("Add Pair"),
-            content: Column(
-              children: [
-                //
-                // EXCHANGE
-                DropdownButton(
-                  items: model.exchanges
-                      .map((e) => DropdownMenuItem(
-                            child: Text(e.toString()),
-                            value: e,
-                          ))
-                      .toList(),
-                  value: model.selectedExchange,
-                  onChanged: (value) => model.selectExchange(value),
-                ),
+            // backgroundColor: ,
+            title: new Text("Add Watch Pair"),
+            insetPadding: EdgeInsets.all(5),
+            scrollable: true,
+            content: Container(
+              width: double.infinity,
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Column(
+                children: [
+                  //
+                  // EXCHANGE
+                  DropdownButton(
+                    items: model.exchanges
+                        .map((e) => DropdownMenuItem(
+                              child: Text(e.toString()),
+                              value: e,
+                            ))
+                        .toList(),
+                    value: model.selectedExchange,
+                    onChanged: (value) => model.selectExchange(value),
+                  ),
 
-                //
-                // BASE ASSET
-                DropdownButton(
-                  items: watchingPageModel.tickers
-                      .map((ticker) => ticker.pair.base)
-                      .toSet()
-                      .map((baseSymbol) => DropdownMenuItem(
-                            child: Text(baseSymbol),
-                            value: baseSymbol,
-                          ))
-                      .toList(),
-                  value: model.selectedBase,
-                  onChanged: (value) => model.selectBase(value),
-                ),
+                  //
+                  // BASE ASSET
+                  DropdownButton(
+                    items: watchingPageModel.tickers
+                        .map((ticker) => ticker.pair.base)
+                        .toSet()
+                        .map((baseSymbol) => DropdownMenuItem(
+                              child: Text(baseSymbol),
+                              value: baseSymbol,
+                            ))
+                        .toList(),
+                    value: model.selectedBase,
+                    onChanged: (value) => model.selectBase(value),
+                  ),
 
-                //
-                // QUOTE ASSET
-                DropdownButton(
-                  items: watchingPageModel.tickers
-                      .where((ticker) => ticker.pair.base == model.selectedBase)
-                      .map((ticker) => ticker.pair.quote)
-                      .toSet()
-                      .map((quoteSymbol) => DropdownMenuItem(
-                            child: Text(quoteSymbol),
-                            value: quoteSymbol,
-                          ))
-                      .toList(),
-                  value: model.selectedQuote,
-                  onChanged: (value) => model.selectQuote(value),
-                ),
-              ],
+                  //
+                  // QUOTE ASSET
+                  DropdownButton(
+                    items: watchingPageModel.tickers
+                        .where((ticker) => ticker.pair.base == model.selectedBase)
+                        .map((ticker) => ticker.pair.quote)
+                        .toSet()
+                        .map((quoteSymbol) => DropdownMenuItem(
+                              child: Text(quoteSymbol),
+                              value: quoteSymbol,
+                            ))
+                        .toList(),
+                    value: model.selectedQuote,
+                    onChanged: (value) => model.selectQuote(value),
+                  ),
+                ],
+              ),
             ),
             actions: <Widget>[
               FlatButton(
