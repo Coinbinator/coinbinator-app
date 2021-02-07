@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_background_service/flutter_background_service.dart';
-import 'file:///D:/Workspace/CryptoAlerts/lib/repositories/bincance/binance_repository.dart';
+import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
@@ -68,7 +68,7 @@ class BackgroundServiceManager {
         //
         .map((ticker) => new Ticker(
               pair: _meta.pairs.firstWhere((pair) => _binance.convertPairToSymbol(pair) == ticker.symbol),
-              price: ticker.price,
+              price: double.tryParse(ticker.price),
               date: DateTime.now(),
             ));
     _meta.tickers.addAll(tickers);
@@ -81,8 +81,8 @@ class BackgroundServiceManager {
       print("Check cryptos ( binance )");
       (await _binance.getTickerPrice()).forEach((binanceTicker) {
         var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
-        //TODO: criar novo ticker se não existir ainda
-        ticker.price = binanceTicker.price;
+        //TODO: criar novo ticker se não existir aindagi
+        ticker.price = double.tryParse(binanceTicker.price);
         ticker.date = DateTime.now();
       });
       _service.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(_meta.tickers)});

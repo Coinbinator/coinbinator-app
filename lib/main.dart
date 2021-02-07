@@ -7,10 +7,12 @@ import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portifolio_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+
 
 // void printHello() {
 //   final DateTime now = DateTime.now();
@@ -21,9 +23,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 LeApp leApp;
 
 Future<void> main() async {
-  await DotEnv.load();
-  Intl.defaultLocale = "en_US";
   await app().loadConfig();
+  Intl.defaultLocale = "en_US";
+
+  var a = BinanceExchangeInformation();
+
+  final binance = instance<BinanceRepository>();
 
   backgroundServiceInit();
 

@@ -102,4 +102,11 @@ abstract class E {
 
     return formatter.format(value);
   }
+
+  static double toDouble(value) {
+    if (value is String) {
+      return double.tryParse(value);
+    }
+    return (value as num).toDouble();
+  }
 }
