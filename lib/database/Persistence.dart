@@ -5,7 +5,9 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Persistence {
-  static const VERSION = 1;
+  static const VERSION_1 = 1;
+
+  static const VERSION_CURRENT = VERSION_1;
 
   static const WHATCHING_TICKERS = "watching_tickers";
 
@@ -32,7 +34,7 @@ class Persistence {
       onUpgrade: _onUpgrade,
       // Set the version. This executes the onCreate function and provides a
       // path to perform database upgrades and downgrades.
-      version: VERSION,
+      version: VERSION_CURRENT,
     );
 
     return database;
@@ -55,10 +57,12 @@ class Persistence {
     var commands = {
       1: [
         //
+        "CREATE TABLE coins(id VARCHAR(140) PRIMARY KEY, name VARCHAR(50), symbol VARCHAR(50))",
+        "CREATE TABLE pairs(id VARCHAR(140) PRIMARY KEY, base VARCHAR(50), quote VARCHAR(50))",
         "CREATE TABLE watching_tickers(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50))",
       ],
     }
-        //
+        // Filtrar os comandos para fazer o migration para a versão correta
         .entries
         .where((element) => element.key > oldVersion && element.key <= newVersion)
         .map((e) => e.value.join(";\n"))

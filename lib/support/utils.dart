@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -66,6 +68,32 @@ class Ticker {
 class ExchangesMeta {
   var pairs = new List<Pair>();
   var tickers = new List<Ticker>();
+}
+
+enum ExchangesApiInfoType { BINANCE }
+
+@JsonSerializable()
+class BinanceApiAuthInfo {
+  final type = ExchangesApiInfoType.BINANCE;
+  String name;
+  String apiKey;
+  String apiSecret;
+
+  BinanceApiAuthInfo({this.name, this.apiKey, this.apiSecret});
+}
+
+class Coin {
+  String name;
+  String symbol;
+
+  get key => "$symbol";
+
+  Coin({this.symbol, this.name});
+}
+
+class PortfolioWalletResume {
+  String name;
+  Map<Coin, double> coins;
 }
 
 abstract class E {

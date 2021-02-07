@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_background_service/flutter_background_service.dart';
-import 'package:le_crypto_alerts/repositories/binance_repository.dart';
+import 'file:///D:/Workspace/CryptoAlerts/lib/repositories/bincance/binance_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 

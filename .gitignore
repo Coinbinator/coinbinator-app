@@ -39,3 +39,8 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+# Le App specific files
+.env
+!.env.example
+assets/config/config.json

@@ -1,13 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portifolio_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 // void printHello() {
 //   final DateTime now = DateTime.now();
@@ -15,11 +18,12 @@ import 'package:provider/provider.dart';
 //
 //   print("[$now] Hello, world! isolate=$isolateId function='$printHello'");
 // }
-
 LeApp leApp;
 
-void main() {
+Future<void> main() async {
+  await DotEnv.load();
   Intl.defaultLocale = "en_US";
+  await app().loadConfig();
 
   backgroundServiceInit();
 
@@ -61,6 +65,8 @@ void backgroundServiceSentMessage(Map<String, dynamic> event) {
 class LeApp extends StatelessWidget {
   final backgroundServiceOnStart;
 
+  final appModel = AppModel();
+
   final watchListModel = WatchingPageModel();
 
   final persistence = Persistence();
@@ -74,14 +80,9 @@ class LeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Le Crypto Alerts',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MultiProvider(
+    return MultiProvider(
         providers: [
+          ChangeNotifierProvider<AppModel>(create: (context) => AppModel()),
           ChangeNotifierProvider<WatchingPageModel>(create: (context) {
             watchListModel.initialize();
 
@@ -89,10 +90,34 @@ class LeApp extends StatelessWidget {
           }),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),
-        builder: (context, child) {
-          return WatchingPage(title: 'Le Crypto Alerts');
-        },
-      ),
-    );
+        builder: (context, child) => MaterialApp(
+              title: 'Le Crypto Alerts',
+              theme: ThemeData(
+                primarySwatch: Colors.blueGrey,
+                visualDensity: VisualDensity.adaptivePlatformDensity,
+                accentColor: Colors.amberAccent,
+              ),
+              home: WillPopScope(
+                  onWillPop: () async {
+                    return false;
+                  },
+                  child: WatchingPage(title: "MAIN")),
+            ));
+  }
+
+  void navigateToWatching(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WatchingPage(title: "page 1"),
+        ));
+  }
+
+  void navigateToPortfolio(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PortfolioPage(),
+        ));
   }
 }

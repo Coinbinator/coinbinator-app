@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'add_watch_dialog.dart';
 
 class WatchingPage extends StatefulWidget {
-  WatchingPage({Key key, this.title}) : super(key: key);
+  WatchingPage({Key key, this.title = ""}) : super(key: key);
 
   final String title;
 
@@ -151,12 +152,7 @@ class WatchingPageState extends State<WatchingPage> {
             child: Icon(Icons.add),
           );
         }(),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   items: [
-        //     BottomNavigationBarItem(icon: Icon(Icons.widgets), label: "Watching"),
-        //     BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: "Alerts"),
-        //   ],
-        // ),
+        bottomNavigationBar: DefaultBottomNavigationBar(),
       ),
     );
   }
