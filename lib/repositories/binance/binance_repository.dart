@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
+import 'package:le_crypto_alerts/support/accounts/accounts.dart';
+import 'package:le_crypto_alerts/support/coins.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sembast/timestamp.dart';
 
@@ -151,13 +152,31 @@ class BinanceRepository {
       return List<Pair>.empty();
     }
 
-    return List.from(exchangeInfo.symbols)
-        .map((symbol) => new Pair(exchange: Exchange.BINANCE, base: symbol['baseAsset'], quote: symbol['quoteAsset']))
-        .toList();
+    return List.from(exchangeInfo.symbols).map((symbol) => new Pair(exchange: Exchange.BINANCE, base: symbol['baseAsset'], quote: symbol['quoteAsset'])).toList();
   }
 
   String convertPairToSymbol(Pair pair) {
     if (pair == null) return null;
     return pair.base + pair.quote;
+  }
+
+  Future<PortfolioWalletResume> getAccountPortfolio(BinanceAccount account) async {
+    final capitals = await getCapitalConfigGetAll();
+    final coins = capitals.asMap().map((_, capital) => MapEntry(
+          Coins.getCoin(capital.coin),
+          [
+            E.toDouble(capital.free),
+            E.toDouble(capital.freeze),
+            E.toDouble(capital.ipoable),
+            E.toDouble(capital.ipoing),
+            E.toDouble(capital.locked),
+            E.toDouble(capital.storage),
+            E.toDouble(capital.withdrawing),
+          ].fold(0.0, (a, b) => a + b),
+        ));
+
+    return PortfolioWalletResume()
+      ..name = account.name
+      ..coins = coins;
   }
 }

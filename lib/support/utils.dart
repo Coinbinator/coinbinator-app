@@ -84,12 +84,12 @@ class BinanceApiAuthInfo {
 }
 
 class Coin {
-  String name;
-  String symbol;
+  final String name;
+  final String symbol;
 
   get key => "$symbol";
 
-  Coin({this.symbol, this.name});
+  const Coin({this.symbol, this.name});
 }
 
 class PortfolioWalletResume {
@@ -106,7 +106,7 @@ abstract class E {
 
   static double toDouble(value) {
     if (value is String) {
-      return double.tryParse(value);
+      return double.tryParse(value) ?? 0;
     }
     return (value as num).toDouble();
   }

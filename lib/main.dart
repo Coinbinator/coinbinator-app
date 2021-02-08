@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portifolio_page.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
@@ -25,10 +25,6 @@ LeApp leApp;
 Future<void> main() async {
   await app().loadConfig();
   Intl.defaultLocale = "en_US";
-
-  var a = BinanceExchangeInformation();
-
-  final binance = instance<BinanceRepository>();
 
   backgroundServiceInit();
 

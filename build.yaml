@@ -1,0 +1,24 @@
+#targets:
+#  $default:
+#    builders:
+#      le_coins:
+#        enabled: True
+
+targets:
+  $default:
+    builders:
+      le_crypto_alerts|le_coins:
+        enabled: true
+#        options:
+#          ignore_for_file:
+#            - lint_alpha
+#            - lint_beta
+
+builders:
+  le_crypto_alerts|le_coins:
+    import: 'package:le_crypto_alerts/support/codegen/le_coins.dart'
+    builder_factories: ['leCoinsBuilder']
+    build_extensions: {".dart": [".le.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["le_coins"]

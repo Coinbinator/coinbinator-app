@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/consts.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
 
 class _AppConfig {
   // ignore: non_constant_identifier_names
@@ -25,6 +24,7 @@ class _AppRepository {
   _AppRepository() {
     this._singletons.addAll({
       BinanceRepository: BinanceRepository(),
+      UserRepository: UserRepository(),
     });
   }
 

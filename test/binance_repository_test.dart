@@ -45,4 +45,7 @@ void main() {
       expect(tickerPrices, isA<List<BinanceCapitalConfig>>());
     });
   });
+
+
+
 }
