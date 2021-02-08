@@ -1,3 +1,3 @@
 class LeCoinsAnnotation {
-  gitconst LeCoinsAnnotation();
+  const LeCoinsAnnotation();
 }

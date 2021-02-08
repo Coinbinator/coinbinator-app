@@ -35,7 +35,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
         // ..lambda = true
         ..body = cb.Code("return _getCoin(value);")
         ..docs.addAll([
-          "Essa biblioteca nao esta colocando o tipo correto na função, então precisa mudar na mao depois de geredado...",
+          "/// Essa biblioteca nao esta colocando o tipo correto na função, então precisa mudar na mao depois de geredado...",
         ])));
 
       for (final coin in coins) {
