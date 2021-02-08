@@ -3,11 +3,8 @@ import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart' as cb;
 import 'package:dart_style/dart_style.dart' as ds;
 import 'package:dio/dio.dart';
+import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
 import 'package:source_gen/source_gen.dart';
-
-class LeCoinsAnnotation {
-  const LeCoinsAnnotation();
-}
 
 class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
   @override
@@ -31,13 +28,15 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
       c.methods.add(cb.Method.returnsVoid((m) => m
         ..name = "getCoin"
         ..static = true
-        ..returns = cb.refer("Coin")
+        ..returns = cb.refer("Coin", 'package:le_crypto_alerts/support/utils.dart')
         ..requiredParameters.add(cb.Parameter((p) => p
           ..name = "value"
           ..type = cb.refer("String")))
-        ..lambda = true
-        ..body = cb.Code("_getCoin(value)")));
-
+        // ..lambda = true
+        ..body = cb.Code("return _getCoin(value);")
+        ..docs.addAll([
+          "Essa biblioteca nao esta colocando o tipo correto na função, então precisa mudar na mao depois de geredado...",
+        ])));
 
       for (final coin in coins) {
         final field = cb.FieldBuilder()

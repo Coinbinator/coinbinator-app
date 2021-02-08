@@ -162,7 +162,7 @@ class BinanceRepository {
 
   Future<PortfolioWalletResume> getAccountPortfolio(BinanceAccount account) async {
     final capitals = await getCapitalConfigGetAll();
-    final coins = capitals.asMap().map((_, capital) => MapEntry(
+    final coins = capitals.asMap().map((_, capital) => MapEntry<Coin, double>(
           Coins.getCoin(capital.coin),
           [
             E.toDouble(capital.free),
