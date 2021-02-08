@@ -13,6 +13,7 @@ enum Exchange {
 
 exchangeToString(Exchange exchange) => _$ExchangeEnumMap[exchange];
 
+
 @JsonSerializable()
 class Pair {
   final Exchange exchange; // Bincance

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
+import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
 import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
@@ -92,6 +93,7 @@ class WatchingPageState extends State<WatchingPage> {
         return true;
       },
       child: Scaffold(
+        drawer: DefaultDrawer(),
         appBar: AppBar(
           // LEADING
           leading: () {

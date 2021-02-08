@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
+import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
 import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
@@ -86,6 +87,7 @@ class PortfolioPageState extends State<PortfolioPage> {
         return true;
       },
       child: Scaffold(
+        drawer: DefaultDrawer(),
         appBar: AppBar(
             // leading: () {
             //   if (selectingTickers())

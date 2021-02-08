@@ -60,6 +60,14 @@ class Persistence {
         "CREATE TABLE coins(id VARCHAR(140) PRIMARY KEY, name VARCHAR(50), symbol VARCHAR(50))",
         "CREATE TABLE pairs(id VARCHAR(140) PRIMARY KEY, base VARCHAR(50), quote VARCHAR(50))",
         "CREATE TABLE watching_tickers(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50))",
+        """
+          CREATE TABLE accounts(
+              id INTEGER AUTOINCREMENT PRIMARY KEY, 
+              name VARCHAR(140), 
+              type VARCHAR(50),
+              extras TEXT,
+          )
+        """,
       ],
     }
         // Filtrar os comandos para fazer o migration para a versão correta
