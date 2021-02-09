@@ -1,16 +1,16 @@
 import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
-part 'coins.le.coins.dart';
+part 'pairs.le.pairs.dart';
 
-@LeCoinsAnnotation()
+@LePairsAnnotation()
 // ignore: unused_element
 const _ = null;
 
-Coin _getCoin(String value) {
-  return Coins._coins[value];
+Pair _getPair(String value) {
+  return Pairs._pairs[value];
 }
 
-Map<String, Coin> _getAll() {
-  return Coins._coins;
+List<Pair> _getAll() {
+  return Pairs._pairs.values.toList();
 }

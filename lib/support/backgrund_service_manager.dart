@@ -80,6 +80,8 @@ class BackgroundServiceManager {
     try {
       print("Check cryptos ( binance )");
       (await _binance.getTickerPrice()).forEach((binanceTicker) {
+        final binanceTickerPair = binanceTicker.lePair;
+
         var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
         //TODO: criar novo ticker se não existir aindagi
         ticker.price = double.tryParse(binanceTicker.price);

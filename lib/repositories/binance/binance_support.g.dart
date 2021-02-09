@@ -7,9 +7,10 @@ part of 'binance_support.dart';
 // **************************************************************************
 
 BinanceTickerPrice _$BinanceTickerPriceFromJson(Map<String, dynamic> json) {
-  return BinanceTickerPrice()
-    ..symbol = json['symbol'] as String
-    ..price = json['price'] as String;
+  return BinanceTickerPrice(
+    json['symbol'] as String,
+    json['price'] as String,
+  );
 }
 
 Map<String, dynamic> _$BinanceTickerPriceToJson(BinanceTickerPrice instance) =>

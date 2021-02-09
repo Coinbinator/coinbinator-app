@@ -20,29 +20,36 @@ class WatchingPage extends StatefulWidget {
 class WatchingPageState extends State<WatchingPage> {
   Set<String> selectedTickers = Set<String>();
 
+  WatchingPageModel get model => Provider.of<WatchingPageModel>(context);
+
   bool selectingTickers() {
-    if (selectedTickers.length > 0) return true;
+    if (selectedTickers.length > 0) {
+      return true;
+    }
     return false;
   }
 
   bool allTickerSelected() {
-    var model = Provider.of<WatchingPageModel>(context);
-    return selectedTickers.length == model.watchingTickers.length;
+    if (selectedTickers.length == model.watchingTickers.length) {
+      return true;
+    }
+
+    return false;
   }
 
   void selectTicker(Ticker ticker) {
     setState(() {
-      selectedTickers.add(ticker.pair.key);
+      selectedTickers.add(ticker.key);
     });
   }
 
   void toggleTicker(Ticker ticker) {
     setState(() {
-      if (selectedTickers.contains(ticker.pair.key)) {
-        selectedTickers.remove(ticker.pair.key);
+      if (selectedTickers.contains(ticker.key)) {
+        selectedTickers.remove(ticker.key);
         return;
       }
-      selectedTickers.add(ticker.pair.key);
+      selectedTickers.add(ticker.key);
     });
   }
 
@@ -54,22 +61,13 @@ class WatchingPageState extends State<WatchingPage> {
 
   void selectAllTickers() {
     setState(() {
-      var model = Provider.of<WatchingPageModel>(context, listen: false);
-
-      model.watchingTickers.forEach((ticker) => selectedTickers.add(ticker.pair.key));
+      model.watchingTickers.forEach((ticker) => selectedTickers.add(ticker.key));
     });
   }
 
   void deleteSelectedTickers() {
     setState(() {
-      var model = Provider.of<WatchingPageModel>(context, listen: false);
-
-      model
-          //
-          .watchingTickers
-          .where((ticker) => selectedTickers.contains(ticker.pair.key))
-          .forEach((ticker) => model.removeWatchingTicker(ticker));
-
+      model.watchingTickers.where((ticker) => selectedTickers.contains(ticker.key)).forEach((ticker) => model.removeWatchingTicker(ticker));
       deselectSelectedTickers();
     });
   }

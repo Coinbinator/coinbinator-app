@@ -6,9 +6,6 @@ import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 
 Future<void> _init() async {
   await app().loadConfig();
-  final binance = instance<BinanceRepository>();
-  binance.apiKey = app().config.test_binance_api_key;
-  binance.apiSecret = app().config.test_binance_api_secret;
 }
 
 void main() {
@@ -45,7 +42,4 @@ void main() {
       expect(tickerPrices, isA<List<BinanceCapitalConfig>>());
     });
   });
-
-
-
 }

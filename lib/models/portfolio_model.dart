@@ -35,12 +35,14 @@ class PortfolioModel extends ChangeNotifier {
   }
 
   Future<void> updatePortfolios() async {
-    //TODO: criar alguma forma de batch ( e limitar o numero de carteiras em paraleno )
+    //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
     final portfolios = await Future.wait(accounts.map((account) {
       if (account is BinanceAccount) {
-        instance<BinanceRepository>().getAccountPortfolio(account);
+        return instance<BinanceRepository>().getAccountPortfolio(account: account);
       }
-      throw Exception("tipo de accounr desconhecido");
+      throw Exception("tipo de conta desconhecido");
     }));
+
+    return portfolios;
   }
 }

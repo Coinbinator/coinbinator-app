@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -18,8 +19,12 @@ class WatchingPageModel extends ChangeNotifier {
     await Persistence.instance.openx((db) async {
       (await db.query(Persistence.WHATCHING_TICKERS))
           //
-          .map((e) => Pair.fromJson(e))
-          .map((e) => Ticker(pair: e, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0)))
+          .map((e) => Ticker(
+                exchange: Exchanges.Binance,
+                pair: Pairs.getPair(e['base'] + e['quote']),
+                price: -1,
+                date: DateTime.fromMillisecondsSinceEpoch(0),
+              ))
           .forEach((ticker) => addWatchingTicker(ticker));
     });
 
@@ -38,31 +43,13 @@ class WatchingPageModel extends ChangeNotifier {
   void updateTicker(Ticker newTicker) {
     assert(newTicker != null, "nao podemos atualizar um ticker nulo");
 
-    //note: updating genreal ticker
-    () {
-      print(newTicker);
-      var ticker = tickers.firstWhere((item) => item.pair.pair == newTicker.pair.pair, orElse: () => null);
+    final ticker = tickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
+    ticker?.price = newTicker.price;
+    ticker?.date = newTicker.date;
 
-      if (ticker == null) {
-        addTicker(newTicker);
-        return;
-      }
-
-      ticker.price = newTicker.price;
-      ticker.date = newTicker.date;
-    }();
-
-    //note: updating watching ticker if any
-    () {
-      var watchingTicker = watchingTickers.firstWhere((item) => item.pair.pair == newTicker.pair.pair, orElse: () => null);
-
-      if (watchingTicker == null) {
-        return;
-      }
-
-      watchingTicker.price = newTicker.price;
-      watchingTicker.date = newTicker.date;
-    }();
+    final watchingTicker = watchingTickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
+    watchingTicker?.price = newTicker.price;
+    watchingTicker?.date = newTicker.date;
 
     notifyListeners();
   }
@@ -79,7 +66,7 @@ class WatchingPageModel extends ChangeNotifier {
       orElse: () => null,
     );
     if (watchingTicker != null) {
-      // todo: adicionar um warning "adicionadno watch repetido
+      // todo: adicionar um warning "adicionadno watch repetido"
       return;
     }
 
@@ -87,8 +74,8 @@ class WatchingPageModel extends ChangeNotifier {
         //
         Persistence.WHATCHING_TICKERS,
         {
-          "id": "${ticker.pair.exchange}:${ticker.pair.base}:${ticker.pair.pair}",
-          "exchange": exchangeToString(ticker.pair.exchange),
+          "id": ticker.key,
+          "exchange": ticker.exchange.id,
           "base": ticker.pair.base,
           "quote": ticker.pair.quote,
         },
@@ -105,10 +92,10 @@ class WatchingPageModel extends ChangeNotifier {
           //
           Persistence.WHATCHING_TICKERS,
           where: "id = ?",
-          whereArgs: [ticker.pair.key]);
+          whereArgs: [ticker.key]);
     });
 
-    watchingTickers.removeWhere((element) => element.pair.eq(ticker.pair));
+    watchingTickers.removeWhere((element) => element.key == ticker.key);
 
     notifyListeners();
   }

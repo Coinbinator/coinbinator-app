@@ -1,16 +1,8 @@
 import 'dart:async';
 
-import 'package:cron/cron.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
-import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
-import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
-import 'package:provider/provider.dart';
 
 class PortfolioPage extends StatefulWidget {
   PortfolioPage({Key key}) : super(key: key);
@@ -41,25 +33,6 @@ class PortfolioPageState extends State<PortfolioPage> {
       updatingPortfolio = true;
     });
 
-    final apiAuthInfos = [
-      BinanceApiAuthInfo(
-        apiKey: app().config.test_binance_api_key,
-        apiSecret: app().config.test_binance_api_secret,
-      ),
-    ];
-  final appx = app();
-
-    for (final apiAuthInfo in apiAuthInfos) {
-      final response = await BinanceRepository(
-        apiKey: apiAuthInfo.apiKey,
-        apiSecret: apiAuthInfo.apiSecret,
-      ).getCapitalConfigGetAll();
-
-      setState(() {
-        this.wallet0 = response;
-      });
-    }
-
     setState(() {
       updatingPortfolio = false;
       lastUpdate = DateTime.now();
@@ -68,19 +41,8 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   @override
   Widget build(BuildContext context) {
-    final wallet = PortfolioWalletResume();
-    wallet.name = "Bincance";
-    wallet.coins = {
-      if (wallet0 != null)
-        for (var c in wallet0.where((element) {
-          final free = double.parse(element["free"]);
-          final total = free;
 
-          if (total == 0) return false;
-          return true;
-        }))
-          Coin(symbol: c['coin']): double.parse(c['free']),
-    };
+
 
     return WillPopScope(
       onWillPop: () async {
@@ -140,24 +102,24 @@ class PortfolioPageState extends State<PortfolioPage> {
           child: ListView(
             children: [
               Text("Portfolio $updatingPortfolio - " + (lastUpdate == null ? "none" : lastUpdate.toString())),
-              if (wallet0 != null)
-                for (var entry in [wallet])
-                  Card(
-                    child: Column(children: [
-                      Text(entry.name),
-                      for (var coin in entry.coins.keys) ...[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(coin.symbol),
-                            Text(E.currency(entry.coins[coin], symbol: "", decimalDigits: 5)),
-                          ],
-                        ),
-                      ],
-                      // Text(entry["coin"]),
-                      // Text(entry.toString()),
-                    ]),
-                  ),
+              // if (wallet0 != null)
+              //   for (var entry in [wallet])
+              //     Card(
+              //       child: Column(children: [
+              //         Text(entry.name),
+              //         for (var coin in entry.coins.keys) ...[
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Text(coin.symbol),
+              //               Text(E.currency(entry.coins[coin], symbol: "", decimalDigits: 5)),
+              //             ],
+              //           ),
+              //         ],
+              //         // Text(entry["coin"]),
+              //         // Text(entry.toString()),
+              //       ]),
+              //     ),
             ],
           ),
         ),

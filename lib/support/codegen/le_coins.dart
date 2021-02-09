@@ -1,28 +1,57 @@
+import 'dart:convert';
+
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart' as cb;
 import 'package:dart_style/dart_style.dart' as ds;
-import 'package:dio/dio.dart';
 import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
 import 'package:source_gen/source_gen.dart';
+import 'dart:io';
+
+//TODO: renomear e mover esse arquivo
+//TODO: testar uso dos coins no registro dos pares
+
+class _LeCoinsGeneratorCoin {
+  final String name;
+  final String symbol;
+
+  const _LeCoinsGeneratorCoin({this.symbol, this.name});
+}
+
+class _LePairGeneratorCoin {
+  final String base;
+  final String quote;
+
+  const _LePairGeneratorCoin({this.base, this.quote});
+}
+
+List<_LeCoinsGeneratorCoin> _loadKnownCoins() {
+  final coinsJson = File.fromRawPath(utf8.encode("meta/known_coins.json")).readAsStringSync();
+  final coins = (json.decode(coinsJson) as List).map((e) => _LeCoinsGeneratorCoin(symbol: e["coin"], name: e["name"])).toList();
+  return coins;
+}
+
+List<_LePairGeneratorCoin> _loadKnownPairs() {
+  final pairsJson = File.fromRawPath(utf8.encode("meta/known_pairs.json")).readAsStringSync();
+  final pairs = (json.decode(pairsJson) as List).map((e) => _LePairGeneratorCoin(base: e["base"], quote: e["quote"])).toList();
+  return pairs;
+}
 
 class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
   @override
   Future<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) async {
-    final exchangeInfo = await Dio().get("https://api.binance.com/api/v3/exchangeInfo", options: RequestOptions(responseType: ResponseType.json));
-    final symbols = exchangeInfo.data["symbols"] as List;
-    final coins = [
-      for (final e in symbols) ...[
-        e["baseAsset"],
-        e["quoteAsset"],
-      ]
-    ].toSet().toList();
+    final knownCoins = _loadKnownCoins();
 
-    /// the class
-
-    final emitter = cb.DartEmitter();
     final coinsClass = cb.Class((c) {
       c.name = "Coins";
+
+      // get all method
+      c.methods.add(cb.Method.returnsVoid((m) => m
+        ..name = "all"
+        ..static = true
+        ..type = cb.MethodType.getter
+        ..returns = cb.refer("Map<String, Coin>", 'package:le_crypto_alerts/support/utils.dart')
+        ..body = cb.Code("return _getAll();")));
 
       // Get Coin
       c.methods.add(cb.Method.returnsVoid((m) => m
@@ -33,17 +62,14 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
           ..name = "value"
           ..type = cb.refer("String")))
         // ..lambda = true
-        ..body = cb.Code("return _getCoin(value);")
-        ..docs.addAll([
-          "/// Essa biblioteca nao esta colocando o tipo correto na função, então precisa mudar na mao depois de geredado...",
-        ])));
+        ..body = cb.Code("return _getCoin(value);")));
 
-      for (final coin in coins) {
+      for (final coin in knownCoins) {
         final field = cb.FieldBuilder()
-          ..name = "\$$coin"
+          ..name = "\$${coin.symbol}"
           ..static = true
           ..modifier = cb.FieldModifier.constant
-          ..assignment = cb.Code('const Coin(name:"$coin", symbol:"$coin")');
+          ..assignment = cb.Code('const Coin(name:"${coin.name}", symbol:"${coin.symbol}")');
 
         c.fields.add(field.build());
       }
@@ -54,7 +80,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
         ..modifier = cb.FieldModifier.constant
         ..assignment = cb.Code([
           "{",
-          coins.map((coin) => '"$coin": \$$coin').join(",\n"),
+          knownCoins.map((coin) => '"${coin.symbol}": \$${coin.symbol}').join(",\n"),
           "}",
         ].join("\n"));
 
@@ -63,8 +89,81 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
       return c;
     });
 
-    return ds.DartFormatter().format('${coinsClass.accept(emitter)}');
+    final emitter = cb.DartEmitter();
+    var generated = ds.DartFormatter().format('${coinsClass.accept(emitter)}');
+
+    //NOTE: a
+    generated = generated.replaceAll("void getCoin", "Coin getCoin");
+    generated = generated.replaceAll("void get all", "Map<String, Coin> get all");
+
+    return generated;
   }
 }
 
-Builder leCoinsBuilder(BuilderOptions options) => PartBuilder([LeCoinsGenerator()], '.le.dart');
+class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
+  @override
+  Future<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) async {
+    // final knownCoins = _loadKnownCoins();
+    final knownPairs = _loadKnownPairs();
+
+    final pairsFields = [
+      for (final pair in knownPairs)
+        cb.Field((f) => f
+          ..name = "\$${pair.base}_${pair.quote}"
+          ..static = true
+          ..modifier = cb.FieldModifier.constant
+          ..assignment = cb.Code('const Pair(base:"${pair.base}", quote:"${pair.quote}")'))
+    ];
+
+    final pairAliasesField = cb.Field((f) => f
+      ..name = "_pairs"
+      ..static = true
+      ..modifier = cb.FieldModifier.constant
+      ..assignment = cb.Code([
+        "{",
+        for (final pair in knownPairs) ...[
+          '"${pair.base}${pair.quote}": \$${pair.base}_${pair.quote},',
+          '"${pair.base}/${pair.quote}": \$${pair.base}_${pair.quote},',
+        ],
+        "}",
+      ].join("\n")));
+
+    final getAllMethod = cb.Method.returnsVoid((method) => method
+      ..name = "getAll"
+      ..static = true
+      ..returns = cb.refer("List<Pair>", 'package:le_crypto_alerts/support/utils.dart')
+      ..body = cb.Code("return _getAll();"));
+
+    final getPairMethod = cb.Method.returnsVoid((method) => method
+      ..name = "getPair"
+      ..requiredParameters.add(cb.Parameter((parm) => parm
+        ..name = "value"
+        ..type = cb.refer("String")))
+      ..static = true
+      ..returns = cb.refer("Pair", 'package:le_crypto_alerts/support/utils.dart')
+      ..body = cb.Code("return _getPair(value);"));
+
+    final pairsClass = cb.Class((c) => c
+      ..name = "Pairs"
+      ..fields.addAll([
+        ...pairsFields,
+        pairAliasesField,
+      ])
+      ..methods.addAll([
+        getAllMethod,
+        getPairMethod,
+      ]));
+
+    final emitter = cb.DartEmitter();
+    var generated = ds.DartFormatter().format('${pairsClass.accept(emitter)}');
+
+    generated = generated.replaceAll("void getAll", "List<Pair> getAll");
+    generated = generated.replaceAll("void getPair", "Pair getPair");
+
+    return generated;
+  }
+}
+
+Builder leCoinsBuilder(BuilderOptions options) => PartBuilder([LeCoinsGenerator()], '.le.coins.dart');
+
+Builder lePairsBuilder(BuilderOptions options) => PartBuilder([LePairsGenerator()], '.le.pairs.dart');

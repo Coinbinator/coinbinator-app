@@ -55,7 +55,7 @@ class WatchListView extends StatelessWidget {
                     ),
                     RichText(
                       text: TextSpan(children: [
-                        TextSpan(style: style3, text: ticker.pair.exchange.toString()),
+                        TextSpan(style: style3, text: ticker.exchange.name),
                       ]),
                     ),
                   ],

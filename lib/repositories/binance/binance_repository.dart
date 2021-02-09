@@ -10,15 +10,13 @@ import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sembast/timestamp.dart';
 
 class BinanceRepository {
-  String apiKey;
+  Timestamp _ratesUpdatedAt;
 
-  String apiSecret;
-
-  BinanceRepository({this.apiKey, this.apiSecret});
+  BinanceRepository();
 
   //region DIO
 
-  Dio _dio({bool sign = false}) {
+  Dio _dio({BinanceAccount account = null}) {
     final dio = Dio();
     dio.interceptors.addAll([
       InterceptorsWrapper(
@@ -30,18 +28,18 @@ class BinanceRepository {
       ),
       InterceptorsWrapper(
         onRequest: (options) {
-          if (sign != true) return;
+          if (account == null) return;
 
           final isGet = options.method == "GET";
           final parameters = ((isGet ? options.queryParameters : options.data) ?? Map<String, dynamic>()) as Map;
           final query = parameters.entries.map((e) => e.key + "=" + e.value.toString()).join("&");
 
-          final hmac = Hmac(sha256, utf8.encode(apiSecret));
+          final hmac = Hmac(sha256, utf8.encode(account.apiSecret));
           final signature = hmac.convert(utf8.encode(query));
 
           // 71c3318013e066023b5633cf80dac230212faf65b4e1a5bd402d71de23c53034
 
-          options.headers['X-MBX-APIKEY'] = apiKey;
+          options.headers['X-MBX-APIKEY'] = account.apiKey;
 
           if (isGet) {
             options.queryParameters.addAll({"signature": signature.toString()});
@@ -59,13 +57,13 @@ class BinanceRepository {
 
   Future<Response<T>> _doGet<T>(
     String path, {
-    bool sign: false,
+    BinanceAccount account,
     Map<String, dynamic> queryParameters,
     Options options,
     CancelToken cancelToken,
     ProgressCallback onReceiveProgress,
   }) {
-    return _dio(sign: sign).get<T>(
+    return _dio(account: account).get<T>(
       path,
       queryParameters: queryParameters,
       options: options,
@@ -76,7 +74,7 @@ class BinanceRepository {
 
   Future<Response<T>> _doPost<T>(
     String path, {
-    bool sign: false,
+    BinanceAccount account,
     data,
     Map<String, dynamic> queryParameters,
     Options options,
@@ -84,7 +82,7 @@ class BinanceRepository {
     ProgressCallback onSendProgress,
     ProgressCallback onReceiveProgress,
   }) {
-    return _dio(sign: sign).post<T>(
+    return _dio(account: account).post<T>(
       path,
       data: data,
       queryParameters: queryParameters,
@@ -126,11 +124,11 @@ class BinanceRepository {
   }
 
   /// Capital Config GetAll
-  Future<List<BinanceCapitalConfig>> getCapitalConfigGetAll() async {
+  Future<List<BinanceCapitalConfig>> getCapitalConfigGetAll({BinanceAccount account}) async {
     try {
       final response = await _doGet<List>(
         "$BINANCE_API_URL/sapi/v1/capital/config/getall",
-        sign: true,
+        account: account,
         queryParameters: {
           "timestamp": Timestamp.now().millisecondsSinceEpoch,
         },
@@ -145,6 +143,7 @@ class BinanceRepository {
     return null;
   }
 
+  @deprecated
   Future<List<Pair>> getExchangePairs() async {
     var exchangeInfo = await getExchangeInfo();
 
@@ -152,28 +151,63 @@ class BinanceRepository {
       return List<Pair>.empty();
     }
 
-    return List.from(exchangeInfo.symbols).map((symbol) => new Pair(exchange: Exchange.BINANCE, base: symbol['baseAsset'], quote: symbol['quoteAsset'])).toList();
+    return List.from(exchangeInfo.symbols)
+        .map((symbol) => new Pair(
+              // exchange: Exchange.BINANCE,
+              base: symbol['baseAsset'],
+              quote: symbol['quoteAsset'],
+            ))
+        .toList();
   }
 
+  @deprecated
   String convertPairToSymbol(Pair pair) {
     if (pair == null) return null;
     return pair.base + pair.quote;
   }
 
-  Future<PortfolioWalletResume> getAccountPortfolio(BinanceAccount account) async {
-    final capitals = await getCapitalConfigGetAll();
-    final coins = capitals.asMap().map((_, capital) => MapEntry<Coin, double>(
-          Coins.getCoin(capital.coin),
-          [
-            E.toDouble(capital.free),
-            E.toDouble(capital.freeze),
-            E.toDouble(capital.ipoable),
-            E.toDouble(capital.ipoing),
-            E.toDouble(capital.locked),
-            E.toDouble(capital.storage),
-            E.toDouble(capital.withdrawing),
-          ].fold(0.0, (a, b) => a + b),
-        ));
+  Future<void> updateRates() async {
+    final tickers = await getTickerPrice();
+    for (final ticker in tickers) {
+      // ticker
+      // .
+    }
+  }
+
+  Future<PortfolioWalletResume> getAccountPortfolio({BinanceAccount account}) async {
+    final capitals = await getCapitalConfigGetAll(account: account);
+
+    if (capitals == null) {
+      //TODO: log error
+      return null;
+    }
+
+    final Map<Coin, PortfolioWalletCoin> coins = capitals.asMap().map((_, capital) {
+      final portfolioCoinAmount = [
+        E.toDouble(capital.free),
+        E.toDouble(capital.freeze),
+        E.toDouble(capital.ipoable),
+        E.toDouble(capital.ipoing),
+        E.toDouble(capital.locked),
+        E.toDouble(capital.storage),
+        E.toDouble(capital.withdrawing),
+      ].fold(0.0, (a, b) => a + b);
+
+      if (portfolioCoinAmount <= 0.0) {
+        return null;
+      }
+
+      final coin = capital.leCoin;
+      final portfolioCoin = PortfolioWalletCoin()
+            ..coin = coin
+            ..amount = portfolioCoinAmount
+          // ..btcRate = getCoinRate(coin, Coins.$BTC)
+          // ..usdRate = getCoinRate(coin, Coins.$USD)
+          ;
+
+      return MapEntry<Coin, PortfolioWalletCoin>(coin, portfolioCoin);
+    })
+      ..removeWhere((key, value) => value == null || value.amount <= 0.0);
 
     return PortfolioWalletResume()
       ..name = account.name

@@ -1,0 +1,5142 @@
+[
+  {
+    "base": "ETH",
+    "quote": "BTC"
+  },
+  {
+    "base": "LTC",
+    "quote": "BTC"
+  },
+  {
+    "base": "BNB",
+    "quote": "BTC"
+  },
+  {
+    "base": "NEO",
+    "quote": "BTC"
+  },
+  {
+    "base": "QTUM",
+    "quote": "ETH"
+  },
+  {
+    "base": "EOS",
+    "quote": "ETH"
+  },
+  {
+    "base": "SNT",
+    "quote": "ETH"
+  },
+  {
+    "base": "BNT",
+    "quote": "ETH"
+  },
+  {
+    "base": "BCC",
+    "quote": "BTC"
+  },
+  {
+    "base": "GAS",
+    "quote": "BTC"
+  },
+  {
+    "base": "BNB",
+    "quote": "ETH"
+  },
+  {
+    "base": "BTC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETH",
+    "quote": "USDT"
+  },
+  {
+    "base": "HSR",
+    "quote": "BTC"
+  },
+  {
+    "base": "OAX",
+    "quote": "ETH"
+  },
+  {
+    "base": "DNT",
+    "quote": "ETH"
+  },
+  {
+    "base": "MCO",
+    "quote": "ETH"
+  },
+  {
+    "base": "ICN",
+    "quote": "ETH"
+  },
+  {
+    "base": "MCO",
+    "quote": "BTC"
+  },
+  {
+    "base": "WTC",
+    "quote": "BTC"
+  },
+  {
+    "base": "WTC",
+    "quote": "ETH"
+  },
+  {
+    "base": "LRC",
+    "quote": "BTC"
+  },
+  {
+    "base": "LRC",
+    "quote": "ETH"
+  },
+  {
+    "base": "QTUM",
+    "quote": "BTC"
+  },
+  {
+    "base": "YOYO",
+    "quote": "BTC"
+  },
+  {
+    "base": "OMG",
+    "quote": "BTC"
+  },
+  {
+    "base": "OMG",
+    "quote": "ETH"
+  },
+  {
+    "base": "ZRX",
+    "quote": "BTC"
+  },
+  {
+    "base": "ZRX",
+    "quote": "ETH"
+  },
+  {
+    "base": "STRAT",
+    "quote": "BTC"
+  },
+  {
+    "base": "STRAT",
+    "quote": "ETH"
+  },
+  {
+    "base": "SNGLS",
+    "quote": "BTC"
+  },
+  {
+    "base": "SNGLS",
+    "quote": "ETH"
+  },
+  {
+    "base": "BQX",
+    "quote": "BTC"
+  },
+  {
+    "base": "BQX",
+    "quote": "ETH"
+  },
+  {
+    "base": "KNC",
+    "quote": "BTC"
+  },
+  {
+    "base": "KNC",
+    "quote": "ETH"
+  },
+  {
+    "base": "FUN",
+    "quote": "BTC"
+  },
+  {
+    "base": "FUN",
+    "quote": "ETH"
+  },
+  {
+    "base": "SNM",
+    "quote": "BTC"
+  },
+  {
+    "base": "SNM",
+    "quote": "ETH"
+  },
+  {
+    "base": "NEO",
+    "quote": "ETH"
+  },
+  {
+    "base": "IOTA",
+    "quote": "BTC"
+  },
+  {
+    "base": "IOTA",
+    "quote": "ETH"
+  },
+  {
+    "base": "LINK",
+    "quote": "BTC"
+  },
+  {
+    "base": "LINK",
+    "quote": "ETH"
+  },
+  {
+    "base": "XVG",
+    "quote": "BTC"
+  },
+  {
+    "base": "XVG",
+    "quote": "ETH"
+  },
+  {
+    "base": "SALT",
+    "quote": "BTC"
+  },
+  {
+    "base": "SALT",
+    "quote": "ETH"
+  },
+  {
+    "base": "MDA",
+    "quote": "BTC"
+  },
+  {
+    "base": "MDA",
+    "quote": "ETH"
+  },
+  {
+    "base": "MTL",
+    "quote": "BTC"
+  },
+  {
+    "base": "MTL",
+    "quote": "ETH"
+  },
+  {
+    "base": "SUB",
+    "quote": "BTC"
+  },
+  {
+    "base": "SUB",
+    "quote": "ETH"
+  },
+  {
+    "base": "EOS",
+    "quote": "BTC"
+  },
+  {
+    "base": "SNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "ETC",
+    "quote": "ETH"
+  },
+  {
+    "base": "ETC",
+    "quote": "BTC"
+  },
+  {
+    "base": "MTH",
+    "quote": "BTC"
+  },
+  {
+    "base": "MTH",
+    "quote": "ETH"
+  },
+  {
+    "base": "ENG",
+    "quote": "BTC"
+  },
+  {
+    "base": "ENG",
+    "quote": "ETH"
+  },
+  {
+    "base": "DNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "ZEC",
+    "quote": "BTC"
+  },
+  {
+    "base": "ZEC",
+    "quote": "ETH"
+  },
+  {
+    "base": "BNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "AST",
+    "quote": "BTC"
+  },
+  {
+    "base": "AST",
+    "quote": "ETH"
+  },
+  {
+    "base": "DASH",
+    "quote": "BTC"
+  },
+  {
+    "base": "DASH",
+    "quote": "ETH"
+  },
+  {
+    "base": "OAX",
+    "quote": "BTC"
+  },
+  {
+    "base": "ICN",
+    "quote": "BTC"
+  },
+  {
+    "base": "BTG",
+    "quote": "BTC"
+  },
+  {
+    "base": "BTG",
+    "quote": "ETH"
+  },
+  {
+    "base": "EVX",
+    "quote": "BTC"
+  },
+  {
+    "base": "EVX",
+    "quote": "ETH"
+  },
+  {
+    "base": "REQ",
+    "quote": "BTC"
+  },
+  {
+    "base": "REQ",
+    "quote": "ETH"
+  },
+  {
+    "base": "VIB",
+    "quote": "BTC"
+  },
+  {
+    "base": "VIB",
+    "quote": "ETH"
+  },
+  {
+    "base": "HSR",
+    "quote": "ETH"
+  },
+  {
+    "base": "TRX",
+    "quote": "BTC"
+  },
+  {
+    "base": "TRX",
+    "quote": "ETH"
+  },
+  {
+    "base": "POWR",
+    "quote": "BTC"
+  },
+  {
+    "base": "POWR",
+    "quote": "ETH"
+  },
+  {
+    "base": "ARK",
+    "quote": "BTC"
+  },
+  {
+    "base": "ARK",
+    "quote": "ETH"
+  },
+  {
+    "base": "YOYO",
+    "quote": "ETH"
+  },
+  {
+    "base": "XRP",
+    "quote": "BTC"
+  },
+  {
+    "base": "XRP",
+    "quote": "ETH"
+  },
+  {
+    "base": "MOD",
+    "quote": "BTC"
+  },
+  {
+    "base": "MOD",
+    "quote": "ETH"
+  },
+  {
+    "base": "ENJ",
+    "quote": "BTC"
+  },
+  {
+    "base": "ENJ",
+    "quote": "ETH"
+  },
+  {
+    "base": "STORJ",
+    "quote": "BTC"
+  },
+  {
+    "base": "STORJ",
+    "quote": "ETH"
+  },
+  {
+    "base": "BNB",
+    "quote": "USDT"
+  },
+  {
+    "base": "VEN",
+    "quote": "BNB"
+  },
+  {
+    "base": "YOYO",
+    "quote": "BNB"
+  },
+  {
+    "base": "POWR",
+    "quote": "BNB"
+  },
+  {
+    "base": "VEN",
+    "quote": "BTC"
+  },
+  {
+    "base": "VEN",
+    "quote": "ETH"
+  },
+  {
+    "base": "KMD",
+    "quote": "BTC"
+  },
+  {
+    "base": "KMD",
+    "quote": "ETH"
+  },
+  {
+    "base": "NULS",
+    "quote": "BNB"
+  },
+  {
+    "base": "RCN",
+    "quote": "BTC"
+  },
+  {
+    "base": "RCN",
+    "quote": "ETH"
+  },
+  {
+    "base": "RCN",
+    "quote": "BNB"
+  },
+  {
+    "base": "NULS",
+    "quote": "BTC"
+  },
+  {
+    "base": "NULS",
+    "quote": "ETH"
+  },
+  {
+    "base": "RDN",
+    "quote": "BTC"
+  },
+  {
+    "base": "RDN",
+    "quote": "ETH"
+  },
+  {
+    "base": "RDN",
+    "quote": "BNB"
+  },
+  {
+    "base": "XMR",
+    "quote": "BTC"
+  },
+  {
+    "base": "XMR",
+    "quote": "ETH"
+  },
+  {
+    "base": "DLT",
+    "quote": "BNB"
+  },
+  {
+    "base": "WTC",
+    "quote": "BNB"
+  },
+  {
+    "base": "DLT",
+    "quote": "BTC"
+  },
+  {
+    "base": "DLT",
+    "quote": "ETH"
+  },
+  {
+    "base": "AMB",
+    "quote": "BTC"
+  },
+  {
+    "base": "AMB",
+    "quote": "ETH"
+  },
+  {
+    "base": "AMB",
+    "quote": "BNB"
+  },
+  {
+    "base": "BCC",
+    "quote": "ETH"
+  },
+  {
+    "base": "BCC",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCC",
+    "quote": "BNB"
+  },
+  {
+    "base": "BAT",
+    "quote": "BTC"
+  },
+  {
+    "base": "BAT",
+    "quote": "ETH"
+  },
+  {
+    "base": "BAT",
+    "quote": "BNB"
+  },
+  {
+    "base": "BCPT",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCPT",
+    "quote": "ETH"
+  },
+  {
+    "base": "BCPT",
+    "quote": "BNB"
+  },
+  {
+    "base": "ARN",
+    "quote": "BTC"
+  },
+  {
+    "base": "ARN",
+    "quote": "ETH"
+  },
+  {
+    "base": "GVT",
+    "quote": "BTC"
+  },
+  {
+    "base": "GVT",
+    "quote": "ETH"
+  },
+  {
+    "base": "CDT",
+    "quote": "BTC"
+  },
+  {
+    "base": "CDT",
+    "quote": "ETH"
+  },
+  {
+    "base": "GXS",
+    "quote": "BTC"
+  },
+  {
+    "base": "GXS",
+    "quote": "ETH"
+  },
+  {
+    "base": "NEO",
+    "quote": "USDT"
+  },
+  {
+    "base": "NEO",
+    "quote": "BNB"
+  },
+  {
+    "base": "POE",
+    "quote": "BTC"
+  },
+  {
+    "base": "POE",
+    "quote": "ETH"
+  },
+  {
+    "base": "QSP",
+    "quote": "BTC"
+  },
+  {
+    "base": "QSP",
+    "quote": "ETH"
+  },
+  {
+    "base": "QSP",
+    "quote": "BNB"
+  },
+  {
+    "base": "BTS",
+    "quote": "BTC"
+  },
+  {
+    "base": "BTS",
+    "quote": "ETH"
+  },
+  {
+    "base": "BTS",
+    "quote": "BNB"
+  },
+  {
+    "base": "XZC",
+    "quote": "BTC"
+  },
+  {
+    "base": "XZC",
+    "quote": "ETH"
+  },
+  {
+    "base": "XZC",
+    "quote": "BNB"
+  },
+  {
+    "base": "LSK",
+    "quote": "BTC"
+  },
+  {
+    "base": "LSK",
+    "quote": "ETH"
+  },
+  {
+    "base": "LSK",
+    "quote": "BNB"
+  },
+  {
+    "base": "TNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "TNT",
+    "quote": "ETH"
+  },
+  {
+    "base": "FUEL",
+    "quote": "BTC"
+  },
+  {
+    "base": "FUEL",
+    "quote": "ETH"
+  },
+  {
+    "base": "MANA",
+    "quote": "BTC"
+  },
+  {
+    "base": "MANA",
+    "quote": "ETH"
+  },
+  {
+    "base": "BCD",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCD",
+    "quote": "ETH"
+  },
+  {
+    "base": "DGD",
+    "quote": "BTC"
+  },
+  {
+    "base": "DGD",
+    "quote": "ETH"
+  },
+  {
+    "base": "IOTA",
+    "quote": "BNB"
+  },
+  {
+    "base": "ADX",
+    "quote": "BTC"
+  },
+  {
+    "base": "ADX",
+    "quote": "ETH"
+  },
+  {
+    "base": "ADX",
+    "quote": "BNB"
+  },
+  {
+    "base": "ADA",
+    "quote": "BTC"
+  },
+  {
+    "base": "ADA",
+    "quote": "ETH"
+  },
+  {
+    "base": "PPT",
+    "quote": "BTC"
+  },
+  {
+    "base": "PPT",
+    "quote": "ETH"
+  },
+  {
+    "base": "CMT",
+    "quote": "BTC"
+  },
+  {
+    "base": "CMT",
+    "quote": "ETH"
+  },
+  {
+    "base": "CMT",
+    "quote": "BNB"
+  },
+  {
+    "base": "XLM",
+    "quote": "BTC"
+  },
+  {
+    "base": "XLM",
+    "quote": "ETH"
+  },
+  {
+    "base": "XLM",
+    "quote": "BNB"
+  },
+  {
+    "base": "CND",
+    "quote": "BTC"
+  },
+  {
+    "base": "CND",
+    "quote": "ETH"
+  },
+  {
+    "base": "CND",
+    "quote": "BNB"
+  },
+  {
+    "base": "LEND",
+    "quote": "BTC"
+  },
+  {
+    "base": "LEND",
+    "quote": "ETH"
+  },
+  {
+    "base": "WABI",
+    "quote": "BTC"
+  },
+  {
+    "base": "WABI",
+    "quote": "ETH"
+  },
+  {
+    "base": "WABI",
+    "quote": "BNB"
+  },
+  {
+    "base": "LTC",
+    "quote": "ETH"
+  },
+  {
+    "base": "LTC",
+    "quote": "USDT"
+  },
+  {
+    "base": "LTC",
+    "quote": "BNB"
+  },
+  {
+    "base": "TNB",
+    "quote": "BTC"
+  },
+  {
+    "base": "TNB",
+    "quote": "ETH"
+  },
+  {
+    "base": "WAVES",
+    "quote": "BTC"
+  },
+  {
+    "base": "WAVES",
+    "quote": "ETH"
+  },
+  {
+    "base": "WAVES",
+    "quote": "BNB"
+  },
+  {
+    "base": "GTO",
+    "quote": "BTC"
+  },
+  {
+    "base": "GTO",
+    "quote": "ETH"
+  },
+  {
+    "base": "GTO",
+    "quote": "BNB"
+  },
+  {
+    "base": "ICX",
+    "quote": "BTC"
+  },
+  {
+    "base": "ICX",
+    "quote": "ETH"
+  },
+  {
+    "base": "ICX",
+    "quote": "BNB"
+  },
+  {
+    "base": "OST",
+    "quote": "BTC"
+  },
+  {
+    "base": "OST",
+    "quote": "ETH"
+  },
+  {
+    "base": "OST",
+    "quote": "BNB"
+  },
+  {
+    "base": "ELF",
+    "quote": "BTC"
+  },
+  {
+    "base": "ELF",
+    "quote": "ETH"
+  },
+  {
+    "base": "AION",
+    "quote": "BTC"
+  },
+  {
+    "base": "AION",
+    "quote": "ETH"
+  },
+  {
+    "base": "AION",
+    "quote": "BNB"
+  },
+  {
+    "base": "NEBL",
+    "quote": "BTC"
+  },
+  {
+    "base": "NEBL",
+    "quote": "ETH"
+  },
+  {
+    "base": "NEBL",
+    "quote": "BNB"
+  },
+  {
+    "base": "BRD",
+    "quote": "BTC"
+  },
+  {
+    "base": "BRD",
+    "quote": "ETH"
+  },
+  {
+    "base": "BRD",
+    "quote": "BNB"
+  },
+  {
+    "base": "MCO",
+    "quote": "BNB"
+  },
+  {
+    "base": "EDO",
+    "quote": "BTC"
+  },
+  {
+    "base": "EDO",
+    "quote": "ETH"
+  },
+  {
+    "base": "WINGS",
+    "quote": "BTC"
+  },
+  {
+    "base": "WINGS",
+    "quote": "ETH"
+  },
+  {
+    "base": "NAV",
+    "quote": "BTC"
+  },
+  {
+    "base": "NAV",
+    "quote": "ETH"
+  },
+  {
+    "base": "NAV",
+    "quote": "BNB"
+  },
+  {
+    "base": "LUN",
+    "quote": "BTC"
+  },
+  {
+    "base": "LUN",
+    "quote": "ETH"
+  },
+  {
+    "base": "TRIG",
+    "quote": "BTC"
+  },
+  {
+    "base": "TRIG",
+    "quote": "ETH"
+  },
+  {
+    "base": "TRIG",
+    "quote": "BNB"
+  },
+  {
+    "base": "APPC",
+    "quote": "BTC"
+  },
+  {
+    "base": "APPC",
+    "quote": "ETH"
+  },
+  {
+    "base": "APPC",
+    "quote": "BNB"
+  },
+  {
+    "base": "VIBE",
+    "quote": "BTC"
+  },
+  {
+    "base": "VIBE",
+    "quote": "ETH"
+  },
+  {
+    "base": "RLC",
+    "quote": "BTC"
+  },
+  {
+    "base": "RLC",
+    "quote": "ETH"
+  },
+  {
+    "base": "RLC",
+    "quote": "BNB"
+  },
+  {
+    "base": "INS",
+    "quote": "BTC"
+  },
+  {
+    "base": "INS",
+    "quote": "ETH"
+  },
+  {
+    "base": "PIVX",
+    "quote": "BTC"
+  },
+  {
+    "base": "PIVX",
+    "quote": "ETH"
+  },
+  {
+    "base": "PIVX",
+    "quote": "BNB"
+  },
+  {
+    "base": "IOST",
+    "quote": "BTC"
+  },
+  {
+    "base": "IOST",
+    "quote": "ETH"
+  },
+  {
+    "base": "CHAT",
+    "quote": "BTC"
+  },
+  {
+    "base": "CHAT",
+    "quote": "ETH"
+  },
+  {
+    "base": "STEEM",
+    "quote": "BTC"
+  },
+  {
+    "base": "STEEM",
+    "quote": "ETH"
+  },
+  {
+    "base": "STEEM",
+    "quote": "BNB"
+  },
+  {
+    "base": "NANO",
+    "quote": "BTC"
+  },
+  {
+    "base": "NANO",
+    "quote": "ETH"
+  },
+  {
+    "base": "NANO",
+    "quote": "BNB"
+  },
+  {
+    "base": "VIA",
+    "quote": "BTC"
+  },
+  {
+    "base": "VIA",
+    "quote": "ETH"
+  },
+  {
+    "base": "VIA",
+    "quote": "BNB"
+  },
+  {
+    "base": "BLZ",
+    "quote": "BTC"
+  },
+  {
+    "base": "BLZ",
+    "quote": "ETH"
+  },
+  {
+    "base": "BLZ",
+    "quote": "BNB"
+  },
+  {
+    "base": "AE",
+    "quote": "BTC"
+  },
+  {
+    "base": "AE",
+    "quote": "ETH"
+  },
+  {
+    "base": "AE",
+    "quote": "BNB"
+  },
+  {
+    "base": "RPX",
+    "quote": "BTC"
+  },
+  {
+    "base": "RPX",
+    "quote": "ETH"
+  },
+  {
+    "base": "RPX",
+    "quote": "BNB"
+  },
+  {
+    "base": "NCASH",
+    "quote": "BTC"
+  },
+  {
+    "base": "NCASH",
+    "quote": "ETH"
+  },
+  {
+    "base": "NCASH",
+    "quote": "BNB"
+  },
+  {
+    "base": "POA",
+    "quote": "BTC"
+  },
+  {
+    "base": "POA",
+    "quote": "ETH"
+  },
+  {
+    "base": "POA",
+    "quote": "BNB"
+  },
+  {
+    "base": "ZIL",
+    "quote": "BTC"
+  },
+  {
+    "base": "ZIL",
+    "quote": "ETH"
+  },
+  {
+    "base": "ZIL",
+    "quote": "BNB"
+  },
+  {
+    "base": "ONT",
+    "quote": "BTC"
+  },
+  {
+    "base": "ONT",
+    "quote": "ETH"
+  },
+  {
+    "base": "ONT",
+    "quote": "BNB"
+  },
+  {
+    "base": "STORM",
+    "quote": "BTC"
+  },
+  {
+    "base": "STORM",
+    "quote": "ETH"
+  },
+  {
+    "base": "STORM",
+    "quote": "BNB"
+  },
+  {
+    "base": "QTUM",
+    "quote": "BNB"
+  },
+  {
+    "base": "QTUM",
+    "quote": "USDT"
+  },
+  {
+    "base": "XEM",
+    "quote": "BTC"
+  },
+  {
+    "base": "XEM",
+    "quote": "ETH"
+  },
+  {
+    "base": "XEM",
+    "quote": "BNB"
+  },
+  {
+    "base": "WAN",
+    "quote": "BTC"
+  },
+  {
+    "base": "WAN",
+    "quote": "ETH"
+  },
+  {
+    "base": "WAN",
+    "quote": "BNB"
+  },
+  {
+    "base": "WPR",
+    "quote": "BTC"
+  },
+  {
+    "base": "WPR",
+    "quote": "ETH"
+  },
+  {
+    "base": "QLC",
+    "quote": "BTC"
+  },
+  {
+    "base": "QLC",
+    "quote": "ETH"
+  },
+  {
+    "base": "SYS",
+    "quote": "BTC"
+  },
+  {
+    "base": "SYS",
+    "quote": "ETH"
+  },
+  {
+    "base": "SYS",
+    "quote": "BNB"
+  },
+  {
+    "base": "QLC",
+    "quote": "BNB"
+  },
+  {
+    "base": "GRS",
+    "quote": "BTC"
+  },
+  {
+    "base": "GRS",
+    "quote": "ETH"
+  },
+  {
+    "base": "ADA",
+    "quote": "USDT"
+  },
+  {
+    "base": "ADA",
+    "quote": "BNB"
+  },
+  {
+    "base": "CLOAK",
+    "quote": "BTC"
+  },
+  {
+    "base": "CLOAK",
+    "quote": "ETH"
+  },
+  {
+    "base": "GNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "GNT",
+    "quote": "ETH"
+  },
+  {
+    "base": "GNT",
+    "quote": "BNB"
+  },
+  {
+    "base": "LOOM",
+    "quote": "BTC"
+  },
+  {
+    "base": "LOOM",
+    "quote": "ETH"
+  },
+  {
+    "base": "LOOM",
+    "quote": "BNB"
+  },
+  {
+    "base": "XRP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCN",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCN",
+    "quote": "ETH"
+  },
+  {
+    "base": "BCN",
+    "quote": "BNB"
+  },
+  {
+    "base": "REP",
+    "quote": "BTC"
+  },
+  {
+    "base": "REP",
+    "quote": "ETH"
+  },
+  {
+    "base": "REP",
+    "quote": "BNB"
+  },
+  {
+    "base": "BTC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "TUSD",
+    "quote": "BTC"
+  },
+  {
+    "base": "ETH",
+    "quote": "TUSD"
+  },
+  {
+    "base": "TUSD",
+    "quote": "ETH"
+  },
+  {
+    "base": "TUSD",
+    "quote": "BNB"
+  },
+  {
+    "base": "ZEN",
+    "quote": "BTC"
+  },
+  {
+    "base": "ZEN",
+    "quote": "ETH"
+  },
+  {
+    "base": "ZEN",
+    "quote": "BNB"
+  },
+  {
+    "base": "SKY",
+    "quote": "BTC"
+  },
+  {
+    "base": "SKY",
+    "quote": "ETH"
+  },
+  {
+    "base": "SKY",
+    "quote": "BNB"
+  },
+  {
+    "base": "EOS",
+    "quote": "USDT"
+  },
+  {
+    "base": "EOS",
+    "quote": "BNB"
+  },
+  {
+    "base": "CVC",
+    "quote": "BTC"
+  },
+  {
+    "base": "CVC",
+    "quote": "ETH"
+  },
+  {
+    "base": "CVC",
+    "quote": "BNB"
+  },
+  {
+    "base": "THETA",
+    "quote": "BTC"
+  },
+  {
+    "base": "THETA",
+    "quote": "ETH"
+  },
+  {
+    "base": "THETA",
+    "quote": "BNB"
+  },
+  {
+    "base": "XRP",
+    "quote": "BNB"
+  },
+  {
+    "base": "TUSD",
+    "quote": "USDT"
+  },
+  {
+    "base": "IOTA",
+    "quote": "USDT"
+  },
+  {
+    "base": "XLM",
+    "quote": "USDT"
+  },
+  {
+    "base": "IOTX",
+    "quote": "BTC"
+  },
+  {
+    "base": "IOTX",
+    "quote": "ETH"
+  },
+  {
+    "base": "QKC",
+    "quote": "BTC"
+  },
+  {
+    "base": "QKC",
+    "quote": "ETH"
+  },
+  {
+    "base": "AGI",
+    "quote": "BTC"
+  },
+  {
+    "base": "AGI",
+    "quote": "ETH"
+  },
+  {
+    "base": "AGI",
+    "quote": "BNB"
+  },
+  {
+    "base": "NXS",
+    "quote": "BTC"
+  },
+  {
+    "base": "NXS",
+    "quote": "ETH"
+  },
+  {
+    "base": "NXS",
+    "quote": "BNB"
+  },
+  {
+    "base": "ENJ",
+    "quote": "BNB"
+  },
+  {
+    "base": "DATA",
+    "quote": "BTC"
+  },
+  {
+    "base": "DATA",
+    "quote": "ETH"
+  },
+  {
+    "base": "ONT",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRX",
+    "quote": "BNB"
+  },
+  {
+    "base": "TRX",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETC",
+    "quote": "BNB"
+  },
+  {
+    "base": "ICX",
+    "quote": "USDT"
+  },
+  {
+    "base": "SC",
+    "quote": "BTC"
+  },
+  {
+    "base": "SC",
+    "quote": "ETH"
+  },
+  {
+    "base": "SC",
+    "quote": "BNB"
+  },
+  {
+    "base": "NPXS",
+    "quote": "BTC"
+  },
+  {
+    "base": "NPXS",
+    "quote": "ETH"
+  },
+  {
+    "base": "VEN",
+    "quote": "USDT"
+  },
+  {
+    "base": "KEY",
+    "quote": "BTC"
+  },
+  {
+    "base": "KEY",
+    "quote": "ETH"
+  },
+  {
+    "base": "NAS",
+    "quote": "BTC"
+  },
+  {
+    "base": "NAS",
+    "quote": "ETH"
+  },
+  {
+    "base": "NAS",
+    "quote": "BNB"
+  },
+  {
+    "base": "MFT",
+    "quote": "BTC"
+  },
+  {
+    "base": "MFT",
+    "quote": "ETH"
+  },
+  {
+    "base": "MFT",
+    "quote": "BNB"
+  },
+  {
+    "base": "DENT",
+    "quote": "BTC"
+  },
+  {
+    "base": "DENT",
+    "quote": "ETH"
+  },
+  {
+    "base": "ARDR",
+    "quote": "BTC"
+  },
+  {
+    "base": "ARDR",
+    "quote": "ETH"
+  },
+  {
+    "base": "ARDR",
+    "quote": "BNB"
+  },
+  {
+    "base": "NULS",
+    "quote": "USDT"
+  },
+  {
+    "base": "HOT",
+    "quote": "BTC"
+  },
+  {
+    "base": "HOT",
+    "quote": "ETH"
+  },
+  {
+    "base": "VET",
+    "quote": "BTC"
+  },
+  {
+    "base": "VET",
+    "quote": "ETH"
+  },
+  {
+    "base": "VET",
+    "quote": "USDT"
+  },
+  {
+    "base": "VET",
+    "quote": "BNB"
+  },
+  {
+    "base": "DOCK",
+    "quote": "BTC"
+  },
+  {
+    "base": "DOCK",
+    "quote": "ETH"
+  },
+  {
+    "base": "POLY",
+    "quote": "BTC"
+  },
+  {
+    "base": "POLY",
+    "quote": "BNB"
+  },
+  {
+    "base": "PHX",
+    "quote": "BTC"
+  },
+  {
+    "base": "PHX",
+    "quote": "ETH"
+  },
+  {
+    "base": "PHX",
+    "quote": "BNB"
+  },
+  {
+    "base": "HC",
+    "quote": "BTC"
+  },
+  {
+    "base": "HC",
+    "quote": "ETH"
+  },
+  {
+    "base": "GO",
+    "quote": "BTC"
+  },
+  {
+    "base": "GO",
+    "quote": "BNB"
+  },
+  {
+    "base": "PAX",
+    "quote": "BTC"
+  },
+  {
+    "base": "PAX",
+    "quote": "BNB"
+  },
+  {
+    "base": "PAX",
+    "quote": "USDT"
+  },
+  {
+    "base": "PAX",
+    "quote": "ETH"
+  },
+  {
+    "base": "RVN",
+    "quote": "BTC"
+  },
+  {
+    "base": "RVN",
+    "quote": "BNB"
+  },
+  {
+    "base": "DCR",
+    "quote": "BTC"
+  },
+  {
+    "base": "DCR",
+    "quote": "BNB"
+  },
+  {
+    "base": "USDC",
+    "quote": "BNB"
+  },
+  {
+    "base": "MITH",
+    "quote": "BTC"
+  },
+  {
+    "base": "MITH",
+    "quote": "BNB"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCHSV",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCHSV",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNB",
+    "quote": "PAX"
+  },
+  {
+    "base": "BTC",
+    "quote": "PAX"
+  },
+  {
+    "base": "ETH",
+    "quote": "PAX"
+  },
+  {
+    "base": "XRP",
+    "quote": "PAX"
+  },
+  {
+    "base": "EOS",
+    "quote": "PAX"
+  },
+  {
+    "base": "XLM",
+    "quote": "PAX"
+  },
+  {
+    "base": "REN",
+    "quote": "BTC"
+  },
+  {
+    "base": "REN",
+    "quote": "BNB"
+  },
+  {
+    "base": "BNB",
+    "quote": "TUSD"
+  },
+  {
+    "base": "XRP",
+    "quote": "TUSD"
+  },
+  {
+    "base": "EOS",
+    "quote": "TUSD"
+  },
+  {
+    "base": "XLM",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BNB",
+    "quote": "USDC"
+  },
+  {
+    "base": "BTC",
+    "quote": "USDC"
+  },
+  {
+    "base": "ETH",
+    "quote": "USDC"
+  },
+  {
+    "base": "XRP",
+    "quote": "USDC"
+  },
+  {
+    "base": "EOS",
+    "quote": "USDC"
+  },
+  {
+    "base": "XLM",
+    "quote": "USDC"
+  },
+  {
+    "base": "USDC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ADA",
+    "quote": "TUSD"
+  },
+  {
+    "base": "TRX",
+    "quote": "TUSD"
+  },
+  {
+    "base": "NEO",
+    "quote": "TUSD"
+  },
+  {
+    "base": "TRX",
+    "quote": "XRP"
+  },
+  {
+    "base": "XZC",
+    "quote": "XRP"
+  },
+  {
+    "base": "PAX",
+    "quote": "TUSD"
+  },
+  {
+    "base": "USDC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "USDC",
+    "quote": "PAX"
+  },
+  {
+    "base": "LINK",
+    "quote": "USDT"
+  },
+  {
+    "base": "LINK",
+    "quote": "TUSD"
+  },
+  {
+    "base": "LINK",
+    "quote": "PAX"
+  },
+  {
+    "base": "LINK",
+    "quote": "USDC"
+  },
+  {
+    "base": "WAVES",
+    "quote": "USDT"
+  },
+  {
+    "base": "WAVES",
+    "quote": "TUSD"
+  },
+  {
+    "base": "WAVES",
+    "quote": "PAX"
+  },
+  {
+    "base": "WAVES",
+    "quote": "USDC"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "PAX"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "USDC"
+  },
+  {
+    "base": "BCHSV",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BCHSV",
+    "quote": "PAX"
+  },
+  {
+    "base": "BCHSV",
+    "quote": "USDC"
+  },
+  {
+    "base": "LTC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "LTC",
+    "quote": "PAX"
+  },
+  {
+    "base": "LTC",
+    "quote": "USDC"
+  },
+  {
+    "base": "TRX",
+    "quote": "PAX"
+  },
+  {
+    "base": "TRX",
+    "quote": "USDC"
+  },
+  {
+    "base": "BTT",
+    "quote": "BTC"
+  },
+  {
+    "base": "BTT",
+    "quote": "BNB"
+  },
+  {
+    "base": "BTT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNB",
+    "quote": "USDS"
+  },
+  {
+    "base": "BTC",
+    "quote": "USDS"
+  },
+  {
+    "base": "USDS",
+    "quote": "USDT"
+  },
+  {
+    "base": "USDS",
+    "quote": "PAX"
+  },
+  {
+    "base": "USDS",
+    "quote": "TUSD"
+  },
+  {
+    "base": "USDS",
+    "quote": "USDC"
+  },
+  {
+    "base": "BTT",
+    "quote": "PAX"
+  },
+  {
+    "base": "BTT",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BTT",
+    "quote": "USDC"
+  },
+  {
+    "base": "ONG",
+    "quote": "BNB"
+  },
+  {
+    "base": "ONG",
+    "quote": "BTC"
+  },
+  {
+    "base": "ONG",
+    "quote": "USDT"
+  },
+  {
+    "base": "HOT",
+    "quote": "BNB"
+  },
+  {
+    "base": "HOT",
+    "quote": "USDT"
+  },
+  {
+    "base": "ZIL",
+    "quote": "USDT"
+  },
+  {
+    "base": "ZRX",
+    "quote": "BNB"
+  },
+  {
+    "base": "ZRX",
+    "quote": "USDT"
+  },
+  {
+    "base": "FET",
+    "quote": "BNB"
+  },
+  {
+    "base": "FET",
+    "quote": "BTC"
+  },
+  {
+    "base": "FET",
+    "quote": "USDT"
+  },
+  {
+    "base": "BAT",
+    "quote": "USDT"
+  },
+  {
+    "base": "XMR",
+    "quote": "BNB"
+  },
+  {
+    "base": "XMR",
+    "quote": "USDT"
+  },
+  {
+    "base": "ZEC",
+    "quote": "BNB"
+  },
+  {
+    "base": "ZEC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ZEC",
+    "quote": "PAX"
+  },
+  {
+    "base": "ZEC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "ZEC",
+    "quote": "USDC"
+  },
+  {
+    "base": "IOST",
+    "quote": "BNB"
+  },
+  {
+    "base": "IOST",
+    "quote": "USDT"
+  },
+  {
+    "base": "CELR",
+    "quote": "BNB"
+  },
+  {
+    "base": "CELR",
+    "quote": "BTC"
+  },
+  {
+    "base": "CELR",
+    "quote": "USDT"
+  },
+  {
+    "base": "ADA",
+    "quote": "PAX"
+  },
+  {
+    "base": "ADA",
+    "quote": "USDC"
+  },
+  {
+    "base": "NEO",
+    "quote": "PAX"
+  },
+  {
+    "base": "NEO",
+    "quote": "USDC"
+  },
+  {
+    "base": "DASH",
+    "quote": "BNB"
+  },
+  {
+    "base": "DASH",
+    "quote": "USDT"
+  },
+  {
+    "base": "NANO",
+    "quote": "USDT"
+  },
+  {
+    "base": "OMG",
+    "quote": "BNB"
+  },
+  {
+    "base": "OMG",
+    "quote": "USDT"
+  },
+  {
+    "base": "THETA",
+    "quote": "USDT"
+  },
+  {
+    "base": "ENJ",
+    "quote": "USDT"
+  },
+  {
+    "base": "MITH",
+    "quote": "USDT"
+  },
+  {
+    "base": "MATIC",
+    "quote": "BNB"
+  },
+  {
+    "base": "MATIC",
+    "quote": "BTC"
+  },
+  {
+    "base": "MATIC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ATOM",
+    "quote": "BNB"
+  },
+  {
+    "base": "ATOM",
+    "quote": "BTC"
+  },
+  {
+    "base": "ATOM",
+    "quote": "USDT"
+  },
+  {
+    "base": "ATOM",
+    "quote": "USDC"
+  },
+  {
+    "base": "ATOM",
+    "quote": "PAX"
+  },
+  {
+    "base": "ATOM",
+    "quote": "TUSD"
+  },
+  {
+    "base": "ETC",
+    "quote": "USDC"
+  },
+  {
+    "base": "ETC",
+    "quote": "PAX"
+  },
+  {
+    "base": "ETC",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BAT",
+    "quote": "USDC"
+  },
+  {
+    "base": "BAT",
+    "quote": "PAX"
+  },
+  {
+    "base": "BAT",
+    "quote": "TUSD"
+  },
+  {
+    "base": "PHB",
+    "quote": "BNB"
+  },
+  {
+    "base": "PHB",
+    "quote": "BTC"
+  },
+  {
+    "base": "PHB",
+    "quote": "USDC"
+  },
+  {
+    "base": "PHB",
+    "quote": "TUSD"
+  },
+  {
+    "base": "PHB",
+    "quote": "PAX"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "BNB"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "BTC"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "USDT"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "USDC"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "TUSD"
+  },
+  {
+    "base": "TFUEL",
+    "quote": "PAX"
+  },
+  {
+    "base": "ONE",
+    "quote": "BNB"
+  },
+  {
+    "base": "ONE",
+    "quote": "BTC"
+  },
+  {
+    "base": "ONE",
+    "quote": "USDT"
+  },
+  {
+    "base": "ONE",
+    "quote": "TUSD"
+  },
+  {
+    "base": "ONE",
+    "quote": "PAX"
+  },
+  {
+    "base": "ONE",
+    "quote": "USDC"
+  },
+  {
+    "base": "FTM",
+    "quote": "BNB"
+  },
+  {
+    "base": "FTM",
+    "quote": "BTC"
+  },
+  {
+    "base": "FTM",
+    "quote": "USDT"
+  },
+  {
+    "base": "FTM",
+    "quote": "TUSD"
+  },
+  {
+    "base": "FTM",
+    "quote": "PAX"
+  },
+  {
+    "base": "FTM",
+    "quote": "USDC"
+  },
+  {
+    "base": "BTCB",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCPT",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BCPT",
+    "quote": "PAX"
+  },
+  {
+    "base": "BCPT",
+    "quote": "USDC"
+  },
+  {
+    "base": "ALGO",
+    "quote": "BNB"
+  },
+  {
+    "base": "ALGO",
+    "quote": "BTC"
+  },
+  {
+    "base": "ALGO",
+    "quote": "USDT"
+  },
+  {
+    "base": "ALGO",
+    "quote": "TUSD"
+  },
+  {
+    "base": "ALGO",
+    "quote": "PAX"
+  },
+  {
+    "base": "ALGO",
+    "quote": "USDC"
+  },
+  {
+    "base": "USDSB",
+    "quote": "USDT"
+  },
+  {
+    "base": "USDSB",
+    "quote": "USDS"
+  },
+  {
+    "base": "GTO",
+    "quote": "USDT"
+  },
+  {
+    "base": "GTO",
+    "quote": "PAX"
+  },
+  {
+    "base": "GTO",
+    "quote": "TUSD"
+  },
+  {
+    "base": "GTO",
+    "quote": "USDC"
+  },
+  {
+    "base": "ERD",
+    "quote": "BNB"
+  },
+  {
+    "base": "ERD",
+    "quote": "BTC"
+  },
+  {
+    "base": "ERD",
+    "quote": "USDT"
+  },
+  {
+    "base": "ERD",
+    "quote": "PAX"
+  },
+  {
+    "base": "ERD",
+    "quote": "USDC"
+  },
+  {
+    "base": "DOGE",
+    "quote": "BNB"
+  },
+  {
+    "base": "DOGE",
+    "quote": "BTC"
+  },
+  {
+    "base": "DOGE",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOGE",
+    "quote": "PAX"
+  },
+  {
+    "base": "DOGE",
+    "quote": "USDC"
+  },
+  {
+    "base": "DUSK",
+    "quote": "BNB"
+  },
+  {
+    "base": "DUSK",
+    "quote": "BTC"
+  },
+  {
+    "base": "DUSK",
+    "quote": "USDT"
+  },
+  {
+    "base": "DUSK",
+    "quote": "USDC"
+  },
+  {
+    "base": "DUSK",
+    "quote": "PAX"
+  },
+  {
+    "base": "BGBP",
+    "quote": "USDC"
+  },
+  {
+    "base": "ANKR",
+    "quote": "BNB"
+  },
+  {
+    "base": "ANKR",
+    "quote": "BTC"
+  },
+  {
+    "base": "ANKR",
+    "quote": "USDT"
+  },
+  {
+    "base": "ANKR",
+    "quote": "TUSD"
+  },
+  {
+    "base": "ANKR",
+    "quote": "PAX"
+  },
+  {
+    "base": "ANKR",
+    "quote": "USDC"
+  },
+  {
+    "base": "ONT",
+    "quote": "PAX"
+  },
+  {
+    "base": "ONT",
+    "quote": "USDC"
+  },
+  {
+    "base": "WIN",
+    "quote": "BNB"
+  },
+  {
+    "base": "WIN",
+    "quote": "BTC"
+  },
+  {
+    "base": "WIN",
+    "quote": "USDT"
+  },
+  {
+    "base": "WIN",
+    "quote": "USDC"
+  },
+  {
+    "base": "COS",
+    "quote": "BNB"
+  },
+  {
+    "base": "COS",
+    "quote": "BTC"
+  },
+  {
+    "base": "COS",
+    "quote": "USDT"
+  },
+  {
+    "base": "TUSDB",
+    "quote": "TUSD"
+  },
+  {
+    "base": "NPXS",
+    "quote": "USDT"
+  },
+  {
+    "base": "NPXS",
+    "quote": "USDC"
+  },
+  {
+    "base": "COCOS",
+    "quote": "BNB"
+  },
+  {
+    "base": "COCOS",
+    "quote": "BTC"
+  },
+  {
+    "base": "COCOS",
+    "quote": "USDT"
+  },
+  {
+    "base": "MTL",
+    "quote": "USDT"
+  },
+  {
+    "base": "TOMO",
+    "quote": "BNB"
+  },
+  {
+    "base": "TOMO",
+    "quote": "BTC"
+  },
+  {
+    "base": "TOMO",
+    "quote": "USDT"
+  },
+  {
+    "base": "TOMO",
+    "quote": "USDC"
+  },
+  {
+    "base": "PERL",
+    "quote": "BNB"
+  },
+  {
+    "base": "PERL",
+    "quote": "BTC"
+  },
+  {
+    "base": "PERL",
+    "quote": "USDC"
+  },
+  {
+    "base": "PERL",
+    "quote": "USDT"
+  },
+  {
+    "base": "DENT",
+    "quote": "USDT"
+  },
+  {
+    "base": "MFT",
+    "quote": "USDT"
+  },
+  {
+    "base": "KEY",
+    "quote": "USDT"
+  },
+  {
+    "base": "STORM",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOCK",
+    "quote": "USDT"
+  },
+  {
+    "base": "WAN",
+    "quote": "USDT"
+  },
+  {
+    "base": "FUN",
+    "quote": "USDT"
+  },
+  {
+    "base": "CVC",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTT",
+    "quote": "TRX"
+  },
+  {
+    "base": "WIN",
+    "quote": "TRX"
+  },
+  {
+    "base": "CHZ",
+    "quote": "BNB"
+  },
+  {
+    "base": "CHZ",
+    "quote": "BTC"
+  },
+  {
+    "base": "CHZ",
+    "quote": "USDT"
+  },
+  {
+    "base": "BAND",
+    "quote": "BNB"
+  },
+  {
+    "base": "BAND",
+    "quote": "BTC"
+  },
+  {
+    "base": "BAND",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNB",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BUSD",
+    "quote": "USDT"
+  },
+  {
+    "base": "BEAM",
+    "quote": "BNB"
+  },
+  {
+    "base": "BEAM",
+    "quote": "BTC"
+  },
+  {
+    "base": "BEAM",
+    "quote": "USDT"
+  },
+  {
+    "base": "XTZ",
+    "quote": "BNB"
+  },
+  {
+    "base": "XTZ",
+    "quote": "BTC"
+  },
+  {
+    "base": "XTZ",
+    "quote": "USDT"
+  },
+  {
+    "base": "REN",
+    "quote": "USDT"
+  },
+  {
+    "base": "RVN",
+    "quote": "USDT"
+  },
+  {
+    "base": "HC",
+    "quote": "USDT"
+  },
+  {
+    "base": "HBAR",
+    "quote": "BNB"
+  },
+  {
+    "base": "HBAR",
+    "quote": "BTC"
+  },
+  {
+    "base": "HBAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "NKN",
+    "quote": "BNB"
+  },
+  {
+    "base": "NKN",
+    "quote": "BTC"
+  },
+  {
+    "base": "NKN",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ETH",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BCHABC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LTC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LINK",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ETC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STX",
+    "quote": "BNB"
+  },
+  {
+    "base": "STX",
+    "quote": "BTC"
+  },
+  {
+    "base": "STX",
+    "quote": "USDT"
+  },
+  {
+    "base": "KAVA",
+    "quote": "BNB"
+  },
+  {
+    "base": "KAVA",
+    "quote": "BTC"
+  },
+  {
+    "base": "KAVA",
+    "quote": "USDT"
+  },
+  {
+    "base": "BUSD",
+    "quote": "NGN"
+  },
+  {
+    "base": "BNB",
+    "quote": "NGN"
+  },
+  {
+    "base": "BTC",
+    "quote": "NGN"
+  },
+  {
+    "base": "ARPA",
+    "quote": "BNB"
+  },
+  {
+    "base": "ARPA",
+    "quote": "BTC"
+  },
+  {
+    "base": "ARPA",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EOS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "IOTX",
+    "quote": "USDT"
+  },
+  {
+    "base": "RLC",
+    "quote": "USDT"
+  },
+  {
+    "base": "MCO",
+    "quote": "USDT"
+  },
+  {
+    "base": "XLM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ADA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "CTXC",
+    "quote": "BNB"
+  },
+  {
+    "base": "CTXC",
+    "quote": "BTC"
+  },
+  {
+    "base": "CTXC",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCH",
+    "quote": "BNB"
+  },
+  {
+    "base": "BCH",
+    "quote": "BTC"
+  },
+  {
+    "base": "BCH",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCH",
+    "quote": "USDC"
+  },
+  {
+    "base": "BCH",
+    "quote": "TUSD"
+  },
+  {
+    "base": "BCH",
+    "quote": "PAX"
+  },
+  {
+    "base": "BCH",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTC",
+    "quote": "RUB"
+  },
+  {
+    "base": "ETH",
+    "quote": "RUB"
+  },
+  {
+    "base": "XRP",
+    "quote": "RUB"
+  },
+  {
+    "base": "BNB",
+    "quote": "RUB"
+  },
+  {
+    "base": "TROY",
+    "quote": "BNB"
+  },
+  {
+    "base": "TROY",
+    "quote": "BTC"
+  },
+  {
+    "base": "TROY",
+    "quote": "USDT"
+  },
+  {
+    "base": "BUSD",
+    "quote": "RUB"
+  },
+  {
+    "base": "QTUM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "VET",
+    "quote": "BUSD"
+  },
+  {
+    "base": "VITE",
+    "quote": "BNB"
+  },
+  {
+    "base": "VITE",
+    "quote": "BTC"
+  },
+  {
+    "base": "VITE",
+    "quote": "USDT"
+  },
+  {
+    "base": "FTT",
+    "quote": "BNB"
+  },
+  {
+    "base": "FTT",
+    "quote": "BTC"
+  },
+  {
+    "base": "FTT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "TRY"
+  },
+  {
+    "base": "BNB",
+    "quote": "TRY"
+  },
+  {
+    "base": "BUSD",
+    "quote": "TRY"
+  },
+  {
+    "base": "ETH",
+    "quote": "TRY"
+  },
+  {
+    "base": "XRP",
+    "quote": "TRY"
+  },
+  {
+    "base": "USDT",
+    "quote": "TRY"
+  },
+  {
+    "base": "USDT",
+    "quote": "RUB"
+  },
+  {
+    "base": "BTC",
+    "quote": "EUR"
+  },
+  {
+    "base": "ETH",
+    "quote": "EUR"
+  },
+  {
+    "base": "BNB",
+    "quote": "EUR"
+  },
+  {
+    "base": "XRP",
+    "quote": "EUR"
+  },
+  {
+    "base": "EUR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EUR",
+    "quote": "USDT"
+  },
+  {
+    "base": "OGN",
+    "quote": "BNB"
+  },
+  {
+    "base": "OGN",
+    "quote": "BTC"
+  },
+  {
+    "base": "OGN",
+    "quote": "USDT"
+  },
+  {
+    "base": "DREP",
+    "quote": "BNB"
+  },
+  {
+    "base": "DREP",
+    "quote": "BTC"
+  },
+  {
+    "base": "DREP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BULL",
+    "quote": "USDT"
+  },
+  {
+    "base": "BULL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "BEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ETHBULL",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETHBULL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ETHBEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETHBEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TCT",
+    "quote": "BNB"
+  },
+  {
+    "base": "TCT",
+    "quote": "BTC"
+  },
+  {
+    "base": "TCT",
+    "quote": "USDT"
+  },
+  {
+    "base": "WRX",
+    "quote": "BNB"
+  },
+  {
+    "base": "WRX",
+    "quote": "BTC"
+  },
+  {
+    "base": "WRX",
+    "quote": "USDT"
+  },
+  {
+    "base": "ICX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTS",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LSK",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LTO",
+    "quote": "BNB"
+  },
+  {
+    "base": "LTO",
+    "quote": "BTC"
+  },
+  {
+    "base": "LTO",
+    "quote": "USDT"
+  },
+  {
+    "base": "ATOM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DASH",
+    "quote": "BUSD"
+  },
+  {
+    "base": "NEO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "WAVES",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XTZ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EOSBULL",
+    "quote": "USDT"
+  },
+  {
+    "base": "EOSBULL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EOSBEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "EOSBEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XRPBULL",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRPBULL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XRPBEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRPBEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BAT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ENJ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "NANO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ONT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "RVN",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STRAT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STRAT",
+    "quote": "BNB"
+  },
+  {
+    "base": "STRAT",
+    "quote": "USDT"
+  },
+  {
+    "base": "AION",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AION",
+    "quote": "USDT"
+  },
+  {
+    "base": "MBL",
+    "quote": "BNB"
+  },
+  {
+    "base": "MBL",
+    "quote": "BTC"
+  },
+  {
+    "base": "MBL",
+    "quote": "USDT"
+  },
+  {
+    "base": "COTI",
+    "quote": "BNB"
+  },
+  {
+    "base": "COTI",
+    "quote": "BTC"
+  },
+  {
+    "base": "COTI",
+    "quote": "USDT"
+  },
+  {
+    "base": "ALGO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TOMO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XMR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ZEC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BNBBULL",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNBBULL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BNBBEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNBBEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STPT",
+    "quote": "BNB"
+  },
+  {
+    "base": "STPT",
+    "quote": "BTC"
+  },
+  {
+    "base": "STPT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "ZAR"
+  },
+  {
+    "base": "ETH",
+    "quote": "ZAR"
+  },
+  {
+    "base": "BNB",
+    "quote": "ZAR"
+  },
+  {
+    "base": "USDT",
+    "quote": "ZAR"
+  },
+  {
+    "base": "BUSD",
+    "quote": "ZAR"
+  },
+  {
+    "base": "BTC",
+    "quote": "BKRW"
+  },
+  {
+    "base": "ETH",
+    "quote": "BKRW"
+  },
+  {
+    "base": "BNB",
+    "quote": "BKRW"
+  },
+  {
+    "base": "WTC",
+    "quote": "USDT"
+  },
+  {
+    "base": "DATA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DATA",
+    "quote": "USDT"
+  },
+  {
+    "base": "XZC",
+    "quote": "USDT"
+  },
+  {
+    "base": "SOL",
+    "quote": "BNB"
+  },
+  {
+    "base": "SOL",
+    "quote": "BTC"
+  },
+  {
+    "base": "SOL",
+    "quote": "USDT"
+  },
+  {
+    "base": "SOL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTC",
+    "quote": "IDRT"
+  },
+  {
+    "base": "BNB",
+    "quote": "IDRT"
+  },
+  {
+    "base": "USDT",
+    "quote": "IDRT"
+  },
+  {
+    "base": "BUSD",
+    "quote": "IDRT"
+  },
+  {
+    "base": "CTSI",
+    "quote": "BTC"
+  },
+  {
+    "base": "CTSI",
+    "quote": "USDT"
+  },
+  {
+    "base": "CTSI",
+    "quote": "BNB"
+  },
+  {
+    "base": "CTSI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "HIVE",
+    "quote": "BNB"
+  },
+  {
+    "base": "HIVE",
+    "quote": "BTC"
+  },
+  {
+    "base": "HIVE",
+    "quote": "USDT"
+  },
+  {
+    "base": "CHR",
+    "quote": "BNB"
+  },
+  {
+    "base": "CHR",
+    "quote": "BTC"
+  },
+  {
+    "base": "CHR",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTCUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTCDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "GXS",
+    "quote": "USDT"
+  },
+  {
+    "base": "ARDR",
+    "quote": "USDT"
+  },
+  {
+    "base": "ERD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LEND",
+    "quote": "USDT"
+  },
+  {
+    "base": "HBAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "MATIC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "WRX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ZIL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "MDT",
+    "quote": "BNB"
+  },
+  {
+    "base": "MDT",
+    "quote": "BTC"
+  },
+  {
+    "base": "MDT",
+    "quote": "USDT"
+  },
+  {
+    "base": "STMX",
+    "quote": "BNB"
+  },
+  {
+    "base": "STMX",
+    "quote": "BTC"
+  },
+  {
+    "base": "STMX",
+    "quote": "ETH"
+  },
+  {
+    "base": "STMX",
+    "quote": "USDT"
+  },
+  {
+    "base": "KNC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "KNC",
+    "quote": "USDT"
+  },
+  {
+    "base": "REP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "REP",
+    "quote": "USDT"
+  },
+  {
+    "base": "LRC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LRC",
+    "quote": "USDT"
+  },
+  {
+    "base": "IQ",
+    "quote": "BNB"
+  },
+  {
+    "base": "IQ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "PNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "PNT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "GBP"
+  },
+  {
+    "base": "ETH",
+    "quote": "GBP"
+  },
+  {
+    "base": "XRP",
+    "quote": "GBP"
+  },
+  {
+    "base": "BNB",
+    "quote": "GBP"
+  },
+  {
+    "base": "GBP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DGB",
+    "quote": "BNB"
+  },
+  {
+    "base": "DGB",
+    "quote": "BTC"
+  },
+  {
+    "base": "DGB",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTC",
+    "quote": "UAH"
+  },
+  {
+    "base": "USDT",
+    "quote": "UAH"
+  },
+  {
+    "base": "COMP",
+    "quote": "BTC"
+  },
+  {
+    "base": "COMP",
+    "quote": "BNB"
+  },
+  {
+    "base": "COMP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "COMP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "BIDR"
+  },
+  {
+    "base": "ETH",
+    "quote": "BIDR"
+  },
+  {
+    "base": "BNB",
+    "quote": "BIDR"
+  },
+  {
+    "base": "BUSD",
+    "quote": "BIDR"
+  },
+  {
+    "base": "USDT",
+    "quote": "BIDR"
+  },
+  {
+    "base": "BKRW",
+    "quote": "USDT"
+  },
+  {
+    "base": "BKRW",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SC",
+    "quote": "USDT"
+  },
+  {
+    "base": "ZEN",
+    "quote": "USDT"
+  },
+  {
+    "base": "SXP",
+    "quote": "BTC"
+  },
+  {
+    "base": "SXP",
+    "quote": "BNB"
+  },
+  {
+    "base": "SXP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SNX",
+    "quote": "BTC"
+  },
+  {
+    "base": "SNX",
+    "quote": "BNB"
+  },
+  {
+    "base": "SNX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SNX",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETHUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETHDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "ADAUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "ADADOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "LINKUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "LINKDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "VTHO",
+    "quote": "BNB"
+  },
+  {
+    "base": "VTHO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "VTHO",
+    "quote": "USDT"
+  },
+  {
+    "base": "DCR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DGB",
+    "quote": "USDT"
+  },
+  {
+    "base": "GBP",
+    "quote": "USDT"
+  },
+  {
+    "base": "STORJ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SXP",
+    "quote": "USDT"
+  },
+  {
+    "base": "IRIS",
+    "quote": "BNB"
+  },
+  {
+    "base": "IRIS",
+    "quote": "BTC"
+  },
+  {
+    "base": "IRIS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "MKR",
+    "quote": "BNB"
+  },
+  {
+    "base": "MKR",
+    "quote": "BTC"
+  },
+  {
+    "base": "MKR",
+    "quote": "USDT"
+  },
+  {
+    "base": "MKR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DAI",
+    "quote": "BNB"
+  },
+  {
+    "base": "DAI",
+    "quote": "BTC"
+  },
+  {
+    "base": "DAI",
+    "quote": "USDT"
+  },
+  {
+    "base": "DAI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "RUNE",
+    "quote": "BNB"
+  },
+  {
+    "base": "RUNE",
+    "quote": "BTC"
+  },
+  {
+    "base": "RUNE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "MANA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DOGE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LEND",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ZRX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DCR",
+    "quote": "USDT"
+  },
+  {
+    "base": "STORJ",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRP",
+    "quote": "BKRW"
+  },
+  {
+    "base": "ADA",
+    "quote": "BKRW"
+  },
+  {
+    "base": "BTC",
+    "quote": "AUD"
+  },
+  {
+    "base": "ETH",
+    "quote": "AUD"
+  },
+  {
+    "base": "AUD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "FIO",
+    "quote": "BNB"
+  },
+  {
+    "base": "FIO",
+    "quote": "BTC"
+  },
+  {
+    "base": "FIO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BNBUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNBDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "XTZUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "XTZDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "AVA",
+    "quote": "BNB"
+  },
+  {
+    "base": "AVA",
+    "quote": "BTC"
+  },
+  {
+    "base": "AVA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "USDT",
+    "quote": "BKRW"
+  },
+  {
+    "base": "BUSD",
+    "quote": "BKRW"
+  },
+  {
+    "base": "IOTA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "MANA",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRP",
+    "quote": "AUD"
+  },
+  {
+    "base": "BNB",
+    "quote": "AUD"
+  },
+  {
+    "base": "AUD",
+    "quote": "USDT"
+  },
+  {
+    "base": "BAL",
+    "quote": "BNB"
+  },
+  {
+    "base": "BAL",
+    "quote": "BTC"
+  },
+  {
+    "base": "BAL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "YFI",
+    "quote": "BNB"
+  },
+  {
+    "base": "YFI",
+    "quote": "BTC"
+  },
+  {
+    "base": "YFI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "YFI",
+    "quote": "USDT"
+  },
+  {
+    "base": "BLZ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "KMD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BAL",
+    "quote": "USDT"
+  },
+  {
+    "base": "BLZ",
+    "quote": "USDT"
+  },
+  {
+    "base": "IRIS",
+    "quote": "USDT"
+  },
+  {
+    "base": "KMD",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "DAI"
+  },
+  {
+    "base": "ETH",
+    "quote": "DAI"
+  },
+  {
+    "base": "BNB",
+    "quote": "DAI"
+  },
+  {
+    "base": "USDT",
+    "quote": "DAI"
+  },
+  {
+    "base": "BUSD",
+    "quote": "DAI"
+  },
+  {
+    "base": "JST",
+    "quote": "BNB"
+  },
+  {
+    "base": "JST",
+    "quote": "BTC"
+  },
+  {
+    "base": "JST",
+    "quote": "BUSD"
+  },
+  {
+    "base": "JST",
+    "quote": "USDT"
+  },
+  {
+    "base": "SRM",
+    "quote": "BNB"
+  },
+  {
+    "base": "SRM",
+    "quote": "BTC"
+  },
+  {
+    "base": "SRM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SRM",
+    "quote": "USDT"
+  },
+  {
+    "base": "ANT",
+    "quote": "BNB"
+  },
+  {
+    "base": "ANT",
+    "quote": "BTC"
+  },
+  {
+    "base": "ANT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ANT",
+    "quote": "USDT"
+  },
+  {
+    "base": "CRV",
+    "quote": "BNB"
+  },
+  {
+    "base": "CRV",
+    "quote": "BTC"
+  },
+  {
+    "base": "CRV",
+    "quote": "BUSD"
+  },
+  {
+    "base": "CRV",
+    "quote": "USDT"
+  },
+  {
+    "base": "SAND",
+    "quote": "BNB"
+  },
+  {
+    "base": "SAND",
+    "quote": "BTC"
+  },
+  {
+    "base": "SAND",
+    "quote": "USDT"
+  },
+  {
+    "base": "SAND",
+    "quote": "BUSD"
+  },
+  {
+    "base": "OCEAN",
+    "quote": "BNB"
+  },
+  {
+    "base": "OCEAN",
+    "quote": "BTC"
+  },
+  {
+    "base": "OCEAN",
+    "quote": "BUSD"
+  },
+  {
+    "base": "OCEAN",
+    "quote": "USDT"
+  },
+  {
+    "base": "NMR",
+    "quote": "BNB"
+  },
+  {
+    "base": "NMR",
+    "quote": "BTC"
+  },
+  {
+    "base": "NMR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "NMR",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOT",
+    "quote": "BNB"
+  },
+  {
+    "base": "DOT",
+    "quote": "BTC"
+  },
+  {
+    "base": "DOT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DOT",
+    "quote": "USDT"
+  },
+  {
+    "base": "LUNA",
+    "quote": "BNB"
+  },
+  {
+    "base": "LUNA",
+    "quote": "BTC"
+  },
+  {
+    "base": "LUNA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LUNA",
+    "quote": "USDT"
+  },
+  {
+    "base": "IDEX",
+    "quote": "BTC"
+  },
+  {
+    "base": "IDEX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "RSR",
+    "quote": "BNB"
+  },
+  {
+    "base": "RSR",
+    "quote": "BTC"
+  },
+  {
+    "base": "RSR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "RSR",
+    "quote": "USDT"
+  },
+  {
+    "base": "PAXG",
+    "quote": "BNB"
+  },
+  {
+    "base": "PAXG",
+    "quote": "BTC"
+  },
+  {
+    "base": "PAXG",
+    "quote": "BUSD"
+  },
+  {
+    "base": "PAXG",
+    "quote": "USDT"
+  },
+  {
+    "base": "WNXM",
+    "quote": "BNB"
+  },
+  {
+    "base": "WNXM",
+    "quote": "BTC"
+  },
+  {
+    "base": "WNXM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "WNXM",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRB",
+    "quote": "BNB"
+  },
+  {
+    "base": "TRB",
+    "quote": "BTC"
+  },
+  {
+    "base": "TRB",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TRB",
+    "quote": "USDT"
+  },
+  {
+    "base": "ETH",
+    "quote": "NGN"
+  },
+  {
+    "base": "DOT",
+    "quote": "BIDR"
+  },
+  {
+    "base": "LINK",
+    "quote": "AUD"
+  },
+  {
+    "base": "SXP",
+    "quote": "AUD"
+  },
+  {
+    "base": "BZRX",
+    "quote": "BNB"
+  },
+  {
+    "base": "BZRX",
+    "quote": "BTC"
+  },
+  {
+    "base": "BZRX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BZRX",
+    "quote": "USDT"
+  },
+  {
+    "base": "WBTC",
+    "quote": "BTC"
+  },
+  {
+    "base": "WBTC",
+    "quote": "ETH"
+  },
+  {
+    "base": "SUSHI",
+    "quote": "BNB"
+  },
+  {
+    "base": "SUSHI",
+    "quote": "BTC"
+  },
+  {
+    "base": "SUSHI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SUSHI",
+    "quote": "USDT"
+  },
+  {
+    "base": "YFII",
+    "quote": "BNB"
+  },
+  {
+    "base": "YFII",
+    "quote": "BTC"
+  },
+  {
+    "base": "YFII",
+    "quote": "BUSD"
+  },
+  {
+    "base": "YFII",
+    "quote": "USDT"
+  },
+  {
+    "base": "KSM",
+    "quote": "BNB"
+  },
+  {
+    "base": "KSM",
+    "quote": "BTC"
+  },
+  {
+    "base": "KSM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "KSM",
+    "quote": "USDT"
+  },
+  {
+    "base": "EGLD",
+    "quote": "BNB"
+  },
+  {
+    "base": "EGLD",
+    "quote": "BTC"
+  },
+  {
+    "base": "EGLD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EGLD",
+    "quote": "USDT"
+  },
+  {
+    "base": "DIA",
+    "quote": "BNB"
+  },
+  {
+    "base": "DIA",
+    "quote": "BTC"
+  },
+  {
+    "base": "DIA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DIA",
+    "quote": "USDT"
+  },
+  {
+    "base": "RUNE",
+    "quote": "USDT"
+  },
+  {
+    "base": "FIO",
+    "quote": "USDT"
+  },
+  {
+    "base": "UMA",
+    "quote": "BTC"
+  },
+  {
+    "base": "UMA",
+    "quote": "USDT"
+  },
+  {
+    "base": "EOSUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "EOSDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRXUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRXDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRPUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "XRPDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOTUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOTDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "SRM",
+    "quote": "BIDR"
+  },
+  {
+    "base": "ONE",
+    "quote": "BIDR"
+  },
+  {
+    "base": "LINK",
+    "quote": "TRY"
+  },
+  {
+    "base": "USDT",
+    "quote": "NGN"
+  },
+  {
+    "base": "BEL",
+    "quote": "BNB"
+  },
+  {
+    "base": "BEL",
+    "quote": "BTC"
+  },
+  {
+    "base": "BEL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BEL",
+    "quote": "USDT"
+  },
+  {
+    "base": "WING",
+    "quote": "BNB"
+  },
+  {
+    "base": "WING",
+    "quote": "BTC"
+  },
+  {
+    "base": "SWRV",
+    "quote": "BNB"
+  },
+  {
+    "base": "SWRV",
+    "quote": "BUSD"
+  },
+  {
+    "base": "WING",
+    "quote": "BUSD"
+  },
+  {
+    "base": "WING",
+    "quote": "USDT"
+  },
+  {
+    "base": "LTCUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "LTCDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "LEND",
+    "quote": "BKRW"
+  },
+  {
+    "base": "SXP",
+    "quote": "EUR"
+  },
+  {
+    "base": "CREAM",
+    "quote": "BNB"
+  },
+  {
+    "base": "CREAM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "UNI",
+    "quote": "BNB"
+  },
+  {
+    "base": "UNI",
+    "quote": "BTC"
+  },
+  {
+    "base": "UNI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "UNI",
+    "quote": "USDT"
+  },
+  {
+    "base": "NBS",
+    "quote": "BTC"
+  },
+  {
+    "base": "NBS",
+    "quote": "USDT"
+  },
+  {
+    "base": "OXT",
+    "quote": "BTC"
+  },
+  {
+    "base": "OXT",
+    "quote": "USDT"
+  },
+  {
+    "base": "SUN",
+    "quote": "BTC"
+  },
+  {
+    "base": "SUN",
+    "quote": "USDT"
+  },
+  {
+    "base": "AVAX",
+    "quote": "BNB"
+  },
+  {
+    "base": "AVAX",
+    "quote": "BTC"
+  },
+  {
+    "base": "AVAX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AVAX",
+    "quote": "USDT"
+  },
+  {
+    "base": "HNT",
+    "quote": "BTC"
+  },
+  {
+    "base": "HNT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BAKE",
+    "quote": "BNB"
+  },
+  {
+    "base": "BURGER",
+    "quote": "BNB"
+  },
+  {
+    "base": "SXP",
+    "quote": "BIDR"
+  },
+  {
+    "base": "LINK",
+    "quote": "BKRW"
+  },
+  {
+    "base": "FLM",
+    "quote": "BNB"
+  },
+  {
+    "base": "FLM",
+    "quote": "BTC"
+  },
+  {
+    "base": "FLM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "FLM",
+    "quote": "USDT"
+  },
+  {
+    "base": "SCRT",
+    "quote": "BTC"
+  },
+  {
+    "base": "SCRT",
+    "quote": "ETH"
+  },
+  {
+    "base": "CAKE",
+    "quote": "BNB"
+  },
+  {
+    "base": "CAKE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SPARTA",
+    "quote": "BNB"
+  },
+  {
+    "base": "UNIUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "UNIDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "ORN",
+    "quote": "BTC"
+  },
+  {
+    "base": "ORN",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRX",
+    "quote": "NGN"
+  },
+  {
+    "base": "SXP",
+    "quote": "TRY"
+  },
+  {
+    "base": "UTK",
+    "quote": "BTC"
+  },
+  {
+    "base": "UTK",
+    "quote": "USDT"
+  },
+  {
+    "base": "XVS",
+    "quote": "BNB"
+  },
+  {
+    "base": "XVS",
+    "quote": "BTC"
+  },
+  {
+    "base": "XVS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XVS",
+    "quote": "USDT"
+  },
+  {
+    "base": "ALPHA",
+    "quote": "BNB"
+  },
+  {
+    "base": "ALPHA",
+    "quote": "BTC"
+  },
+  {
+    "base": "ALPHA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ALPHA",
+    "quote": "USDT"
+  },
+  {
+    "base": "VIDT",
+    "quote": "BTC"
+  },
+  {
+    "base": "VIDT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AAVE",
+    "quote": "BNB"
+  },
+  {
+    "base": "BTC",
+    "quote": "BRL"
+  },
+  {
+    "base": "USDT",
+    "quote": "BRL"
+  },
+  {
+    "base": "AAVE",
+    "quote": "BTC"
+  },
+  {
+    "base": "AAVE",
+    "quote": "ETH"
+  },
+  {
+    "base": "AAVE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AAVE",
+    "quote": "USDT"
+  },
+  {
+    "base": "AAVE",
+    "quote": "BKRW"
+  },
+  {
+    "base": "NEAR",
+    "quote": "BNB"
+  },
+  {
+    "base": "NEAR",
+    "quote": "BTC"
+  },
+  {
+    "base": "NEAR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "NEAR",
+    "quote": "USDT"
+  },
+  {
+    "base": "SXPUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "SXPDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "DOT",
+    "quote": "BKRW"
+  },
+  {
+    "base": "SXP",
+    "quote": "GBP"
+  },
+  {
+    "base": "FIL",
+    "quote": "BNB"
+  },
+  {
+    "base": "FIL",
+    "quote": "BTC"
+  },
+  {
+    "base": "FIL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "FIL",
+    "quote": "USDT"
+  },
+  {
+    "base": "FILUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "FILDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "YFIUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "YFIDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "INJ",
+    "quote": "BNB"
+  },
+  {
+    "base": "INJ",
+    "quote": "BTC"
+  },
+  {
+    "base": "INJ",
+    "quote": "BUSD"
+  },
+  {
+    "base": "INJ",
+    "quote": "USDT"
+  },
+  {
+    "base": "AERGO",
+    "quote": "BTC"
+  },
+  {
+    "base": "AERGO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LINK",
+    "quote": "EUR"
+  },
+  {
+    "base": "ONE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EASY",
+    "quote": "ETH"
+  },
+  {
+    "base": "AUDIO",
+    "quote": "BTC"
+  },
+  {
+    "base": "AUDIO",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AUDIO",
+    "quote": "USDT"
+  },
+  {
+    "base": "CTK",
+    "quote": "BNB"
+  },
+  {
+    "base": "CTK",
+    "quote": "BTC"
+  },
+  {
+    "base": "CTK",
+    "quote": "BUSD"
+  },
+  {
+    "base": "CTK",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCHUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCHDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "BOT",
+    "quote": "BTC"
+  },
+  {
+    "base": "BOT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ETH",
+    "quote": "BRL"
+  },
+  {
+    "base": "DOT",
+    "quote": "EUR"
+  },
+  {
+    "base": "AKRO",
+    "quote": "BTC"
+  },
+  {
+    "base": "AKRO",
+    "quote": "USDT"
+  },
+  {
+    "base": "KP3R",
+    "quote": "BNB"
+  },
+  {
+    "base": "KP3R",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AXS",
+    "quote": "BNB"
+  },
+  {
+    "base": "AXS",
+    "quote": "BTC"
+  },
+  {
+    "base": "AXS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AXS",
+    "quote": "USDT"
+  },
+  {
+    "base": "HARD",
+    "quote": "BNB"
+  },
+  {
+    "base": "HARD",
+    "quote": "BTC"
+  },
+  {
+    "base": "HARD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "HARD",
+    "quote": "USDT"
+  },
+  {
+    "base": "BNB",
+    "quote": "BRL"
+  },
+  {
+    "base": "LTC",
+    "quote": "EUR"
+  },
+  {
+    "base": "RENBTC",
+    "quote": "BTC"
+  },
+  {
+    "base": "RENBTC",
+    "quote": "ETH"
+  },
+  {
+    "base": "DNT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "DNT",
+    "quote": "USDT"
+  },
+  {
+    "base": "SLP",
+    "quote": "ETH"
+  },
+  {
+    "base": "ADA",
+    "quote": "EUR"
+  },
+  {
+    "base": "LTC",
+    "quote": "NGN"
+  },
+  {
+    "base": "CVP",
+    "quote": "ETH"
+  },
+  {
+    "base": "CVP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STRAX",
+    "quote": "BTC"
+  },
+  {
+    "base": "STRAX",
+    "quote": "ETH"
+  },
+  {
+    "base": "STRAX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "STRAX",
+    "quote": "USDT"
+  },
+  {
+    "base": "FOR",
+    "quote": "BTC"
+  },
+  {
+    "base": "FOR",
+    "quote": "BUSD"
+  },
+  {
+    "base": "UNFI",
+    "quote": "BNB"
+  },
+  {
+    "base": "UNFI",
+    "quote": "BTC"
+  },
+  {
+    "base": "UNFI",
+    "quote": "BUSD"
+  },
+  {
+    "base": "UNFI",
+    "quote": "USDT"
+  },
+  {
+    "base": "FRONT",
+    "quote": "ETH"
+  },
+  {
+    "base": "FRONT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BCHA",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ROSE",
+    "quote": "BTC"
+  },
+  {
+    "base": "ROSE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "ROSE",
+    "quote": "USDT"
+  },
+  {
+    "base": "AVAX",
+    "quote": "TRY"
+  },
+  {
+    "base": "BUSD",
+    "quote": "BRL"
+  },
+  {
+    "base": "AVA",
+    "quote": "USDT"
+  },
+  {
+    "base": "SYS",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XEM",
+    "quote": "USDT"
+  },
+  {
+    "base": "HEGIC",
+    "quote": "ETH"
+  },
+  {
+    "base": "HEGIC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "AAVEUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "AAVEDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "PROM",
+    "quote": "BNB"
+  },
+  {
+    "base": "PROM",
+    "quote": "BUSD"
+  },
+  {
+    "base": "XRP",
+    "quote": "BRL"
+  },
+  {
+    "base": "XRP",
+    "quote": "NGN"
+  },
+  {
+    "base": "SKL",
+    "quote": "BTC"
+  },
+  {
+    "base": "SKL",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SKL",
+    "quote": "USDT"
+  },
+  {
+    "base": "BCH",
+    "quote": "EUR"
+  },
+  {
+    "base": "YFI",
+    "quote": "EUR"
+  },
+  {
+    "base": "ZIL",
+    "quote": "BIDR"
+  },
+  {
+    "base": "SUSD",
+    "quote": "BTC"
+  },
+  {
+    "base": "SUSD",
+    "quote": "ETH"
+  },
+  {
+    "base": "SUSD",
+    "quote": "USDT"
+  },
+  {
+    "base": "COVER",
+    "quote": "ETH"
+  },
+  {
+    "base": "COVER",
+    "quote": "BUSD"
+  },
+  {
+    "base": "GLM",
+    "quote": "BTC"
+  },
+  {
+    "base": "GLM",
+    "quote": "ETH"
+  },
+  {
+    "base": "GHST",
+    "quote": "ETH"
+  },
+  {
+    "base": "GHST",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SUSHIUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "SUSHIDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "XLMUP",
+    "quote": "USDT"
+  },
+  {
+    "base": "XLMDOWN",
+    "quote": "USDT"
+  },
+  {
+    "base": "LINK",
+    "quote": "BRL"
+  },
+  {
+    "base": "LINK",
+    "quote": "NGN"
+  },
+  {
+    "base": "LTC",
+    "quote": "RUB"
+  },
+  {
+    "base": "TRX",
+    "quote": "TRY"
+  },
+  {
+    "base": "XLM",
+    "quote": "EUR"
+  },
+  {
+    "base": "DF",
+    "quote": "ETH"
+  },
+  {
+    "base": "DF",
+    "quote": "BUSD"
+  },
+  {
+    "base": "GRT",
+    "quote": "BTC"
+  },
+  {
+    "base": "GRT",
+    "quote": "ETH"
+  },
+  {
+    "base": "GRT",
+    "quote": "USDT"
+  },
+  {
+    "base": "JUV",
+    "quote": "BTC"
+  },
+  {
+    "base": "JUV",
+    "quote": "BUSD"
+  },
+  {
+    "base": "JUV",
+    "quote": "USDT"
+  },
+  {
+    "base": "PSG",
+    "quote": "BTC"
+  },
+  {
+    "base": "PSG",
+    "quote": "BUSD"
+  },
+  {
+    "base": "PSG",
+    "quote": "USDT"
+  },
+  {
+    "base": "BUSD",
+    "quote": "BVND"
+  },
+  {
+    "base": "USDT",
+    "quote": "BVND"
+  },
+  {
+    "base": "1INCH",
+    "quote": "BTC"
+  },
+  {
+    "base": "1INCH",
+    "quote": "USDT"
+  },
+  {
+    "base": "REEF",
+    "quote": "BTC"
+  },
+  {
+    "base": "REEF",
+    "quote": "USDT"
+  },
+  {
+    "base": "OG",
+    "quote": "BTC"
+  },
+  {
+    "base": "OG",
+    "quote": "USDT"
+  },
+  {
+    "base": "ATM",
+    "quote": "BTC"
+  },
+  {
+    "base": "ATM",
+    "quote": "USDT"
+  },
+  {
+    "base": "ASR",
+    "quote": "BTC"
+  },
+  {
+    "base": "ASR",
+    "quote": "USDT"
+  },
+  {
+    "base": "CELO",
+    "quote": "BTC"
+  },
+  {
+    "base": "CELO",
+    "quote": "USDT"
+  },
+  {
+    "base": "RIF",
+    "quote": "BTC"
+  },
+  {
+    "base": "RIF",
+    "quote": "USDT"
+  },
+  {
+    "base": "CHZ",
+    "quote": "TRY"
+  },
+  {
+    "base": "XLM",
+    "quote": "TRY"
+  },
+  {
+    "base": "LINK",
+    "quote": "GBP"
+  },
+  {
+    "base": "GRT",
+    "quote": "EUR"
+  },
+  {
+    "base": "BTCST",
+    "quote": "BTC"
+  },
+  {
+    "base": "BTCST",
+    "quote": "BUSD"
+  },
+  {
+    "base": "BTCST",
+    "quote": "USDT"
+  },
+  {
+    "base": "TRU",
+    "quote": "BTC"
+  },
+  {
+    "base": "TRU",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TRU",
+    "quote": "USDT"
+  },
+  {
+    "base": "DEXE",
+    "quote": "ETH"
+  },
+  {
+    "base": "DEXE",
+    "quote": "BUSD"
+  },
+  {
+    "base": "EOS",
+    "quote": "EUR"
+  },
+  {
+    "base": "LTC",
+    "quote": "BRL"
+  },
+  {
+    "base": "USDC",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TUSD",
+    "quote": "BUSD"
+  },
+  {
+    "base": "PAX",
+    "quote": "BUSD"
+  },
+  {
+    "base": "CKB",
+    "quote": "BTC"
+  },
+  {
+    "base": "CKB",
+    "quote": "BUSD"
+  },
+  {
+    "base": "CKB",
+    "quote": "USDT"
+  },
+  {
+    "base": "TWT",
+    "quote": "BTC"
+  },
+  {
+    "base": "TWT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "TWT",
+    "quote": "USDT"
+  },
+  {
+    "base": "FIRO",
+    "quote": "BTC"
+  },
+  {
+    "base": "FIRO",
+    "quote": "ETH"
+  },
+  {
+    "base": "FIRO",
+    "quote": "USDT"
+  },
+  {
+    "base": "BETH",
+    "quote": "ETH"
+  },
+  {
+    "base": "DOGE",
+    "quote": "EUR"
+  },
+  {
+    "base": "DOGE",
+    "quote": "TRY"
+  },
+  {
+    "base": "DOGE",
+    "quote": "AUD"
+  },
+  {
+    "base": "DOGE",
+    "quote": "BRL"
+  },
+  {
+    "base": "DOT",
+    "quote": "NGN"
+  },
+  {
+    "base": "PROS",
+    "quote": "ETH"
+  },
+  {
+    "base": "LIT",
+    "quote": "BTC"
+  },
+  {
+    "base": "LIT",
+    "quote": "BUSD"
+  },
+  {
+    "base": "LIT",
+    "quote": "USDT"
+  },
+  {
+    "base": "BTC",
+    "quote": "VAI"
+  },
+  {
+    "base": "BUSD",
+    "quote": "VAI"
+  },
+  {
+    "base": "SFP",
+    "quote": "BTC"
+  },
+  {
+    "base": "SFP",
+    "quote": "BUSD"
+  },
+  {
+    "base": "SFP",
+    "quote": "USDT"
+  }
+]

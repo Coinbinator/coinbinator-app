@@ -17,7 +17,7 @@ targets:
 builders:
   le_crypto_alerts|le_coins:
     import: 'package:le_crypto_alerts/support/codegen/le_coins.dart'
-    builder_factories: ['leCoinsBuilder']
+    builder_factories: ['leCoinsBuilder', 'lePairsBuilder']
     build_extensions: {".dart": [".le.dart"]}
     auto_apply: dependents
     build_to: source

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fuzzy/fuzzy.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 class AddWatchDialogModel extends ChangeNotifier {
   List<Exchange> exchanges = [
-    Exchange.BINANCE,
-    Exchange.COINBASE,
+    Exchanges.Binance,
+    Exchanges.Coinbase,
+    Exchanges.MercadoBitcoin,
   ];
 
-  Exchange selectedExchange = Exchange.BINANCE;
+  Exchange selectedExchange = Exchanges.Binance;
 
   Pair selectedPair;
 
@@ -41,7 +43,7 @@ class AddWatchDialogModel extends ChangeNotifier {
 }
 
 class MyDropdownMenuItem<T> extends DropdownMenuItem<T> {
-  String keywords = "";
+  final String keywords;
 
   MyDropdownMenuItem({
     Key key,
@@ -64,7 +66,7 @@ class AddWatchDialog extends StatelessWidget {
         builder: (context, child) {
           final model = Provider.of<AddWatchDialogModel>(context);
           final watchingPageModel = Provider.of<WatchingPageModel>(parentContext);
-          final pairs = watchingPageModel.tickers.map((e) => e.pair);
+          final pairs = Pairs.getAll();
 
           return new AlertDialog(
             // backgroundColor: ,
@@ -166,9 +168,14 @@ class AddWatchDialog extends StatelessWidget {
               FlatButton(
                 child: Text('Watch'),
                 onPressed: () {
-                  final newPairWatch = Pair(exchange: model.selectedExchange, base: model.selectedPair.base, quote: model.selectedPair.quote);
-                  final newTickerWatch = new Ticker(pair: newPairWatch, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0));
-                  watchingPageModel.addWatchingTicker(newTickerWatch);
+                  // final newPairWatch = Pair(exchange: model.selectedExchange, base: model.selectedPair.base, quote: model.selectedPair.quote);
+                  // final newTickerWatch = new Ticker(pair: newPairWatch, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0));
+                  watchingPageModel.addWatchingTicker(Ticker(
+                    exchange: model.selectedExchange,
+                    pair: Pairs.getPair(model.selectedPair.key),
+                    price: -1,
+                    date: DateTime.fromMillisecondsSinceEpoch(0),
+                  ));
 
                   // var newPairWatch = Pair(exchange: model.selectedExchange, base: model.selectedBase, quote: model.selectedQuote);
                   // var newTickerWatch = new Ticker(pair: newPairWatch, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0));

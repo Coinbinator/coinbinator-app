@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:le_crypto_alerts/support/coins.dart';
+import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 part "binance_support.g.dart";
@@ -8,8 +10,12 @@ const String BINANCE_API_URL = "https://api.binance.com";
 
 @JsonSerializable()
 class BinanceTickerPrice {
-  String symbol;
-  String price;
+  final String symbol;
+  final String price;
+
+  Pair get lePair => Pairs.getPair(symbol);
+
+  BinanceTickerPrice(this.symbol, this.price);
 
   toJson() => _$BinanceTickerPriceToJson(this);
 
@@ -48,6 +54,8 @@ class BinanceExchangeInformationSymbol {
   bool isMarginTradingAllowed; //": true,
   List<BinanceExchangeInformationSymbolFilters> filters; //": [ ],
   List<String> permissions; //": [ ]
+
+  Pair get lePair => Pairs.getPair(symbol);
 
   toJson() => _$BinanceExchangeInformationSymbolToJson(this);
 
@@ -93,6 +101,8 @@ class BinanceCapitalConfig {
   bool isLegalMoney;
   bool trading;
   List networkList;
+
+  Coin get leCoin => Coins.getCoin(coin);
 
   toJson() => _$BinanceCapitalConfigToJson(this);
 
