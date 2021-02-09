@@ -1,25 +1,45 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/consts.dart';
+import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/main.dart';
+import 'package:le_crypto_alerts/models/app_model.dart';
+import 'package:le_crypto_alerts/models/portfolio_model.dart';
+import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 
-class _AppConfig {
-  // ignore: non_constant_identifier_names
-  String test_binance_api_key;
+part 'app_repository_support.dart';
 
-  // ignore: non_constant_identifier_names
-  String test_binance_api_secret;
+_AppRepository app() {
+  return _AppRepository._instance;
+}
+
+T instance<T>() {
+  return _AppRepository._instance._singletons[T];
 }
 
 class _AppRepository {
   static final _instance = _AppRepository();
 
-  bool _configLoaded = false;
-
   final config = _AppConfig();
 
+  final appModel = AppModel();
+
+  final watchListModel = WatchingPageModel();
+
+  final portfolioModel = PortfolioModel();
+
+  final persistence = Persistence();
+
   final _singletons = Map<Type, dynamic>();
+
+  bool _configLoaded = false;
+
+  LeApp rootWidget;
+
+  // backgroundServiceOnStart
 
   _AppRepository() {
     this._singletons.addAll({
@@ -38,12 +58,4 @@ class _AppRepository {
 
     _configLoaded = true;
   }
-}
-
-_AppRepository app() {
-  return _AppRepository._instance;
-}
-
-T instance<T>() {
-  return _AppRepository._instance._singletons[T];
 }

@@ -1,8 +1,8 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:le_crypto_alerts/consts.dart';
-import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 
 void main() {
   testWidgets('Tests the app_repository', (WidgetTester tester) async {

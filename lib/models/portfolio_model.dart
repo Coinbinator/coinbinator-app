@@ -5,11 +5,16 @@ import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 
 class PortfolioModel extends ChangeNotifier {
   bool initialized = false;
   bool working = false;
+  bool updatingPortfolios = false;
+
   List<Account> accounts = [];
+
+  List<PortfolioWalletResume> walletResumes = [];
 
   Future<void> initialize() async {
     if (initialized) return;
@@ -35,14 +40,18 @@ class PortfolioModel extends ChangeNotifier {
   }
 
   Future<void> updatePortfolios() async {
+    updatingPortfolios = true;
+    notifyListeners();
+
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    final portfolios = await Future.wait(accounts.map((account) {
+    walletResumes = await Future.wait(accounts.map((account) {
       if (account is BinanceAccount) {
         return instance<BinanceRepository>().getAccountPortfolio(account: account);
       }
       throw Exception("tipo de conta desconhecido");
     }));
 
-    return portfolios;
+    updatingPortfolios = false;
+    notifyListeners();
   }
 }

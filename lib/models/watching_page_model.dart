@@ -27,7 +27,6 @@ class WatchingPageModel extends ChangeNotifier {
               ))
           .forEach((ticker) => addWatchingTicker(ticker));
     });
-
     this.initialized = true;
     notifyListeners();
   }

@@ -83,49 +83,48 @@ class Ticker {
   Map<String, dynamic> toJson() => _$TickerToJson(this);
 
   static Ticker fromJson(json) => _$TickerFromJson(json);
+}
 
-  }
-
-  class ExchangesMeta {
+class ExchangesMeta {
   var pairs = new List<Pair>();
   var tickers = new List<Ticker>();
-  }
+}
 
-  enum ExchangesApiInfoType { BINANCE }
+enum ExchangesApiInfoType { BINANCE }
 
-  @JsonSerializable()
-  class BinanceApiAuthInfo {
+@JsonSerializable()
+class BinanceApiAuthInfo {
   final type = ExchangesApiInfoType.BINANCE;
   String name;
   String apiKey;
   String apiSecret;
 
   BinanceApiAuthInfo({this.name, this.apiKey, this.apiSecret});
-  }
+}
 
-  class PortfolioWalletResume {
+class PortfolioWalletResume {
   String name;
   Map<Coin, PortfolioWalletCoin> coins;
-  }
+}
 
-  class PortfolioWalletCoin {
+class PortfolioWalletCoin {
   Coin coin;
   double amount;
   double btcRate;
   double usdRate;
-  }
+}
 
-  abstract class E {
+abstract class E {
   static String currency(value, {String locale, String name, String symbol, int decimalDigits: 2}) {
-  final formatter = new NumberFormat.currency(locale: locale, name: name, symbol: symbol, decimalDigits: decimalDigits);
+    final formatter = new NumberFormat.currency(locale: locale, name: name, symbol: symbol, decimalDigits: decimalDigits);
 
-  return formatter.format(value);
+    return formatter.format(value);
   }
 
   static double toDouble(value) {
-  if (value is String) {
-  return double.tryParse(value) ?? 0;
+    if (value is String) {
+      return double.tryParse(value) ?? 0;
+    }
+    return (value as num).toDouble();
   }
-  return (value as num).toDouble();
-  }
-  }
+}

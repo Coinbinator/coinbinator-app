@@ -5,7 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
-import 'package:le_crypto_alerts/support/coins.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sembast/timestamp.dart';
 

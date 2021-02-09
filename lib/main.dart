@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
-import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
+import 'package:le_crypto_alerts/support/tickers.dart';
 import 'package:provider/provider.dart';
-
 
 // void printHello() {
 //   final DateTime now = DateTime.now();
@@ -26,7 +26,7 @@ Future<void> main() async {
 
   backgroundServiceInit();
 
-  runApp(leApp = LeApp(backgroundServiceOnStart: backgroundServiceOnStart));
+  runApp(app().rootWidget = LeApp());
 }
 
 void backgroundServiceInit() {
@@ -45,15 +45,17 @@ void backgroundServiceOnStart() {
 }
 
 void backgroundServiceSentMessage(Map<String, dynamic> event) {
+  /// MessageTypes.TICKER;
   if (event["type"] == MessageTypes.TICKER) {
     var message = TickerMessage.fromJson(event["data"]);
-    leApp.watchListModel.updateTicker(message.ticker);
+    app().watchListModel.updateTicker(message.ticker);
     return;
   }
 
+  /// <MessageTypes.TICKERS>
   if (event["type"] == MessageTypes.TICKERS) {
     var message = TickersMessage.fromJson(event["data"]);
-    leApp.watchListModel.updateTickers(message.tickers);
+    app().watchListModel.updateTickers(message.tickers);
     return;
   }
 
@@ -62,30 +64,15 @@ void backgroundServiceSentMessage(Map<String, dynamic> event) {
 }
 
 class LeApp extends StatelessWidget {
-  final backgroundServiceOnStart;
-
-  final appModel = AppModel();
-
-  final watchListModel = WatchingPageModel();
-
-  final persistence = Persistence();
-
-  LeApp({this.backgroundServiceOnStart}) : super() {
-    // () async {
-    //   await persistence.open();
-    //   print("persistence initialized");
-    // }();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider<AppModel>(create: (context) => AppModel()),
+          ChangeNotifierProvider<AppModel>(create: (context) => app().appModel),
           ChangeNotifierProvider<WatchingPageModel>(create: (context) {
-            watchListModel.initialize();
-
-            return watchListModel;
+            //TODO: rever inicializado dos models "raiz"
+            app().watchListModel.initialize();
+            return app().watchListModel;
           }),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),

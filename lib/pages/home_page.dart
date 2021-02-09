@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
 import 'package:le_crypto_alerts/main.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,8 +17,8 @@ class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   void _incrementCounter(BuildContext context) {
-    var app = context.findAncestorWidgetOfExactType<LeApp>();
-    app.watchListModel.addWatchingTicker(new Ticker(pair: Pair(base: "asd", quote: "qwe")));
+    // var app = context.findAncestorWidgetOfExactType<LeApp>();
+    app().watchListModel.addWatchingTicker(new Ticker(pair: Pair(base: "asd", quote: "qwe")));
     // () async {
     //   FlutterBackgroundService().sendData({"action": "stopService"});
     //
