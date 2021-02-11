@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:le_crypto_alerts/support/coins.dart';
 
 part "utils.g.dart";
 
@@ -36,6 +35,11 @@ class Coin {
   Map<String, dynamic> toJson() => _$CoinToJson(this);
 
   static Coin fromJson(json) => _$CoinFromJson(json);
+
+  @override
+  String toString() {
+    return 'Coin:$symbol';
+  }
 }
 
 @JsonSerializable()
@@ -45,6 +49,10 @@ class Pair {
   final String quote;
 
   get key => "$base/$quote";
+
+  get baseCoin => Coins.getCoin(base);
+
+  get quoteCoin => Coins.getCoin(quote);
 
   const Pair({this.base, this.quote});
 
@@ -104,7 +112,9 @@ class BinanceApiAuthInfo {
 
 class PortfolioWalletResume {
   String name;
-  Map<Coin, PortfolioWalletCoin> coins;
+  List<PortfolioWalletCoin> coins;
+
+  double get totalUsd => coins.map((e) => e.usdRate).fold(0, (x, y) => x + y);
 }
 
 class PortfolioWalletCoin {

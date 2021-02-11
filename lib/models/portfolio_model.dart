@@ -11,27 +11,19 @@ class PortfolioModel extends ChangeNotifier {
   bool initialized = false;
   bool working = false;
   bool updatingPortfolios = false;
+  DateTime updatedPortfoliosAt;
 
   List<Account> accounts = [];
 
-  List<PortfolioWalletResume> walletResumes = [];
+  List<PortfolioWalletResume> portfolioResumes = [];
 
-  Future<void> initialize() async {
+  Future<void> init() async {
     if (initialized) return;
 
-    await Future.wait([
-      reloadAccounts(),
-    ]);
-    // await Persistence.instance.openx((db) async {
-    //   (await db.query(Persistence.WHATCHING_TICKERS))
-    //       //
-    //       .map((e) => Pair.fromJson(e))
-    //       .map((e) => Ticker(pair: e, price: -1, date: DateTime.fromMillisecondsSinceEpoch(0)))
-    //       .forEach((ticker) => addWatchingTicker(ticker));
-    // });
+    await reloadAccounts();
+    await updatePortfolios();
 
-    this.initialized = true;
-    notifyListeners();
+    initialized = true;
   }
 
   Future<void> reloadAccounts() async {
@@ -44,13 +36,14 @@ class PortfolioModel extends ChangeNotifier {
     notifyListeners();
 
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    walletResumes = await Future.wait(accounts.map((account) {
+    portfolioResumes = await Future.wait(accounts.map((account) {
       if (account is BinanceAccount) {
         return instance<BinanceRepository>().getAccountPortfolio(account: account);
       }
       throw Exception("tipo de conta desconhecido");
     }));
 
+    updatedPortfoliosAt = DateTime.now();
     updatingPortfolios = false;
     notifyListeners();
   }

@@ -3,12 +3,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/consts.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
 import 'package:le_crypto_alerts/main.dart';
-import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
-import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/support/rates.dart';
+import 'package:le_crypto_alerts/support/tickers.dart';
 
 part 'app_repository_support.dart';
 
@@ -17,6 +16,7 @@ _AppRepository app() {
 }
 
 T instance<T>() {
+  if (T is PortfolioModel) throw Exception("deprecado models em singleton");
   return _AppRepository._instance._singletons[T];
 }
 
@@ -24,12 +24,6 @@ class _AppRepository {
   static final _instance = _AppRepository();
 
   final config = _AppConfig();
-
-  final appModel = AppModel();
-
-  final watchListModel = WatchingPageModel();
-
-  final portfolioModel = PortfolioModel();
 
   final persistence = Persistence();
 
@@ -39,7 +33,9 @@ class _AppRepository {
 
   LeApp rootWidget;
 
-  // backgroundServiceOnStart
+  final tickers = Tickers();
+
+  final rates = Rates();
 
   _AppRepository() {
     this._singletons.addAll({

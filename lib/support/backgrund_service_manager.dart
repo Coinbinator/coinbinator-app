@@ -1,16 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/support/background_service_support.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
 class BackgroundServiceManager {
   final FlutterBackgroundService _service;
 
-  final BinanceRepository _binance = new BinanceRepository();
-
-  final ExchangesMeta _meta = new ExchangesMeta();
+  final BinanceRepository _binance = instance<BinanceRepository>();
 
   int _working = 0;
 
@@ -58,37 +55,47 @@ class BackgroundServiceManager {
     print("Load exchange info ( binance )");
 
     print("  load pairs");
-    var pairs = await _binance.getExchangePairs();
-    _meta.pairs.addAll(pairs);
+    // var pairs = await _binance.getExchangePairs();
+    // _meta.pairs.addAll(pairs);
 
     // print(pairs);
 
-    print("  load tickers");
-    var tickers = (await _binance.getTickerPrice())
-        //
-        .map((ticker) => new Ticker(
-              pair: _meta.pairs.firstWhere((pair) => _binance.convertPairToSymbol(pair) == ticker.symbol),
-              price: double.tryParse(ticker.price),
-              date: DateTime.now(),
-            ));
-    _meta.tickers.addAll(tickers);
+    // print("  load tickers");
+    // var tickers = (await _binance.getTickerPrice())
+    //     //
+    //     .map((ticker) => new Ticker(
+    //           pair: _meta.pairs.firstWhere((pair) => _binance.convertPairToSymbol(pair) == ticker.symbol),
+    //           price: double.tryParse(ticker.price),
+    //           date: DateTime.now(),
+    //         ));
+    // _meta.tickers.addAll(tickers);
 
     print("  done");
   }
 
   Future<void> _checkCryptos() async {
-    try {
-      print("Check cryptos ( binance )");
-      (await _binance.getTickerPrice()).forEach((binanceTicker) {
-        final binanceTickerPair = binanceTicker.lePair;
+    await Future.wait([
+      _checkCryptosFromBinance(),
+    ]);
+  }
 
-        var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
-        //TODO: criar novo ticker se não existir aindagi
-        ticker.price = double.tryParse(binanceTicker.price);
-        ticker.date = DateTime.now();
-      });
-      _service.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(_meta.tickers)});
-      print("  done");
+  Future<void> _checkCryptosFromBinance() async {
+    try {
+      // print("Check cryptos ( binance )");
+      // final tickers = await _binance.getTickerPrice();
+      // final
+      // for (final exchangeTicker in tickers) {
+      //   if (exchangeTicker.lePair.baseCoin == null || exchangeTicker.lePair.quoteCoin == null) continue;
+      // final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair);
+
+      // }/**/
+      //     var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
+      //     //TODO: criar novo ticker se não existir aindagi
+      //     ticker.price = double.tryParse(binanceTicker.price);
+      //     ticker.date = DateTime.now();
+      //   });
+      //   _service.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(_meta.tickers)});
+      //   print("  done");
     } catch (e) {
       print("err:");
       print(e);

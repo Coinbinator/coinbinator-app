@@ -10,9 +10,12 @@ class WatchListView extends StatelessWidget {
     final model = Provider.of<WatchingPageModel>(context);
 
     return ListView(
-      scrollDirection: Axis.vertical,
+      // scrollDirection: Axis.vertical,
       children: [
-        for (final ticker in model.watchingTickers) buildListItem(context, ticker),
+        for (final ticker in model.watchingTickers) ...[
+          buildListItem(context, ticker),
+          buildListItem(context, ticker),
+        ],
       ],
     );
   }

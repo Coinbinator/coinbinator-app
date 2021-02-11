@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   void _incrementCounter(BuildContext context) {
     // var app = context.findAncestorWidgetOfExactType<LeApp>();
-    app().watchListModel.addWatchingTicker(new Ticker(pair: Pair(base: "asd", quote: "qwe")));
+    // app().watchListModel.addWatchingTicker(new Ticker(pair: Pair(base: "asd", quote: "qwe")));
     // () async {
     //   FlutterBackgroundService().sendData({"action": "stopService"});
     //

@@ -5,5 +5,17 @@ class Tickers {
 
   get tickers => _tickers;
 
-  getTicker(Exchange exchange, Pair pair) => _tickers.firstWhere((element) => element.exchange == exchange && element.pair == pair);
+  getTicker(Exchange exchange, Pair pair, {register: false}) {
+    final ticker = _tickers.firstWhere((element) => element.exchange == exchange && element.pair == pair, orElse: () => null);
+
+    if (ticker != null) return ticker;
+
+    if (register == false) return null;
+
+    final newTicker = Ticker(exchange: exchange, pair: pair, date: DateTime.now(), price: -1);
+
+    _tickers.add(newTicker);
+
+    return newTicker;
+  }
 }

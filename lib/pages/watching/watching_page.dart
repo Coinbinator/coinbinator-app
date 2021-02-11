@@ -82,77 +82,80 @@ class WatchingPageState extends State<WatchingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        if (selectingTickers()) {
-          deselectSelectedTickers();
-          return false;
-        }
-        return true;
-      },
-      child: Scaffold(
-        drawer: DefaultDrawer(),
-        appBar: AppBar(
-          // LEADING
-          leading: () {
-            if (selectingTickers())
-              return FlatButton(
-                child: Icon(Icons.close),
-                onPressed: () => deselectSelectedTickers(),
-              );
-          }(),
-          // TITLE
-          title: () {
-            if (selectingTickers()) return null;
-
-            return Text(widget.title);
-          }(),
-          // ACTIONS
-          actions: [
-            if (selectingTickers()) ...[
-              if (allTickerSelected())
-                FlatButton(
-                  child: Icon(Icons.check_box_outlined),
-                  onPressed: () => deselectSelectedTickers(),
-                ),
-              if (!allTickerSelected())
-                FlatButton(
-                  child: Icon(Icons.check_box_outline_blank),
-                  onPressed: () => selectAllTickers(),
-                ),
-              FlatButton(
-                child: Icon(Icons.delete),
-                onPressed: () => deleteSelectedTickers(),
-              ),
-            ],
-            if (!selectingTickers()) ...[
-              DropdownButton(
-                items: [
-                  DropdownMenuItem<String>(value: "USD", child: Text("USD")),
-                  DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
-                ],
-                value: "BTC",
-                onChanged: (value) => null,
-                // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
-                // child: Text("USD"),
-                // onPressed: () => null,
-              ),
-            ],
-          ],
-        ),
-        body: WatchListView(),
-        floatingActionButton: () {
+    return ChangeNotifierProvider(
+      create: (context) => WatchingPageModel(),
+      child: WillPopScope(
+        onWillPop: () async {
           if (selectingTickers()) {
-            return null;
+            deselectSelectedTickers();
+            return false;
           }
+          return true;
+        },
+        child: Scaffold(
+          drawer: DefaultDrawer(),
+          appBar: AppBar(
+            // LEADING
+            leading: () {
+              if (selectingTickers())
+                return FlatButton(
+                  child: Icon(Icons.close),
+                  onPressed: () => deselectSelectedTickers(),
+                );
+            }(),
+            // TITLE
+            title: () {
+              if (selectingTickers()) return null;
 
-          return FloatingActionButton(
-            onPressed: () => showAddWatchForm(context),
-            tooltip: 'Add Pair',
-            child: Icon(Icons.add),
-          );
-        }(),
-        bottomNavigationBar: DefaultBottomNavigationBar(),
+              return Text(widget.title);
+            }(),
+            // ACTIONS
+            actions: [
+              if (selectingTickers()) ...[
+                if (allTickerSelected())
+                  FlatButton(
+                    child: Icon(Icons.check_box_outlined),
+                    onPressed: () => deselectSelectedTickers(),
+                  ),
+                if (!allTickerSelected())
+                  FlatButton(
+                    child: Icon(Icons.check_box_outline_blank),
+                    onPressed: () => selectAllTickers(),
+                  ),
+                FlatButton(
+                  child: Icon(Icons.delete),
+                  onPressed: () => deleteSelectedTickers(),
+                ),
+              ],
+              if (!selectingTickers()) ...[
+                DropdownButton(
+                  items: [
+                    DropdownMenuItem<String>(value: "USD", child: Text("USD")),
+                    DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
+                  ],
+                  value: "BTC",
+                  onChanged: (value) => null,
+                  // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
+                  // child: Text("USD"),
+                  // onPressed: () => null,
+                ),
+              ],
+            ],
+          ),
+          body: WatchListView(),
+          floatingActionButton: () {
+            if (selectingTickers()) {
+              return null;
+            }
+
+            return FloatingActionButton(
+              onPressed: () => showAddWatchForm(context),
+              tooltip: 'Add Pair',
+              child: Icon(Icons.add),
+            );
+          }(),
+          bottomNavigationBar: DefaultBottomNavigationBar(),
+        ),
       ),
     );
   }
