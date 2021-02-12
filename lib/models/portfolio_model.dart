@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
+import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
@@ -27,7 +27,7 @@ class PortfolioModel extends ChangeNotifier {
   }
 
   Future<void> reloadAccounts() async {
-    accounts = await instance<UserRepository>().getAccounts();
+    accounts = await app().getAccounts();
     notifyListeners();
   }
 
@@ -39,6 +39,9 @@ class PortfolioModel extends ChangeNotifier {
     portfolioResumes = await Future.wait(accounts.map((account) {
       if (account is BinanceAccount) {
         return instance<BinanceRepository>().getAccountPortfolio(account: account);
+      }
+      if (account is MercadoBitcoinAccount) {
+        return instance<MercadoBitcoinRepository>().getAccountPortfolio(account: account);
       }
       throw Exception("tipo de conta desconhecido");
     }));

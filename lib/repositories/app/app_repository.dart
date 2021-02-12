@@ -5,7 +5,8 @@ import 'package:le_crypto_alerts/database/Persistence.dart';
 import 'package:le_crypto_alerts/main.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/repositories/user/user_repository.dart';
+import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
+import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 import 'package:le_crypto_alerts/support/rates.dart';
 import 'package:le_crypto_alerts/support/tickers.dart';
 
@@ -40,7 +41,7 @@ class _AppRepository {
   _AppRepository() {
     this._singletons.addAll({
       BinanceRepository: BinanceRepository(),
-      UserRepository: UserRepository(),
+      MercadoBitcoinRepository: MercadoBitcoinRepository(),
     });
   }
 
@@ -51,7 +52,27 @@ class _AppRepository {
 
     config.test_binance_api_key = env[TEST_BINANCE_API_KEY];
     config.test_binance_api_secret = env[TEST_BINANCE_API_SECRET];
+    assert(config.test_binance_api_key != null);
+    assert(config.test_binance_api_secret != null);
+
+    config.test_mercado_bitcoin_tapi_id = env[TEST_MERCADO_BITCOIN_TAPI_ID];
+    config.test_mercado_bitcoin_tapi_secret = env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
+    assert(config.test_mercado_bitcoin_tapi_id != null);
+    assert(config.test_mercado_bitcoin_tapi_secret != null);
 
     _configLoaded = true;
+  }
+
+  Future<List<Account>> getAccounts() async {
+    return [
+      BinanceAccount()
+        ..name = "Binance"
+        ..apiKey = config.test_binance_api_key
+        ..apiSecret = config.test_binance_api_secret,
+      MercadoBitcoinAccount()
+        ..name = "Mercado Bitcoin"
+        ..tapiId = config.test_mercado_bitcoin_tapi_id
+        ..tapiSecret = config.test_mercado_bitcoin_tapi_secret,
+    ];
   }
 }

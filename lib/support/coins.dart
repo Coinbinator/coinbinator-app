@@ -10,7 +10,7 @@ const _ = null;
 Coin _getCoin(String value) {
   // assert(Coins._coins[value] != null, "Coin desconhecida: $value");
 
-  return Coins._coins[value];
+  return Coins._coins[value?.toUpperCase()];
 }
 
 Map<String, Coin> _getAll() {

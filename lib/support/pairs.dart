@@ -8,7 +8,7 @@ part 'pairs.le.pairs.dart';
 const _ = null;
 
 Pair _getPair(String value) {
-  return Pairs._pairs[value];
+  return Pairs._pairs[value?.toUpperCase()];
 }
 
 List<Pair> _getAll() {

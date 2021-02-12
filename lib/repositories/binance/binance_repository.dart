@@ -11,13 +11,15 @@ import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sembast/timestamp.dart';
 
 class BinanceRepository {
+  int _serverTimeDelta;
+
   Timestamp _ratesUpdatedAt;
 
   BinanceRepository();
 
   //region DIO
 
-  Dio _dio({BinanceAccount account = null}) {
+  Dio _dio({BinanceAccount account}) {
     final dio = Dio();
     dio.interceptors.addAll([
       InterceptorsWrapper(
@@ -96,6 +98,19 @@ class BinanceRepository {
 
   //endregion
 
+  Future<int> get _timestampNormalized async {
+    //NOTE: local and server time divergence workaround
+    if (_serverTimeDelta == null) {
+      final info = await getExchangeInfo();
+      _serverTimeDelta = info.serverTime - Timestamp.now().millisecondsSinceEpoch;
+      // print(Timestamp.fromMillisecondsSinceEpoch(info.serverTime));
+    }
+    // print(Timestamp.now());
+    // print(_serverTimeDelta);
+    // print(Timestamp.fromMillisecondsSinceEpoch(Timestamp.now().millisecondsSinceEpoch + _serverTimeDelta));
+    return Timestamp.now().millisecondsSinceEpoch + _serverTimeDelta;
+  }
+
   /// Exchange Info
   Future<BinanceExchangeInformation> getExchangeInfo() async {
     try {
@@ -133,7 +148,7 @@ class BinanceRepository {
         "$BINANCE_API_URL/sapi/v1/capital/config/getall",
         account: account,
         queryParameters: {
-          "timestamp": Timestamp.now().millisecondsSinceEpoch,
+          "timestamp": await _timestampNormalized,
         },
       );
       if (response.statusCode != 200) throw HttpException("Api Error", uri: response.request.uri);

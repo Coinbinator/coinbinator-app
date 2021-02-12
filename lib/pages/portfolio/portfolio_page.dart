@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/pages/portfolio/_portfolio_card.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -15,13 +16,12 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class PortfolioPageState extends State<PortfolioPage> {
-  
   PortfolioModel model;
 
   Timer timer;
 
   PortfolioPageState() : super() {
-    timer = Timer.periodic(Duration(seconds: 5), (Timer timer) => _updateWallets());
+    // timer = Timer.periodic(Duration(seconds: 5), (Timer timer) => _updateWallets());
   }
 
   void _updateWallets() async {
@@ -31,7 +31,7 @@ class PortfolioPageState extends State<PortfolioPage> {
   @override
   void initState() {
     super.initState();
-        () async {}();
+    () async {}();
   }
 
   @override
@@ -39,8 +39,7 @@ class PortfolioPageState extends State<PortfolioPage> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<PortfolioModel>(create: (context) {
-          return model = PortfolioModel()
-            ..init();
+          return model = PortfolioModel()..init();
         }),
       ],
       builder: (context, child) {
@@ -53,52 +52,52 @@ class PortfolioPageState extends State<PortfolioPage> {
           child: Scaffold(
             drawer: DefaultDrawer(),
             appBar: AppBar(
-              // leading: () {
-              //   if (selectingTickers())
-              //     return FlatButton(
-              //       child: Icon(Icons.close),
-              //       onPressed: () => deselectSelectedTickers(),
-              //     );
-              // }(),
+                // leading: () {
+                //   if (selectingTickers())
+                //     return FlatButton(
+                //       child: Icon(Icons.close),
+                //       onPressed: () => deselectSelectedTickers(),
+                //     );
+                // }(),
 
-              // title: () {
-              //   if (selectingTickers()) return null;
-              //
-              //   return Text(widget.title);
-              // }(),
-              // ACTIONS
-              // actions: [
-              //   if (selectingTickers()) ...[
-              //     if (allTickerSelected())
-              //       FlatButton(
-              //         child: Icon(Icons.check_box_outlined),
-              //         onPressed: () => deselectSelectedTickers(),
-              //       ),
-              //     if (!allTickerSelected())
-              //       FlatButton(
-              //         child: Icon(Icons.check_box_outline_blank),
-              //         onPressed: () => selectAllTickers(),
-              //       ),
-              //     FlatButton(
-              //       child: Icon(Icons.delete),
-              //       onPressed: () => deleteSelectedTickers(),
-              //     ),
-              //   ],
-              //   if (!selectingTickers()) ...[
-              //     DropdownButton(
-              //       items: [
-              //         DropdownMenuItem<String>(value: "USD", child: Text("USD")),
-              //         DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
-              //       ],
-              //       value: "BTC",
-              //       onChanged: (value) => null,
-              //       // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
-              //       // child: Text("USD"),
-              //       // onPressed: () => null,
-              //     ),
-              //   ],
-              // ],
-            ),
+                // title: () {
+                //   if (selectingTickers()) return null;
+                //
+                //   return Text(widget.title);
+                // }(),
+                // ACTIONS
+                // actions: [
+                //   if (selectingTickers()) ...[
+                //     if (allTickerSelected())
+                //       FlatButton(
+                //         child: Icon(Icons.check_box_outlined),
+                //         onPressed: () => deselectSelectedTickers(),
+                //       ),
+                //     if (!allTickerSelected())
+                //       FlatButton(
+                //         child: Icon(Icons.check_box_outline_blank),
+                //         onPressed: () => selectAllTickers(),
+                //       ),
+                //     FlatButton(
+                //       child: Icon(Icons.delete),
+                //       onPressed: () => deleteSelectedTickers(),
+                //     ),
+                //   ],
+                //   if (!selectingTickers()) ...[
+                //     DropdownButton(
+                //       items: [
+                //         DropdownMenuItem<String>(value: "USD", child: Text("USD")),
+                //         DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
+                //       ],
+                //       value: "BTC",
+                //       onChanged: (value) => null,
+                //       // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
+                //       // child: Text("USD"),
+                //       // onPressed: () => null,
+                //     ),
+                //   ],
+                // ],
+                ),
             body: GestureDetector(
               onTap: () => _updateWallets(),
               child: ListView(
@@ -111,46 +110,8 @@ class PortfolioPageState extends State<PortfolioPage> {
                   for (final portfolio in portfolioModel.portfolioResumes)
                     Padding(
                       padding: EdgeInsets.all(10),
-                      child: Card(
-                        color: Colors.amber,
-                        margin: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text(portfolio.name),
-                              trailing: Text(E.currency(portfolio.totalUsd)),
-                            ),
-                            for (final coin in portfolio.coins) ...[
-                              ListTile(
-                                title: Text("(${coin.coin.symbol})"),
-                                subtitle: Text("${coin.coin.name}"),
-                                trailing: Text(E.currency(coin.usdRate)),
-                              ),
-                            ]
-                          ],
-                        ),
-                      ),
+                      child: PortfolioCard(portfolio: portfolio),
                     ),
-
-                  // if (wallet0 != null)
-                  for (var entry in model.portfolioResumes)
-                    Card(
-                      child: Column(children: [
-                        Text(entry.name),
-                        for (var coin in entry.coins) ...[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(coin.coin.symbol),
-                              Text(E.currency(coin.usdRate, symbol: "", decimalDigits: 5)),
-                            ],
-                          ),
-                        ],
-                        // Text(entry["coin"]),
-                        // Text(entry.toString()),
-                      ]),
-                      //     ),
-                    )
                 ],
               ),
             ),
