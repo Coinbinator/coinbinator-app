@@ -65,9 +65,10 @@ class MercadoBitcoinRepository {
           PortfolioWalletCoin()
             ..coin = Coins.getCoin(e.key)
             ..amount = double.tryParse(e.value.total)
-            ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD)
-            ..btcRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$BTC)
+            ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD, amount: double.tryParse(e.value.total))
+            ..btcRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$BTC, amount: double.tryParse(e.value.total))
       ]
+      //NOTE: removendo registros com zero balance
       ..coins.removeWhere((element) => element.coin == null || element.amount <= 0);
   }
 }

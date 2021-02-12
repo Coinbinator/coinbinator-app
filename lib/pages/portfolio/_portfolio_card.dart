@@ -1,5 +1,7 @@
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 class PortfolioCard extends StatelessWidget {
@@ -30,36 +32,43 @@ class PortfolioCard extends StatelessWidget {
             title: Text(portfolio.name),
             trailing: Text(E.currency(portfolio.totalUsd)),
           ),
-
-          Container(
-            width: 1000,
-            height: 400,
-            child: charts.PieChart(seriesList,
-                animate: false,
-                // Configure the width of the pie slices to 60px. The remaining space in
-                // the chart will be left as a hole in the center.
-                //
-                // [ArcLabelDecorator] will automatically position the label inside the
-                // arc if the label will fit. If the label will not fit, it will draw
-                // outside of the arc with a leader line. Labels can always display
-                // inside or outside using [LabelPosition].
-                //
-                // Text style for inside / outside can be controlled independently by
-                // setting [insideLabelStyleSpec] and [outsideLabelStyleSpec].
-                //
-                // Example configuring different styles for inside/outside:
-                //       new charts.ArcLabelDecorator(
-                //          insideLabelStyleSpec: new charts.TextStyleSpec(...),
-                //          outsideLabelStyleSpec: new charts.TextStyleSpec(...)),
-                defaultRenderer: new charts.ArcRendererConfig(arcWidth: 60, arcRendererDecorators: [new charts.ArcLabelDecorator()])),
+          Table(
+            children: [
+              TableRow(children: [
+                Center(child: Text(portfolio.name)),
+                Align(alignment: Alignment.centerRight, child: Text(E.currency(portfolio.totalUsd))),
+              ]),
+              for (final coin in portfolio.coins)
+                TableRow(
+                  children: [
+                    Center(child: Text(coin.coin.symbol)),
+                    Align(alignment: Alignment.centerRight, child: Text(E.currency(coin.usdRate))),
+                  ],
+                )
+            ],
           ),
-          // for (final coin in portfolio.coins) ...[
-          //   ListTile(
-          //     title: Text("(${coin.coin.symbol})"),
-          //     subtitle: Text("${coin.coin.name}"),
-          //     trailing: Text(E.currency(coin.usdRate)),
-          //   ),
-          // ]
+          // GridView.count(
+          //   shrinkWrap: true,
+          //   primary: true,
+          //   crossAxisCount: 3,
+          //
+          //   physics: NeverScrollableScrollPhysics(),
+          //   children: [
+          //     for (final coin in portfolio.coins)
+          //       Column(
+          //         children: [
+          //           Text(coin.coin.symbol),
+          //           Text(E.currency(coin.usdRate)),
+          //         ],
+          //       )
+          //   ],
+          // ),
+          // Container(
+          //   width: 1000,
+          //   height: 400,
+          //   child: charts.PieChart(seriesList,
+          //       animate: false, defaultRenderer: new charts.ArcRendererConfig(arcWidth: 60, arcRendererDecorators: [new charts.ArcLabelDecorator()])),
+          // ),
         ],
       ),
     );
