@@ -7,6 +7,7 @@ import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
+import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:provider/provider.dart';
 
 // void printHello() {
@@ -76,9 +77,9 @@ class LeApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
               title: 'Le Crypto Alerts',
               theme: ThemeData(
-                primarySwatch: Colors.blueGrey,
+                primarySwatch: LeColors.primary,
+                accentColor: LeColors.accent,
                 visualDensity: VisualDensity.adaptivePlatformDensity,
-                accentColor: Colors.amberAccent,
               ),
               home: WillPopScope(
                   onWillPop: () async {

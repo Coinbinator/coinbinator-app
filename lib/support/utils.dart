@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 import 'package:le_crypto_alerts/support/coins.dart';
 
 part "utils.g.dart";
@@ -111,7 +112,10 @@ class BinanceApiAuthInfo {
 }
 
 class PortfolioWalletResume {
+  Account account;
+
   String name;
+
   List<PortfolioWalletCoin> coins;
 
   double get totalUsd => coins.map((e) => e.usdRate).fold(0, (x, y) => x + y);
@@ -125,7 +129,7 @@ class PortfolioWalletCoin {
 }
 
 abstract class E {
-  static String currency(value, {String locale, String name, String symbol, int decimalDigits: 2}) {
+  static String currency(value, {String locale, String name = '\$', String symbol, int decimalDigits: 2}) {
     final formatter = new NumberFormat.currency(locale: locale, name: name, symbol: symbol, decimalDigits: decimalDigits);
 
     return formatter.format(value);

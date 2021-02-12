@@ -59,6 +59,7 @@ class MercadoBitcoinRepository {
     final accountInfo = await getAccountInfo(account: account);
 
     return PortfolioWalletResume()
+      ..account = account
       ..name = account.name
       ..coins = [
         for (var e in accountInfo.responseData.balance.entries)

@@ -9,13 +9,18 @@ import 'package:le_crypto_alerts/support/utils.dart';
 
 class PortfolioModel extends ChangeNotifier {
   bool initialized = false;
+
   bool working = false;
+
   bool updatingPortfolios = false;
+
   DateTime updatedPortfoliosAt;
 
   List<Account> accounts = [];
 
   List<PortfolioWalletResume> portfolioResumes = [];
+
+  Map<int, bool> portfolioCardsOpened = {};
 
   Future<void> init() async {
     if (initialized) return;
@@ -48,6 +53,15 @@ class PortfolioModel extends ChangeNotifier {
 
     updatedPortfoliosAt = DateTime.now();
     updatingPortfolios = false;
+    notifyListeners();
+  }
+
+  bool isCardOpened(int id) {
+    return portfolioCardsOpened[id] == true;
+  }
+
+  void toggleCardOpened(int id) {
+    portfolioCardsOpened[id] = !(portfolioCardsOpened[id] == true);
     notifyListeners();
   }
 }

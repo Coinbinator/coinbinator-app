@@ -2,7 +2,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:le_crypto_alerts/models/portfolio_model.dart';
+import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:provider/provider.dart';
 
 class PortfolioCard extends StatelessWidget {
   final PortfolioWalletResume portfolio;
@@ -23,53 +26,64 @@ class PortfolioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<PortfolioModel>(context);
     return Card(
-      color: Colors.amber,
-      margin: EdgeInsets.all(10),
-      child: Column(
-        children: [
-          ListTile(
-            title: Text(portfolio.name),
-            trailing: Text(E.currency(portfolio.totalUsd)),
-          ),
-          Table(
-            children: [
-              TableRow(children: [
-                Center(child: Text(portfolio.name)),
-                Align(alignment: Alignment.centerRight, child: Text(E.currency(portfolio.totalUsd))),
-              ]),
-              for (final coin in portfolio.coins)
-                TableRow(
-                  children: [
-                    Center(child: Text(coin.coin.symbol)),
-                    Align(alignment: Alignment.centerRight, child: Text(E.currency(coin.usdRate))),
-                  ],
-                )
-            ],
-          ),
-          // GridView.count(
-          //   shrinkWrap: true,
-          //   primary: true,
-          //   crossAxisCount: 3,
-          //
-          //   physics: NeverScrollableScrollPhysics(),
-          //   children: [
-          //     for (final coin in portfolio.coins)
-          //       Column(
-          //         children: [
-          //           Text(coin.coin.symbol),
-          //           Text(E.currency(coin.usdRate)),
-          //         ],
-          //       )
-          //   ],
-          // ),
-          // Container(
-          //   width: 1000,
-          //   height: 400,
-          //   child: charts.PieChart(seriesList,
-          //       animate: false, defaultRenderer: new charts.ArcRendererConfig(arcWidth: 60, arcRendererDecorators: [new charts.ArcLabelDecorator()])),
-          // ),
-        ],
+      color: LeColors.white.shade50,
+      margin: EdgeInsets.fromLTRB(2, 0, 2, 0),
+      elevation: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            /// HEADER
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(portfolio.name, style: LeColors.t18m),
+                      Text(E.currency(portfolio.totalUsd), style: LeColors.t22b),
+                    ],
+                  ),
+                ),
+                Center(
+                  child: IconButton(icon: Icon(Icons.arrow_downward), onPressed: () => model.toggleCardOpened(portfolio.account.id)),
+                ),
+              ],
+            ),
+
+            /// Coins List
+            if (model.portfolioCardsOpened[portfolio.account.id] == true)
+              Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: [
+                  for (final coin in portfolio.coins)
+                    TableRow(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(coin.coin.symbol),
+                            Text(coin.coin.name, style: LeColors.t09m),
+                          ],
+                        ),
+                        Align(
+                            widthFactor: 1,
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              E.currency(coin.usdRate),
+                              style: LeColors.t18b,
+                            )),
+                      ],
+                    )
+                ],
+              ),
+          ],
+        ),
       ),
     );
   }
