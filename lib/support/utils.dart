@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
@@ -140,5 +142,21 @@ abstract class E {
       return double.tryParse(value) ?? 0;
     }
     return (value as num).toDouble();
+  }
+}
+
+class Debouncer {
+  final Duration delay;
+  Timer _timer;
+
+  Debouncer({this.delay = const Duration(milliseconds: 300)});
+
+  call(Function action) {
+    _timer?.cancel();
+    _timer = Timer(delay, action);
+  }
+
+  void dispose() {
+    _timer?.cancel();
   }
 }

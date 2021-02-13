@@ -1,5 +1,4 @@
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
@@ -29,7 +28,7 @@ class PortfolioCard extends StatelessWidget {
     final model = Provider.of<PortfolioModel>(context);
     return Card(
       color: LeColors.white.shade50,
-      margin: EdgeInsets.fromLTRB(2, 0, 2, 0),
+      // margin: EdgeInsets.fromLTRB(2, 0, 2, 0),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -51,13 +50,16 @@ class PortfolioCard extends StatelessWidget {
                   ),
                 ),
                 Center(
-                  child: IconButton(icon: Icon(Icons.arrow_downward), onPressed: () => model.toggleCardOpened(portfolio.account.id)),
+                  child: IconButton(
+                    icon: Icon(model.isCardOpened(portfolio.account.id) ? Icons.remove : Icons.add ),
+                    onPressed: () => model.toggleCardOpened(portfolio.account.id),
+                  ),
                 ),
               ],
             ),
 
             /// Coins List
-            if (model.portfolioCardsOpened[portfolio.account.id] == true)
+            if (model.isCardOpened(portfolio.account.id) == true)
               Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [

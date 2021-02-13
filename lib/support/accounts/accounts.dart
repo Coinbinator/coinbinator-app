@@ -1,3 +1,5 @@
+import 'package:le_crypto_alerts/support/utils.dart';
+
 abstract class AccountTypes {
   static const NONE = null;
   static const BINANCE = "binance";
@@ -15,6 +17,8 @@ abstract class Account {
 
   int id;
   String name;
+
+  Exchange getExchange();
 }
 
 class BinanceAccount extends Account {
@@ -22,6 +26,9 @@ class BinanceAccount extends Account {
 
   String apiKey;
   String apiSecret;
+
+  @override
+  Exchange getExchange() => Exchanges.Binance;
 }
 
 class MercadoBitcoinAccount extends Account {
@@ -29,4 +36,7 @@ class MercadoBitcoinAccount extends Account {
 
   String tapiId;
   String tapiSecret;
+
+  @override
+  Exchange getExchange() => Exchanges.MercadoBitcoin;
 }

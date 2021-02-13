@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/pages/_common/DefaultLinearProgressIndicator.dart';
 import 'package:le_crypto_alerts/pages/portfolio/_portfolio_card.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioPage extends StatefulWidget {
@@ -20,18 +21,27 @@ class PortfolioPageState extends State<PortfolioPage> {
 
   Timer timer;
 
-  PortfolioPageState() : super() {
-    // timer = Timer.periodic(Duration(seconds: 5), (Timer timer) => _updateWallets());
-  }
-
-  void _updateWallets() async {
+  Future<void> _updateWallets() async {
     await model.updatePortfolios();
   }
 
   @override
   void initState() {
     super.initState();
+    if (timer == null) {
+      // timer = Timer.periodic(Duration(seconds: 15), (Timer timer) => _updateWallets());
+    }
+
     () async {}();
+  }
+
+  @override
+  @mustCallSuper
+  void dispose() {
+    if (timer != null) {
+      timer.cancel();
+    }
+    super.dispose();
   }
 
   @override
@@ -52,67 +62,49 @@ class PortfolioPageState extends State<PortfolioPage> {
           child: Scaffold(
             drawer: DefaultDrawer(),
             appBar: AppBar(
-                // leading: () {
-                //   if (selectingTickers())
-                //     return FlatButton(
-                //       child: Icon(Icons.close),
-                //       onPressed: () => deselectSelectedTickers(),
-                //     );
-                // }(),
-
-                // title: () {
-                //   if (selectingTickers()) return null;
-                //
-                //   return Text(widget.title);
-                // }(),
-                // ACTIONS
-                // actions: [
-                //   if (selectingTickers()) ...[
-                //     if (allTickerSelected())
-                //       FlatButton(
-                //         child: Icon(Icons.check_box_outlined),
-                //         onPressed: () => deselectSelectedTickers(),
-                //       ),
-                //     if (!allTickerSelected())
-                //       FlatButton(
-                //         child: Icon(Icons.check_box_outline_blank),
-                //         onPressed: () => selectAllTickers(),
-                //       ),
-                //     FlatButton(
-                //       child: Icon(Icons.delete),
-                //       onPressed: () => deleteSelectedTickers(),
-                //     ),
-                //   ],
-                //   if (!selectingTickers()) ...[
-                //     DropdownButton(
-                //       items: [
-                //         DropdownMenuItem<String>(value: "USD", child: Text("USD")),
-                //         DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
-                //       ],
-                //       value: "BTC",
-                //       onChanged: (value) => null,
-                //       // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
-                //       // child: Text("USD"),
-                //       // onPressed: () => null,
-                //     ),
-                //   ],
-                // ],
-                ),
-            body: GestureDetector(
-              onTap: () => _updateWallets(),
-              child: ListView(
+              actionsIconTheme: IconThemeData(
+                color: LeColors.white,
+              ),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(""
-                      " updating: ${portfolioModel.updatingPortfolios}"
-                      " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                      " accounts: ${portfolioModel.portfolioResumes.length}"
-                      ""),
-                  for (final portfolio in portfolioModel.portfolioResumes)
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: PortfolioCard(portfolio: portfolio),
-                    ),
+                  Icon(Icons.account_balance_wallet),
+                  Text(
+                    " Portfolios",
+                    style: LeColors.t22b,
+                  ),
                 ],
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.refresh),
+                  onPressed: () => model.updatePortfolios(),
+                ),
+                IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: () => model.updatePortfolios(),
+                ),
+              ],
+              bottom: DefaultLinearProgressIndicatorSized(
+                value: model.updatingPortfolios ? null : 0,
+              ),
+            ),
+
+            body: RefreshIndicator(
+              onRefresh: _updateWallets,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: ListView(
+                  children: [
+                    // Text(""
+                    //     " updating: ${portfolioModel.updatingPortfolios}"
+                    //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
+                    //     " accounts: ${portfolioModel.portfolioResumes.length}"
+                    //     ""),
+                    for (final portfolio in portfolioModel.portfolioResumes) PortfolioCard(portfolio: portfolio),
+                  ],
+                ),
               ),
             ),
             // floatingActionButton: () {
@@ -131,14 +123,5 @@ class PortfolioPageState extends State<PortfolioPage> {
         );
       },
     );
-  }
-
-  @override
-  @mustCallSuper
-  void dispose() {
-    super.dispose();
-    print("close cron");
-
-    if (timer != null) timer.cancel();
   }
 }

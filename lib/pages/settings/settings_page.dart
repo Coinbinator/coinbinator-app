@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/pages/settings/portfolios_page.dart';
+import 'package:le_crypto_alerts/pages/settings/manage_accounts_page.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key key}) : super(key: key);
@@ -16,21 +16,21 @@ class SettingsPageState extends State<SettingsPage> {
         return true;
       },
       child: Scaffold(
-        // drawer: DefaultDrawer(),
-        body: GestureDetector(
-          child: ListView(
-            children: [
-              ListTile(
-                leading: Icon(Icons.account_balance_wallet),
-                title: Text('Portfolios'),
-                subtitle: Text("Manage portfolio accounts"),
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => PortfoliosPage()));
-                },
-                // trailing: Icon(Icons.keyboard_arrow_right),
-              ),
-            ],
-          ),
+        appBar: AppBar(
+          title: Text("Settings"),
+        ),
+        body: ListView(
+          children: [
+            ListTile(
+              leading: Icon(Icons.account_balance_wallet),
+              title: Text('Accounts'),
+              subtitle: Text("Manage your accounts"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ManageAccountsPage()));
+              },
+              // trailing: Icon(Icons.keyboard_arrow_right),
+            ),
+          ],
         ),
       ),
     );

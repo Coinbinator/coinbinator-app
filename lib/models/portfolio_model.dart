@@ -53,6 +53,7 @@ class PortfolioModel extends ChangeNotifier {
 
     updatedPortfoliosAt = DateTime.now();
     updatingPortfolios = false;
+
     notifyListeners();
   }
 

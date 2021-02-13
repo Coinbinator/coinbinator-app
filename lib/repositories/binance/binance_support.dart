@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:le_crypto_alerts/support/coins.dart';
 import 'package:le_crypto_alerts/support/pairs.dart';

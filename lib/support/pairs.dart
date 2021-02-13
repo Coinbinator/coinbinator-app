@@ -12,5 +12,5 @@ Pair _getPair(String value) {
 }
 
 List<Pair> _getAll() {
-  return Pairs._pairs.values.toList();
+  return Pairs._pairs.values.toSet().toList();
 }

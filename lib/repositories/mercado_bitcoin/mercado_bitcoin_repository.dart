@@ -5,12 +5,9 @@ import 'package:dio/dio.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 import 'package:le_crypto_alerts/support/coins.dart';
-import 'package:le_crypto_alerts/support/pairs.dart';
-import 'package:le_crypto_alerts/support/rates.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_support.dart';
 import 'package:sembast/timestamp.dart';
-import 'package:sqflite/utils/utils.dart';
 
 const API_URL = 'https://www.mercadobitcoin.com.br/api/';
 const TAPI_URL = 'https://www.mercadobitcoin.com.br/tapi/v3/';
@@ -37,11 +34,7 @@ class MercadoBitcoinRepository {
           'TAPI-MAC': signatureStr,
         }));
 
-    // c39b16cb44cc3bc468aeffafbb80d42fc0e1fee024c933e1b3face6555c0f51018ccb4d35f4e6bff63b5a41290d2cf78e143454a66a6ab31b2c3599068923885
-    // c39b16cb44cc3bc468aeffafbb80d42fc0e1fee024c933e1b3face6555c0f51018ccb4d35f4e6bff63b5a41290d2cf78e143454a66a6ab31b2c3599068923885
-    // 7f59ea8749ba596d5c23fa242a531746b918e5e61c9f6c8663a699736db503980f3a507ff7e2ef1336f7888d684a06c9a460d18290e7b738a61d03e25ffdeb76
-
-    print(json.encode(response.data));
+    // print(json.encode(response.data));
 
     return response.data;
   }
@@ -69,7 +62,7 @@ class MercadoBitcoinRepository {
             ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD, amount: double.tryParse(e.value.total))
             ..btcRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$BTC, amount: double.tryParse(e.value.total))
       ]
-      //NOTE: removendo registros com zero balance
+      //NOTE: removendo registros com balance zero
       ..coins.removeWhere((element) => element.coin == null || element.amount <= 0);
   }
 }

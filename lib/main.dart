@@ -3,12 +3,15 @@ import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
+import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:provider/provider.dart';
+
+import 'consts.dart';
 
 // void printHello() {
 //   final DateTime now = DateTime.now();
@@ -67,11 +70,6 @@ class LeApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider<AppModel>(create: (context) => AppModel()),
-          // ChangeNotifierProvider<WatchingPageModel>(create: (context) {
-          //   //TODO: rever inicializado dos models "raiz"
-          //   app().watchListModel.initialize();
-          //   return app().watchListModel;
-          // }),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),
         builder: (context, child) => MaterialApp(
@@ -81,8 +79,19 @@ class LeApp extends StatelessWidget {
                 accentColor: LeColors.accent,
                 visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
+              initialRoute: ROUTE_ROOT,
+              routes: {
+                ROUTE_WATCHING: (context) => WatchingPage(),
+                ROUTE_PORTFOLIO: (context) => PortfolioPage(),
+                ROUTE_SETTINGS: (context) => SettingsPage(),
+              },
               home: WillPopScope(
                   onWillPop: () async {
+                    // final x = ModalRoute?.of(context);
+                    // final y = x?.settings;
+                    // final z = y?.name;
+
+                    // final y  = Navigator.of(context).
                     return false;
                   },
                   child: WatchingPage(title: "MAIN")),
@@ -90,18 +99,12 @@ class LeApp extends StatelessWidget {
   }
 
   void navigateToWatching(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => WatchingPage(title: "page 1"),
-        ));
+    //TODO: rever necessidade desses metodos de rotas ( com o pushNamed perderam o sentido )
+    Navigator.pushNamed(context, ROUTE_WATCHING);
   }
 
   void navigateToPortfolio(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => PortfolioPage(),
-        ));
+    //TODO: rever necessidade desses metodos de rotas ( com o pushNamed perderam o sentido )
+    Navigator.pushNamed(context, ROUTE_PORTFOLIO);
   }
 }
