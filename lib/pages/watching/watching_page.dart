@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
 import 'package:le_crypto_alerts/pages/watching/_watch_list_view.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
@@ -61,7 +62,17 @@ class WatchingPageState extends State<WatchingPage> {
     });
   }
 
-  void deleteSelectedTickers() {
+  Future<void> deleteSelectedTickers() async {
+    bool denial = !await askConfirmation(
+      context,
+      title: Text("Remove pair watch?"),
+      content: Text("Remove ${selectedTickerWatches.length} pairs watches?"),
+    );
+
+    if (denial) {
+      return;
+    }
+
     setState(() {
       final model = Provider.of<WatchingPageModel>(context, listen: false);
 
@@ -71,7 +82,7 @@ class WatchingPageState extends State<WatchingPage> {
           .where((ticker) => selectedTickerWatches.contains(ticker.key))
           .toSet() //note: estava dando um erro de remoção durante iteração
           .forEach(
-            (ticker) => model.removeWatchingTicker(ticker),
+            (ticker) => model.removeTickerWatch(ticker),
           );
 
       deselectSelectedTickers();
@@ -105,7 +116,7 @@ class WatchingPageState extends State<WatchingPage> {
           title: _appBarTitle(),
           actions: _appBarActions(),
         ),
-        body: WatchListView(),
+        body:  WatchListView(),
         floatingActionButton: _floatingActionButton(),
         bottomNavigationBar: DefaultBottomNavigationBar(),
       ),
@@ -114,8 +125,8 @@ class WatchingPageState extends State<WatchingPage> {
 
   Widget _appBarLeading() {
     if (selectingTickerWatches()) {
-      return FlatButton(
-        child: Icon(Icons.close),
+      return IconButton(
+        icon: Icon(Icons.close),
         onPressed: () => deselectSelectedTickers(),
       );
     }
@@ -163,10 +174,22 @@ class WatchingPageState extends State<WatchingPage> {
       ));
     }
 
+    if (!selectingTickerWatches()) {
+      actions.add(PopupMenuButton(
+        initialValue: "BTC",
+        itemBuilder: (context) => [
+          PopupMenuCustomItem(),
+        ],
+        onSelected: (value) => print(value),
+      ));
+    }
+
     return actions;
   }
 
   FloatingActionButton _floatingActionButton() {
+    return null;
+
     if (selectingTickerWatches()) {
       return null;
     }
@@ -175,6 +198,50 @@ class WatchingPageState extends State<WatchingPage> {
       onPressed: () => startAddTickerWatch(),
       tooltip: 'Add Watch',
       child: Icon(Icons.add),
+    );
+  }
+}
+
+class PopupMenuCustomItem extends PopupMenuEntry {
+  @override
+  State<StatefulWidget> createState() => _PopupMenuCustomItem();
+
+  @override
+  double get height => kMinInteractiveDimension;
+
+  @override
+  bool represents(value) {
+    return false;
+  }
+}
+
+class _PopupMenuCustomItem extends State<PopupMenuCustomItem> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("USD"), child: Text("Add pair watch"))),
+          ],
+        ),
+        Text("Show prices in:"),
+        Row(
+          children: [
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("USD"), child: Text("USD"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("BTC"), child: Text("BTC"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("BRL"), child: Text("BRL"))),
+          ],
+        ),
+        Text("Sort by:"),
+        Row(
+          children: [
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("name"), child: Text("name"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("price"), child: Text("price"))),
+            // FlatButton(onPressed: () => null, child: Text("BTC"), color: LeColors.accent),
+          ],
+        ),
+      ],
     );
   }
 }

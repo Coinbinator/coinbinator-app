@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -10,15 +12,23 @@ class WatchListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<WatchingPageModel>(context);
 
-    return ListView(
-      children: [
-        for (final tickerWatch in model.watchingTickers) ...[
-          buildListItem(
-            context,
-            tickerWatch,
-            app().tickers.getTickerFromTickerWatch(tickerWatch),
-          ),
-        ],
+    return CustomScrollView(
+      slivers: [
+        // SliverMenu(c),
+        // SliverAppBar()
+        // SliverMenu(
+        SliverPersistentHeader(
+          pinned: true,
+          floating: true,
+          delegate: WatchListViewMenuDelegate(),
+        ),
+        // ),
+        SliverList(
+            delegate: SliverChildListDelegate([
+          for (final tickerWatch in model.watchingTickers) ...[
+            buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
+          ],
+        ]))
       ],
     );
   }
@@ -84,6 +94,38 @@ class WatchListView extends StatelessWidget {
               ],
             ),
           )),
+    );
+  }
+}
+
+class WatchListViewMenuDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  double get maxExtent => 40;
+
+  @override
+  double get minExtent => 0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: LeColors.white.shade50,
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            OutlinedButton(
+              onPressed: () => context.findAncestorStateOfType<WatchingPageState>().startAddTickerWatch(),
+              child: Text("Add watch"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

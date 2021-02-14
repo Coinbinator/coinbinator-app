@@ -30,17 +30,6 @@ class WatchingPageModel extends ChangeNotifier with AppTickerListener {
       }
       tickerWatches.toString();
     });
-    // await Persistence.instance.openx((db) async {
-    //   (await db.query(Persistence.WHATCHING_TICKERS))
-    //       //
-    //       .map((e) => TickerWatch(
-    //             exchange: Exchanges.Binance,
-    //             pair: Pairs.getPair(e['base'] + e['quote']),
-    //             // price: -1,
-    //             date: DateTime.fromMillisecondsSinceEpoch(0),
-    //           ))
-    //       .forEach((ticker) => addWatchingTicker(ticker));
-    // });
 
     this.initialized = true;
     notifyListeners();
@@ -100,14 +89,14 @@ class WatchingPageModel extends ChangeNotifier with AppTickerListener {
     notifyListeners();
   }
 
-  FutureOr<void> removeWatchingTicker(TickerWatch tickerWatch) async {
-    // await Persistence.instance.openx((db) async {
-    //   await db.delete(
-    //       //
-    //       Persistence.WHATCHING_TICKERS,
-    //       where: "id = ?",
-    //       whereArgs: [ticker.key]);
-    // });
+  FutureOr<void> removeTickerWatch(TickerWatch tickerWatch) async {
+    await app().persistence((db) async {
+      await db.delete(
+        Persistence.WATCHING_TICKERS,
+        where: "id = ?",
+        whereArgs: [tickerWatch.key],
+      );
+    });
 
     watchingTickers.removeWhere((_tickerWatch) => _tickerWatch.key == tickerWatch.key);
     watchingTickerTickers.remove(tickerWatch);
