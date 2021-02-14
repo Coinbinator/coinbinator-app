@@ -9,7 +9,7 @@ class Persistence {
 
   static const VERSION_CURRENT = VERSION_1;
 
-  static const WHATCHING_TICKERS = "watching_tickers";
+  static const WATCHING_TICKERS = "watching_tickers";
 
   static Persistence _instance;
 
@@ -54,28 +54,40 @@ class Persistence {
   }
 
   FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) {
-    var commands = {
-      1: [
-        //
-        "CREATE TABLE coins(id VARCHAR(140) PRIMARY KEY, name VARCHAR(50), symbol VARCHAR(50))",
-        "CREATE TABLE pairs(id VARCHAR(140) PRIMARY KEY, base VARCHAR(50), quote VARCHAR(50))",
-        "CREATE TABLE watching_tickers(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50))",
-        """
+    final commands = {
+      1: (Batch batch) {
+        batch.execute("CREATE TABLE coins(id VARCHAR(140) PRIMARY KEY, name VARCHAR(50), symbol VARCHAR(50))");
+        batch.execute("CREATE TABLE pairs(id VARCHAR(140) PRIMARY KEY, base VARCHAR(50), quote VARCHAR(50))");
+        batch.execute("CREATE TABLE watching_tickers(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50))");
+        batch.execute("""
           CREATE TABLE accounts(
-              id INTEGER AUTOINCREMENT PRIMARY KEY, 
+              id INTEGER PRIMARY KEY AUTOINCREMENT, 
               name VARCHAR(140), 
               type VARCHAR(50),
-              extras TEXT,
+              extras TEXT
           )
-        """,
-      ],
-    }
-        // Filtrar os comandos para fazer o migration para a versão correta
-        .entries
-        .where((element) => element.key > oldVersion && element.key <= newVersion)
-        .map((e) => e.value.join(";\n"))
-        .join(";\n");
+        """);
+      },
+    };
 
-    return db.execute(commands);
+    /// Filtrar os comandos para fazer o migration para a versão correta
+    final updaters = commands.entries.where((element) => element.key > oldVersion && element.key <= newVersion).map((e) => e.value); //.fold<List<String>>(List<String>(), (previousValue, element) => previousValue..addAll(element.value));
+
+    if (updaters.isEmpty) return null;
+
+    final batch = db.batch();
+
+    for (final updater in updaters) updater(batch);
+
+    return batch.commit();
+  }
+
+  call(FutureOr<void> Function(Database db) fun) {
+    return openx((db) async {
+      final result = fun(db);
+      if (result is Future) {
+        await result;
+      }
+    });
   }
 }

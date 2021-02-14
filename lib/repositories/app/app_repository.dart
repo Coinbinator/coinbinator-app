@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/consts.dart';
@@ -9,6 +10,7 @@ import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_re
 import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 import 'package:le_crypto_alerts/support/rates.dart';
 import 'package:le_crypto_alerts/support/tickers.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 
 part 'app_repository_support.dart';
 
@@ -24,17 +26,21 @@ T instance<T>() {
 class _AppRepository {
   static final _instance = _AppRepository();
 
+  bool _configLoaded = false;
+
   final config = _AppConfig();
+
+  final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
   final persistence = Persistence();
 
   final _singletons = Map<Type, dynamic>();
 
-  bool _configLoaded = false;
-
   LeApp rootWidget;
 
   final tickers = Tickers();
+
+  final tickerListeners = List<AppTickerListener>();
 
   final rates = Rates();
 

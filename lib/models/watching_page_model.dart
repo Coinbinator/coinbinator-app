@@ -2,100 +2,126 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:sqflite/sqflite.dart';
 
-class WatchingPageModel extends ChangeNotifier {
+class WatchingPageModel extends ChangeNotifier with AppTickerListener {
   bool initialized = false;
 
-  bool working = false;
+  final List<TickerWatch> watchingTickers = [];
 
-  final List<Ticker> tickers = [];
+  final Map<TickerWatch, Ticker> watchingTickerTickers = {};
 
-  final List<Ticker> watchingTickers = [];
+  WatchingPageModel() {
+    app().tickerListeners.add(this);
+  }
 
   Future<void> initialize() async {
-    await Persistence.instance.openx((db) async {
-      (await db.query(Persistence.WHATCHING_TICKERS))
-          //
-          .map((e) => Ticker(
-                exchange: Exchanges.Binance,
-                pair: Pairs.getPair(e['base'] + e['quote']),
-                price: -1,
-                date: DateTime.fromMillisecondsSinceEpoch(0),
-              ))
-          .forEach((ticker) => addWatchingTicker(ticker));
+    if (this.initialized) return;
+
+    await app().persistence((db) async {
+      final tickerWatches = (await db.query(Persistence.WATCHING_TICKERS));
+      for (final tickerWatch in tickerWatches) {
+        final exchange = Exchanges.getExchange(tickerWatch["exchange"]);
+        final pair = Pairs.getPair("${tickerWatch['base']}${tickerWatch['quote']}");
+        watchingTickers.add(TickerWatch(exchange: exchange, pair: pair));
+      }
+      tickerWatches.toString();
     });
+    // await Persistence.instance.openx((db) async {
+    //   (await db.query(Persistence.WHATCHING_TICKERS))
+    //       //
+    //       .map((e) => TickerWatch(
+    //             exchange: Exchanges.Binance,
+    //             pair: Pairs.getPair(e['base'] + e['quote']),
+    //             // price: -1,
+    //             date: DateTime.fromMillisecondsSinceEpoch(0),
+    //           ))
+    //       .forEach((ticker) => addWatchingTicker(ticker));
+    // });
+
     this.initialized = true;
     notifyListeners();
   }
 
-  void addTicker(Ticker ticker) {
-    assert(ticker != null, "nao podemos adicionar um ticker nulo");
+  // void addTicker(Ticker ticker) {
+  //   assert(ticker != null, "nao podemos adicionar um ticker nulo");
+  //
+  //   tickers.add(ticker);
+  //
+  //   notifyListeners();
+  // }
 
-    tickers.add(ticker);
+  // void updateTicker(Ticker newTicker) {
+  //   assert(newTicker != null, "nao podemos atualizar um ticker nulo");
+  //
+  //   final ticker = tickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
+  //   ticker?.price = newTicker.price;
+  //   ticker?.date = newTicker.date;
+  //
+  //   final watchingTicker = watchingTickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
+  //   watchingTicker?.price = newTicker.price;
+  //   watchingTicker?.date = newTicker.date;
+  //
+  //   notifyListeners();
+  // }
 
-    notifyListeners();
-  }
+  // void updateTickers(List<Ticker> tickers) {
+  //   tickers.forEach((ticker) => updateTicker(ticker));
+  //
+  //   notifyListeners();
+  // }
 
-  void updateTicker(Ticker newTicker) {
-    assert(newTicker != null, "nao podemos atualizar um ticker nulo");
+  FutureOr<void> addTickerWatch(TickerWatch tickerWatch) async {
+    //TODO: adicionar suporte ao multiplas exchanges no watch list
+    var watchingTicker = watchingTickers.firstWhere((element) => element.pair.eq(tickerWatch.pair), orElse: () => null);
 
-    final ticker = tickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
-    ticker?.price = newTicker.price;
-    ticker?.date = newTicker.date;
-
-    final watchingTicker = watchingTickers.firstWhere((item) => item.key == newTicker.key, orElse: () => null);
-    watchingTicker?.price = newTicker.price;
-    watchingTicker?.date = newTicker.date;
-
-    notifyListeners();
-  }
-
-  void updateTickers(List<Ticker> tickers) {
-    tickers.forEach((ticker) => updateTicker(ticker));
-
-    notifyListeners();
-  }
-
-  FutureOr<void> addWatchingTicker(Ticker ticker) async {
-    var watchingTicker = watchingTickers.firstWhere(
-      (element) => element.pair.eq(ticker.pair),
-      orElse: () => null,
-    );
     if (watchingTicker != null) {
-      // todo: adicionar um warning "adicionadno watch repetido"
       return;
     }
 
-    await (await Persistence.instance.open()).insert(
-        //
-        Persistence.WHATCHING_TICKERS,
-        {
-          "id": ticker.key,
-          "exchange": ticker.exchange.id,
-          "base": ticker.pair.base,
-          "quote": ticker.pair.quote,
-        },
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    await app().persistence((db) async {
+      await db.insert(
+          Persistence.WATCHING_TICKERS,
+          {
+            "id": tickerWatch.key,
+            "exchange": tickerWatch.exchange.id,
+            "base": tickerWatch.pair.base,
+            "quote": tickerWatch.pair.quote,
+          },
+          conflictAlgorithm: ConflictAlgorithm.replace);
+    });
 
-    watchingTickers.add(ticker);
-    working = false;
+    watchingTickers.add(tickerWatch);
+
+    // watchingTickerTickers[ticker] = app().tickers.getTickerFromWatch(exchange, pair);
     notifyListeners();
   }
 
-  FutureOr<void> removeWatchingTicker(Ticker ticker) async {
-    await Persistence.instance.openx((db) async {
-      await db.delete(
-          //
-          Persistence.WHATCHING_TICKERS,
-          where: "id = ?",
-          whereArgs: [ticker.key]);
-    });
+  FutureOr<void> removeWatchingTicker(TickerWatch tickerWatch) async {
+    // await Persistence.instance.openx((db) async {
+    //   await db.delete(
+    //       //
+    //       Persistence.WHATCHING_TICKERS,
+    //       where: "id = ?",
+    //       whereArgs: [ticker.key]);
+    // });
 
-    watchingTickers.removeWhere((element) => element.key == ticker.key);
-
+    watchingTickers.removeWhere((_tickerWatch) => _tickerWatch.key == tickerWatch.key);
+    watchingTickerTickers.remove(tickerWatch);
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    app().tickerListeners.remove(this);
+    super.dispose();
+  }
+
+  @override
+  FutureOr<void> onTicker(Ticker ticker) {
+    throw UnimplementedError();
   }
 }

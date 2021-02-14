@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:intl/intl.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
+import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
 import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
@@ -79,22 +80,22 @@ class LeApp extends StatelessWidget {
                 accentColor: LeColors.accent,
                 visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
-              initialRoute: ROUTE_ROOT,
+              // initialRoute: ROUTE_ROOT,
+              navigatorObservers: [
+                app().routeObserver,
+              ],
               routes: {
-                ROUTE_WATCHING: (context) => WatchingPage(),
+                // ROUTE_ROOT: (context) => HomePage(),
+                ROUTE_WATCHING: (context) => MultiProvider(
+                      providers: [
+                        ChangeNotifierProvider<WatchingPageModel>(create: (context) => WatchingPageModel()..initialize()),
+                      ],
+                      builder: (context, child) => WatchingPage(),
+                    ),
                 ROUTE_PORTFOLIO: (context) => PortfolioPage(),
                 ROUTE_SETTINGS: (context) => SettingsPage(),
               },
-              home: WillPopScope(
-                  onWillPop: () async {
-                    // final x = ModalRoute?.of(context);
-                    // final y = x?.settings;
-                    // final z = y?.name;
-
-                    // final y  = Navigator.of(context).
-                    return false;
-                  },
-                  child: WatchingPage(title: "MAIN")),
+              // home: HomePage(),
             ));
   }
 

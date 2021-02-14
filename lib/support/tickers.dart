@@ -18,4 +18,8 @@ class Tickers {
 
     return newTicker;
   }
+
+  getTickerFromTickerWatch(TickerWatch tickerWatch) {
+    return getTicker(tickerWatch.exchange, tickerWatch.pair);
+  }
 }

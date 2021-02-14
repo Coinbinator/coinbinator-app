@@ -24,6 +24,16 @@ abstract class Exchanges {
   static const Binance = Exchange(id: 'BINANCE', name: "Binance");
   static const Coinbase = Exchange(id: 'COINBASE', name: "Coinbase");
   static const MercadoBitcoin = Exchange(id: "MERCADO_BITCOIN", name: "MercadoBitcoin");
+
+  static getExchange(dynamic value) {
+    if (value == null) return null;
+
+    if (value == Binance.id) return Binance;
+    if (value == Coinbase.id) return Coinbase;
+    if (value == MercadoBitcoin.id) return MercadoBitcoin;
+
+    throw Exception("Exchange não encontrada: $value}");
+  }
 }
 
 @JsonSerializable()
@@ -40,9 +50,7 @@ class Coin {
   static Coin fromJson(json) => _$CoinFromJson(json);
 
   @override
-  String toString() {
-    return 'Coin:$symbol';
-  }
+  String toString() => 'Coin($key)';
 }
 
 @JsonSerializable()
@@ -69,6 +77,9 @@ class Pair {
   Map<String, dynamic> toJson() => _$PairToJson(this);
 
   static Pair fromJson(json) => _$PairFromJson(json);
+
+  @override
+  String toString() => 'Pair($key)';
 }
 
 @JsonSerializable()
@@ -94,6 +105,24 @@ class Ticker {
   Map<String, dynamic> toJson() => _$TickerToJson(this);
 
   static Ticker fromJson(json) => _$TickerFromJson(json);
+
+  @override
+  String toString() => 'Ticker($key)';
+}
+
+class TickerWatch {
+  final Exchange exchange;
+  final Pair pair;
+
+  String get key => '${exchange.id}:${pair.key}';
+
+  TickerWatch({
+    this.exchange,
+    this.pair,
+  });
+
+  @override
+  String toString() => 'TickerWatch($key)';
 }
 
 class ExchangesMeta {
@@ -128,6 +157,10 @@ class PortfolioWalletCoin {
   double amount;
   double btcRate;
   double usdRate;
+}
+
+abstract class AppTickerListener {
+  FutureOr<void> onTicker(Ticker ticker);
 }
 
 abstract class E {

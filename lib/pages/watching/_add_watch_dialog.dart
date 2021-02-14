@@ -6,7 +6,7 @@ import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
-class _AddWatchDialogModel extends ChangeNotifier {
+class _AddWachtModel extends ChangeNotifier {
   bool initialized = false;
 
   final searchDebouncer = Debouncer();
@@ -28,8 +28,7 @@ class _AddWatchDialogModel extends ChangeNotifier {
         if ("${element.base}:${element.quote}".indexOf(query) > -1) return true;
 
         return false;
-      })
-      .toList();
+      }).toList();
 
   Future<void> init() async {
     if (initialized) return;
@@ -82,12 +81,12 @@ class AddWatchModal extends PopupRoute {
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<_AddWatchDialogModel>(create: (context) {
-          return _AddWatchDialogModel()..init();
+        ChangeNotifierProvider<_AddWachtModel>(create: (context) {
+          return _AddWachtModel()..init();
         }),
       ],
       builder: (context, child) {
-        final model = Provider.of<_AddWatchDialogModel>(context);
+        final model = Provider.of<_AddWachtModel>(context);
 
         return SafeArea(
           child: Material(
@@ -103,14 +102,14 @@ class AddWatchModal extends PopupRoute {
                 width: MediaQuery.of(context).size.width - 12,
                 child: Column(
                   children: [
+                    /// TOP SEARCH FIELD
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-
-                      /// TOP SEARCH
                       child: Row(
                         children: [
                           Expanded(
                             child: TextFormField(
+                              autocorrect: false,
                               controller: model.searchController,
                               decoration: InputDecoration(
                                 icon: Icon(Icons.search),
@@ -137,6 +136,7 @@ class AddWatchModal extends PopupRoute {
                           for (final i in model.filteredParis)
                             ListTile(
                               title: Text("${i.base}/${i.quote}"),
+                              onTap: () => Navigator.of(context).pop(i),
                             ),
                         ],
                       ),

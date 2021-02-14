@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
-import 'package:le_crypto_alerts/pages/watching/watch_list_view.dart';
+import 'package:le_crypto_alerts/pages/watching/_watch_list_view.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
@@ -10,170 +10,171 @@ import 'package:provider/provider.dart';
 import '_add_watch_dialog.dart';
 
 class WatchingPage extends StatefulWidget {
-  WatchingPage({Key key, this.title = ""}) : super(key: key);
-
-  final String title;
-
   @override
   WatchingPageState createState() => WatchingPageState();
 }
 
 class WatchingPageState extends State<WatchingPage> {
-  Set<String> selectedTickers = Set<String>();
+  WatchingPageModel get model => Provider.of<WatchingPageModel>(context, listen: false);
 
-  WatchingPageModel get model => Provider.of<WatchingPageModel>(context);
+  Set<String> selectedTickerWatches = Set<String>();
 
-  bool selectingTickers() {
-    if (selectedTickers.length > 0) {
+  bool selectingTickerWatches() {
+    if (selectedTickerWatches.length > 0) {
       return true;
     }
     return false;
   }
 
-  bool allTickerSelected() {
-    if (selectedTickers.length == model.watchingTickers.length) {
+  bool allTickerWatchesSelected() {
+    if (selectedTickerWatches.length == model.watchingTickers.length) {
       return true;
     }
-
     return false;
   }
 
-  void selectTicker(Ticker ticker) {
+  void selectTickerWatch(TickerWatch tickerWatch) {
     setState(() {
-      selectedTickers.add(ticker.key);
+      selectedTickerWatches.add(tickerWatch.key);
     });
   }
 
-  void toggleTicker(Ticker ticker) {
+  void toggleTickerWatch(TickerWatch tickerWatch) {
     setState(() {
-      if (selectedTickers.contains(ticker.key)) {
-        selectedTickers.remove(ticker.key);
+      if (selectedTickerWatches.contains(tickerWatch.key)) {
+        selectedTickerWatches.remove(tickerWatch.key);
         return;
       }
-      selectedTickers.add(ticker.key);
+      selectedTickerWatches.add(tickerWatch.key);
     });
   }
 
   void deselectSelectedTickers() {
     setState(() {
-      selectedTickers.clear();
+      selectedTickerWatches.clear();
     });
   }
 
   void selectAllTickers() {
     setState(() {
-      model.watchingTickers.forEach((ticker) => selectedTickers.add(ticker.key));
+      model.watchingTickers.forEach((tickerWatch) => selectedTickerWatches.add(tickerWatch.key));
     });
   }
 
   void deleteSelectedTickers() {
     setState(() {
-      model.watchingTickers.where((ticker) => selectedTickers.contains(ticker.key)).forEach((ticker) => model.removeWatchingTicker(ticker));
+      final model = Provider.of<WatchingPageModel>(context, listen: false);
+
+      model
+          //
+          .watchingTickers
+          .where((ticker) => selectedTickerWatches.contains(ticker.key))
+          .toSet() //note: estava dando um erro de remoção durante iteração
+          .forEach(
+            (ticker) => model.removeWatchingTicker(ticker),
+          );
+
       deselectSelectedTickers();
     });
   }
 
-  void showAddWatchForm(BuildContext context) {
+  Future<void> startAddTickerWatch() async {
+    final selectedPair = await Navigator.of(context).push(new AddWatchModal());
+    if (selectedPair == null) return;
 
-    Navigator.of(context).push(new AddWatchModal());
-
-    // showModalBottomSheet(context: context, builder: (_) => AddWatchDialog(parentContext: context));
-    // showDialog(context: context, builder: (_) => AddWatchDialog(parentContext: context));
-    // showGeneralDialog(context: context, pageBuilder: (context, animation, secondaryAnimation) => AddWatchDialog(parentContext: context),);
+    final model = Provider.of<WatchingPageModel>(context, listen: false);
+    model.addTickerWatch(TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
   }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<WatchingPageModel>(create: (context) => WatchingPageModel()),
-      ],
-      builder: (context, child) {
-        return WillPopScope(
-          onWillPop: () async {
-            if (selectingTickers()) {
-              deselectSelectedTickers();
-              return false;
-            }
-            return true;
-          },
-          child: Scaffold(
-            drawer: DefaultDrawer(),
-            appBar: AppBar(
-              // LEADING
-              leading: () {
-                if (selectingTickers())
-                  return FlatButton(
-                    child: Icon(Icons.close),
-                    onPressed: () => deselectSelectedTickers(),
-                  );
-              }(),
-              // TITLE
-              title: () {
-                if (selectingTickers()) return null;
+    final model = Provider.of<WatchingPageModel>(context);
 
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.widgets),
-                    Text(
-                      " Watching",
-                      style: LeColors.t22b,
-                    ),
-                  ],
-                );
-              }(),
-
-              // ACTIONS
-              actions: [
-                if (selectingTickers()) ...[
-                  if (allTickerSelected())
-                    FlatButton(
-                      child: Icon(Icons.check_box_outlined),
-                      onPressed: () => deselectSelectedTickers(),
-                    ),
-                  if (!allTickerSelected())
-                    FlatButton(
-                      child: Icon(Icons.check_box_outline_blank),
-                      onPressed: () => selectAllTickers(),
-                    ),
-                  FlatButton(
-                    child: Icon(Icons.delete),
-                    onPressed: () => deleteSelectedTickers(),
-                  ),
-                ],
-                if (!selectingTickers()) ...[
-                  DropdownButton(
-                    items: [
-                      DropdownMenuItem<String>(value: "USD", child: Text("USD")),
-                      DropdownMenuItem<String>(value: "BTC", child: Text("BTC")),
-                    ],
-                    value: "BTC",
-                    onChanged: (value) => null,
-                    // selectedItemBuilder: (context) => [ElevatedButton(child: Text("BTC"))],
-                    // child: Text("USD"),
-                    // onPressed: () => null,
-                  ),
-                ],
-              ],
-            ),
-            body: WatchListView(),
-            floatingActionButton: () {
-              if (selectingTickers()) {
-                return null;
-              }
-
-              return FloatingActionButton(
-                onPressed: () => showAddWatchForm(context),
-                tooltip: 'Add Pair',
-                child: Icon(Icons.add),
-              );
-            }(),
-            bottomNavigationBar: DefaultBottomNavigationBar(),
-          ),
-        );
+    return WillPopScope(
+      onWillPop: () async {
+        if (selectingTickerWatches()) {
+          deselectSelectedTickers();
+          return false;
+        }
+        return true;
       },
+      child: Scaffold(
+        drawer: DefaultDrawer(),
+        appBar: AppBar(
+          leading: _appBarLeading(),
+          title: _appBarTitle(),
+          actions: _appBarActions(),
+        ),
+        body: WatchListView(),
+        floatingActionButton: _floatingActionButton(),
+        bottomNavigationBar: DefaultBottomNavigationBar(),
+      ),
+    );
+  }
+
+  Widget _appBarLeading() {
+    if (selectingTickerWatches()) {
+      return FlatButton(
+        child: Icon(Icons.close),
+        onPressed: () => deselectSelectedTickers(),
+      );
+    }
+
+    return null;
+  }
+
+  Widget _appBarTitle() {
+    if (selectingTickerWatches()) {
+      return null;
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(Icons.widgets),
+        Text(
+          " Watching",
+          style: LeColors.t22b,
+        ),
+      ],
+    );
+  }
+
+  List<Widget> _appBarActions() {
+    final actions = List<Widget>();
+
+    if (selectingTickerWatches()) {
+      if (allTickerWatchesSelected())
+        actions.add(IconButton(
+          icon: Icon(Icons.check_box_outlined),
+          onPressed: () => deselectSelectedTickers(),
+        ));
+
+      if (!allTickerWatchesSelected())
+        actions.add(IconButton(
+          icon: Icon(Icons.check_box_outline_blank),
+          onPressed: () => selectAllTickers(),
+        ));
+
+      actions.add(IconButton(
+        icon: Icon(Icons.delete),
+        onPressed: () => deleteSelectedTickers(),
+      ));
+    }
+
+    return actions;
+  }
+
+  FloatingActionButton _floatingActionButton() {
+    if (selectingTickerWatches()) {
+      return null;
+    }
+
+    return FloatingActionButton(
+      onPressed: () => startAddTickerWatch(),
+      tooltip: 'Add Watch',
+      child: Icon(Icons.add),
     );
   }
 }
