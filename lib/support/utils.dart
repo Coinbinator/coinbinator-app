@@ -61,9 +61,9 @@ class Pair {
 
   get key => "$base/$quote";
 
-  get baseCoin => Coins.getCoin(base);
+  Coin get baseCoin => Coins.getCoin(base);
 
-  get quoteCoin => Coins.getCoin(quote);
+  Coin get quoteCoin => Coins.getCoin(quote);
 
   const Pair({this.base, this.quote});
 

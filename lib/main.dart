@@ -1,3 +1,4 @@
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:intl/intl.dart';
@@ -23,6 +24,9 @@ import 'consts.dart';
 LeApp leApp;
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await AndroidAlarmManager.initialize();
   await app().loadConfig();
   Intl.defaultLocale = "en_US";
 

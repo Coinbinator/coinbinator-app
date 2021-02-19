@@ -1,8 +1,10 @@
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/alarming.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
@@ -120,7 +122,13 @@ class WatchListViewMenuDelegate extends SliverPersistentHeaderDelegate {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             OutlinedButton(
-              onPressed: () => context.findAncestorStateOfType<WatchingPageState>().startAddTickerWatch(),
+              onPressed: () {
+                print("click");
+                // AndroidAlarmManager.periodic(Duration(seconds: 5), 0, clack, alarmClock: true, wakeup:true);;
+                // AndroidAlarmManager.oneShot(Duration(seconds: 5), ALARM_ID_DEFAULT, alarm__defaultCallback, wakeup:true, exact: true, );
+                alarm__defaultCallback(null);
+                // context.findAncestorStateOfType<WatchingPageState>().startAddTickerWatch()
+              },
               child: Text("Add watch"),
             ),
           ],
