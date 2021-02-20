@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:le_crypto_alerts/consts.dart';
+import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 
 class HomePage extends StatefulWidget {

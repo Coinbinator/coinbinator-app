@@ -31,6 +31,7 @@ abstract class LeColors {
 
   static const MaterialColor grey = MaterialColor(0xff8B8B92, <int, Color>{
     50: Color(0xffCBCBD7),
+    100: Color(0xffFA72737),
     200: Color(0xffB6B6C0),
     400: Color(0xffA0A0A9),
     500: Color(0xff8B8B92),

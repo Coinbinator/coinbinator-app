@@ -7,9 +7,6 @@ import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
-const ALARM_ID_DEFAULT = 0;
-const ALARM_MIN_USER_ALARMS = 100;
-
 class AlarmDefaultHandler {
   final List<CryptoPairAlert> alerts = [
     CryptoPairAlert(

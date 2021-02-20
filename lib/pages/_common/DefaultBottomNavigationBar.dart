@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/consts.dart';
-import 'package:le_crypto_alerts/main.dart';
+import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/pages/le_app.dart';
 
 class _RouteInfo {
   final String routeName;

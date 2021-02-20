@@ -1,52 +1,78 @@
 import 'dart:async';
 
-import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:le_crypto_alerts/support/background_service_support.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 
 class BackgroundServiceManager {
-  final FlutterBackgroundService _service;
+  final BackgroundServiceBridge _bridge;
 
   final BinanceRepository _binance = instance<BinanceRepository>();
 
   int _working = 0;
 
-  BackgroundServiceManager(this._service) : super() {
-    _service.setForegroundMode(true);
-    _service.setAutoStartOnBootMode(true);
-    _service.onDataReceived.listen((event) => _serviceOnDataReceived(event));
+  BackgroundServiceManager(this._bridge) : super();
+
+  start() async {
+    Timer.periodic(Duration(seconds: 5), _tick);
   }
 
-  void start() async {
-    await _loadExchangeInfo();
+  _tick(Timer timer) async {
+    print("tick tock");
 
-    Timer.periodic(Duration(seconds: 5), (timer) async {
-      //NOTE: is service still running
-      if (!(await _service.isServiceRunning())) {
-        timer.cancel();
-        return;
+    final accounts = await app().getAccounts();
+
+    final watchingModel = WatchingPageModel();
+    await watchingModel.initialize();
+
+    // print(watchingModel.watchingTickers);
+
+    final exchanges = Set<Exchange>.from([
+      ...accounts.map((e) => e.getExchange()),
+      ...watchingModel.watchingTickers.map((e) => e.exchange),
+    ]);
+
+    for (final exchange in exchanges) {
+      switch (exchange) {
+        case Exchanges.Binance:
+          _checkCryptosFromBinance();
+          break;
+        // case Exchanges.MercadoBitcoin:
+        //   _checkCryptosFromBinance();
+        //   break;
       }
+    }
 
-      //NOTE: we are working before the last work completed?
-      _working += 1;
-      if (_working > 1) return;
+    // await _loadExchangeInfo();
 
-      await _checkCryptos();
+    //NOTE: is service still running
+    if (!(await _bridge.isServiceRunning())) {
+      timer.cancel();
+      return;
+    }
 
-      // await Future.delayed(Duration(seconds: 5));
+    //NOTE: we are working before the last work completed?
+    // _working += 1;
+    // if (_working > 1) return;
+    //
+    // await _checkCryptos();
 
-      // _service.setNotificationInfo(
-      //   title: "My App Service",
-      //   content: "- Updated at ${DateTime.now()}",
-      // );
-      //
-      // _service.sendData(
-      //   {"current_date": DateTime.now().toIso8601String()},
-      // );
+    // await Future.delayed(Duration(seconds: 5));
 
-      // print("X $_working");
-      _working = 0;
-    });
+    // _service.setNotificationInfo(
+    //   title: "My App Service",
+    //   content: "- Updated at ${DateTime.now()}",
+    // );
+    //
+    // _service.sendData(
+    //   {"current_date": DateTime.now().toIso8601String()},
+    // );
+
+    // print("X $_working");
+    // _working = 0;
   }
 
   Future<void> _loadExchangeInfo() async {
@@ -73,29 +99,33 @@ class BackgroundServiceManager {
     print("  done");
   }
 
-  Future<void> _checkCryptos() async {
-    await Future.wait([
-      _checkCryptosFromBinance(),
-    ]);
-  }
+  // Future<void> _checkCryptos() async {
+  //   await Future.wait([
+  //     _checkCryptosFromBinance(),
+  //   ]);
+  // }
 
   Future<void> _checkCryptosFromBinance() async {
     try {
-      // print("Check cryptos ( binance )");
-      // final tickers = await _binance.getTickerPrice();
-      // final
-      // for (final exchangeTicker in tickers) {
-      //   if (exchangeTicker.lePair.baseCoin == null || exchangeTicker.lePair.quoteCoin == null) continue;
-      // final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair);
+      print("Check cryptos ( binance )");
+      final tickers = await _binance.getTickerPrice();
 
-      // }/**/
-      //     var ticker = _meta.tickers.firstWhere((ticker) => _binance.convertPairToSymbol(ticker.pair) == binanceTicker.symbol);
-      //     //TODO: criar novo ticker se não existir aindagi
-      //     ticker.price = double.tryParse(binanceTicker.price);
-      //     ticker.date = DateTime.now();
-      //   });
-      //   _service.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(_meta.tickers)});
-      //   print("  done");
+      final updaterTickers = List<Ticker>.of([]);
+
+      for (final exchangeTicker in tickers) {
+        // print( exchangeTicker ); print( exchangeTicker.lePair);
+        final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair, register: true);
+
+        if (ticker == null) continue;
+
+        ticker.price = double.tryParse(exchangeTicker.price);
+        ticker.date = DateTime.now();
+
+        updaterTickers.add(ticker);
+      }
+
+      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(updaterTickers)});
+      print("  done");
     } catch (e) {
       print("err:");
       print(e);
@@ -106,17 +136,17 @@ class BackgroundServiceManager {
     print("---");
     print(event);
 
-    if (event["action"] == "setAsForeground") {
-      _service.setForegroundMode(true);
-      return;
-    }
-
-    if (event["action"] == "setAsBackground") {
-      _service.setForegroundMode(false);
-    }
-
-    if (event["action"] == "stopService") {
-      _service.stopBackgroundService();
-    }
+    // if (event["action"] == "setAsForeground") {
+    //   _bridge.setForegroundMode(true);
+    //   return;
+    // }
+    //
+    // if (event["action"] == "setAsBackground") {
+    //   _bridge.setForegroundMode(false);
+    // }
+    //
+    // if (event["action"] == "stopService") {
+    //   _bridge.stopBackgroundService();
+    // }
   }
 }

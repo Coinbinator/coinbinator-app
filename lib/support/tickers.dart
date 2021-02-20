@@ -1,11 +1,13 @@
 import 'package:le_crypto_alerts/support/utils.dart';
 
 class Tickers {
-  final _tickers = List<Ticker>();
+  final _tickers = List<Ticker>.empty(growable: true);
 
   get tickers => _tickers;
 
   getTicker(Exchange exchange, Pair pair, {register: false}) {
+    if (exchange == null || pair == null) return null;
+
     final ticker = _tickers.firstWhere((element) => element.exchange == exchange && element.pair == pair, orElse: () => null);
 
     if (ticker != null) return ticker;

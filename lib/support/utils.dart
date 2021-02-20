@@ -18,6 +18,9 @@ class Exchange {
   Map<String, dynamic> toJson() => _$ExchangeToJson(this);
 
   static Exchange fromJson(json) => _$ExchangeFromJson(json);
+
+  @override
+  String toString() => "Exchange:$id";
 }
 
 abstract class Exchanges {
@@ -192,4 +195,8 @@ class Debouncer {
   void dispose() {
     _timer?.cancel();
   }
+}
+
+T value<T>(Function() func) {
+  return func() as T;
 }

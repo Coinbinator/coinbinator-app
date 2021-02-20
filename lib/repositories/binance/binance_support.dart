@@ -19,6 +19,9 @@ class BinanceTickerPrice {
   toJson() => _$BinanceTickerPriceToJson(this);
 
   static BinanceTickerPrice fromJson(json) => _$BinanceTickerPriceFromJson(json);
+
+  @override
+  String toString() => 'BinanceTickerPrice:$symbol';
 }
 
 @JsonSerializable()
