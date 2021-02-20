@@ -63,7 +63,9 @@ class Persistence {
       1: (common.Batch batch) {
         batch.execute("CREATE TABLE coins(id VARCHAR(140) PRIMARY KEY, name VARCHAR(50), symbol VARCHAR(50))");
         batch.execute("CREATE TABLE pairs(id VARCHAR(140) PRIMARY KEY, base VARCHAR(50), quote VARCHAR(50))");
+        batch.execute("CREATE TABLE ticker(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50)), updated_at INT, price REAL");
         batch.execute("CREATE TABLE watching_tickers(id VARCHAR(140) PRIMARY KEY, exchange VARCHAR(50), base VARCHAR(50), quote VARCHAR(50))");
+
         batch.execute("""
           CREATE TABLE accounts(
               id INTEGER PRIMARY KEY AUTOINCREMENT, 

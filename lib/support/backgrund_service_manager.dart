@@ -21,7 +21,19 @@ class BackgroundServiceManager {
   }
 
   _tick(Timer timer) async {
-    print("tick tock");
+    // print("tick tock");
+    _bridge.sendData({'type': 'ping'});
+    return;
+    if (_bridge == null) {
+      print("no bridge");
+      return;
+    }
+
+    //NOTE: is service still running
+    if (!(await _bridge.isServiceRunning())) {
+      timer.cancel();
+      return;
+    }
 
     final accounts = await app().getAccounts();
 
@@ -47,12 +59,6 @@ class BackgroundServiceManager {
     }
 
     // await _loadExchangeInfo();
-
-    //NOTE: is service still running
-    if (!(await _bridge.isServiceRunning())) {
-      timer.cancel();
-      return;
-    }
 
     //NOTE: we are working before the last work completed?
     // _working += 1;
@@ -148,5 +154,11 @@ class BackgroundServiceManager {
     // if (event["action"] == "stopService") {
     //   _bridge.stopBackgroundService();
     // }
+  }
+
+  void onDataReceived(Map<String, dynamic> event) {
+    print('manager received: ');
+    print(event);
+    print('---');
   }
 }

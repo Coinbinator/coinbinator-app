@@ -20,6 +20,9 @@ void main() {
       final exchangeInfo = await instance<BinanceRepository>().getExchangeInfo();
 
       expect(exchangeInfo, isA<BinanceExchangeInformation>());
+
+
+
     });
   });
 

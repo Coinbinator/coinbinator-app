@@ -5,7 +5,7 @@ import 'package:le_crypto_alerts/repositories/background_service/bridges/desktop
 import 'package:le_crypto_alerts/repositories/background_service/bridges/mobile_background_service_bridge.dart';
 
 class BackgroundServiceRepository {
-  DesktopBackgroundServiceBridge _bridge;
+  BackgroundServiceBridge _bridge;
 
   Future<void> initialize() async {
     _bridge = getPlatformBackgroundServiceBridge();
@@ -16,7 +16,7 @@ class BackgroundServiceRepository {
 
   static getPlatformBackgroundServiceBridge() {
     /// Mobile
-    if (Platform.isAndroid) return MobileBackgroundServiceBridge();
+    if (Platform.isAndroid) return MobileBackgroundServiceBridge(scope: MobileBackgroundServiceBridgeScope.APPLICATION);
 
     /// Desktop
     if (Platform.isLinux) return DesktopBackgroundServiceBridge();

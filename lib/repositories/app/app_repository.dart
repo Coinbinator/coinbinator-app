@@ -42,7 +42,7 @@ class _AppRepository {
 
   final tickers = Tickers();
 
-  final tickerListeners = List<AppTickerListener>();
+  final tickerListeners = List<AppTickerListener>.empty(growable: true);
 
   final rates = Rates();
 
