@@ -133,17 +133,17 @@ class ExchangesMeta {
   var tickers = new List<Ticker>();
 }
 
-enum ExchangesApiInfoType { BINANCE }
+// enum ExchangesApiInfoType { BINANCE }
 
-@JsonSerializable()
-class BinanceApiAuthInfo {
-  final type = ExchangesApiInfoType.BINANCE;
-  String name;
-  String apiKey;
-  String apiSecret;
-
-  BinanceApiAuthInfo({this.name, this.apiKey, this.apiSecret});
-}
+// @JsonSerializable()
+// class BinanceApiAuthInfo {
+//   final type = ExchangesApiInfoType.BINANCE;
+//   String name;
+//   String apiKey;
+//   String apiSecret;
+//
+//   BinanceApiAuthInfo({this.name, this.apiKey, this.apiSecret});
+// }
 
 class PortfolioWalletResume {
   Account account;
@@ -178,22 +178,6 @@ abstract class E {
       return double.tryParse(value) ?? 0;
     }
     return (value as num).toDouble();
-  }
-}
-
-class Debouncer {
-  final Duration delay;
-  Timer _timer;
-
-  Debouncer({this.delay = const Duration(milliseconds: 300)});
-
-  call(Function action) {
-    _timer?.cancel();
-    _timer = Timer(delay, action);
-  }
-
-  void dispose() {
-    _timer?.cancel();
   }
 }
 

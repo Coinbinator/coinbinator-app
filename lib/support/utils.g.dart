@@ -61,18 +61,3 @@ Map<String, dynamic> _$TickerToJson(Ticker instance) => <String, dynamic>{
       'price': instance.price,
       'date': instance.date?.toIso8601String(),
     };
-
-BinanceApiAuthInfo _$BinanceApiAuthInfoFromJson(Map<String, dynamic> json) {
-  return BinanceApiAuthInfo(
-    name: json['name'] as String,
-    apiKey: json['apiKey'] as String,
-    apiSecret: json['apiSecret'] as String,
-  );
-}
-
-Map<String, dynamic> _$BinanceApiAuthInfoToJson(BinanceApiAuthInfo instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'apiKey': instance.apiKey,
-      'apiSecret': instance.apiSecret,
-    };

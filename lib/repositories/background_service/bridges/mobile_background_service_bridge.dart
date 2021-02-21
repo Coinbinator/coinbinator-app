@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:le_crypto_alerts/repositories/background_service/background_service_manager.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
-import 'package:le_crypto_alerts/support/backgrund_service_manager.dart';
-
-enum MobileBackgroundServiceBridgeScope {
-  APPLICATION,
-  SERVICE,
-}
 
 class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
   static MobileBackgroundServiceBridge instance;
 
-  final MobileBackgroundServiceBridgeScope scope;
-
   BackgroundServiceManager manager;
 
-  MobileBackgroundServiceBridge({this.scope}) {
+  MobileBackgroundServiceBridge({scope: BackgroundServiceBridgeScope}) : super(scope: scope) {
     if (instance != null) throw Exception("Terando criar multiplos mobile background managers.");
     instance = this;
   }
@@ -24,14 +17,14 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
     print("(bridge:$scope) initialize");
 
     /// INITIALIZE application bridge
-    if (scope == MobileBackgroundServiceBridgeScope.APPLICATION) {
+    if (scope == BackgroundServiceBridgeScope.APPLICATION) {
       await FlutterBackgroundService.initialize(flutterBackgroundService__onStart);
       FlutterBackgroundService()..onDataReceived.listen(flutterBackgroundService__onDataReceived__fromService);
       return;
     }
 
     /// INITIALIZE service bridge
-    if (scope == MobileBackgroundServiceBridgeScope.SERVICE) {
+    if (scope == BackgroundServiceBridgeScope.SERVICE) {
       FlutterBackgroundService()
         ..setForegroundMode(true)
         ..setAutoStartOnBootMode(true)
@@ -66,14 +59,13 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
 
     if (event['type'] == 'pong') sendData({"type": "ping ponned"});
   }
-
 }
 
 // ignore: non_constant_identifier_names
 void flutterBackgroundService__onStart() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final bridge = MobileBackgroundServiceBridge(scope: MobileBackgroundServiceBridgeScope.SERVICE);
+  final bridge = MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.SERVICE);
   await bridge.initialize();
 }
 

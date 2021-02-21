@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'floor_persistence.dart';
+part of 'persistence.dart';
 
 // **************************************************************************
 // FloorGenerator
@@ -120,6 +120,16 @@ class _$AppDao extends AppDao {
                   'exchange': item.exchange,
                   'base': item.base,
                   'quote': item.quote
+                }),
+        _tickerWatchEntityDeletionAdapter = DeletionAdapter(
+            database,
+            'ticker_watches',
+            ['id'],
+            (TickerWatchEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'exchange': item.exchange,
+                  'base': item.base,
+                  'quote': item.quote
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -131,6 +141,8 @@ class _$AppDao extends AppDao {
   final InsertionAdapter<TickerEntity> _tickerEntityInsertionAdapter;
 
   final InsertionAdapter<TickerWatchEntity> _tickerWatchEntityInsertionAdapter;
+
+  final DeletionAdapter<TickerWatchEntity> _tickerWatchEntityDeletionAdapter;
 
   @override
   Future<List<TickerEntity>> findTickers() async {
@@ -158,7 +170,7 @@ class _$AppDao extends AppDao {
   }
 
   @override
-  Future<List<TickerWatchEntity>> findTickerWatches() async {
+  Future<List<TickerWatchEntity>> findAllTickerWatches() async {
     return _queryAdapter.queryList('SELECT * FROM ticker_watches',
         mapper: (Map<String, dynamic> row) => TickerWatchEntity(
             row['id'] as String,
@@ -188,5 +200,10 @@ class _$AppDao extends AppDao {
   Future<int> insertTickerWatch(TickerWatchEntity ticker) {
     return _tickerWatchEntityInsertionAdapter.insertAndReturnId(
         ticker, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<int> deleteTickerWatch(TickerWatchEntity ticker) {
+    return _tickerWatchEntityDeletionAdapter.deleteAndReturnChangedRows(ticker);
   }
 }

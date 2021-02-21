@@ -4,10 +4,6 @@ import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
 
 @dao
 abstract class AppDao {
-
-
-
-
   /* TickerEntity  */
 
   @Query("SELECT * FROM tickers ")
@@ -22,11 +18,14 @@ abstract class AppDao {
   /* TickerWatchEntity  */
 
   @Query("SELECT * FROM ticker_watches ")
-  Future<List<TickerWatchEntity>> findTickerWatches();
+  Future<List<TickerWatchEntity>> findAllTickerWatches();
 
   @Query("SELECT * FROM ticker_watches WHERE id = :id")
   Future<TickerWatchEntity> findTickerWatchById(String id);
 
   @insert
   Future<int> insertTickerWatch(TickerWatchEntity ticker);
+
+  @delete
+  Future<int> deleteTickerWatch(TickerWatchEntity ticker);
 }

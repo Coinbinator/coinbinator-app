@@ -8,18 +8,21 @@ class BackgroundServiceRepository {
   BackgroundServiceBridge _bridge;
 
   Future<void> initialize() async {
-    _bridge = getPlatformBackgroundServiceBridge();
-    _bridge.listeners.add(this);
+    _bridge = getPlatformBackgroundServiceBridge()
+      ..onDataReceived.listen((event) {
+        print("event from app bridge");
+        print(event);
+      });
 
     await _bridge.initialize();
   }
 
-  static getPlatformBackgroundServiceBridge() {
+  static BackgroundServiceBridge getPlatformBackgroundServiceBridge() {
     /// Mobile
-    if (Platform.isAndroid) return MobileBackgroundServiceBridge(scope: MobileBackgroundServiceBridgeScope.APPLICATION);
+    if (Platform.isAndroid) return MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// Desktop
-    if (Platform.isLinux) return DesktopBackgroundServiceBridge();
+    if (Platform.isLinux) return DesktopBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// not supported platform
     throw Exception("plataforma nao suportada");

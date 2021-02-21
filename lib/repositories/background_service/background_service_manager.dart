@@ -21,22 +21,19 @@ class BackgroundServiceManager {
   }
 
   _tick(Timer timer) async {
-    // print("tick tock");
-    _bridge.sendData({'type': 'ping'});
-    return;
     if (_bridge == null) {
       print("no bridge");
       return;
     }
 
-    //NOTE: is service still running
     if (!(await _bridge.isServiceRunning())) {
       timer.cancel();
       return;
     }
 
-    final accounts = await app().getAccounts();
+    _bridge.sendData({'type': 'ping'});
 
+    final accounts = await app().getAccounts();
     final watchingModel = WatchingPageModel();
     await watchingModel.initialize();
 
@@ -114,11 +111,11 @@ class BackgroundServiceManager {
   Future<void> _checkCryptosFromBinance() async {
     try {
       print("Check cryptos ( binance )");
-      final tickers = await _binance.getTickerPrice();
+      final exchangeTickers = await _binance.getTickerPrice();
 
-      final updaterTickers = List<Ticker>.of([]);
+      final tickers = List<Ticker>.empty(growable: true);
 
-      for (final exchangeTicker in tickers) {
+      for (final exchangeTicker in exchangeTickers) {
         // print( exchangeTicker ); print( exchangeTicker.lePair);
         final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair, register: true);
 
@@ -127,11 +124,10 @@ class BackgroundServiceManager {
         ticker.price = double.tryParse(exchangeTicker.price);
         ticker.date = DateTime.now();
 
-        updaterTickers.add(ticker);
+        tickers.add(ticker);
       }
 
-      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(updaterTickers)});
-      print("  done");
+      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(tickers)});
     } catch (e) {
       print("err:");
       print(e);
