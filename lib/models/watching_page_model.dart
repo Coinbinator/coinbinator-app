@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/pairs.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 class WatchingPageModel extends ChangeNotifier with AppTickerListener {
@@ -22,10 +21,12 @@ class WatchingPageModel extends ChangeNotifier with AppTickerListener {
 
     for (final tickerWatchEntity in await app().appDao.findAllTickerWatches()) {
       watchingTickers.add(TickerWatch(
-        exchange: Exchanges.getExchange(tickerWatchEntity.exchange),
-        pair: Pairs.getPair(
-          "${tickerWatchEntity.base}${tickerWatchEntity.quote}",
-        ),
+        exchange: Exchange(tickerWatchEntity.exchange),
+        pair: Pair.f2(tickerWatchEntity.base, tickerWatchEntity.quote),
+
+        // pair: Pairs.getPair(
+        //   "${tickerWatchEntity.base}${tickerWatchEntity.quote}",
+        // ),
       ));
     }
 
@@ -42,8 +43,8 @@ class WatchingPageModel extends ChangeNotifier with AppTickerListener {
     await app().appDao.insertTickerWatch(TickerWatchEntity(
           tickerWatch.key,
           tickerWatch.exchange.id,
-          tickerWatch.pair.base,
-          tickerWatch.pair.quote,
+          tickerWatch.pair.base.symbol,
+          tickerWatch.pair.quote.symbol,
         ));
 
     watchingTickers.add(tickerWatch);
@@ -71,7 +72,10 @@ class WatchingPageModel extends ChangeNotifier with AppTickerListener {
   }
 
   @override
-  FutureOr<void> onTicker(Ticker ticker) {
-    throw UnimplementedError();
+  FutureOr<void> onTicker(Ticker ticker) async {
+    final watchTicker = watchingTickers.firstWhere((element) => element.exchange.id == ticker.exchange.id && element.pair.eq(ticker.pair), orElse: () => null);
+    if (watchTicker == null) return;
+
+    watchingTickerTickers[watchTicker] = ticker;
   }
 }

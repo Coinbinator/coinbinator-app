@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'background_service_support.dart';
+part of 'messages.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -1,2583 +1,3369 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pairs.dart';
+part of utils;
 
 // **************************************************************************
 // LePairsGenerator
 // **************************************************************************
 
 class Pairs {
-  static const $ETH_BTC = const Pair(base: "ETH", quote: "BTC");
+  static final $ETH_BTC = Pair.instance(base: Coin("ETH"), quote: Coin("BTC"));
 
-  static const $LTC_BTC = const Pair(base: "LTC", quote: "BTC");
+  static final $LTC_BTC = Pair.instance(base: Coin("LTC"), quote: Coin("BTC"));
 
-  static const $BNB_BTC = const Pair(base: "BNB", quote: "BTC");
+  static final $BNB_BTC = Pair.instance(base: Coin("BNB"), quote: Coin("BTC"));
 
-  static const $NEO_BTC = const Pair(base: "NEO", quote: "BTC");
+  static final $NEO_BTC = Pair.instance(base: Coin("NEO"), quote: Coin("BTC"));
 
-  static const $QTUM_ETH = const Pair(base: "QTUM", quote: "ETH");
+  static final $QTUM_ETH =
+      Pair.instance(base: Coin("QTUM"), quote: Coin("ETH"));
 
-  static const $EOS_ETH = const Pair(base: "EOS", quote: "ETH");
+  static final $EOS_ETH = Pair.instance(base: Coin("EOS"), quote: Coin("ETH"));
 
-  static const $SNT_ETH = const Pair(base: "SNT", quote: "ETH");
+  static final $SNT_ETH = Pair.instance(base: Coin("SNT"), quote: Coin("ETH"));
 
-  static const $BNT_ETH = const Pair(base: "BNT", quote: "ETH");
+  static final $BNT_ETH = Pair.instance(base: Coin("BNT"), quote: Coin("ETH"));
 
-  static const $BCC_BTC = const Pair(base: "BCC", quote: "BTC");
+  static final $BCC_BTC = Pair.instance(base: Coin("BCC"), quote: Coin("BTC"));
 
-  static const $GAS_BTC = const Pair(base: "GAS", quote: "BTC");
+  static final $GAS_BTC = Pair.instance(base: Coin("GAS"), quote: Coin("BTC"));
 
-  static const $BNB_ETH = const Pair(base: "BNB", quote: "ETH");
+  static final $BNB_ETH = Pair.instance(base: Coin("BNB"), quote: Coin("ETH"));
 
-  static const $BTC_USDT = const Pair(base: "BTC", quote: "USDT");
+  static final $BTC_USDT =
+      Pair.instance(base: Coin("BTC"), quote: Coin("USDT"));
 
-  static const $ETH_USDT = const Pair(base: "ETH", quote: "USDT");
+  static final $ETH_USDT =
+      Pair.instance(base: Coin("ETH"), quote: Coin("USDT"));
 
-  static const $HSR_BTC = const Pair(base: "HSR", quote: "BTC");
+  static final $HSR_BTC = Pair.instance(base: Coin("HSR"), quote: Coin("BTC"));
 
-  static const $OAX_ETH = const Pair(base: "OAX", quote: "ETH");
+  static final $OAX_ETH = Pair.instance(base: Coin("OAX"), quote: Coin("ETH"));
 
-  static const $DNT_ETH = const Pair(base: "DNT", quote: "ETH");
+  static final $DNT_ETH = Pair.instance(base: Coin("DNT"), quote: Coin("ETH"));
 
-  static const $MCO_ETH = const Pair(base: "MCO", quote: "ETH");
+  static final $MCO_ETH = Pair.instance(base: Coin("MCO"), quote: Coin("ETH"));
 
-  static const $ICN_ETH = const Pair(base: "ICN", quote: "ETH");
+  static final $ICN_ETH = Pair.instance(base: Coin("ICN"), quote: Coin("ETH"));
 
-  static const $MCO_BTC = const Pair(base: "MCO", quote: "BTC");
+  static final $MCO_BTC = Pair.instance(base: Coin("MCO"), quote: Coin("BTC"));
 
-  static const $WTC_BTC = const Pair(base: "WTC", quote: "BTC");
+  static final $WTC_BTC = Pair.instance(base: Coin("WTC"), quote: Coin("BTC"));
 
-  static const $WTC_ETH = const Pair(base: "WTC", quote: "ETH");
+  static final $WTC_ETH = Pair.instance(base: Coin("WTC"), quote: Coin("ETH"));
 
-  static const $LRC_BTC = const Pair(base: "LRC", quote: "BTC");
+  static final $LRC_BTC = Pair.instance(base: Coin("LRC"), quote: Coin("BTC"));
 
-  static const $LRC_ETH = const Pair(base: "LRC", quote: "ETH");
+  static final $LRC_ETH = Pair.instance(base: Coin("LRC"), quote: Coin("ETH"));
 
-  static const $QTUM_BTC = const Pair(base: "QTUM", quote: "BTC");
+  static final $QTUM_BTC =
+      Pair.instance(base: Coin("QTUM"), quote: Coin("BTC"));
 
-  static const $YOYO_BTC = const Pair(base: "YOYO", quote: "BTC");
+  static final $YOYO_BTC =
+      Pair.instance(base: Coin("YOYO"), quote: Coin("BTC"));
 
-  static const $OMG_BTC = const Pair(base: "OMG", quote: "BTC");
+  static final $OMG_BTC = Pair.instance(base: Coin("OMG"), quote: Coin("BTC"));
 
-  static const $OMG_ETH = const Pair(base: "OMG", quote: "ETH");
+  static final $OMG_ETH = Pair.instance(base: Coin("OMG"), quote: Coin("ETH"));
 
-  static const $ZRX_BTC = const Pair(base: "ZRX", quote: "BTC");
+  static final $ZRX_BTC = Pair.instance(base: Coin("ZRX"), quote: Coin("BTC"));
 
-  static const $ZRX_ETH = const Pair(base: "ZRX", quote: "ETH");
+  static final $ZRX_ETH = Pair.instance(base: Coin("ZRX"), quote: Coin("ETH"));
 
-  static const $STRAT_BTC = const Pair(base: "STRAT", quote: "BTC");
+  static final $STRAT_BTC =
+      Pair.instance(base: Coin("STRAT"), quote: Coin("BTC"));
 
-  static const $STRAT_ETH = const Pair(base: "STRAT", quote: "ETH");
+  static final $STRAT_ETH =
+      Pair.instance(base: Coin("STRAT"), quote: Coin("ETH"));
 
-  static const $SNGLS_BTC = const Pair(base: "SNGLS", quote: "BTC");
+  static final $SNGLS_BTC =
+      Pair.instance(base: Coin("SNGLS"), quote: Coin("BTC"));
 
-  static const $SNGLS_ETH = const Pair(base: "SNGLS", quote: "ETH");
+  static final $SNGLS_ETH =
+      Pair.instance(base: Coin("SNGLS"), quote: Coin("ETH"));
 
-  static const $BQX_BTC = const Pair(base: "BQX", quote: "BTC");
+  static final $BQX_BTC = Pair.instance(base: Coin("BQX"), quote: Coin("BTC"));
 
-  static const $BQX_ETH = const Pair(base: "BQX", quote: "ETH");
+  static final $BQX_ETH = Pair.instance(base: Coin("BQX"), quote: Coin("ETH"));
 
-  static const $KNC_BTC = const Pair(base: "KNC", quote: "BTC");
+  static final $KNC_BTC = Pair.instance(base: Coin("KNC"), quote: Coin("BTC"));
 
-  static const $KNC_ETH = const Pair(base: "KNC", quote: "ETH");
+  static final $KNC_ETH = Pair.instance(base: Coin("KNC"), quote: Coin("ETH"));
 
-  static const $FUN_BTC = const Pair(base: "FUN", quote: "BTC");
+  static final $FUN_BTC = Pair.instance(base: Coin("FUN"), quote: Coin("BTC"));
 
-  static const $FUN_ETH = const Pair(base: "FUN", quote: "ETH");
+  static final $FUN_ETH = Pair.instance(base: Coin("FUN"), quote: Coin("ETH"));
 
-  static const $SNM_BTC = const Pair(base: "SNM", quote: "BTC");
+  static final $SNM_BTC = Pair.instance(base: Coin("SNM"), quote: Coin("BTC"));
 
-  static const $SNM_ETH = const Pair(base: "SNM", quote: "ETH");
+  static final $SNM_ETH = Pair.instance(base: Coin("SNM"), quote: Coin("ETH"));
 
-  static const $NEO_ETH = const Pair(base: "NEO", quote: "ETH");
+  static final $NEO_ETH = Pair.instance(base: Coin("NEO"), quote: Coin("ETH"));
 
-  static const $IOTA_BTC = const Pair(base: "IOTA", quote: "BTC");
+  static final $IOTA_BTC =
+      Pair.instance(base: Coin("IOTA"), quote: Coin("BTC"));
 
-  static const $IOTA_ETH = const Pair(base: "IOTA", quote: "ETH");
+  static final $IOTA_ETH =
+      Pair.instance(base: Coin("IOTA"), quote: Coin("ETH"));
 
-  static const $LINK_BTC = const Pair(base: "LINK", quote: "BTC");
+  static final $LINK_BTC =
+      Pair.instance(base: Coin("LINK"), quote: Coin("BTC"));
 
-  static const $LINK_ETH = const Pair(base: "LINK", quote: "ETH");
+  static final $LINK_ETH =
+      Pair.instance(base: Coin("LINK"), quote: Coin("ETH"));
 
-  static const $XVG_BTC = const Pair(base: "XVG", quote: "BTC");
+  static final $XVG_BTC = Pair.instance(base: Coin("XVG"), quote: Coin("BTC"));
 
-  static const $XVG_ETH = const Pair(base: "XVG", quote: "ETH");
+  static final $XVG_ETH = Pair.instance(base: Coin("XVG"), quote: Coin("ETH"));
 
-  static const $SALT_BTC = const Pair(base: "SALT", quote: "BTC");
+  static final $SALT_BTC =
+      Pair.instance(base: Coin("SALT"), quote: Coin("BTC"));
 
-  static const $SALT_ETH = const Pair(base: "SALT", quote: "ETH");
+  static final $SALT_ETH =
+      Pair.instance(base: Coin("SALT"), quote: Coin("ETH"));
 
-  static const $MDA_BTC = const Pair(base: "MDA", quote: "BTC");
+  static final $MDA_BTC = Pair.instance(base: Coin("MDA"), quote: Coin("BTC"));
 
-  static const $MDA_ETH = const Pair(base: "MDA", quote: "ETH");
+  static final $MDA_ETH = Pair.instance(base: Coin("MDA"), quote: Coin("ETH"));
 
-  static const $MTL_BTC = const Pair(base: "MTL", quote: "BTC");
+  static final $MTL_BTC = Pair.instance(base: Coin("MTL"), quote: Coin("BTC"));
 
-  static const $MTL_ETH = const Pair(base: "MTL", quote: "ETH");
+  static final $MTL_ETH = Pair.instance(base: Coin("MTL"), quote: Coin("ETH"));
 
-  static const $SUB_BTC = const Pair(base: "SUB", quote: "BTC");
+  static final $SUB_BTC = Pair.instance(base: Coin("SUB"), quote: Coin("BTC"));
 
-  static const $SUB_ETH = const Pair(base: "SUB", quote: "ETH");
+  static final $SUB_ETH = Pair.instance(base: Coin("SUB"), quote: Coin("ETH"));
 
-  static const $EOS_BTC = const Pair(base: "EOS", quote: "BTC");
+  static final $EOS_BTC = Pair.instance(base: Coin("EOS"), quote: Coin("BTC"));
 
-  static const $SNT_BTC = const Pair(base: "SNT", quote: "BTC");
+  static final $SNT_BTC = Pair.instance(base: Coin("SNT"), quote: Coin("BTC"));
 
-  static const $ETC_ETH = const Pair(base: "ETC", quote: "ETH");
+  static final $ETC_ETH = Pair.instance(base: Coin("ETC"), quote: Coin("ETH"));
 
-  static const $ETC_BTC = const Pair(base: "ETC", quote: "BTC");
+  static final $ETC_BTC = Pair.instance(base: Coin("ETC"), quote: Coin("BTC"));
 
-  static const $MTH_BTC = const Pair(base: "MTH", quote: "BTC");
+  static final $MTH_BTC = Pair.instance(base: Coin("MTH"), quote: Coin("BTC"));
 
-  static const $MTH_ETH = const Pair(base: "MTH", quote: "ETH");
+  static final $MTH_ETH = Pair.instance(base: Coin("MTH"), quote: Coin("ETH"));
 
-  static const $ENG_BTC = const Pair(base: "ENG", quote: "BTC");
+  static final $ENG_BTC = Pair.instance(base: Coin("ENG"), quote: Coin("BTC"));
 
-  static const $ENG_ETH = const Pair(base: "ENG", quote: "ETH");
+  static final $ENG_ETH = Pair.instance(base: Coin("ENG"), quote: Coin("ETH"));
 
-  static const $DNT_BTC = const Pair(base: "DNT", quote: "BTC");
+  static final $DNT_BTC = Pair.instance(base: Coin("DNT"), quote: Coin("BTC"));
 
-  static const $ZEC_BTC = const Pair(base: "ZEC", quote: "BTC");
+  static final $ZEC_BTC = Pair.instance(base: Coin("ZEC"), quote: Coin("BTC"));
 
-  static const $ZEC_ETH = const Pair(base: "ZEC", quote: "ETH");
+  static final $ZEC_ETH = Pair.instance(base: Coin("ZEC"), quote: Coin("ETH"));
 
-  static const $BNT_BTC = const Pair(base: "BNT", quote: "BTC");
+  static final $BNT_BTC = Pair.instance(base: Coin("BNT"), quote: Coin("BTC"));
 
-  static const $AST_BTC = const Pair(base: "AST", quote: "BTC");
+  static final $AST_BTC = Pair.instance(base: Coin("AST"), quote: Coin("BTC"));
 
-  static const $AST_ETH = const Pair(base: "AST", quote: "ETH");
+  static final $AST_ETH = Pair.instance(base: Coin("AST"), quote: Coin("ETH"));
 
-  static const $DASH_BTC = const Pair(base: "DASH", quote: "BTC");
+  static final $DASH_BTC =
+      Pair.instance(base: Coin("DASH"), quote: Coin("BTC"));
 
-  static const $DASH_ETH = const Pair(base: "DASH", quote: "ETH");
+  static final $DASH_ETH =
+      Pair.instance(base: Coin("DASH"), quote: Coin("ETH"));
 
-  static const $OAX_BTC = const Pair(base: "OAX", quote: "BTC");
+  static final $OAX_BTC = Pair.instance(base: Coin("OAX"), quote: Coin("BTC"));
 
-  static const $ICN_BTC = const Pair(base: "ICN", quote: "BTC");
+  static final $ICN_BTC = Pair.instance(base: Coin("ICN"), quote: Coin("BTC"));
 
-  static const $BTG_BTC = const Pair(base: "BTG", quote: "BTC");
+  static final $BTG_BTC = Pair.instance(base: Coin("BTG"), quote: Coin("BTC"));
 
-  static const $BTG_ETH = const Pair(base: "BTG", quote: "ETH");
+  static final $BTG_ETH = Pair.instance(base: Coin("BTG"), quote: Coin("ETH"));
 
-  static const $EVX_BTC = const Pair(base: "EVX", quote: "BTC");
+  static final $EVX_BTC = Pair.instance(base: Coin("EVX"), quote: Coin("BTC"));
 
-  static const $EVX_ETH = const Pair(base: "EVX", quote: "ETH");
+  static final $EVX_ETH = Pair.instance(base: Coin("EVX"), quote: Coin("ETH"));
 
-  static const $REQ_BTC = const Pair(base: "REQ", quote: "BTC");
+  static final $REQ_BTC = Pair.instance(base: Coin("REQ"), quote: Coin("BTC"));
 
-  static const $REQ_ETH = const Pair(base: "REQ", quote: "ETH");
+  static final $REQ_ETH = Pair.instance(base: Coin("REQ"), quote: Coin("ETH"));
 
-  static const $VIB_BTC = const Pair(base: "VIB", quote: "BTC");
+  static final $VIB_BTC = Pair.instance(base: Coin("VIB"), quote: Coin("BTC"));
 
-  static const $VIB_ETH = const Pair(base: "VIB", quote: "ETH");
+  static final $VIB_ETH = Pair.instance(base: Coin("VIB"), quote: Coin("ETH"));
 
-  static const $HSR_ETH = const Pair(base: "HSR", quote: "ETH");
+  static final $HSR_ETH = Pair.instance(base: Coin("HSR"), quote: Coin("ETH"));
 
-  static const $TRX_BTC = const Pair(base: "TRX", quote: "BTC");
+  static final $TRX_BTC = Pair.instance(base: Coin("TRX"), quote: Coin("BTC"));
 
-  static const $TRX_ETH = const Pair(base: "TRX", quote: "ETH");
+  static final $TRX_ETH = Pair.instance(base: Coin("TRX"), quote: Coin("ETH"));
 
-  static const $POWR_BTC = const Pair(base: "POWR", quote: "BTC");
+  static final $POWR_BTC =
+      Pair.instance(base: Coin("POWR"), quote: Coin("BTC"));
 
-  static const $POWR_ETH = const Pair(base: "POWR", quote: "ETH");
+  static final $POWR_ETH =
+      Pair.instance(base: Coin("POWR"), quote: Coin("ETH"));
 
-  static const $ARK_BTC = const Pair(base: "ARK", quote: "BTC");
+  static final $ARK_BTC = Pair.instance(base: Coin("ARK"), quote: Coin("BTC"));
 
-  static const $ARK_ETH = const Pair(base: "ARK", quote: "ETH");
+  static final $ARK_ETH = Pair.instance(base: Coin("ARK"), quote: Coin("ETH"));
 
-  static const $YOYO_ETH = const Pair(base: "YOYO", quote: "ETH");
+  static final $YOYO_ETH =
+      Pair.instance(base: Coin("YOYO"), quote: Coin("ETH"));
 
-  static const $XRP_BTC = const Pair(base: "XRP", quote: "BTC");
+  static final $XRP_BTC = Pair.instance(base: Coin("XRP"), quote: Coin("BTC"));
 
-  static const $XRP_ETH = const Pair(base: "XRP", quote: "ETH");
+  static final $XRP_ETH = Pair.instance(base: Coin("XRP"), quote: Coin("ETH"));
 
-  static const $MOD_BTC = const Pair(base: "MOD", quote: "BTC");
+  static final $MOD_BTC = Pair.instance(base: Coin("MOD"), quote: Coin("BTC"));
 
-  static const $MOD_ETH = const Pair(base: "MOD", quote: "ETH");
+  static final $MOD_ETH = Pair.instance(base: Coin("MOD"), quote: Coin("ETH"));
 
-  static const $ENJ_BTC = const Pair(base: "ENJ", quote: "BTC");
+  static final $ENJ_BTC = Pair.instance(base: Coin("ENJ"), quote: Coin("BTC"));
 
-  static const $ENJ_ETH = const Pair(base: "ENJ", quote: "ETH");
+  static final $ENJ_ETH = Pair.instance(base: Coin("ENJ"), quote: Coin("ETH"));
 
-  static const $STORJ_BTC = const Pair(base: "STORJ", quote: "BTC");
+  static final $STORJ_BTC =
+      Pair.instance(base: Coin("STORJ"), quote: Coin("BTC"));
 
-  static const $STORJ_ETH = const Pair(base: "STORJ", quote: "ETH");
+  static final $STORJ_ETH =
+      Pair.instance(base: Coin("STORJ"), quote: Coin("ETH"));
 
-  static const $BNB_USDT = const Pair(base: "BNB", quote: "USDT");
+  static final $BNB_USDT =
+      Pair.instance(base: Coin("BNB"), quote: Coin("USDT"));
 
-  static const $VEN_BNB = const Pair(base: "VEN", quote: "BNB");
+  static final $VEN_BNB = Pair.instance(base: Coin("VEN"), quote: Coin("BNB"));
 
-  static const $YOYO_BNB = const Pair(base: "YOYO", quote: "BNB");
+  static final $YOYO_BNB =
+      Pair.instance(base: Coin("YOYO"), quote: Coin("BNB"));
 
-  static const $POWR_BNB = const Pair(base: "POWR", quote: "BNB");
+  static final $POWR_BNB =
+      Pair.instance(base: Coin("POWR"), quote: Coin("BNB"));
 
-  static const $VEN_BTC = const Pair(base: "VEN", quote: "BTC");
+  static final $VEN_BTC = Pair.instance(base: Coin("VEN"), quote: Coin("BTC"));
 
-  static const $VEN_ETH = const Pair(base: "VEN", quote: "ETH");
+  static final $VEN_ETH = Pair.instance(base: Coin("VEN"), quote: Coin("ETH"));
 
-  static const $KMD_BTC = const Pair(base: "KMD", quote: "BTC");
+  static final $KMD_BTC = Pair.instance(base: Coin("KMD"), quote: Coin("BTC"));
 
-  static const $KMD_ETH = const Pair(base: "KMD", quote: "ETH");
+  static final $KMD_ETH = Pair.instance(base: Coin("KMD"), quote: Coin("ETH"));
 
-  static const $NULS_BNB = const Pair(base: "NULS", quote: "BNB");
+  static final $NULS_BNB =
+      Pair.instance(base: Coin("NULS"), quote: Coin("BNB"));
 
-  static const $RCN_BTC = const Pair(base: "RCN", quote: "BTC");
+  static final $RCN_BTC = Pair.instance(base: Coin("RCN"), quote: Coin("BTC"));
 
-  static const $RCN_ETH = const Pair(base: "RCN", quote: "ETH");
+  static final $RCN_ETH = Pair.instance(base: Coin("RCN"), quote: Coin("ETH"));
 
-  static const $RCN_BNB = const Pair(base: "RCN", quote: "BNB");
+  static final $RCN_BNB = Pair.instance(base: Coin("RCN"), quote: Coin("BNB"));
 
-  static const $NULS_BTC = const Pair(base: "NULS", quote: "BTC");
+  static final $NULS_BTC =
+      Pair.instance(base: Coin("NULS"), quote: Coin("BTC"));
 
-  static const $NULS_ETH = const Pair(base: "NULS", quote: "ETH");
+  static final $NULS_ETH =
+      Pair.instance(base: Coin("NULS"), quote: Coin("ETH"));
 
-  static const $RDN_BTC = const Pair(base: "RDN", quote: "BTC");
+  static final $RDN_BTC = Pair.instance(base: Coin("RDN"), quote: Coin("BTC"));
 
-  static const $RDN_ETH = const Pair(base: "RDN", quote: "ETH");
+  static final $RDN_ETH = Pair.instance(base: Coin("RDN"), quote: Coin("ETH"));
 
-  static const $RDN_BNB = const Pair(base: "RDN", quote: "BNB");
+  static final $RDN_BNB = Pair.instance(base: Coin("RDN"), quote: Coin("BNB"));
 
-  static const $XMR_BTC = const Pair(base: "XMR", quote: "BTC");
+  static final $XMR_BTC = Pair.instance(base: Coin("XMR"), quote: Coin("BTC"));
 
-  static const $XMR_ETH = const Pair(base: "XMR", quote: "ETH");
+  static final $XMR_ETH = Pair.instance(base: Coin("XMR"), quote: Coin("ETH"));
 
-  static const $DLT_BNB = const Pair(base: "DLT", quote: "BNB");
+  static final $DLT_BNB = Pair.instance(base: Coin("DLT"), quote: Coin("BNB"));
 
-  static const $WTC_BNB = const Pair(base: "WTC", quote: "BNB");
+  static final $WTC_BNB = Pair.instance(base: Coin("WTC"), quote: Coin("BNB"));
 
-  static const $DLT_BTC = const Pair(base: "DLT", quote: "BTC");
+  static final $DLT_BTC = Pair.instance(base: Coin("DLT"), quote: Coin("BTC"));
 
-  static const $DLT_ETH = const Pair(base: "DLT", quote: "ETH");
+  static final $DLT_ETH = Pair.instance(base: Coin("DLT"), quote: Coin("ETH"));
 
-  static const $AMB_BTC = const Pair(base: "AMB", quote: "BTC");
+  static final $AMB_BTC = Pair.instance(base: Coin("AMB"), quote: Coin("BTC"));
 
-  static const $AMB_ETH = const Pair(base: "AMB", quote: "ETH");
+  static final $AMB_ETH = Pair.instance(base: Coin("AMB"), quote: Coin("ETH"));
 
-  static const $AMB_BNB = const Pair(base: "AMB", quote: "BNB");
+  static final $AMB_BNB = Pair.instance(base: Coin("AMB"), quote: Coin("BNB"));
 
-  static const $BCC_ETH = const Pair(base: "BCC", quote: "ETH");
+  static final $BCC_ETH = Pair.instance(base: Coin("BCC"), quote: Coin("ETH"));
 
-  static const $BCC_USDT = const Pair(base: "BCC", quote: "USDT");
+  static final $BCC_USDT =
+      Pair.instance(base: Coin("BCC"), quote: Coin("USDT"));
 
-  static const $BCC_BNB = const Pair(base: "BCC", quote: "BNB");
+  static final $BCC_BNB = Pair.instance(base: Coin("BCC"), quote: Coin("BNB"));
 
-  static const $BAT_BTC = const Pair(base: "BAT", quote: "BTC");
+  static final $BAT_BTC = Pair.instance(base: Coin("BAT"), quote: Coin("BTC"));
 
-  static const $BAT_ETH = const Pair(base: "BAT", quote: "ETH");
+  static final $BAT_ETH = Pair.instance(base: Coin("BAT"), quote: Coin("ETH"));
 
-  static const $BAT_BNB = const Pair(base: "BAT", quote: "BNB");
+  static final $BAT_BNB = Pair.instance(base: Coin("BAT"), quote: Coin("BNB"));
 
-  static const $BCPT_BTC = const Pair(base: "BCPT", quote: "BTC");
+  static final $BCPT_BTC =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("BTC"));
 
-  static const $BCPT_ETH = const Pair(base: "BCPT", quote: "ETH");
+  static final $BCPT_ETH =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("ETH"));
 
-  static const $BCPT_BNB = const Pair(base: "BCPT", quote: "BNB");
+  static final $BCPT_BNB =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("BNB"));
 
-  static const $ARN_BTC = const Pair(base: "ARN", quote: "BTC");
+  static final $ARN_BTC = Pair.instance(base: Coin("ARN"), quote: Coin("BTC"));
 
-  static const $ARN_ETH = const Pair(base: "ARN", quote: "ETH");
+  static final $ARN_ETH = Pair.instance(base: Coin("ARN"), quote: Coin("ETH"));
 
-  static const $GVT_BTC = const Pair(base: "GVT", quote: "BTC");
+  static final $GVT_BTC = Pair.instance(base: Coin("GVT"), quote: Coin("BTC"));
 
-  static const $GVT_ETH = const Pair(base: "GVT", quote: "ETH");
+  static final $GVT_ETH = Pair.instance(base: Coin("GVT"), quote: Coin("ETH"));
 
-  static const $CDT_BTC = const Pair(base: "CDT", quote: "BTC");
+  static final $CDT_BTC = Pair.instance(base: Coin("CDT"), quote: Coin("BTC"));
 
-  static const $CDT_ETH = const Pair(base: "CDT", quote: "ETH");
+  static final $CDT_ETH = Pair.instance(base: Coin("CDT"), quote: Coin("ETH"));
 
-  static const $GXS_BTC = const Pair(base: "GXS", quote: "BTC");
+  static final $GXS_BTC = Pair.instance(base: Coin("GXS"), quote: Coin("BTC"));
 
-  static const $GXS_ETH = const Pair(base: "GXS", quote: "ETH");
+  static final $GXS_ETH = Pair.instance(base: Coin("GXS"), quote: Coin("ETH"));
 
-  static const $NEO_USDT = const Pair(base: "NEO", quote: "USDT");
+  static final $NEO_USDT =
+      Pair.instance(base: Coin("NEO"), quote: Coin("USDT"));
 
-  static const $NEO_BNB = const Pair(base: "NEO", quote: "BNB");
+  static final $NEO_BNB = Pair.instance(base: Coin("NEO"), quote: Coin("BNB"));
 
-  static const $POE_BTC = const Pair(base: "POE", quote: "BTC");
+  static final $POE_BTC = Pair.instance(base: Coin("POE"), quote: Coin("BTC"));
 
-  static const $POE_ETH = const Pair(base: "POE", quote: "ETH");
+  static final $POE_ETH = Pair.instance(base: Coin("POE"), quote: Coin("ETH"));
 
-  static const $QSP_BTC = const Pair(base: "QSP", quote: "BTC");
+  static final $QSP_BTC = Pair.instance(base: Coin("QSP"), quote: Coin("BTC"));
 
-  static const $QSP_ETH = const Pair(base: "QSP", quote: "ETH");
+  static final $QSP_ETH = Pair.instance(base: Coin("QSP"), quote: Coin("ETH"));
 
-  static const $QSP_BNB = const Pair(base: "QSP", quote: "BNB");
+  static final $QSP_BNB = Pair.instance(base: Coin("QSP"), quote: Coin("BNB"));
 
-  static const $BTS_BTC = const Pair(base: "BTS", quote: "BTC");
+  static final $BTS_BTC = Pair.instance(base: Coin("BTS"), quote: Coin("BTC"));
 
-  static const $BTS_ETH = const Pair(base: "BTS", quote: "ETH");
+  static final $BTS_ETH = Pair.instance(base: Coin("BTS"), quote: Coin("ETH"));
 
-  static const $BTS_BNB = const Pair(base: "BTS", quote: "BNB");
+  static final $BTS_BNB = Pair.instance(base: Coin("BTS"), quote: Coin("BNB"));
 
-  static const $XZC_BTC = const Pair(base: "XZC", quote: "BTC");
+  static final $XZC_BTC = Pair.instance(base: Coin("XZC"), quote: Coin("BTC"));
 
-  static const $XZC_ETH = const Pair(base: "XZC", quote: "ETH");
+  static final $XZC_ETH = Pair.instance(base: Coin("XZC"), quote: Coin("ETH"));
 
-  static const $XZC_BNB = const Pair(base: "XZC", quote: "BNB");
+  static final $XZC_BNB = Pair.instance(base: Coin("XZC"), quote: Coin("BNB"));
 
-  static const $LSK_BTC = const Pair(base: "LSK", quote: "BTC");
+  static final $LSK_BTC = Pair.instance(base: Coin("LSK"), quote: Coin("BTC"));
 
-  static const $LSK_ETH = const Pair(base: "LSK", quote: "ETH");
+  static final $LSK_ETH = Pair.instance(base: Coin("LSK"), quote: Coin("ETH"));
 
-  static const $LSK_BNB = const Pair(base: "LSK", quote: "BNB");
+  static final $LSK_BNB = Pair.instance(base: Coin("LSK"), quote: Coin("BNB"));
 
-  static const $TNT_BTC = const Pair(base: "TNT", quote: "BTC");
+  static final $TNT_BTC = Pair.instance(base: Coin("TNT"), quote: Coin("BTC"));
 
-  static const $TNT_ETH = const Pair(base: "TNT", quote: "ETH");
+  static final $TNT_ETH = Pair.instance(base: Coin("TNT"), quote: Coin("ETH"));
 
-  static const $FUEL_BTC = const Pair(base: "FUEL", quote: "BTC");
+  static final $FUEL_BTC =
+      Pair.instance(base: Coin("FUEL"), quote: Coin("BTC"));
 
-  static const $FUEL_ETH = const Pair(base: "FUEL", quote: "ETH");
+  static final $FUEL_ETH =
+      Pair.instance(base: Coin("FUEL"), quote: Coin("ETH"));
 
-  static const $MANA_BTC = const Pair(base: "MANA", quote: "BTC");
+  static final $MANA_BTC =
+      Pair.instance(base: Coin("MANA"), quote: Coin("BTC"));
 
-  static const $MANA_ETH = const Pair(base: "MANA", quote: "ETH");
+  static final $MANA_ETH =
+      Pair.instance(base: Coin("MANA"), quote: Coin("ETH"));
 
-  static const $BCD_BTC = const Pair(base: "BCD", quote: "BTC");
+  static final $BCD_BTC = Pair.instance(base: Coin("BCD"), quote: Coin("BTC"));
 
-  static const $BCD_ETH = const Pair(base: "BCD", quote: "ETH");
+  static final $BCD_ETH = Pair.instance(base: Coin("BCD"), quote: Coin("ETH"));
 
-  static const $DGD_BTC = const Pair(base: "DGD", quote: "BTC");
+  static final $DGD_BTC = Pair.instance(base: Coin("DGD"), quote: Coin("BTC"));
 
-  static const $DGD_ETH = const Pair(base: "DGD", quote: "ETH");
+  static final $DGD_ETH = Pair.instance(base: Coin("DGD"), quote: Coin("ETH"));
 
-  static const $IOTA_BNB = const Pair(base: "IOTA", quote: "BNB");
+  static final $IOTA_BNB =
+      Pair.instance(base: Coin("IOTA"), quote: Coin("BNB"));
 
-  static const $ADX_BTC = const Pair(base: "ADX", quote: "BTC");
+  static final $ADX_BTC = Pair.instance(base: Coin("ADX"), quote: Coin("BTC"));
 
-  static const $ADX_ETH = const Pair(base: "ADX", quote: "ETH");
+  static final $ADX_ETH = Pair.instance(base: Coin("ADX"), quote: Coin("ETH"));
 
-  static const $ADX_BNB = const Pair(base: "ADX", quote: "BNB");
+  static final $ADX_BNB = Pair.instance(base: Coin("ADX"), quote: Coin("BNB"));
 
-  static const $ADA_BTC = const Pair(base: "ADA", quote: "BTC");
+  static final $ADA_BTC = Pair.instance(base: Coin("ADA"), quote: Coin("BTC"));
 
-  static const $ADA_ETH = const Pair(base: "ADA", quote: "ETH");
+  static final $ADA_ETH = Pair.instance(base: Coin("ADA"), quote: Coin("ETH"));
 
-  static const $PPT_BTC = const Pair(base: "PPT", quote: "BTC");
+  static final $PPT_BTC = Pair.instance(base: Coin("PPT"), quote: Coin("BTC"));
 
-  static const $PPT_ETH = const Pair(base: "PPT", quote: "ETH");
+  static final $PPT_ETH = Pair.instance(base: Coin("PPT"), quote: Coin("ETH"));
 
-  static const $CMT_BTC = const Pair(base: "CMT", quote: "BTC");
+  static final $CMT_BTC = Pair.instance(base: Coin("CMT"), quote: Coin("BTC"));
 
-  static const $CMT_ETH = const Pair(base: "CMT", quote: "ETH");
+  static final $CMT_ETH = Pair.instance(base: Coin("CMT"), quote: Coin("ETH"));
 
-  static const $CMT_BNB = const Pair(base: "CMT", quote: "BNB");
+  static final $CMT_BNB = Pair.instance(base: Coin("CMT"), quote: Coin("BNB"));
 
-  static const $XLM_BTC = const Pair(base: "XLM", quote: "BTC");
+  static final $XLM_BTC = Pair.instance(base: Coin("XLM"), quote: Coin("BTC"));
 
-  static const $XLM_ETH = const Pair(base: "XLM", quote: "ETH");
+  static final $XLM_ETH = Pair.instance(base: Coin("XLM"), quote: Coin("ETH"));
 
-  static const $XLM_BNB = const Pair(base: "XLM", quote: "BNB");
+  static final $XLM_BNB = Pair.instance(base: Coin("XLM"), quote: Coin("BNB"));
 
-  static const $CND_BTC = const Pair(base: "CND", quote: "BTC");
+  static final $CND_BTC = Pair.instance(base: Coin("CND"), quote: Coin("BTC"));
 
-  static const $CND_ETH = const Pair(base: "CND", quote: "ETH");
+  static final $CND_ETH = Pair.instance(base: Coin("CND"), quote: Coin("ETH"));
 
-  static const $CND_BNB = const Pair(base: "CND", quote: "BNB");
+  static final $CND_BNB = Pair.instance(base: Coin("CND"), quote: Coin("BNB"));
 
-  static const $LEND_BTC = const Pair(base: "LEND", quote: "BTC");
+  static final $LEND_BTC =
+      Pair.instance(base: Coin("LEND"), quote: Coin("BTC"));
 
-  static const $LEND_ETH = const Pair(base: "LEND", quote: "ETH");
+  static final $LEND_ETH =
+      Pair.instance(base: Coin("LEND"), quote: Coin("ETH"));
 
-  static const $WABI_BTC = const Pair(base: "WABI", quote: "BTC");
+  static final $WABI_BTC =
+      Pair.instance(base: Coin("WABI"), quote: Coin("BTC"));
 
-  static const $WABI_ETH = const Pair(base: "WABI", quote: "ETH");
+  static final $WABI_ETH =
+      Pair.instance(base: Coin("WABI"), quote: Coin("ETH"));
 
-  static const $WABI_BNB = const Pair(base: "WABI", quote: "BNB");
+  static final $WABI_BNB =
+      Pair.instance(base: Coin("WABI"), quote: Coin("BNB"));
 
-  static const $LTC_ETH = const Pair(base: "LTC", quote: "ETH");
+  static final $LTC_ETH = Pair.instance(base: Coin("LTC"), quote: Coin("ETH"));
 
-  static const $LTC_USDT = const Pair(base: "LTC", quote: "USDT");
+  static final $LTC_USDT =
+      Pair.instance(base: Coin("LTC"), quote: Coin("USDT"));
 
-  static const $LTC_BNB = const Pair(base: "LTC", quote: "BNB");
+  static final $LTC_BNB = Pair.instance(base: Coin("LTC"), quote: Coin("BNB"));
 
-  static const $TNB_BTC = const Pair(base: "TNB", quote: "BTC");
+  static final $TNB_BTC = Pair.instance(base: Coin("TNB"), quote: Coin("BTC"));
 
-  static const $TNB_ETH = const Pair(base: "TNB", quote: "ETH");
+  static final $TNB_ETH = Pair.instance(base: Coin("TNB"), quote: Coin("ETH"));
 
-  static const $WAVES_BTC = const Pair(base: "WAVES", quote: "BTC");
+  static final $WAVES_BTC =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("BTC"));
 
-  static const $WAVES_ETH = const Pair(base: "WAVES", quote: "ETH");
+  static final $WAVES_ETH =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("ETH"));
 
-  static const $WAVES_BNB = const Pair(base: "WAVES", quote: "BNB");
+  static final $WAVES_BNB =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("BNB"));
 
-  static const $GTO_BTC = const Pair(base: "GTO", quote: "BTC");
+  static final $GTO_BTC = Pair.instance(base: Coin("GTO"), quote: Coin("BTC"));
 
-  static const $GTO_ETH = const Pair(base: "GTO", quote: "ETH");
+  static final $GTO_ETH = Pair.instance(base: Coin("GTO"), quote: Coin("ETH"));
 
-  static const $GTO_BNB = const Pair(base: "GTO", quote: "BNB");
+  static final $GTO_BNB = Pair.instance(base: Coin("GTO"), quote: Coin("BNB"));
 
-  static const $ICX_BTC = const Pair(base: "ICX", quote: "BTC");
+  static final $ICX_BTC = Pair.instance(base: Coin("ICX"), quote: Coin("BTC"));
 
-  static const $ICX_ETH = const Pair(base: "ICX", quote: "ETH");
+  static final $ICX_ETH = Pair.instance(base: Coin("ICX"), quote: Coin("ETH"));
 
-  static const $ICX_BNB = const Pair(base: "ICX", quote: "BNB");
+  static final $ICX_BNB = Pair.instance(base: Coin("ICX"), quote: Coin("BNB"));
 
-  static const $OST_BTC = const Pair(base: "OST", quote: "BTC");
+  static final $OST_BTC = Pair.instance(base: Coin("OST"), quote: Coin("BTC"));
 
-  static const $OST_ETH = const Pair(base: "OST", quote: "ETH");
+  static final $OST_ETH = Pair.instance(base: Coin("OST"), quote: Coin("ETH"));
 
-  static const $OST_BNB = const Pair(base: "OST", quote: "BNB");
+  static final $OST_BNB = Pair.instance(base: Coin("OST"), quote: Coin("BNB"));
 
-  static const $ELF_BTC = const Pair(base: "ELF", quote: "BTC");
+  static final $ELF_BTC = Pair.instance(base: Coin("ELF"), quote: Coin("BTC"));
 
-  static const $ELF_ETH = const Pair(base: "ELF", quote: "ETH");
+  static final $ELF_ETH = Pair.instance(base: Coin("ELF"), quote: Coin("ETH"));
 
-  static const $AION_BTC = const Pair(base: "AION", quote: "BTC");
+  static final $AION_BTC =
+      Pair.instance(base: Coin("AION"), quote: Coin("BTC"));
 
-  static const $AION_ETH = const Pair(base: "AION", quote: "ETH");
+  static final $AION_ETH =
+      Pair.instance(base: Coin("AION"), quote: Coin("ETH"));
 
-  static const $AION_BNB = const Pair(base: "AION", quote: "BNB");
+  static final $AION_BNB =
+      Pair.instance(base: Coin("AION"), quote: Coin("BNB"));
 
-  static const $NEBL_BTC = const Pair(base: "NEBL", quote: "BTC");
+  static final $NEBL_BTC =
+      Pair.instance(base: Coin("NEBL"), quote: Coin("BTC"));
 
-  static const $NEBL_ETH = const Pair(base: "NEBL", quote: "ETH");
+  static final $NEBL_ETH =
+      Pair.instance(base: Coin("NEBL"), quote: Coin("ETH"));
 
-  static const $NEBL_BNB = const Pair(base: "NEBL", quote: "BNB");
+  static final $NEBL_BNB =
+      Pair.instance(base: Coin("NEBL"), quote: Coin("BNB"));
 
-  static const $BRD_BTC = const Pair(base: "BRD", quote: "BTC");
+  static final $BRD_BTC = Pair.instance(base: Coin("BRD"), quote: Coin("BTC"));
 
-  static const $BRD_ETH = const Pair(base: "BRD", quote: "ETH");
+  static final $BRD_ETH = Pair.instance(base: Coin("BRD"), quote: Coin("ETH"));
 
-  static const $BRD_BNB = const Pair(base: "BRD", quote: "BNB");
+  static final $BRD_BNB = Pair.instance(base: Coin("BRD"), quote: Coin("BNB"));
 
-  static const $MCO_BNB = const Pair(base: "MCO", quote: "BNB");
+  static final $MCO_BNB = Pair.instance(base: Coin("MCO"), quote: Coin("BNB"));
 
-  static const $EDO_BTC = const Pair(base: "EDO", quote: "BTC");
+  static final $EDO_BTC = Pair.instance(base: Coin("EDO"), quote: Coin("BTC"));
 
-  static const $EDO_ETH = const Pair(base: "EDO", quote: "ETH");
+  static final $EDO_ETH = Pair.instance(base: Coin("EDO"), quote: Coin("ETH"));
 
-  static const $WINGS_BTC = const Pair(base: "WINGS", quote: "BTC");
+  static final $WINGS_BTC =
+      Pair.instance(base: Coin("WINGS"), quote: Coin("BTC"));
 
-  static const $WINGS_ETH = const Pair(base: "WINGS", quote: "ETH");
+  static final $WINGS_ETH =
+      Pair.instance(base: Coin("WINGS"), quote: Coin("ETH"));
 
-  static const $NAV_BTC = const Pair(base: "NAV", quote: "BTC");
+  static final $NAV_BTC = Pair.instance(base: Coin("NAV"), quote: Coin("BTC"));
 
-  static const $NAV_ETH = const Pair(base: "NAV", quote: "ETH");
+  static final $NAV_ETH = Pair.instance(base: Coin("NAV"), quote: Coin("ETH"));
 
-  static const $NAV_BNB = const Pair(base: "NAV", quote: "BNB");
+  static final $NAV_BNB = Pair.instance(base: Coin("NAV"), quote: Coin("BNB"));
 
-  static const $LUN_BTC = const Pair(base: "LUN", quote: "BTC");
+  static final $LUN_BTC = Pair.instance(base: Coin("LUN"), quote: Coin("BTC"));
 
-  static const $LUN_ETH = const Pair(base: "LUN", quote: "ETH");
+  static final $LUN_ETH = Pair.instance(base: Coin("LUN"), quote: Coin("ETH"));
 
-  static const $TRIG_BTC = const Pair(base: "TRIG", quote: "BTC");
+  static final $TRIG_BTC =
+      Pair.instance(base: Coin("TRIG"), quote: Coin("BTC"));
 
-  static const $TRIG_ETH = const Pair(base: "TRIG", quote: "ETH");
+  static final $TRIG_ETH =
+      Pair.instance(base: Coin("TRIG"), quote: Coin("ETH"));
 
-  static const $TRIG_BNB = const Pair(base: "TRIG", quote: "BNB");
+  static final $TRIG_BNB =
+      Pair.instance(base: Coin("TRIG"), quote: Coin("BNB"));
 
-  static const $APPC_BTC = const Pair(base: "APPC", quote: "BTC");
+  static final $APPC_BTC =
+      Pair.instance(base: Coin("APPC"), quote: Coin("BTC"));
 
-  static const $APPC_ETH = const Pair(base: "APPC", quote: "ETH");
+  static final $APPC_ETH =
+      Pair.instance(base: Coin("APPC"), quote: Coin("ETH"));
 
-  static const $APPC_BNB = const Pair(base: "APPC", quote: "BNB");
+  static final $APPC_BNB =
+      Pair.instance(base: Coin("APPC"), quote: Coin("BNB"));
 
-  static const $VIBE_BTC = const Pair(base: "VIBE", quote: "BTC");
+  static final $VIBE_BTC =
+      Pair.instance(base: Coin("VIBE"), quote: Coin("BTC"));
 
-  static const $VIBE_ETH = const Pair(base: "VIBE", quote: "ETH");
+  static final $VIBE_ETH =
+      Pair.instance(base: Coin("VIBE"), quote: Coin("ETH"));
 
-  static const $RLC_BTC = const Pair(base: "RLC", quote: "BTC");
+  static final $RLC_BTC = Pair.instance(base: Coin("RLC"), quote: Coin("BTC"));
 
-  static const $RLC_ETH = const Pair(base: "RLC", quote: "ETH");
+  static final $RLC_ETH = Pair.instance(base: Coin("RLC"), quote: Coin("ETH"));
 
-  static const $RLC_BNB = const Pair(base: "RLC", quote: "BNB");
+  static final $RLC_BNB = Pair.instance(base: Coin("RLC"), quote: Coin("BNB"));
 
-  static const $INS_BTC = const Pair(base: "INS", quote: "BTC");
+  static final $INS_BTC = Pair.instance(base: Coin("INS"), quote: Coin("BTC"));
 
-  static const $INS_ETH = const Pair(base: "INS", quote: "ETH");
+  static final $INS_ETH = Pair.instance(base: Coin("INS"), quote: Coin("ETH"));
 
-  static const $PIVX_BTC = const Pair(base: "PIVX", quote: "BTC");
+  static final $PIVX_BTC =
+      Pair.instance(base: Coin("PIVX"), quote: Coin("BTC"));
 
-  static const $PIVX_ETH = const Pair(base: "PIVX", quote: "ETH");
+  static final $PIVX_ETH =
+      Pair.instance(base: Coin("PIVX"), quote: Coin("ETH"));
 
-  static const $PIVX_BNB = const Pair(base: "PIVX", quote: "BNB");
+  static final $PIVX_BNB =
+      Pair.instance(base: Coin("PIVX"), quote: Coin("BNB"));
 
-  static const $IOST_BTC = const Pair(base: "IOST", quote: "BTC");
+  static final $IOST_BTC =
+      Pair.instance(base: Coin("IOST"), quote: Coin("BTC"));
 
-  static const $IOST_ETH = const Pair(base: "IOST", quote: "ETH");
+  static final $IOST_ETH =
+      Pair.instance(base: Coin("IOST"), quote: Coin("ETH"));
 
-  static const $CHAT_BTC = const Pair(base: "CHAT", quote: "BTC");
+  static final $CHAT_BTC =
+      Pair.instance(base: Coin("CHAT"), quote: Coin("BTC"));
 
-  static const $CHAT_ETH = const Pair(base: "CHAT", quote: "ETH");
+  static final $CHAT_ETH =
+      Pair.instance(base: Coin("CHAT"), quote: Coin("ETH"));
 
-  static const $STEEM_BTC = const Pair(base: "STEEM", quote: "BTC");
+  static final $STEEM_BTC =
+      Pair.instance(base: Coin("STEEM"), quote: Coin("BTC"));
 
-  static const $STEEM_ETH = const Pair(base: "STEEM", quote: "ETH");
+  static final $STEEM_ETH =
+      Pair.instance(base: Coin("STEEM"), quote: Coin("ETH"));
 
-  static const $STEEM_BNB = const Pair(base: "STEEM", quote: "BNB");
+  static final $STEEM_BNB =
+      Pair.instance(base: Coin("STEEM"), quote: Coin("BNB"));
 
-  static const $NANO_BTC = const Pair(base: "NANO", quote: "BTC");
+  static final $NANO_BTC =
+      Pair.instance(base: Coin("NANO"), quote: Coin("BTC"));
 
-  static const $NANO_ETH = const Pair(base: "NANO", quote: "ETH");
+  static final $NANO_ETH =
+      Pair.instance(base: Coin("NANO"), quote: Coin("ETH"));
 
-  static const $NANO_BNB = const Pair(base: "NANO", quote: "BNB");
+  static final $NANO_BNB =
+      Pair.instance(base: Coin("NANO"), quote: Coin("BNB"));
 
-  static const $VIA_BTC = const Pair(base: "VIA", quote: "BTC");
+  static final $VIA_BTC = Pair.instance(base: Coin("VIA"), quote: Coin("BTC"));
 
-  static const $VIA_ETH = const Pair(base: "VIA", quote: "ETH");
+  static final $VIA_ETH = Pair.instance(base: Coin("VIA"), quote: Coin("ETH"));
 
-  static const $VIA_BNB = const Pair(base: "VIA", quote: "BNB");
+  static final $VIA_BNB = Pair.instance(base: Coin("VIA"), quote: Coin("BNB"));
 
-  static const $BLZ_BTC = const Pair(base: "BLZ", quote: "BTC");
+  static final $BLZ_BTC = Pair.instance(base: Coin("BLZ"), quote: Coin("BTC"));
 
-  static const $BLZ_ETH = const Pair(base: "BLZ", quote: "ETH");
+  static final $BLZ_ETH = Pair.instance(base: Coin("BLZ"), quote: Coin("ETH"));
 
-  static const $BLZ_BNB = const Pair(base: "BLZ", quote: "BNB");
+  static final $BLZ_BNB = Pair.instance(base: Coin("BLZ"), quote: Coin("BNB"));
 
-  static const $AE_BTC = const Pair(base: "AE", quote: "BTC");
+  static final $AE_BTC = Pair.instance(base: Coin("AE"), quote: Coin("BTC"));
 
-  static const $AE_ETH = const Pair(base: "AE", quote: "ETH");
+  static final $AE_ETH = Pair.instance(base: Coin("AE"), quote: Coin("ETH"));
 
-  static const $AE_BNB = const Pair(base: "AE", quote: "BNB");
+  static final $AE_BNB = Pair.instance(base: Coin("AE"), quote: Coin("BNB"));
 
-  static const $RPX_BTC = const Pair(base: "RPX", quote: "BTC");
+  static final $RPX_BTC = Pair.instance(base: Coin("RPX"), quote: Coin("BTC"));
 
-  static const $RPX_ETH = const Pair(base: "RPX", quote: "ETH");
+  static final $RPX_ETH = Pair.instance(base: Coin("RPX"), quote: Coin("ETH"));
 
-  static const $RPX_BNB = const Pair(base: "RPX", quote: "BNB");
+  static final $RPX_BNB = Pair.instance(base: Coin("RPX"), quote: Coin("BNB"));
 
-  static const $NCASH_BTC = const Pair(base: "NCASH", quote: "BTC");
+  static final $NCASH_BTC =
+      Pair.instance(base: Coin("NCASH"), quote: Coin("BTC"));
 
-  static const $NCASH_ETH = const Pair(base: "NCASH", quote: "ETH");
+  static final $NCASH_ETH =
+      Pair.instance(base: Coin("NCASH"), quote: Coin("ETH"));
 
-  static const $NCASH_BNB = const Pair(base: "NCASH", quote: "BNB");
+  static final $NCASH_BNB =
+      Pair.instance(base: Coin("NCASH"), quote: Coin("BNB"));
 
-  static const $POA_BTC = const Pair(base: "POA", quote: "BTC");
+  static final $POA_BTC = Pair.instance(base: Coin("POA"), quote: Coin("BTC"));
 
-  static const $POA_ETH = const Pair(base: "POA", quote: "ETH");
+  static final $POA_ETH = Pair.instance(base: Coin("POA"), quote: Coin("ETH"));
 
-  static const $POA_BNB = const Pair(base: "POA", quote: "BNB");
+  static final $POA_BNB = Pair.instance(base: Coin("POA"), quote: Coin("BNB"));
 
-  static const $ZIL_BTC = const Pair(base: "ZIL", quote: "BTC");
+  static final $ZIL_BTC = Pair.instance(base: Coin("ZIL"), quote: Coin("BTC"));
 
-  static const $ZIL_ETH = const Pair(base: "ZIL", quote: "ETH");
+  static final $ZIL_ETH = Pair.instance(base: Coin("ZIL"), quote: Coin("ETH"));
 
-  static const $ZIL_BNB = const Pair(base: "ZIL", quote: "BNB");
+  static final $ZIL_BNB = Pair.instance(base: Coin("ZIL"), quote: Coin("BNB"));
 
-  static const $ONT_BTC = const Pair(base: "ONT", quote: "BTC");
+  static final $ONT_BTC = Pair.instance(base: Coin("ONT"), quote: Coin("BTC"));
 
-  static const $ONT_ETH = const Pair(base: "ONT", quote: "ETH");
+  static final $ONT_ETH = Pair.instance(base: Coin("ONT"), quote: Coin("ETH"));
 
-  static const $ONT_BNB = const Pair(base: "ONT", quote: "BNB");
+  static final $ONT_BNB = Pair.instance(base: Coin("ONT"), quote: Coin("BNB"));
 
-  static const $STORM_BTC = const Pair(base: "STORM", quote: "BTC");
+  static final $STORM_BTC =
+      Pair.instance(base: Coin("STORM"), quote: Coin("BTC"));
 
-  static const $STORM_ETH = const Pair(base: "STORM", quote: "ETH");
+  static final $STORM_ETH =
+      Pair.instance(base: Coin("STORM"), quote: Coin("ETH"));
 
-  static const $STORM_BNB = const Pair(base: "STORM", quote: "BNB");
+  static final $STORM_BNB =
+      Pair.instance(base: Coin("STORM"), quote: Coin("BNB"));
 
-  static const $QTUM_BNB = const Pair(base: "QTUM", quote: "BNB");
+  static final $QTUM_BNB =
+      Pair.instance(base: Coin("QTUM"), quote: Coin("BNB"));
 
-  static const $QTUM_USDT = const Pair(base: "QTUM", quote: "USDT");
+  static final $QTUM_USDT =
+      Pair.instance(base: Coin("QTUM"), quote: Coin("USDT"));
 
-  static const $XEM_BTC = const Pair(base: "XEM", quote: "BTC");
+  static final $XEM_BTC = Pair.instance(base: Coin("XEM"), quote: Coin("BTC"));
 
-  static const $XEM_ETH = const Pair(base: "XEM", quote: "ETH");
+  static final $XEM_ETH = Pair.instance(base: Coin("XEM"), quote: Coin("ETH"));
 
-  static const $XEM_BNB = const Pair(base: "XEM", quote: "BNB");
+  static final $XEM_BNB = Pair.instance(base: Coin("XEM"), quote: Coin("BNB"));
 
-  static const $WAN_BTC = const Pair(base: "WAN", quote: "BTC");
+  static final $WAN_BTC = Pair.instance(base: Coin("WAN"), quote: Coin("BTC"));
 
-  static const $WAN_ETH = const Pair(base: "WAN", quote: "ETH");
+  static final $WAN_ETH = Pair.instance(base: Coin("WAN"), quote: Coin("ETH"));
 
-  static const $WAN_BNB = const Pair(base: "WAN", quote: "BNB");
+  static final $WAN_BNB = Pair.instance(base: Coin("WAN"), quote: Coin("BNB"));
 
-  static const $WPR_BTC = const Pair(base: "WPR", quote: "BTC");
+  static final $WPR_BTC = Pair.instance(base: Coin("WPR"), quote: Coin("BTC"));
 
-  static const $WPR_ETH = const Pair(base: "WPR", quote: "ETH");
+  static final $WPR_ETH = Pair.instance(base: Coin("WPR"), quote: Coin("ETH"));
 
-  static const $QLC_BTC = const Pair(base: "QLC", quote: "BTC");
+  static final $QLC_BTC = Pair.instance(base: Coin("QLC"), quote: Coin("BTC"));
 
-  static const $QLC_ETH = const Pair(base: "QLC", quote: "ETH");
+  static final $QLC_ETH = Pair.instance(base: Coin("QLC"), quote: Coin("ETH"));
 
-  static const $SYS_BTC = const Pair(base: "SYS", quote: "BTC");
+  static final $SYS_BTC = Pair.instance(base: Coin("SYS"), quote: Coin("BTC"));
 
-  static const $SYS_ETH = const Pair(base: "SYS", quote: "ETH");
+  static final $SYS_ETH = Pair.instance(base: Coin("SYS"), quote: Coin("ETH"));
 
-  static const $SYS_BNB = const Pair(base: "SYS", quote: "BNB");
+  static final $SYS_BNB = Pair.instance(base: Coin("SYS"), quote: Coin("BNB"));
 
-  static const $QLC_BNB = const Pair(base: "QLC", quote: "BNB");
+  static final $QLC_BNB = Pair.instance(base: Coin("QLC"), quote: Coin("BNB"));
 
-  static const $GRS_BTC = const Pair(base: "GRS", quote: "BTC");
+  static final $GRS_BTC = Pair.instance(base: Coin("GRS"), quote: Coin("BTC"));
 
-  static const $GRS_ETH = const Pair(base: "GRS", quote: "ETH");
+  static final $GRS_ETH = Pair.instance(base: Coin("GRS"), quote: Coin("ETH"));
 
-  static const $ADA_USDT = const Pair(base: "ADA", quote: "USDT");
+  static final $ADA_USDT =
+      Pair.instance(base: Coin("ADA"), quote: Coin("USDT"));
 
-  static const $ADA_BNB = const Pair(base: "ADA", quote: "BNB");
+  static final $ADA_BNB = Pair.instance(base: Coin("ADA"), quote: Coin("BNB"));
 
-  static const $CLOAK_BTC = const Pair(base: "CLOAK", quote: "BTC");
+  static final $CLOAK_BTC =
+      Pair.instance(base: Coin("CLOAK"), quote: Coin("BTC"));
 
-  static const $CLOAK_ETH = const Pair(base: "CLOAK", quote: "ETH");
+  static final $CLOAK_ETH =
+      Pair.instance(base: Coin("CLOAK"), quote: Coin("ETH"));
 
-  static const $GNT_BTC = const Pair(base: "GNT", quote: "BTC");
+  static final $GNT_BTC = Pair.instance(base: Coin("GNT"), quote: Coin("BTC"));
 
-  static const $GNT_ETH = const Pair(base: "GNT", quote: "ETH");
+  static final $GNT_ETH = Pair.instance(base: Coin("GNT"), quote: Coin("ETH"));
 
-  static const $GNT_BNB = const Pair(base: "GNT", quote: "BNB");
+  static final $GNT_BNB = Pair.instance(base: Coin("GNT"), quote: Coin("BNB"));
 
-  static const $LOOM_BTC = const Pair(base: "LOOM", quote: "BTC");
+  static final $LOOM_BTC =
+      Pair.instance(base: Coin("LOOM"), quote: Coin("BTC"));
 
-  static const $LOOM_ETH = const Pair(base: "LOOM", quote: "ETH");
+  static final $LOOM_ETH =
+      Pair.instance(base: Coin("LOOM"), quote: Coin("ETH"));
 
-  static const $LOOM_BNB = const Pair(base: "LOOM", quote: "BNB");
+  static final $LOOM_BNB =
+      Pair.instance(base: Coin("LOOM"), quote: Coin("BNB"));
 
-  static const $XRP_USDT = const Pair(base: "XRP", quote: "USDT");
+  static final $XRP_USDT =
+      Pair.instance(base: Coin("XRP"), quote: Coin("USDT"));
 
-  static const $BCN_BTC = const Pair(base: "BCN", quote: "BTC");
+  static final $BCN_BTC = Pair.instance(base: Coin("BCN"), quote: Coin("BTC"));
 
-  static const $BCN_ETH = const Pair(base: "BCN", quote: "ETH");
+  static final $BCN_ETH = Pair.instance(base: Coin("BCN"), quote: Coin("ETH"));
 
-  static const $BCN_BNB = const Pair(base: "BCN", quote: "BNB");
+  static final $BCN_BNB = Pair.instance(base: Coin("BCN"), quote: Coin("BNB"));
 
-  static const $REP_BTC = const Pair(base: "REP", quote: "BTC");
+  static final $REP_BTC = Pair.instance(base: Coin("REP"), quote: Coin("BTC"));
 
-  static const $REP_ETH = const Pair(base: "REP", quote: "ETH");
+  static final $REP_ETH = Pair.instance(base: Coin("REP"), quote: Coin("ETH"));
 
-  static const $REP_BNB = const Pair(base: "REP", quote: "BNB");
+  static final $REP_BNB = Pair.instance(base: Coin("REP"), quote: Coin("BNB"));
 
-  static const $BTC_TUSD = const Pair(base: "BTC", quote: "TUSD");
+  static final $BTC_TUSD =
+      Pair.instance(base: Coin("BTC"), quote: Coin("TUSD"));
 
-  static const $TUSD_BTC = const Pair(base: "TUSD", quote: "BTC");
+  static final $TUSD_BTC =
+      Pair.instance(base: Coin("TUSD"), quote: Coin("BTC"));
 
-  static const $ETH_TUSD = const Pair(base: "ETH", quote: "TUSD");
+  static final $ETH_TUSD =
+      Pair.instance(base: Coin("ETH"), quote: Coin("TUSD"));
 
-  static const $TUSD_ETH = const Pair(base: "TUSD", quote: "ETH");
+  static final $TUSD_ETH =
+      Pair.instance(base: Coin("TUSD"), quote: Coin("ETH"));
 
-  static const $TUSD_BNB = const Pair(base: "TUSD", quote: "BNB");
+  static final $TUSD_BNB =
+      Pair.instance(base: Coin("TUSD"), quote: Coin("BNB"));
 
-  static const $ZEN_BTC = const Pair(base: "ZEN", quote: "BTC");
+  static final $ZEN_BTC = Pair.instance(base: Coin("ZEN"), quote: Coin("BTC"));
 
-  static const $ZEN_ETH = const Pair(base: "ZEN", quote: "ETH");
+  static final $ZEN_ETH = Pair.instance(base: Coin("ZEN"), quote: Coin("ETH"));
 
-  static const $ZEN_BNB = const Pair(base: "ZEN", quote: "BNB");
+  static final $ZEN_BNB = Pair.instance(base: Coin("ZEN"), quote: Coin("BNB"));
 
-  static const $SKY_BTC = const Pair(base: "SKY", quote: "BTC");
+  static final $SKY_BTC = Pair.instance(base: Coin("SKY"), quote: Coin("BTC"));
 
-  static const $SKY_ETH = const Pair(base: "SKY", quote: "ETH");
+  static final $SKY_ETH = Pair.instance(base: Coin("SKY"), quote: Coin("ETH"));
 
-  static const $SKY_BNB = const Pair(base: "SKY", quote: "BNB");
+  static final $SKY_BNB = Pair.instance(base: Coin("SKY"), quote: Coin("BNB"));
 
-  static const $EOS_USDT = const Pair(base: "EOS", quote: "USDT");
+  static final $EOS_USDT =
+      Pair.instance(base: Coin("EOS"), quote: Coin("USDT"));
 
-  static const $EOS_BNB = const Pair(base: "EOS", quote: "BNB");
+  static final $EOS_BNB = Pair.instance(base: Coin("EOS"), quote: Coin("BNB"));
 
-  static const $CVC_BTC = const Pair(base: "CVC", quote: "BTC");
+  static final $CVC_BTC = Pair.instance(base: Coin("CVC"), quote: Coin("BTC"));
 
-  static const $CVC_ETH = const Pair(base: "CVC", quote: "ETH");
+  static final $CVC_ETH = Pair.instance(base: Coin("CVC"), quote: Coin("ETH"));
 
-  static const $CVC_BNB = const Pair(base: "CVC", quote: "BNB");
+  static final $CVC_BNB = Pair.instance(base: Coin("CVC"), quote: Coin("BNB"));
 
-  static const $THETA_BTC = const Pair(base: "THETA", quote: "BTC");
+  static final $THETA_BTC =
+      Pair.instance(base: Coin("THETA"), quote: Coin("BTC"));
 
-  static const $THETA_ETH = const Pair(base: "THETA", quote: "ETH");
+  static final $THETA_ETH =
+      Pair.instance(base: Coin("THETA"), quote: Coin("ETH"));
 
-  static const $THETA_BNB = const Pair(base: "THETA", quote: "BNB");
+  static final $THETA_BNB =
+      Pair.instance(base: Coin("THETA"), quote: Coin("BNB"));
 
-  static const $XRP_BNB = const Pair(base: "XRP", quote: "BNB");
+  static final $XRP_BNB = Pair.instance(base: Coin("XRP"), quote: Coin("BNB"));
 
-  static const $TUSD_USDT = const Pair(base: "TUSD", quote: "USDT");
+  static final $TUSD_USDT =
+      Pair.instance(base: Coin("TUSD"), quote: Coin("USDT"));
 
-  static const $IOTA_USDT = const Pair(base: "IOTA", quote: "USDT");
+  static final $IOTA_USDT =
+      Pair.instance(base: Coin("IOTA"), quote: Coin("USDT"));
 
-  static const $XLM_USDT = const Pair(base: "XLM", quote: "USDT");
+  static final $XLM_USDT =
+      Pair.instance(base: Coin("XLM"), quote: Coin("USDT"));
 
-  static const $IOTX_BTC = const Pair(base: "IOTX", quote: "BTC");
+  static final $IOTX_BTC =
+      Pair.instance(base: Coin("IOTX"), quote: Coin("BTC"));
 
-  static const $IOTX_ETH = const Pair(base: "IOTX", quote: "ETH");
+  static final $IOTX_ETH =
+      Pair.instance(base: Coin("IOTX"), quote: Coin("ETH"));
 
-  static const $QKC_BTC = const Pair(base: "QKC", quote: "BTC");
+  static final $QKC_BTC = Pair.instance(base: Coin("QKC"), quote: Coin("BTC"));
 
-  static const $QKC_ETH = const Pair(base: "QKC", quote: "ETH");
+  static final $QKC_ETH = Pair.instance(base: Coin("QKC"), quote: Coin("ETH"));
 
-  static const $AGI_BTC = const Pair(base: "AGI", quote: "BTC");
+  static final $AGI_BTC = Pair.instance(base: Coin("AGI"), quote: Coin("BTC"));
 
-  static const $AGI_ETH = const Pair(base: "AGI", quote: "ETH");
+  static final $AGI_ETH = Pair.instance(base: Coin("AGI"), quote: Coin("ETH"));
 
-  static const $AGI_BNB = const Pair(base: "AGI", quote: "BNB");
+  static final $AGI_BNB = Pair.instance(base: Coin("AGI"), quote: Coin("BNB"));
 
-  static const $NXS_BTC = const Pair(base: "NXS", quote: "BTC");
+  static final $NXS_BTC = Pair.instance(base: Coin("NXS"), quote: Coin("BTC"));
 
-  static const $NXS_ETH = const Pair(base: "NXS", quote: "ETH");
+  static final $NXS_ETH = Pair.instance(base: Coin("NXS"), quote: Coin("ETH"));
 
-  static const $NXS_BNB = const Pair(base: "NXS", quote: "BNB");
+  static final $NXS_BNB = Pair.instance(base: Coin("NXS"), quote: Coin("BNB"));
 
-  static const $ENJ_BNB = const Pair(base: "ENJ", quote: "BNB");
+  static final $ENJ_BNB = Pair.instance(base: Coin("ENJ"), quote: Coin("BNB"));
 
-  static const $DATA_BTC = const Pair(base: "DATA", quote: "BTC");
+  static final $DATA_BTC =
+      Pair.instance(base: Coin("DATA"), quote: Coin("BTC"));
 
-  static const $DATA_ETH = const Pair(base: "DATA", quote: "ETH");
+  static final $DATA_ETH =
+      Pair.instance(base: Coin("DATA"), quote: Coin("ETH"));
 
-  static const $ONT_USDT = const Pair(base: "ONT", quote: "USDT");
+  static final $ONT_USDT =
+      Pair.instance(base: Coin("ONT"), quote: Coin("USDT"));
 
-  static const $TRX_BNB = const Pair(base: "TRX", quote: "BNB");
+  static final $TRX_BNB = Pair.instance(base: Coin("TRX"), quote: Coin("BNB"));
 
-  static const $TRX_USDT = const Pair(base: "TRX", quote: "USDT");
+  static final $TRX_USDT =
+      Pair.instance(base: Coin("TRX"), quote: Coin("USDT"));
 
-  static const $ETC_USDT = const Pair(base: "ETC", quote: "USDT");
+  static final $ETC_USDT =
+      Pair.instance(base: Coin("ETC"), quote: Coin("USDT"));
 
-  static const $ETC_BNB = const Pair(base: "ETC", quote: "BNB");
+  static final $ETC_BNB = Pair.instance(base: Coin("ETC"), quote: Coin("BNB"));
 
-  static const $ICX_USDT = const Pair(base: "ICX", quote: "USDT");
+  static final $ICX_USDT =
+      Pair.instance(base: Coin("ICX"), quote: Coin("USDT"));
 
-  static const $SC_BTC = const Pair(base: "SC", quote: "BTC");
+  static final $SC_BTC = Pair.instance(base: Coin("SC"), quote: Coin("BTC"));
 
-  static const $SC_ETH = const Pair(base: "SC", quote: "ETH");
+  static final $SC_ETH = Pair.instance(base: Coin("SC"), quote: Coin("ETH"));
 
-  static const $SC_BNB = const Pair(base: "SC", quote: "BNB");
+  static final $SC_BNB = Pair.instance(base: Coin("SC"), quote: Coin("BNB"));
 
-  static const $NPXS_BTC = const Pair(base: "NPXS", quote: "BTC");
+  static final $NPXS_BTC =
+      Pair.instance(base: Coin("NPXS"), quote: Coin("BTC"));
 
-  static const $NPXS_ETH = const Pair(base: "NPXS", quote: "ETH");
+  static final $NPXS_ETH =
+      Pair.instance(base: Coin("NPXS"), quote: Coin("ETH"));
 
-  static const $VEN_USDT = const Pair(base: "VEN", quote: "USDT");
+  static final $VEN_USDT =
+      Pair.instance(base: Coin("VEN"), quote: Coin("USDT"));
 
-  static const $KEY_BTC = const Pair(base: "KEY", quote: "BTC");
+  static final $KEY_BTC = Pair.instance(base: Coin("KEY"), quote: Coin("BTC"));
 
-  static const $KEY_ETH = const Pair(base: "KEY", quote: "ETH");
+  static final $KEY_ETH = Pair.instance(base: Coin("KEY"), quote: Coin("ETH"));
 
-  static const $NAS_BTC = const Pair(base: "NAS", quote: "BTC");
+  static final $NAS_BTC = Pair.instance(base: Coin("NAS"), quote: Coin("BTC"));
 
-  static const $NAS_ETH = const Pair(base: "NAS", quote: "ETH");
+  static final $NAS_ETH = Pair.instance(base: Coin("NAS"), quote: Coin("ETH"));
 
-  static const $NAS_BNB = const Pair(base: "NAS", quote: "BNB");
+  static final $NAS_BNB = Pair.instance(base: Coin("NAS"), quote: Coin("BNB"));
 
-  static const $MFT_BTC = const Pair(base: "MFT", quote: "BTC");
+  static final $MFT_BTC = Pair.instance(base: Coin("MFT"), quote: Coin("BTC"));
 
-  static const $MFT_ETH = const Pair(base: "MFT", quote: "ETH");
+  static final $MFT_ETH = Pair.instance(base: Coin("MFT"), quote: Coin("ETH"));
 
-  static const $MFT_BNB = const Pair(base: "MFT", quote: "BNB");
+  static final $MFT_BNB = Pair.instance(base: Coin("MFT"), quote: Coin("BNB"));
 
-  static const $DENT_BTC = const Pair(base: "DENT", quote: "BTC");
+  static final $DENT_BTC =
+      Pair.instance(base: Coin("DENT"), quote: Coin("BTC"));
 
-  static const $DENT_ETH = const Pair(base: "DENT", quote: "ETH");
+  static final $DENT_ETH =
+      Pair.instance(base: Coin("DENT"), quote: Coin("ETH"));
 
-  static const $ARDR_BTC = const Pair(base: "ARDR", quote: "BTC");
+  static final $ARDR_BTC =
+      Pair.instance(base: Coin("ARDR"), quote: Coin("BTC"));
 
-  static const $ARDR_ETH = const Pair(base: "ARDR", quote: "ETH");
+  static final $ARDR_ETH =
+      Pair.instance(base: Coin("ARDR"), quote: Coin("ETH"));
 
-  static const $ARDR_BNB = const Pair(base: "ARDR", quote: "BNB");
+  static final $ARDR_BNB =
+      Pair.instance(base: Coin("ARDR"), quote: Coin("BNB"));
 
-  static const $NULS_USDT = const Pair(base: "NULS", quote: "USDT");
+  static final $NULS_USDT =
+      Pair.instance(base: Coin("NULS"), quote: Coin("USDT"));
 
-  static const $HOT_BTC = const Pair(base: "HOT", quote: "BTC");
+  static final $HOT_BTC = Pair.instance(base: Coin("HOT"), quote: Coin("BTC"));
 
-  static const $HOT_ETH = const Pair(base: "HOT", quote: "ETH");
+  static final $HOT_ETH = Pair.instance(base: Coin("HOT"), quote: Coin("ETH"));
 
-  static const $VET_BTC = const Pair(base: "VET", quote: "BTC");
+  static final $VET_BTC = Pair.instance(base: Coin("VET"), quote: Coin("BTC"));
 
-  static const $VET_ETH = const Pair(base: "VET", quote: "ETH");
+  static final $VET_ETH = Pair.instance(base: Coin("VET"), quote: Coin("ETH"));
 
-  static const $VET_USDT = const Pair(base: "VET", quote: "USDT");
+  static final $VET_USDT =
+      Pair.instance(base: Coin("VET"), quote: Coin("USDT"));
 
-  static const $VET_BNB = const Pair(base: "VET", quote: "BNB");
+  static final $VET_BNB = Pair.instance(base: Coin("VET"), quote: Coin("BNB"));
 
-  static const $DOCK_BTC = const Pair(base: "DOCK", quote: "BTC");
+  static final $DOCK_BTC =
+      Pair.instance(base: Coin("DOCK"), quote: Coin("BTC"));
 
-  static const $DOCK_ETH = const Pair(base: "DOCK", quote: "ETH");
+  static final $DOCK_ETH =
+      Pair.instance(base: Coin("DOCK"), quote: Coin("ETH"));
 
-  static const $POLY_BTC = const Pair(base: "POLY", quote: "BTC");
+  static final $POLY_BTC =
+      Pair.instance(base: Coin("POLY"), quote: Coin("BTC"));
 
-  static const $POLY_BNB = const Pair(base: "POLY", quote: "BNB");
+  static final $POLY_BNB =
+      Pair.instance(base: Coin("POLY"), quote: Coin("BNB"));
 
-  static const $PHX_BTC = const Pair(base: "PHX", quote: "BTC");
+  static final $PHX_BTC = Pair.instance(base: Coin("PHX"), quote: Coin("BTC"));
 
-  static const $PHX_ETH = const Pair(base: "PHX", quote: "ETH");
+  static final $PHX_ETH = Pair.instance(base: Coin("PHX"), quote: Coin("ETH"));
 
-  static const $PHX_BNB = const Pair(base: "PHX", quote: "BNB");
+  static final $PHX_BNB = Pair.instance(base: Coin("PHX"), quote: Coin("BNB"));
 
-  static const $HC_BTC = const Pair(base: "HC", quote: "BTC");
+  static final $HC_BTC = Pair.instance(base: Coin("HC"), quote: Coin("BTC"));
 
-  static const $HC_ETH = const Pair(base: "HC", quote: "ETH");
+  static final $HC_ETH = Pair.instance(base: Coin("HC"), quote: Coin("ETH"));
 
-  static const $GO_BTC = const Pair(base: "GO", quote: "BTC");
+  static final $GO_BTC = Pair.instance(base: Coin("GO"), quote: Coin("BTC"));
 
-  static const $GO_BNB = const Pair(base: "GO", quote: "BNB");
+  static final $GO_BNB = Pair.instance(base: Coin("GO"), quote: Coin("BNB"));
 
-  static const $PAX_BTC = const Pair(base: "PAX", quote: "BTC");
+  static final $PAX_BTC = Pair.instance(base: Coin("PAX"), quote: Coin("BTC"));
 
-  static const $PAX_BNB = const Pair(base: "PAX", quote: "BNB");
+  static final $PAX_BNB = Pair.instance(base: Coin("PAX"), quote: Coin("BNB"));
 
-  static const $PAX_USDT = const Pair(base: "PAX", quote: "USDT");
+  static final $PAX_USDT =
+      Pair.instance(base: Coin("PAX"), quote: Coin("USDT"));
 
-  static const $PAX_ETH = const Pair(base: "PAX", quote: "ETH");
+  static final $PAX_ETH = Pair.instance(base: Coin("PAX"), quote: Coin("ETH"));
 
-  static const $RVN_BTC = const Pair(base: "RVN", quote: "BTC");
+  static final $RVN_BTC = Pair.instance(base: Coin("RVN"), quote: Coin("BTC"));
 
-  static const $RVN_BNB = const Pair(base: "RVN", quote: "BNB");
+  static final $RVN_BNB = Pair.instance(base: Coin("RVN"), quote: Coin("BNB"));
 
-  static const $DCR_BTC = const Pair(base: "DCR", quote: "BTC");
+  static final $DCR_BTC = Pair.instance(base: Coin("DCR"), quote: Coin("BTC"));
 
-  static const $DCR_BNB = const Pair(base: "DCR", quote: "BNB");
+  static final $DCR_BNB = Pair.instance(base: Coin("DCR"), quote: Coin("BNB"));
 
-  static const $USDC_BNB = const Pair(base: "USDC", quote: "BNB");
+  static final $USDC_BNB =
+      Pair.instance(base: Coin("USDC"), quote: Coin("BNB"));
 
-  static const $MITH_BTC = const Pair(base: "MITH", quote: "BTC");
+  static final $MITH_BTC =
+      Pair.instance(base: Coin("MITH"), quote: Coin("BTC"));
 
-  static const $MITH_BNB = const Pair(base: "MITH", quote: "BNB");
+  static final $MITH_BNB =
+      Pair.instance(base: Coin("MITH"), quote: Coin("BNB"));
 
-  static const $BCHABC_BTC = const Pair(base: "BCHABC", quote: "BTC");
+  static final $BCHABC_BTC =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("BTC"));
 
-  static const $BCHSV_BTC = const Pair(base: "BCHSV", quote: "BTC");
+  static final $BCHSV_BTC =
+      Pair.instance(base: Coin("BCHSV"), quote: Coin("BTC"));
 
-  static const $BCHABC_USDT = const Pair(base: "BCHABC", quote: "USDT");
+  static final $BCHABC_USDT =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("USDT"));
 
-  static const $BCHSV_USDT = const Pair(base: "BCHSV", quote: "USDT");
+  static final $BCHSV_USDT =
+      Pair.instance(base: Coin("BCHSV"), quote: Coin("USDT"));
 
-  static const $BNB_PAX = const Pair(base: "BNB", quote: "PAX");
+  static final $BNB_PAX = Pair.instance(base: Coin("BNB"), quote: Coin("PAX"));
 
-  static const $BTC_PAX = const Pair(base: "BTC", quote: "PAX");
+  static final $BTC_PAX = Pair.instance(base: Coin("BTC"), quote: Coin("PAX"));
 
-  static const $ETH_PAX = const Pair(base: "ETH", quote: "PAX");
+  static final $ETH_PAX = Pair.instance(base: Coin("ETH"), quote: Coin("PAX"));
 
-  static const $XRP_PAX = const Pair(base: "XRP", quote: "PAX");
+  static final $XRP_PAX = Pair.instance(base: Coin("XRP"), quote: Coin("PAX"));
 
-  static const $EOS_PAX = const Pair(base: "EOS", quote: "PAX");
+  static final $EOS_PAX = Pair.instance(base: Coin("EOS"), quote: Coin("PAX"));
 
-  static const $XLM_PAX = const Pair(base: "XLM", quote: "PAX");
+  static final $XLM_PAX = Pair.instance(base: Coin("XLM"), quote: Coin("PAX"));
 
-  static const $REN_BTC = const Pair(base: "REN", quote: "BTC");
+  static final $REN_BTC = Pair.instance(base: Coin("REN"), quote: Coin("BTC"));
 
-  static const $REN_BNB = const Pair(base: "REN", quote: "BNB");
+  static final $REN_BNB = Pair.instance(base: Coin("REN"), quote: Coin("BNB"));
 
-  static const $BNB_TUSD = const Pair(base: "BNB", quote: "TUSD");
+  static final $BNB_TUSD =
+      Pair.instance(base: Coin("BNB"), quote: Coin("TUSD"));
 
-  static const $XRP_TUSD = const Pair(base: "XRP", quote: "TUSD");
+  static final $XRP_TUSD =
+      Pair.instance(base: Coin("XRP"), quote: Coin("TUSD"));
 
-  static const $EOS_TUSD = const Pair(base: "EOS", quote: "TUSD");
+  static final $EOS_TUSD =
+      Pair.instance(base: Coin("EOS"), quote: Coin("TUSD"));
 
-  static const $XLM_TUSD = const Pair(base: "XLM", quote: "TUSD");
+  static final $XLM_TUSD =
+      Pair.instance(base: Coin("XLM"), quote: Coin("TUSD"));
 
-  static const $BNB_USDC = const Pair(base: "BNB", quote: "USDC");
+  static final $BNB_USDC =
+      Pair.instance(base: Coin("BNB"), quote: Coin("USDC"));
 
-  static const $BTC_USDC = const Pair(base: "BTC", quote: "USDC");
+  static final $BTC_USDC =
+      Pair.instance(base: Coin("BTC"), quote: Coin("USDC"));
 
-  static const $ETH_USDC = const Pair(base: "ETH", quote: "USDC");
+  static final $ETH_USDC =
+      Pair.instance(base: Coin("ETH"), quote: Coin("USDC"));
 
-  static const $XRP_USDC = const Pair(base: "XRP", quote: "USDC");
+  static final $XRP_USDC =
+      Pair.instance(base: Coin("XRP"), quote: Coin("USDC"));
 
-  static const $EOS_USDC = const Pair(base: "EOS", quote: "USDC");
+  static final $EOS_USDC =
+      Pair.instance(base: Coin("EOS"), quote: Coin("USDC"));
 
-  static const $XLM_USDC = const Pair(base: "XLM", quote: "USDC");
+  static final $XLM_USDC =
+      Pair.instance(base: Coin("XLM"), quote: Coin("USDC"));
 
-  static const $USDC_USDT = const Pair(base: "USDC", quote: "USDT");
+  static final $USDC_USDT =
+      Pair.instance(base: Coin("USDC"), quote: Coin("USDT"));
 
-  static const $ADA_TUSD = const Pair(base: "ADA", quote: "TUSD");
+  static final $ADA_TUSD =
+      Pair.instance(base: Coin("ADA"), quote: Coin("TUSD"));
 
-  static const $TRX_TUSD = const Pair(base: "TRX", quote: "TUSD");
+  static final $TRX_TUSD =
+      Pair.instance(base: Coin("TRX"), quote: Coin("TUSD"));
 
-  static const $NEO_TUSD = const Pair(base: "NEO", quote: "TUSD");
+  static final $NEO_TUSD =
+      Pair.instance(base: Coin("NEO"), quote: Coin("TUSD"));
 
-  static const $TRX_XRP = const Pair(base: "TRX", quote: "XRP");
+  static final $TRX_XRP = Pair.instance(base: Coin("TRX"), quote: Coin("XRP"));
 
-  static const $XZC_XRP = const Pair(base: "XZC", quote: "XRP");
+  static final $XZC_XRP = Pair.instance(base: Coin("XZC"), quote: Coin("XRP"));
 
-  static const $PAX_TUSD = const Pair(base: "PAX", quote: "TUSD");
+  static final $PAX_TUSD =
+      Pair.instance(base: Coin("PAX"), quote: Coin("TUSD"));
 
-  static const $USDC_TUSD = const Pair(base: "USDC", quote: "TUSD");
+  static final $USDC_TUSD =
+      Pair.instance(base: Coin("USDC"), quote: Coin("TUSD"));
 
-  static const $USDC_PAX = const Pair(base: "USDC", quote: "PAX");
+  static final $USDC_PAX =
+      Pair.instance(base: Coin("USDC"), quote: Coin("PAX"));
 
-  static const $LINK_USDT = const Pair(base: "LINK", quote: "USDT");
+  static final $LINK_USDT =
+      Pair.instance(base: Coin("LINK"), quote: Coin("USDT"));
 
-  static const $LINK_TUSD = const Pair(base: "LINK", quote: "TUSD");
+  static final $LINK_TUSD =
+      Pair.instance(base: Coin("LINK"), quote: Coin("TUSD"));
 
-  static const $LINK_PAX = const Pair(base: "LINK", quote: "PAX");
+  static final $LINK_PAX =
+      Pair.instance(base: Coin("LINK"), quote: Coin("PAX"));
 
-  static const $LINK_USDC = const Pair(base: "LINK", quote: "USDC");
+  static final $LINK_USDC =
+      Pair.instance(base: Coin("LINK"), quote: Coin("USDC"));
 
-  static const $WAVES_USDT = const Pair(base: "WAVES", quote: "USDT");
+  static final $WAVES_USDT =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("USDT"));
 
-  static const $WAVES_TUSD = const Pair(base: "WAVES", quote: "TUSD");
+  static final $WAVES_TUSD =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("TUSD"));
 
-  static const $WAVES_PAX = const Pair(base: "WAVES", quote: "PAX");
+  static final $WAVES_PAX =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("PAX"));
 
-  static const $WAVES_USDC = const Pair(base: "WAVES", quote: "USDC");
+  static final $WAVES_USDC =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("USDC"));
 
-  static const $BCHABC_TUSD = const Pair(base: "BCHABC", quote: "TUSD");
+  static final $BCHABC_TUSD =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("TUSD"));
 
-  static const $BCHABC_PAX = const Pair(base: "BCHABC", quote: "PAX");
+  static final $BCHABC_PAX =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("PAX"));
 
-  static const $BCHABC_USDC = const Pair(base: "BCHABC", quote: "USDC");
+  static final $BCHABC_USDC =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("USDC"));
 
-  static const $BCHSV_TUSD = const Pair(base: "BCHSV", quote: "TUSD");
+  static final $BCHSV_TUSD =
+      Pair.instance(base: Coin("BCHSV"), quote: Coin("TUSD"));
 
-  static const $BCHSV_PAX = const Pair(base: "BCHSV", quote: "PAX");
+  static final $BCHSV_PAX =
+      Pair.instance(base: Coin("BCHSV"), quote: Coin("PAX"));
 
-  static const $BCHSV_USDC = const Pair(base: "BCHSV", quote: "USDC");
+  static final $BCHSV_USDC =
+      Pair.instance(base: Coin("BCHSV"), quote: Coin("USDC"));
 
-  static const $LTC_TUSD = const Pair(base: "LTC", quote: "TUSD");
+  static final $LTC_TUSD =
+      Pair.instance(base: Coin("LTC"), quote: Coin("TUSD"));
 
-  static const $LTC_PAX = const Pair(base: "LTC", quote: "PAX");
+  static final $LTC_PAX = Pair.instance(base: Coin("LTC"), quote: Coin("PAX"));
 
-  static const $LTC_USDC = const Pair(base: "LTC", quote: "USDC");
+  static final $LTC_USDC =
+      Pair.instance(base: Coin("LTC"), quote: Coin("USDC"));
 
-  static const $TRX_PAX = const Pair(base: "TRX", quote: "PAX");
+  static final $TRX_PAX = Pair.instance(base: Coin("TRX"), quote: Coin("PAX"));
 
-  static const $TRX_USDC = const Pair(base: "TRX", quote: "USDC");
+  static final $TRX_USDC =
+      Pair.instance(base: Coin("TRX"), quote: Coin("USDC"));
 
-  static const $BTT_BTC = const Pair(base: "BTT", quote: "BTC");
+  static final $BTT_BTC = Pair.instance(base: Coin("BTT"), quote: Coin("BTC"));
 
-  static const $BTT_BNB = const Pair(base: "BTT", quote: "BNB");
+  static final $BTT_BNB = Pair.instance(base: Coin("BTT"), quote: Coin("BNB"));
 
-  static const $BTT_USDT = const Pair(base: "BTT", quote: "USDT");
+  static final $BTT_USDT =
+      Pair.instance(base: Coin("BTT"), quote: Coin("USDT"));
 
-  static const $BNB_USDS = const Pair(base: "BNB", quote: "USDS");
+  static final $BNB_USDS =
+      Pair.instance(base: Coin("BNB"), quote: Coin("USDS"));
 
-  static const $BTC_USDS = const Pair(base: "BTC", quote: "USDS");
+  static final $BTC_USDS =
+      Pair.instance(base: Coin("BTC"), quote: Coin("USDS"));
 
-  static const $USDS_USDT = const Pair(base: "USDS", quote: "USDT");
+  static final $USDS_USDT =
+      Pair.instance(base: Coin("USDS"), quote: Coin("USDT"));
 
-  static const $USDS_PAX = const Pair(base: "USDS", quote: "PAX");
+  static final $USDS_PAX =
+      Pair.instance(base: Coin("USDS"), quote: Coin("PAX"));
 
-  static const $USDS_TUSD = const Pair(base: "USDS", quote: "TUSD");
+  static final $USDS_TUSD =
+      Pair.instance(base: Coin("USDS"), quote: Coin("TUSD"));
 
-  static const $USDS_USDC = const Pair(base: "USDS", quote: "USDC");
+  static final $USDS_USDC =
+      Pair.instance(base: Coin("USDS"), quote: Coin("USDC"));
 
-  static const $BTT_PAX = const Pair(base: "BTT", quote: "PAX");
+  static final $BTT_PAX = Pair.instance(base: Coin("BTT"), quote: Coin("PAX"));
 
-  static const $BTT_TUSD = const Pair(base: "BTT", quote: "TUSD");
+  static final $BTT_TUSD =
+      Pair.instance(base: Coin("BTT"), quote: Coin("TUSD"));
 
-  static const $BTT_USDC = const Pair(base: "BTT", quote: "USDC");
+  static final $BTT_USDC =
+      Pair.instance(base: Coin("BTT"), quote: Coin("USDC"));
 
-  static const $ONG_BNB = const Pair(base: "ONG", quote: "BNB");
+  static final $ONG_BNB = Pair.instance(base: Coin("ONG"), quote: Coin("BNB"));
 
-  static const $ONG_BTC = const Pair(base: "ONG", quote: "BTC");
+  static final $ONG_BTC = Pair.instance(base: Coin("ONG"), quote: Coin("BTC"));
 
-  static const $ONG_USDT = const Pair(base: "ONG", quote: "USDT");
+  static final $ONG_USDT =
+      Pair.instance(base: Coin("ONG"), quote: Coin("USDT"));
 
-  static const $HOT_BNB = const Pair(base: "HOT", quote: "BNB");
+  static final $HOT_BNB = Pair.instance(base: Coin("HOT"), quote: Coin("BNB"));
 
-  static const $HOT_USDT = const Pair(base: "HOT", quote: "USDT");
+  static final $HOT_USDT =
+      Pair.instance(base: Coin("HOT"), quote: Coin("USDT"));
 
-  static const $ZIL_USDT = const Pair(base: "ZIL", quote: "USDT");
+  static final $ZIL_USDT =
+      Pair.instance(base: Coin("ZIL"), quote: Coin("USDT"));
 
-  static const $ZRX_BNB = const Pair(base: "ZRX", quote: "BNB");
+  static final $ZRX_BNB = Pair.instance(base: Coin("ZRX"), quote: Coin("BNB"));
 
-  static const $ZRX_USDT = const Pair(base: "ZRX", quote: "USDT");
+  static final $ZRX_USDT =
+      Pair.instance(base: Coin("ZRX"), quote: Coin("USDT"));
 
-  static const $FET_BNB = const Pair(base: "FET", quote: "BNB");
+  static final $FET_BNB = Pair.instance(base: Coin("FET"), quote: Coin("BNB"));
 
-  static const $FET_BTC = const Pair(base: "FET", quote: "BTC");
+  static final $FET_BTC = Pair.instance(base: Coin("FET"), quote: Coin("BTC"));
 
-  static const $FET_USDT = const Pair(base: "FET", quote: "USDT");
+  static final $FET_USDT =
+      Pair.instance(base: Coin("FET"), quote: Coin("USDT"));
 
-  static const $BAT_USDT = const Pair(base: "BAT", quote: "USDT");
+  static final $BAT_USDT =
+      Pair.instance(base: Coin("BAT"), quote: Coin("USDT"));
 
-  static const $XMR_BNB = const Pair(base: "XMR", quote: "BNB");
+  static final $XMR_BNB = Pair.instance(base: Coin("XMR"), quote: Coin("BNB"));
 
-  static const $XMR_USDT = const Pair(base: "XMR", quote: "USDT");
+  static final $XMR_USDT =
+      Pair.instance(base: Coin("XMR"), quote: Coin("USDT"));
 
-  static const $ZEC_BNB = const Pair(base: "ZEC", quote: "BNB");
+  static final $ZEC_BNB = Pair.instance(base: Coin("ZEC"), quote: Coin("BNB"));
 
-  static const $ZEC_USDT = const Pair(base: "ZEC", quote: "USDT");
+  static final $ZEC_USDT =
+      Pair.instance(base: Coin("ZEC"), quote: Coin("USDT"));
 
-  static const $ZEC_PAX = const Pair(base: "ZEC", quote: "PAX");
+  static final $ZEC_PAX = Pair.instance(base: Coin("ZEC"), quote: Coin("PAX"));
 
-  static const $ZEC_TUSD = const Pair(base: "ZEC", quote: "TUSD");
+  static final $ZEC_TUSD =
+      Pair.instance(base: Coin("ZEC"), quote: Coin("TUSD"));
 
-  static const $ZEC_USDC = const Pair(base: "ZEC", quote: "USDC");
+  static final $ZEC_USDC =
+      Pair.instance(base: Coin("ZEC"), quote: Coin("USDC"));
 
-  static const $IOST_BNB = const Pair(base: "IOST", quote: "BNB");
+  static final $IOST_BNB =
+      Pair.instance(base: Coin("IOST"), quote: Coin("BNB"));
 
-  static const $IOST_USDT = const Pair(base: "IOST", quote: "USDT");
+  static final $IOST_USDT =
+      Pair.instance(base: Coin("IOST"), quote: Coin("USDT"));
 
-  static const $CELR_BNB = const Pair(base: "CELR", quote: "BNB");
+  static final $CELR_BNB =
+      Pair.instance(base: Coin("CELR"), quote: Coin("BNB"));
 
-  static const $CELR_BTC = const Pair(base: "CELR", quote: "BTC");
+  static final $CELR_BTC =
+      Pair.instance(base: Coin("CELR"), quote: Coin("BTC"));
 
-  static const $CELR_USDT = const Pair(base: "CELR", quote: "USDT");
+  static final $CELR_USDT =
+      Pair.instance(base: Coin("CELR"), quote: Coin("USDT"));
 
-  static const $ADA_PAX = const Pair(base: "ADA", quote: "PAX");
+  static final $ADA_PAX = Pair.instance(base: Coin("ADA"), quote: Coin("PAX"));
 
-  static const $ADA_USDC = const Pair(base: "ADA", quote: "USDC");
+  static final $ADA_USDC =
+      Pair.instance(base: Coin("ADA"), quote: Coin("USDC"));
 
-  static const $NEO_PAX = const Pair(base: "NEO", quote: "PAX");
+  static final $NEO_PAX = Pair.instance(base: Coin("NEO"), quote: Coin("PAX"));
 
-  static const $NEO_USDC = const Pair(base: "NEO", quote: "USDC");
+  static final $NEO_USDC =
+      Pair.instance(base: Coin("NEO"), quote: Coin("USDC"));
 
-  static const $DASH_BNB = const Pair(base: "DASH", quote: "BNB");
+  static final $DASH_BNB =
+      Pair.instance(base: Coin("DASH"), quote: Coin("BNB"));
 
-  static const $DASH_USDT = const Pair(base: "DASH", quote: "USDT");
+  static final $DASH_USDT =
+      Pair.instance(base: Coin("DASH"), quote: Coin("USDT"));
 
-  static const $NANO_USDT = const Pair(base: "NANO", quote: "USDT");
+  static final $NANO_USDT =
+      Pair.instance(base: Coin("NANO"), quote: Coin("USDT"));
 
-  static const $OMG_BNB = const Pair(base: "OMG", quote: "BNB");
+  static final $OMG_BNB = Pair.instance(base: Coin("OMG"), quote: Coin("BNB"));
 
-  static const $OMG_USDT = const Pair(base: "OMG", quote: "USDT");
+  static final $OMG_USDT =
+      Pair.instance(base: Coin("OMG"), quote: Coin("USDT"));
 
-  static const $THETA_USDT = const Pair(base: "THETA", quote: "USDT");
+  static final $THETA_USDT =
+      Pair.instance(base: Coin("THETA"), quote: Coin("USDT"));
 
-  static const $ENJ_USDT = const Pair(base: "ENJ", quote: "USDT");
+  static final $ENJ_USDT =
+      Pair.instance(base: Coin("ENJ"), quote: Coin("USDT"));
 
-  static const $MITH_USDT = const Pair(base: "MITH", quote: "USDT");
+  static final $MITH_USDT =
+      Pair.instance(base: Coin("MITH"), quote: Coin("USDT"));
 
-  static const $MATIC_BNB = const Pair(base: "MATIC", quote: "BNB");
+  static final $MATIC_BNB =
+      Pair.instance(base: Coin("MATIC"), quote: Coin("BNB"));
 
-  static const $MATIC_BTC = const Pair(base: "MATIC", quote: "BTC");
+  static final $MATIC_BTC =
+      Pair.instance(base: Coin("MATIC"), quote: Coin("BTC"));
 
-  static const $MATIC_USDT = const Pair(base: "MATIC", quote: "USDT");
+  static final $MATIC_USDT =
+      Pair.instance(base: Coin("MATIC"), quote: Coin("USDT"));
 
-  static const $ATOM_BNB = const Pair(base: "ATOM", quote: "BNB");
+  static final $ATOM_BNB =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("BNB"));
 
-  static const $ATOM_BTC = const Pair(base: "ATOM", quote: "BTC");
+  static final $ATOM_BTC =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("BTC"));
 
-  static const $ATOM_USDT = const Pair(base: "ATOM", quote: "USDT");
+  static final $ATOM_USDT =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("USDT"));
 
-  static const $ATOM_USDC = const Pair(base: "ATOM", quote: "USDC");
+  static final $ATOM_USDC =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("USDC"));
 
-  static const $ATOM_PAX = const Pair(base: "ATOM", quote: "PAX");
+  static final $ATOM_PAX =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("PAX"));
 
-  static const $ATOM_TUSD = const Pair(base: "ATOM", quote: "TUSD");
+  static final $ATOM_TUSD =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("TUSD"));
 
-  static const $ETC_USDC = const Pair(base: "ETC", quote: "USDC");
+  static final $ETC_USDC =
+      Pair.instance(base: Coin("ETC"), quote: Coin("USDC"));
 
-  static const $ETC_PAX = const Pair(base: "ETC", quote: "PAX");
+  static final $ETC_PAX = Pair.instance(base: Coin("ETC"), quote: Coin("PAX"));
 
-  static const $ETC_TUSD = const Pair(base: "ETC", quote: "TUSD");
+  static final $ETC_TUSD =
+      Pair.instance(base: Coin("ETC"), quote: Coin("TUSD"));
 
-  static const $BAT_USDC = const Pair(base: "BAT", quote: "USDC");
+  static final $BAT_USDC =
+      Pair.instance(base: Coin("BAT"), quote: Coin("USDC"));
 
-  static const $BAT_PAX = const Pair(base: "BAT", quote: "PAX");
+  static final $BAT_PAX = Pair.instance(base: Coin("BAT"), quote: Coin("PAX"));
 
-  static const $BAT_TUSD = const Pair(base: "BAT", quote: "TUSD");
+  static final $BAT_TUSD =
+      Pair.instance(base: Coin("BAT"), quote: Coin("TUSD"));
 
-  static const $PHB_BNB = const Pair(base: "PHB", quote: "BNB");
+  static final $PHB_BNB = Pair.instance(base: Coin("PHB"), quote: Coin("BNB"));
 
-  static const $PHB_BTC = const Pair(base: "PHB", quote: "BTC");
+  static final $PHB_BTC = Pair.instance(base: Coin("PHB"), quote: Coin("BTC"));
 
-  static const $PHB_USDC = const Pair(base: "PHB", quote: "USDC");
+  static final $PHB_USDC =
+      Pair.instance(base: Coin("PHB"), quote: Coin("USDC"));
 
-  static const $PHB_TUSD = const Pair(base: "PHB", quote: "TUSD");
+  static final $PHB_TUSD =
+      Pair.instance(base: Coin("PHB"), quote: Coin("TUSD"));
 
-  static const $PHB_PAX = const Pair(base: "PHB", quote: "PAX");
+  static final $PHB_PAX = Pair.instance(base: Coin("PHB"), quote: Coin("PAX"));
 
-  static const $TFUEL_BNB = const Pair(base: "TFUEL", quote: "BNB");
+  static final $TFUEL_BNB =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("BNB"));
 
-  static const $TFUEL_BTC = const Pair(base: "TFUEL", quote: "BTC");
+  static final $TFUEL_BTC =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("BTC"));
 
-  static const $TFUEL_USDT = const Pair(base: "TFUEL", quote: "USDT");
+  static final $TFUEL_USDT =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("USDT"));
 
-  static const $TFUEL_USDC = const Pair(base: "TFUEL", quote: "USDC");
+  static final $TFUEL_USDC =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("USDC"));
 
-  static const $TFUEL_TUSD = const Pair(base: "TFUEL", quote: "TUSD");
+  static final $TFUEL_TUSD =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("TUSD"));
 
-  static const $TFUEL_PAX = const Pair(base: "TFUEL", quote: "PAX");
+  static final $TFUEL_PAX =
+      Pair.instance(base: Coin("TFUEL"), quote: Coin("PAX"));
 
-  static const $ONE_BNB = const Pair(base: "ONE", quote: "BNB");
+  static final $ONE_BNB = Pair.instance(base: Coin("ONE"), quote: Coin("BNB"));
 
-  static const $ONE_BTC = const Pair(base: "ONE", quote: "BTC");
+  static final $ONE_BTC = Pair.instance(base: Coin("ONE"), quote: Coin("BTC"));
 
-  static const $ONE_USDT = const Pair(base: "ONE", quote: "USDT");
+  static final $ONE_USDT =
+      Pair.instance(base: Coin("ONE"), quote: Coin("USDT"));
 
-  static const $ONE_TUSD = const Pair(base: "ONE", quote: "TUSD");
+  static final $ONE_TUSD =
+      Pair.instance(base: Coin("ONE"), quote: Coin("TUSD"));
 
-  static const $ONE_PAX = const Pair(base: "ONE", quote: "PAX");
+  static final $ONE_PAX = Pair.instance(base: Coin("ONE"), quote: Coin("PAX"));
 
-  static const $ONE_USDC = const Pair(base: "ONE", quote: "USDC");
+  static final $ONE_USDC =
+      Pair.instance(base: Coin("ONE"), quote: Coin("USDC"));
 
-  static const $FTM_BNB = const Pair(base: "FTM", quote: "BNB");
+  static final $FTM_BNB = Pair.instance(base: Coin("FTM"), quote: Coin("BNB"));
 
-  static const $FTM_BTC = const Pair(base: "FTM", quote: "BTC");
+  static final $FTM_BTC = Pair.instance(base: Coin("FTM"), quote: Coin("BTC"));
 
-  static const $FTM_USDT = const Pair(base: "FTM", quote: "USDT");
+  static final $FTM_USDT =
+      Pair.instance(base: Coin("FTM"), quote: Coin("USDT"));
 
-  static const $FTM_TUSD = const Pair(base: "FTM", quote: "TUSD");
+  static final $FTM_TUSD =
+      Pair.instance(base: Coin("FTM"), quote: Coin("TUSD"));
 
-  static const $FTM_PAX = const Pair(base: "FTM", quote: "PAX");
+  static final $FTM_PAX = Pair.instance(base: Coin("FTM"), quote: Coin("PAX"));
 
-  static const $FTM_USDC = const Pair(base: "FTM", quote: "USDC");
+  static final $FTM_USDC =
+      Pair.instance(base: Coin("FTM"), quote: Coin("USDC"));
 
-  static const $BTCB_BTC = const Pair(base: "BTCB", quote: "BTC");
+  static final $BTCB_BTC =
+      Pair.instance(base: Coin("BTCB"), quote: Coin("BTC"));
 
-  static const $BCPT_TUSD = const Pair(base: "BCPT", quote: "TUSD");
+  static final $BCPT_TUSD =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("TUSD"));
 
-  static const $BCPT_PAX = const Pair(base: "BCPT", quote: "PAX");
+  static final $BCPT_PAX =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("PAX"));
 
-  static const $BCPT_USDC = const Pair(base: "BCPT", quote: "USDC");
+  static final $BCPT_USDC =
+      Pair.instance(base: Coin("BCPT"), quote: Coin("USDC"));
 
-  static const $ALGO_BNB = const Pair(base: "ALGO", quote: "BNB");
+  static final $ALGO_BNB =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("BNB"));
 
-  static const $ALGO_BTC = const Pair(base: "ALGO", quote: "BTC");
+  static final $ALGO_BTC =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("BTC"));
 
-  static const $ALGO_USDT = const Pair(base: "ALGO", quote: "USDT");
+  static final $ALGO_USDT =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("USDT"));
 
-  static const $ALGO_TUSD = const Pair(base: "ALGO", quote: "TUSD");
+  static final $ALGO_TUSD =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("TUSD"));
 
-  static const $ALGO_PAX = const Pair(base: "ALGO", quote: "PAX");
+  static final $ALGO_PAX =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("PAX"));
 
-  static const $ALGO_USDC = const Pair(base: "ALGO", quote: "USDC");
+  static final $ALGO_USDC =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("USDC"));
 
-  static const $USDSB_USDT = const Pair(base: "USDSB", quote: "USDT");
+  static final $USDSB_USDT =
+      Pair.instance(base: Coin("USDSB"), quote: Coin("USDT"));
 
-  static const $USDSB_USDS = const Pair(base: "USDSB", quote: "USDS");
+  static final $USDSB_USDS =
+      Pair.instance(base: Coin("USDSB"), quote: Coin("USDS"));
 
-  static const $GTO_USDT = const Pair(base: "GTO", quote: "USDT");
+  static final $GTO_USDT =
+      Pair.instance(base: Coin("GTO"), quote: Coin("USDT"));
 
-  static const $GTO_PAX = const Pair(base: "GTO", quote: "PAX");
+  static final $GTO_PAX = Pair.instance(base: Coin("GTO"), quote: Coin("PAX"));
 
-  static const $GTO_TUSD = const Pair(base: "GTO", quote: "TUSD");
+  static final $GTO_TUSD =
+      Pair.instance(base: Coin("GTO"), quote: Coin("TUSD"));
 
-  static const $GTO_USDC = const Pair(base: "GTO", quote: "USDC");
+  static final $GTO_USDC =
+      Pair.instance(base: Coin("GTO"), quote: Coin("USDC"));
 
-  static const $ERD_BNB = const Pair(base: "ERD", quote: "BNB");
+  static final $ERD_BNB = Pair.instance(base: Coin("ERD"), quote: Coin("BNB"));
 
-  static const $ERD_BTC = const Pair(base: "ERD", quote: "BTC");
+  static final $ERD_BTC = Pair.instance(base: Coin("ERD"), quote: Coin("BTC"));
 
-  static const $ERD_USDT = const Pair(base: "ERD", quote: "USDT");
+  static final $ERD_USDT =
+      Pair.instance(base: Coin("ERD"), quote: Coin("USDT"));
 
-  static const $ERD_PAX = const Pair(base: "ERD", quote: "PAX");
+  static final $ERD_PAX = Pair.instance(base: Coin("ERD"), quote: Coin("PAX"));
 
-  static const $ERD_USDC = const Pair(base: "ERD", quote: "USDC");
+  static final $ERD_USDC =
+      Pair.instance(base: Coin("ERD"), quote: Coin("USDC"));
 
-  static const $DOGE_BNB = const Pair(base: "DOGE", quote: "BNB");
+  static final $DOGE_BNB =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("BNB"));
 
-  static const $DOGE_BTC = const Pair(base: "DOGE", quote: "BTC");
+  static final $DOGE_BTC =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("BTC"));
 
-  static const $DOGE_USDT = const Pair(base: "DOGE", quote: "USDT");
+  static final $DOGE_USDT =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("USDT"));
 
-  static const $DOGE_PAX = const Pair(base: "DOGE", quote: "PAX");
+  static final $DOGE_PAX =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("PAX"));
 
-  static const $DOGE_USDC = const Pair(base: "DOGE", quote: "USDC");
+  static final $DOGE_USDC =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("USDC"));
 
-  static const $DUSK_BNB = const Pair(base: "DUSK", quote: "BNB");
+  static final $DUSK_BNB =
+      Pair.instance(base: Coin("DUSK"), quote: Coin("BNB"));
 
-  static const $DUSK_BTC = const Pair(base: "DUSK", quote: "BTC");
+  static final $DUSK_BTC =
+      Pair.instance(base: Coin("DUSK"), quote: Coin("BTC"));
 
-  static const $DUSK_USDT = const Pair(base: "DUSK", quote: "USDT");
+  static final $DUSK_USDT =
+      Pair.instance(base: Coin("DUSK"), quote: Coin("USDT"));
 
-  static const $DUSK_USDC = const Pair(base: "DUSK", quote: "USDC");
+  static final $DUSK_USDC =
+      Pair.instance(base: Coin("DUSK"), quote: Coin("USDC"));
 
-  static const $DUSK_PAX = const Pair(base: "DUSK", quote: "PAX");
+  static final $DUSK_PAX =
+      Pair.instance(base: Coin("DUSK"), quote: Coin("PAX"));
 
-  static const $BGBP_USDC = const Pair(base: "BGBP", quote: "USDC");
+  static final $BGBP_USDC =
+      Pair.instance(base: Coin("BGBP"), quote: Coin("USDC"));
 
-  static const $ANKR_BNB = const Pair(base: "ANKR", quote: "BNB");
+  static final $ANKR_BNB =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("BNB"));
 
-  static const $ANKR_BTC = const Pair(base: "ANKR", quote: "BTC");
+  static final $ANKR_BTC =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("BTC"));
 
-  static const $ANKR_USDT = const Pair(base: "ANKR", quote: "USDT");
+  static final $ANKR_USDT =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("USDT"));
 
-  static const $ANKR_TUSD = const Pair(base: "ANKR", quote: "TUSD");
+  static final $ANKR_TUSD =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("TUSD"));
 
-  static const $ANKR_PAX = const Pair(base: "ANKR", quote: "PAX");
+  static final $ANKR_PAX =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("PAX"));
 
-  static const $ANKR_USDC = const Pair(base: "ANKR", quote: "USDC");
+  static final $ANKR_USDC =
+      Pair.instance(base: Coin("ANKR"), quote: Coin("USDC"));
 
-  static const $ONT_PAX = const Pair(base: "ONT", quote: "PAX");
+  static final $ONT_PAX = Pair.instance(base: Coin("ONT"), quote: Coin("PAX"));
 
-  static const $ONT_USDC = const Pair(base: "ONT", quote: "USDC");
+  static final $ONT_USDC =
+      Pair.instance(base: Coin("ONT"), quote: Coin("USDC"));
 
-  static const $WIN_BNB = const Pair(base: "WIN", quote: "BNB");
+  static final $WIN_BNB = Pair.instance(base: Coin("WIN"), quote: Coin("BNB"));
 
-  static const $WIN_BTC = const Pair(base: "WIN", quote: "BTC");
+  static final $WIN_BTC = Pair.instance(base: Coin("WIN"), quote: Coin("BTC"));
 
-  static const $WIN_USDT = const Pair(base: "WIN", quote: "USDT");
+  static final $WIN_USDT =
+      Pair.instance(base: Coin("WIN"), quote: Coin("USDT"));
 
-  static const $WIN_USDC = const Pair(base: "WIN", quote: "USDC");
+  static final $WIN_USDC =
+      Pair.instance(base: Coin("WIN"), quote: Coin("USDC"));
 
-  static const $COS_BNB = const Pair(base: "COS", quote: "BNB");
+  static final $COS_BNB = Pair.instance(base: Coin("COS"), quote: Coin("BNB"));
 
-  static const $COS_BTC = const Pair(base: "COS", quote: "BTC");
+  static final $COS_BTC = Pair.instance(base: Coin("COS"), quote: Coin("BTC"));
 
-  static const $COS_USDT = const Pair(base: "COS", quote: "USDT");
+  static final $COS_USDT =
+      Pair.instance(base: Coin("COS"), quote: Coin("USDT"));
 
-  static const $TUSDB_TUSD = const Pair(base: "TUSDB", quote: "TUSD");
+  static final $TUSDB_TUSD =
+      Pair.instance(base: Coin("TUSDB"), quote: Coin("TUSD"));
 
-  static const $NPXS_USDT = const Pair(base: "NPXS", quote: "USDT");
+  static final $NPXS_USDT =
+      Pair.instance(base: Coin("NPXS"), quote: Coin("USDT"));
 
-  static const $NPXS_USDC = const Pair(base: "NPXS", quote: "USDC");
+  static final $NPXS_USDC =
+      Pair.instance(base: Coin("NPXS"), quote: Coin("USDC"));
 
-  static const $COCOS_BNB = const Pair(base: "COCOS", quote: "BNB");
+  static final $COCOS_BNB =
+      Pair.instance(base: Coin("COCOS"), quote: Coin("BNB"));
 
-  static const $COCOS_BTC = const Pair(base: "COCOS", quote: "BTC");
+  static final $COCOS_BTC =
+      Pair.instance(base: Coin("COCOS"), quote: Coin("BTC"));
 
-  static const $COCOS_USDT = const Pair(base: "COCOS", quote: "USDT");
+  static final $COCOS_USDT =
+      Pair.instance(base: Coin("COCOS"), quote: Coin("USDT"));
 
-  static const $MTL_USDT = const Pair(base: "MTL", quote: "USDT");
+  static final $MTL_USDT =
+      Pair.instance(base: Coin("MTL"), quote: Coin("USDT"));
 
-  static const $TOMO_BNB = const Pair(base: "TOMO", quote: "BNB");
+  static final $TOMO_BNB =
+      Pair.instance(base: Coin("TOMO"), quote: Coin("BNB"));
 
-  static const $TOMO_BTC = const Pair(base: "TOMO", quote: "BTC");
+  static final $TOMO_BTC =
+      Pair.instance(base: Coin("TOMO"), quote: Coin("BTC"));
 
-  static const $TOMO_USDT = const Pair(base: "TOMO", quote: "USDT");
+  static final $TOMO_USDT =
+      Pair.instance(base: Coin("TOMO"), quote: Coin("USDT"));
 
-  static const $TOMO_USDC = const Pair(base: "TOMO", quote: "USDC");
+  static final $TOMO_USDC =
+      Pair.instance(base: Coin("TOMO"), quote: Coin("USDC"));
 
-  static const $PERL_BNB = const Pair(base: "PERL", quote: "BNB");
+  static final $PERL_BNB =
+      Pair.instance(base: Coin("PERL"), quote: Coin("BNB"));
 
-  static const $PERL_BTC = const Pair(base: "PERL", quote: "BTC");
+  static final $PERL_BTC =
+      Pair.instance(base: Coin("PERL"), quote: Coin("BTC"));
 
-  static const $PERL_USDC = const Pair(base: "PERL", quote: "USDC");
+  static final $PERL_USDC =
+      Pair.instance(base: Coin("PERL"), quote: Coin("USDC"));
 
-  static const $PERL_USDT = const Pair(base: "PERL", quote: "USDT");
+  static final $PERL_USDT =
+      Pair.instance(base: Coin("PERL"), quote: Coin("USDT"));
 
-  static const $DENT_USDT = const Pair(base: "DENT", quote: "USDT");
+  static final $DENT_USDT =
+      Pair.instance(base: Coin("DENT"), quote: Coin("USDT"));
 
-  static const $MFT_USDT = const Pair(base: "MFT", quote: "USDT");
+  static final $MFT_USDT =
+      Pair.instance(base: Coin("MFT"), quote: Coin("USDT"));
 
-  static const $KEY_USDT = const Pair(base: "KEY", quote: "USDT");
+  static final $KEY_USDT =
+      Pair.instance(base: Coin("KEY"), quote: Coin("USDT"));
 
-  static const $STORM_USDT = const Pair(base: "STORM", quote: "USDT");
+  static final $STORM_USDT =
+      Pair.instance(base: Coin("STORM"), quote: Coin("USDT"));
 
-  static const $DOCK_USDT = const Pair(base: "DOCK", quote: "USDT");
+  static final $DOCK_USDT =
+      Pair.instance(base: Coin("DOCK"), quote: Coin("USDT"));
 
-  static const $WAN_USDT = const Pair(base: "WAN", quote: "USDT");
+  static final $WAN_USDT =
+      Pair.instance(base: Coin("WAN"), quote: Coin("USDT"));
 
-  static const $FUN_USDT = const Pair(base: "FUN", quote: "USDT");
+  static final $FUN_USDT =
+      Pair.instance(base: Coin("FUN"), quote: Coin("USDT"));
 
-  static const $CVC_USDT = const Pair(base: "CVC", quote: "USDT");
+  static final $CVC_USDT =
+      Pair.instance(base: Coin("CVC"), quote: Coin("USDT"));
 
-  static const $BTT_TRX = const Pair(base: "BTT", quote: "TRX");
+  static final $BTT_TRX = Pair.instance(base: Coin("BTT"), quote: Coin("TRX"));
 
-  static const $WIN_TRX = const Pair(base: "WIN", quote: "TRX");
+  static final $WIN_TRX = Pair.instance(base: Coin("WIN"), quote: Coin("TRX"));
 
-  static const $CHZ_BNB = const Pair(base: "CHZ", quote: "BNB");
+  static final $CHZ_BNB = Pair.instance(base: Coin("CHZ"), quote: Coin("BNB"));
 
-  static const $CHZ_BTC = const Pair(base: "CHZ", quote: "BTC");
+  static final $CHZ_BTC = Pair.instance(base: Coin("CHZ"), quote: Coin("BTC"));
 
-  static const $CHZ_USDT = const Pair(base: "CHZ", quote: "USDT");
+  static final $CHZ_USDT =
+      Pair.instance(base: Coin("CHZ"), quote: Coin("USDT"));
 
-  static const $BAND_BNB = const Pair(base: "BAND", quote: "BNB");
+  static final $BAND_BNB =
+      Pair.instance(base: Coin("BAND"), quote: Coin("BNB"));
 
-  static const $BAND_BTC = const Pair(base: "BAND", quote: "BTC");
+  static final $BAND_BTC =
+      Pair.instance(base: Coin("BAND"), quote: Coin("BTC"));
 
-  static const $BAND_USDT = const Pair(base: "BAND", quote: "USDT");
+  static final $BAND_USDT =
+      Pair.instance(base: Coin("BAND"), quote: Coin("USDT"));
 
-  static const $BNB_BUSD = const Pair(base: "BNB", quote: "BUSD");
+  static final $BNB_BUSD =
+      Pair.instance(base: Coin("BNB"), quote: Coin("BUSD"));
 
-  static const $BTC_BUSD = const Pair(base: "BTC", quote: "BUSD");
+  static final $BTC_BUSD =
+      Pair.instance(base: Coin("BTC"), quote: Coin("BUSD"));
 
-  static const $BUSD_USDT = const Pair(base: "BUSD", quote: "USDT");
+  static final $BUSD_USDT =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("USDT"));
 
-  static const $BEAM_BNB = const Pair(base: "BEAM", quote: "BNB");
+  static final $BEAM_BNB =
+      Pair.instance(base: Coin("BEAM"), quote: Coin("BNB"));
 
-  static const $BEAM_BTC = const Pair(base: "BEAM", quote: "BTC");
+  static final $BEAM_BTC =
+      Pair.instance(base: Coin("BEAM"), quote: Coin("BTC"));
 
-  static const $BEAM_USDT = const Pair(base: "BEAM", quote: "USDT");
+  static final $BEAM_USDT =
+      Pair.instance(base: Coin("BEAM"), quote: Coin("USDT"));
 
-  static const $XTZ_BNB = const Pair(base: "XTZ", quote: "BNB");
+  static final $XTZ_BNB = Pair.instance(base: Coin("XTZ"), quote: Coin("BNB"));
 
-  static const $XTZ_BTC = const Pair(base: "XTZ", quote: "BTC");
+  static final $XTZ_BTC = Pair.instance(base: Coin("XTZ"), quote: Coin("BTC"));
 
-  static const $XTZ_USDT = const Pair(base: "XTZ", quote: "USDT");
+  static final $XTZ_USDT =
+      Pair.instance(base: Coin("XTZ"), quote: Coin("USDT"));
 
-  static const $REN_USDT = const Pair(base: "REN", quote: "USDT");
+  static final $REN_USDT =
+      Pair.instance(base: Coin("REN"), quote: Coin("USDT"));
 
-  static const $RVN_USDT = const Pair(base: "RVN", quote: "USDT");
+  static final $RVN_USDT =
+      Pair.instance(base: Coin("RVN"), quote: Coin("USDT"));
 
-  static const $HC_USDT = const Pair(base: "HC", quote: "USDT");
+  static final $HC_USDT = Pair.instance(base: Coin("HC"), quote: Coin("USDT"));
 
-  static const $HBAR_BNB = const Pair(base: "HBAR", quote: "BNB");
+  static final $HBAR_BNB =
+      Pair.instance(base: Coin("HBAR"), quote: Coin("BNB"));
 
-  static const $HBAR_BTC = const Pair(base: "HBAR", quote: "BTC");
+  static final $HBAR_BTC =
+      Pair.instance(base: Coin("HBAR"), quote: Coin("BTC"));
 
-  static const $HBAR_USDT = const Pair(base: "HBAR", quote: "USDT");
+  static final $HBAR_USDT =
+      Pair.instance(base: Coin("HBAR"), quote: Coin("USDT"));
 
-  static const $NKN_BNB = const Pair(base: "NKN", quote: "BNB");
+  static final $NKN_BNB = Pair.instance(base: Coin("NKN"), quote: Coin("BNB"));
 
-  static const $NKN_BTC = const Pair(base: "NKN", quote: "BTC");
+  static final $NKN_BTC = Pair.instance(base: Coin("NKN"), quote: Coin("BTC"));
 
-  static const $NKN_USDT = const Pair(base: "NKN", quote: "USDT");
+  static final $NKN_USDT =
+      Pair.instance(base: Coin("NKN"), quote: Coin("USDT"));
 
-  static const $XRP_BUSD = const Pair(base: "XRP", quote: "BUSD");
+  static final $XRP_BUSD =
+      Pair.instance(base: Coin("XRP"), quote: Coin("BUSD"));
 
-  static const $ETH_BUSD = const Pair(base: "ETH", quote: "BUSD");
+  static final $ETH_BUSD =
+      Pair.instance(base: Coin("ETH"), quote: Coin("BUSD"));
 
-  static const $BCHABC_BUSD = const Pair(base: "BCHABC", quote: "BUSD");
+  static final $BCHABC_BUSD =
+      Pair.instance(base: Coin("BCHABC"), quote: Coin("BUSD"));
 
-  static const $LTC_BUSD = const Pair(base: "LTC", quote: "BUSD");
+  static final $LTC_BUSD =
+      Pair.instance(base: Coin("LTC"), quote: Coin("BUSD"));
 
-  static const $LINK_BUSD = const Pair(base: "LINK", quote: "BUSD");
+  static final $LINK_BUSD =
+      Pair.instance(base: Coin("LINK"), quote: Coin("BUSD"));
 
-  static const $ETC_BUSD = const Pair(base: "ETC", quote: "BUSD");
+  static final $ETC_BUSD =
+      Pair.instance(base: Coin("ETC"), quote: Coin("BUSD"));
 
-  static const $STX_BNB = const Pair(base: "STX", quote: "BNB");
+  static final $STX_BNB = Pair.instance(base: Coin("STX"), quote: Coin("BNB"));
 
-  static const $STX_BTC = const Pair(base: "STX", quote: "BTC");
+  static final $STX_BTC = Pair.instance(base: Coin("STX"), quote: Coin("BTC"));
 
-  static const $STX_USDT = const Pair(base: "STX", quote: "USDT");
+  static final $STX_USDT =
+      Pair.instance(base: Coin("STX"), quote: Coin("USDT"));
 
-  static const $KAVA_BNB = const Pair(base: "KAVA", quote: "BNB");
+  static final $KAVA_BNB =
+      Pair.instance(base: Coin("KAVA"), quote: Coin("BNB"));
 
-  static const $KAVA_BTC = const Pair(base: "KAVA", quote: "BTC");
+  static final $KAVA_BTC =
+      Pair.instance(base: Coin("KAVA"), quote: Coin("BTC"));
 
-  static const $KAVA_USDT = const Pair(base: "KAVA", quote: "USDT");
+  static final $KAVA_USDT =
+      Pair.instance(base: Coin("KAVA"), quote: Coin("USDT"));
 
-  static const $BUSD_NGN = const Pair(base: "BUSD", quote: "NGN");
+  static final $BUSD_NGN =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("NGN"));
 
-  static const $BNB_NGN = const Pair(base: "BNB", quote: "NGN");
+  static final $BNB_NGN = Pair.instance(base: Coin("BNB"), quote: Coin("NGN"));
 
-  static const $BTC_NGN = const Pair(base: "BTC", quote: "NGN");
+  static final $BTC_NGN = Pair.instance(base: Coin("BTC"), quote: Coin("NGN"));
 
-  static const $ARPA_BNB = const Pair(base: "ARPA", quote: "BNB");
+  static final $ARPA_BNB =
+      Pair.instance(base: Coin("ARPA"), quote: Coin("BNB"));
 
-  static const $ARPA_BTC = const Pair(base: "ARPA", quote: "BTC");
+  static final $ARPA_BTC =
+      Pair.instance(base: Coin("ARPA"), quote: Coin("BTC"));
 
-  static const $ARPA_USDT = const Pair(base: "ARPA", quote: "USDT");
+  static final $ARPA_USDT =
+      Pair.instance(base: Coin("ARPA"), quote: Coin("USDT"));
 
-  static const $TRX_BUSD = const Pair(base: "TRX", quote: "BUSD");
+  static final $TRX_BUSD =
+      Pair.instance(base: Coin("TRX"), quote: Coin("BUSD"));
 
-  static const $EOS_BUSD = const Pair(base: "EOS", quote: "BUSD");
+  static final $EOS_BUSD =
+      Pair.instance(base: Coin("EOS"), quote: Coin("BUSD"));
 
-  static const $IOTX_USDT = const Pair(base: "IOTX", quote: "USDT");
+  static final $IOTX_USDT =
+      Pair.instance(base: Coin("IOTX"), quote: Coin("USDT"));
 
-  static const $RLC_USDT = const Pair(base: "RLC", quote: "USDT");
+  static final $RLC_USDT =
+      Pair.instance(base: Coin("RLC"), quote: Coin("USDT"));
 
-  static const $MCO_USDT = const Pair(base: "MCO", quote: "USDT");
+  static final $MCO_USDT =
+      Pair.instance(base: Coin("MCO"), quote: Coin("USDT"));
 
-  static const $XLM_BUSD = const Pair(base: "XLM", quote: "BUSD");
+  static final $XLM_BUSD =
+      Pair.instance(base: Coin("XLM"), quote: Coin("BUSD"));
 
-  static const $ADA_BUSD = const Pair(base: "ADA", quote: "BUSD");
+  static final $ADA_BUSD =
+      Pair.instance(base: Coin("ADA"), quote: Coin("BUSD"));
 
-  static const $CTXC_BNB = const Pair(base: "CTXC", quote: "BNB");
+  static final $CTXC_BNB =
+      Pair.instance(base: Coin("CTXC"), quote: Coin("BNB"));
 
-  static const $CTXC_BTC = const Pair(base: "CTXC", quote: "BTC");
+  static final $CTXC_BTC =
+      Pair.instance(base: Coin("CTXC"), quote: Coin("BTC"));
 
-  static const $CTXC_USDT = const Pair(base: "CTXC", quote: "USDT");
+  static final $CTXC_USDT =
+      Pair.instance(base: Coin("CTXC"), quote: Coin("USDT"));
 
-  static const $BCH_BNB = const Pair(base: "BCH", quote: "BNB");
+  static final $BCH_BNB = Pair.instance(base: Coin("BCH"), quote: Coin("BNB"));
 
-  static const $BCH_BTC = const Pair(base: "BCH", quote: "BTC");
+  static final $BCH_BTC = Pair.instance(base: Coin("BCH"), quote: Coin("BTC"));
 
-  static const $BCH_USDT = const Pair(base: "BCH", quote: "USDT");
+  static final $BCH_USDT =
+      Pair.instance(base: Coin("BCH"), quote: Coin("USDT"));
 
-  static const $BCH_USDC = const Pair(base: "BCH", quote: "USDC");
+  static final $BCH_USDC =
+      Pair.instance(base: Coin("BCH"), quote: Coin("USDC"));
 
-  static const $BCH_TUSD = const Pair(base: "BCH", quote: "TUSD");
+  static final $BCH_TUSD =
+      Pair.instance(base: Coin("BCH"), quote: Coin("TUSD"));
 
-  static const $BCH_PAX = const Pair(base: "BCH", quote: "PAX");
+  static final $BCH_PAX = Pair.instance(base: Coin("BCH"), quote: Coin("PAX"));
 
-  static const $BCH_BUSD = const Pair(base: "BCH", quote: "BUSD");
+  static final $BCH_BUSD =
+      Pair.instance(base: Coin("BCH"), quote: Coin("BUSD"));
 
-  static const $BTC_RUB = const Pair(base: "BTC", quote: "RUB");
+  static final $BTC_RUB = Pair.instance(base: Coin("BTC"), quote: Coin("RUB"));
 
-  static const $ETH_RUB = const Pair(base: "ETH", quote: "RUB");
+  static final $ETH_RUB = Pair.instance(base: Coin("ETH"), quote: Coin("RUB"));
 
-  static const $XRP_RUB = const Pair(base: "XRP", quote: "RUB");
+  static final $XRP_RUB = Pair.instance(base: Coin("XRP"), quote: Coin("RUB"));
 
-  static const $BNB_RUB = const Pair(base: "BNB", quote: "RUB");
+  static final $BNB_RUB = Pair.instance(base: Coin("BNB"), quote: Coin("RUB"));
 
-  static const $TROY_BNB = const Pair(base: "TROY", quote: "BNB");
+  static final $TROY_BNB =
+      Pair.instance(base: Coin("TROY"), quote: Coin("BNB"));
 
-  static const $TROY_BTC = const Pair(base: "TROY", quote: "BTC");
+  static final $TROY_BTC =
+      Pair.instance(base: Coin("TROY"), quote: Coin("BTC"));
 
-  static const $TROY_USDT = const Pair(base: "TROY", quote: "USDT");
+  static final $TROY_USDT =
+      Pair.instance(base: Coin("TROY"), quote: Coin("USDT"));
 
-  static const $BUSD_RUB = const Pair(base: "BUSD", quote: "RUB");
+  static final $BUSD_RUB =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("RUB"));
 
-  static const $QTUM_BUSD = const Pair(base: "QTUM", quote: "BUSD");
+  static final $QTUM_BUSD =
+      Pair.instance(base: Coin("QTUM"), quote: Coin("BUSD"));
 
-  static const $VET_BUSD = const Pair(base: "VET", quote: "BUSD");
+  static final $VET_BUSD =
+      Pair.instance(base: Coin("VET"), quote: Coin("BUSD"));
 
-  static const $VITE_BNB = const Pair(base: "VITE", quote: "BNB");
+  static final $VITE_BNB =
+      Pair.instance(base: Coin("VITE"), quote: Coin("BNB"));
 
-  static const $VITE_BTC = const Pair(base: "VITE", quote: "BTC");
+  static final $VITE_BTC =
+      Pair.instance(base: Coin("VITE"), quote: Coin("BTC"));
 
-  static const $VITE_USDT = const Pair(base: "VITE", quote: "USDT");
+  static final $VITE_USDT =
+      Pair.instance(base: Coin("VITE"), quote: Coin("USDT"));
 
-  static const $FTT_BNB = const Pair(base: "FTT", quote: "BNB");
+  static final $FTT_BNB = Pair.instance(base: Coin("FTT"), quote: Coin("BNB"));
 
-  static const $FTT_BTC = const Pair(base: "FTT", quote: "BTC");
+  static final $FTT_BTC = Pair.instance(base: Coin("FTT"), quote: Coin("BTC"));
 
-  static const $FTT_USDT = const Pair(base: "FTT", quote: "USDT");
+  static final $FTT_USDT =
+      Pair.instance(base: Coin("FTT"), quote: Coin("USDT"));
 
-  static const $BTC_TRY = const Pair(base: "BTC", quote: "TRY");
+  static final $BTC_TRY = Pair.instance(base: Coin("BTC"), quote: Coin("TRY"));
 
-  static const $BNB_TRY = const Pair(base: "BNB", quote: "TRY");
+  static final $BNB_TRY = Pair.instance(base: Coin("BNB"), quote: Coin("TRY"));
 
-  static const $BUSD_TRY = const Pair(base: "BUSD", quote: "TRY");
+  static final $BUSD_TRY =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("TRY"));
 
-  static const $ETH_TRY = const Pair(base: "ETH", quote: "TRY");
+  static final $ETH_TRY = Pair.instance(base: Coin("ETH"), quote: Coin("TRY"));
 
-  static const $XRP_TRY = const Pair(base: "XRP", quote: "TRY");
+  static final $XRP_TRY = Pair.instance(base: Coin("XRP"), quote: Coin("TRY"));
 
-  static const $USDT_TRY = const Pair(base: "USDT", quote: "TRY");
+  static final $USDT_TRY =
+      Pair.instance(base: Coin("USDT"), quote: Coin("TRY"));
 
-  static const $USDT_RUB = const Pair(base: "USDT", quote: "RUB");
+  static final $USDT_RUB =
+      Pair.instance(base: Coin("USDT"), quote: Coin("RUB"));
 
-  static const $BTC_EUR = const Pair(base: "BTC", quote: "EUR");
+  static final $BTC_EUR = Pair.instance(base: Coin("BTC"), quote: Coin("EUR"));
 
-  static const $ETH_EUR = const Pair(base: "ETH", quote: "EUR");
+  static final $ETH_EUR = Pair.instance(base: Coin("ETH"), quote: Coin("EUR"));
 
-  static const $BNB_EUR = const Pair(base: "BNB", quote: "EUR");
+  static final $BNB_EUR = Pair.instance(base: Coin("BNB"), quote: Coin("EUR"));
 
-  static const $XRP_EUR = const Pair(base: "XRP", quote: "EUR");
+  static final $XRP_EUR = Pair.instance(base: Coin("XRP"), quote: Coin("EUR"));
 
-  static const $EUR_BUSD = const Pair(base: "EUR", quote: "BUSD");
+  static final $EUR_BUSD =
+      Pair.instance(base: Coin("EUR"), quote: Coin("BUSD"));
 
-  static const $EUR_USDT = const Pair(base: "EUR", quote: "USDT");
+  static final $EUR_USDT =
+      Pair.instance(base: Coin("EUR"), quote: Coin("USDT"));
 
-  static const $OGN_BNB = const Pair(base: "OGN", quote: "BNB");
+  static final $OGN_BNB = Pair.instance(base: Coin("OGN"), quote: Coin("BNB"));
 
-  static const $OGN_BTC = const Pair(base: "OGN", quote: "BTC");
+  static final $OGN_BTC = Pair.instance(base: Coin("OGN"), quote: Coin("BTC"));
 
-  static const $OGN_USDT = const Pair(base: "OGN", quote: "USDT");
+  static final $OGN_USDT =
+      Pair.instance(base: Coin("OGN"), quote: Coin("USDT"));
 
-  static const $DREP_BNB = const Pair(base: "DREP", quote: "BNB");
+  static final $DREP_BNB =
+      Pair.instance(base: Coin("DREP"), quote: Coin("BNB"));
 
-  static const $DREP_BTC = const Pair(base: "DREP", quote: "BTC");
+  static final $DREP_BTC =
+      Pair.instance(base: Coin("DREP"), quote: Coin("BTC"));
 
-  static const $DREP_USDT = const Pair(base: "DREP", quote: "USDT");
+  static final $DREP_USDT =
+      Pair.instance(base: Coin("DREP"), quote: Coin("USDT"));
 
-  static const $BULL_USDT = const Pair(base: "BULL", quote: "USDT");
+  static final $BULL_USDT =
+      Pair.instance(base: Coin("BULL"), quote: Coin("USDT"));
 
-  static const $BULL_BUSD = const Pair(base: "BULL", quote: "BUSD");
+  static final $BULL_BUSD =
+      Pair.instance(base: Coin("BULL"), quote: Coin("BUSD"));
 
-  static const $BEAR_USDT = const Pair(base: "BEAR", quote: "USDT");
+  static final $BEAR_USDT =
+      Pair.instance(base: Coin("BEAR"), quote: Coin("USDT"));
 
-  static const $BEAR_BUSD = const Pair(base: "BEAR", quote: "BUSD");
+  static final $BEAR_BUSD =
+      Pair.instance(base: Coin("BEAR"), quote: Coin("BUSD"));
 
-  static const $ETHBULL_USDT = const Pair(base: "ETHBULL", quote: "USDT");
+  static final $ETHBULL_USDT =
+      Pair.instance(base: Coin("ETHBULL"), quote: Coin("USDT"));
 
-  static const $ETHBULL_BUSD = const Pair(base: "ETHBULL", quote: "BUSD");
+  static final $ETHBULL_BUSD =
+      Pair.instance(base: Coin("ETHBULL"), quote: Coin("BUSD"));
 
-  static const $ETHBEAR_USDT = const Pair(base: "ETHBEAR", quote: "USDT");
+  static final $ETHBEAR_USDT =
+      Pair.instance(base: Coin("ETHBEAR"), quote: Coin("USDT"));
 
-  static const $ETHBEAR_BUSD = const Pair(base: "ETHBEAR", quote: "BUSD");
+  static final $ETHBEAR_BUSD =
+      Pair.instance(base: Coin("ETHBEAR"), quote: Coin("BUSD"));
 
-  static const $TCT_BNB = const Pair(base: "TCT", quote: "BNB");
+  static final $TCT_BNB = Pair.instance(base: Coin("TCT"), quote: Coin("BNB"));
 
-  static const $TCT_BTC = const Pair(base: "TCT", quote: "BTC");
+  static final $TCT_BTC = Pair.instance(base: Coin("TCT"), quote: Coin("BTC"));
 
-  static const $TCT_USDT = const Pair(base: "TCT", quote: "USDT");
+  static final $TCT_USDT =
+      Pair.instance(base: Coin("TCT"), quote: Coin("USDT"));
 
-  static const $WRX_BNB = const Pair(base: "WRX", quote: "BNB");
+  static final $WRX_BNB = Pair.instance(base: Coin("WRX"), quote: Coin("BNB"));
 
-  static const $WRX_BTC = const Pair(base: "WRX", quote: "BTC");
+  static final $WRX_BTC = Pair.instance(base: Coin("WRX"), quote: Coin("BTC"));
 
-  static const $WRX_USDT = const Pair(base: "WRX", quote: "USDT");
+  static final $WRX_USDT =
+      Pair.instance(base: Coin("WRX"), quote: Coin("USDT"));
 
-  static const $ICX_BUSD = const Pair(base: "ICX", quote: "BUSD");
+  static final $ICX_BUSD =
+      Pair.instance(base: Coin("ICX"), quote: Coin("BUSD"));
 
-  static const $BTS_USDT = const Pair(base: "BTS", quote: "USDT");
+  static final $BTS_USDT =
+      Pair.instance(base: Coin("BTS"), quote: Coin("USDT"));
 
-  static const $BTS_BUSD = const Pair(base: "BTS", quote: "BUSD");
+  static final $BTS_BUSD =
+      Pair.instance(base: Coin("BTS"), quote: Coin("BUSD"));
 
-  static const $LSK_USDT = const Pair(base: "LSK", quote: "USDT");
+  static final $LSK_USDT =
+      Pair.instance(base: Coin("LSK"), quote: Coin("USDT"));
 
-  static const $BNT_USDT = const Pair(base: "BNT", quote: "USDT");
+  static final $BNT_USDT =
+      Pair.instance(base: Coin("BNT"), quote: Coin("USDT"));
 
-  static const $BNT_BUSD = const Pair(base: "BNT", quote: "BUSD");
+  static final $BNT_BUSD =
+      Pair.instance(base: Coin("BNT"), quote: Coin("BUSD"));
 
-  static const $LTO_BNB = const Pair(base: "LTO", quote: "BNB");
+  static final $LTO_BNB = Pair.instance(base: Coin("LTO"), quote: Coin("BNB"));
 
-  static const $LTO_BTC = const Pair(base: "LTO", quote: "BTC");
+  static final $LTO_BTC = Pair.instance(base: Coin("LTO"), quote: Coin("BTC"));
 
-  static const $LTO_USDT = const Pair(base: "LTO", quote: "USDT");
+  static final $LTO_USDT =
+      Pair.instance(base: Coin("LTO"), quote: Coin("USDT"));
 
-  static const $ATOM_BUSD = const Pair(base: "ATOM", quote: "BUSD");
+  static final $ATOM_BUSD =
+      Pair.instance(base: Coin("ATOM"), quote: Coin("BUSD"));
 
-  static const $DASH_BUSD = const Pair(base: "DASH", quote: "BUSD");
+  static final $DASH_BUSD =
+      Pair.instance(base: Coin("DASH"), quote: Coin("BUSD"));
 
-  static const $NEO_BUSD = const Pair(base: "NEO", quote: "BUSD");
+  static final $NEO_BUSD =
+      Pair.instance(base: Coin("NEO"), quote: Coin("BUSD"));
 
-  static const $WAVES_BUSD = const Pair(base: "WAVES", quote: "BUSD");
+  static final $WAVES_BUSD =
+      Pair.instance(base: Coin("WAVES"), quote: Coin("BUSD"));
 
-  static const $XTZ_BUSD = const Pair(base: "XTZ", quote: "BUSD");
+  static final $XTZ_BUSD =
+      Pair.instance(base: Coin("XTZ"), quote: Coin("BUSD"));
 
-  static const $EOSBULL_USDT = const Pair(base: "EOSBULL", quote: "USDT");
+  static final $EOSBULL_USDT =
+      Pair.instance(base: Coin("EOSBULL"), quote: Coin("USDT"));
 
-  static const $EOSBULL_BUSD = const Pair(base: "EOSBULL", quote: "BUSD");
+  static final $EOSBULL_BUSD =
+      Pair.instance(base: Coin("EOSBULL"), quote: Coin("BUSD"));
 
-  static const $EOSBEAR_USDT = const Pair(base: "EOSBEAR", quote: "USDT");
+  static final $EOSBEAR_USDT =
+      Pair.instance(base: Coin("EOSBEAR"), quote: Coin("USDT"));
 
-  static const $EOSBEAR_BUSD = const Pair(base: "EOSBEAR", quote: "BUSD");
+  static final $EOSBEAR_BUSD =
+      Pair.instance(base: Coin("EOSBEAR"), quote: Coin("BUSD"));
 
-  static const $XRPBULL_USDT = const Pair(base: "XRPBULL", quote: "USDT");
+  static final $XRPBULL_USDT =
+      Pair.instance(base: Coin("XRPBULL"), quote: Coin("USDT"));
 
-  static const $XRPBULL_BUSD = const Pair(base: "XRPBULL", quote: "BUSD");
+  static final $XRPBULL_BUSD =
+      Pair.instance(base: Coin("XRPBULL"), quote: Coin("BUSD"));
 
-  static const $XRPBEAR_USDT = const Pair(base: "XRPBEAR", quote: "USDT");
+  static final $XRPBEAR_USDT =
+      Pair.instance(base: Coin("XRPBEAR"), quote: Coin("USDT"));
 
-  static const $XRPBEAR_BUSD = const Pair(base: "XRPBEAR", quote: "BUSD");
+  static final $XRPBEAR_BUSD =
+      Pair.instance(base: Coin("XRPBEAR"), quote: Coin("BUSD"));
 
-  static const $BAT_BUSD = const Pair(base: "BAT", quote: "BUSD");
+  static final $BAT_BUSD =
+      Pair.instance(base: Coin("BAT"), quote: Coin("BUSD"));
 
-  static const $ENJ_BUSD = const Pair(base: "ENJ", quote: "BUSD");
+  static final $ENJ_BUSD =
+      Pair.instance(base: Coin("ENJ"), quote: Coin("BUSD"));
 
-  static const $NANO_BUSD = const Pair(base: "NANO", quote: "BUSD");
+  static final $NANO_BUSD =
+      Pair.instance(base: Coin("NANO"), quote: Coin("BUSD"));
 
-  static const $ONT_BUSD = const Pair(base: "ONT", quote: "BUSD");
+  static final $ONT_BUSD =
+      Pair.instance(base: Coin("ONT"), quote: Coin("BUSD"));
 
-  static const $RVN_BUSD = const Pair(base: "RVN", quote: "BUSD");
+  static final $RVN_BUSD =
+      Pair.instance(base: Coin("RVN"), quote: Coin("BUSD"));
 
-  static const $STRAT_BUSD = const Pair(base: "STRAT", quote: "BUSD");
+  static final $STRAT_BUSD =
+      Pair.instance(base: Coin("STRAT"), quote: Coin("BUSD"));
 
-  static const $STRAT_BNB = const Pair(base: "STRAT", quote: "BNB");
+  static final $STRAT_BNB =
+      Pair.instance(base: Coin("STRAT"), quote: Coin("BNB"));
 
-  static const $STRAT_USDT = const Pair(base: "STRAT", quote: "USDT");
+  static final $STRAT_USDT =
+      Pair.instance(base: Coin("STRAT"), quote: Coin("USDT"));
 
-  static const $AION_BUSD = const Pair(base: "AION", quote: "BUSD");
+  static final $AION_BUSD =
+      Pair.instance(base: Coin("AION"), quote: Coin("BUSD"));
 
-  static const $AION_USDT = const Pair(base: "AION", quote: "USDT");
+  static final $AION_USDT =
+      Pair.instance(base: Coin("AION"), quote: Coin("USDT"));
 
-  static const $MBL_BNB = const Pair(base: "MBL", quote: "BNB");
+  static final $MBL_BNB = Pair.instance(base: Coin("MBL"), quote: Coin("BNB"));
 
-  static const $MBL_BTC = const Pair(base: "MBL", quote: "BTC");
+  static final $MBL_BTC = Pair.instance(base: Coin("MBL"), quote: Coin("BTC"));
 
-  static const $MBL_USDT = const Pair(base: "MBL", quote: "USDT");
+  static final $MBL_USDT =
+      Pair.instance(base: Coin("MBL"), quote: Coin("USDT"));
 
-  static const $COTI_BNB = const Pair(base: "COTI", quote: "BNB");
+  static final $COTI_BNB =
+      Pair.instance(base: Coin("COTI"), quote: Coin("BNB"));
 
-  static const $COTI_BTC = const Pair(base: "COTI", quote: "BTC");
+  static final $COTI_BTC =
+      Pair.instance(base: Coin("COTI"), quote: Coin("BTC"));
 
-  static const $COTI_USDT = const Pair(base: "COTI", quote: "USDT");
+  static final $COTI_USDT =
+      Pair.instance(base: Coin("COTI"), quote: Coin("USDT"));
 
-  static const $ALGO_BUSD = const Pair(base: "ALGO", quote: "BUSD");
+  static final $ALGO_BUSD =
+      Pair.instance(base: Coin("ALGO"), quote: Coin("BUSD"));
 
-  static const $BTT_BUSD = const Pair(base: "BTT", quote: "BUSD");
+  static final $BTT_BUSD =
+      Pair.instance(base: Coin("BTT"), quote: Coin("BUSD"));
 
-  static const $TOMO_BUSD = const Pair(base: "TOMO", quote: "BUSD");
+  static final $TOMO_BUSD =
+      Pair.instance(base: Coin("TOMO"), quote: Coin("BUSD"));
 
-  static const $XMR_BUSD = const Pair(base: "XMR", quote: "BUSD");
+  static final $XMR_BUSD =
+      Pair.instance(base: Coin("XMR"), quote: Coin("BUSD"));
 
-  static const $ZEC_BUSD = const Pair(base: "ZEC", quote: "BUSD");
+  static final $ZEC_BUSD =
+      Pair.instance(base: Coin("ZEC"), quote: Coin("BUSD"));
 
-  static const $BNBBULL_USDT = const Pair(base: "BNBBULL", quote: "USDT");
+  static final $BNBBULL_USDT =
+      Pair.instance(base: Coin("BNBBULL"), quote: Coin("USDT"));
 
-  static const $BNBBULL_BUSD = const Pair(base: "BNBBULL", quote: "BUSD");
+  static final $BNBBULL_BUSD =
+      Pair.instance(base: Coin("BNBBULL"), quote: Coin("BUSD"));
 
-  static const $BNBBEAR_USDT = const Pair(base: "BNBBEAR", quote: "USDT");
+  static final $BNBBEAR_USDT =
+      Pair.instance(base: Coin("BNBBEAR"), quote: Coin("USDT"));
 
-  static const $BNBBEAR_BUSD = const Pair(base: "BNBBEAR", quote: "BUSD");
+  static final $BNBBEAR_BUSD =
+      Pair.instance(base: Coin("BNBBEAR"), quote: Coin("BUSD"));
 
-  static const $STPT_BNB = const Pair(base: "STPT", quote: "BNB");
+  static final $STPT_BNB =
+      Pair.instance(base: Coin("STPT"), quote: Coin("BNB"));
 
-  static const $STPT_BTC = const Pair(base: "STPT", quote: "BTC");
+  static final $STPT_BTC =
+      Pair.instance(base: Coin("STPT"), quote: Coin("BTC"));
 
-  static const $STPT_USDT = const Pair(base: "STPT", quote: "USDT");
+  static final $STPT_USDT =
+      Pair.instance(base: Coin("STPT"), quote: Coin("USDT"));
 
-  static const $BTC_ZAR = const Pair(base: "BTC", quote: "ZAR");
+  static final $BTC_ZAR = Pair.instance(base: Coin("BTC"), quote: Coin("ZAR"));
 
-  static const $ETH_ZAR = const Pair(base: "ETH", quote: "ZAR");
+  static final $ETH_ZAR = Pair.instance(base: Coin("ETH"), quote: Coin("ZAR"));
 
-  static const $BNB_ZAR = const Pair(base: "BNB", quote: "ZAR");
+  static final $BNB_ZAR = Pair.instance(base: Coin("BNB"), quote: Coin("ZAR"));
 
-  static const $USDT_ZAR = const Pair(base: "USDT", quote: "ZAR");
+  static final $USDT_ZAR =
+      Pair.instance(base: Coin("USDT"), quote: Coin("ZAR"));
 
-  static const $BUSD_ZAR = const Pair(base: "BUSD", quote: "ZAR");
+  static final $BUSD_ZAR =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("ZAR"));
 
-  static const $BTC_BKRW = const Pair(base: "BTC", quote: "BKRW");
+  static final $BTC_BKRW =
+      Pair.instance(base: Coin("BTC"), quote: Coin("BKRW"));
 
-  static const $ETH_BKRW = const Pair(base: "ETH", quote: "BKRW");
+  static final $ETH_BKRW =
+      Pair.instance(base: Coin("ETH"), quote: Coin("BKRW"));
 
-  static const $BNB_BKRW = const Pair(base: "BNB", quote: "BKRW");
+  static final $BNB_BKRW =
+      Pair.instance(base: Coin("BNB"), quote: Coin("BKRW"));
 
-  static const $WTC_USDT = const Pair(base: "WTC", quote: "USDT");
+  static final $WTC_USDT =
+      Pair.instance(base: Coin("WTC"), quote: Coin("USDT"));
 
-  static const $DATA_BUSD = const Pair(base: "DATA", quote: "BUSD");
+  static final $DATA_BUSD =
+      Pair.instance(base: Coin("DATA"), quote: Coin("BUSD"));
 
-  static const $DATA_USDT = const Pair(base: "DATA", quote: "USDT");
+  static final $DATA_USDT =
+      Pair.instance(base: Coin("DATA"), quote: Coin("USDT"));
 
-  static const $XZC_USDT = const Pair(base: "XZC", quote: "USDT");
+  static final $XZC_USDT =
+      Pair.instance(base: Coin("XZC"), quote: Coin("USDT"));
 
-  static const $SOL_BNB = const Pair(base: "SOL", quote: "BNB");
+  static final $SOL_BNB = Pair.instance(base: Coin("SOL"), quote: Coin("BNB"));
 
-  static const $SOL_BTC = const Pair(base: "SOL", quote: "BTC");
+  static final $SOL_BTC = Pair.instance(base: Coin("SOL"), quote: Coin("BTC"));
 
-  static const $SOL_USDT = const Pair(base: "SOL", quote: "USDT");
+  static final $SOL_USDT =
+      Pair.instance(base: Coin("SOL"), quote: Coin("USDT"));
 
-  static const $SOL_BUSD = const Pair(base: "SOL", quote: "BUSD");
+  static final $SOL_BUSD =
+      Pair.instance(base: Coin("SOL"), quote: Coin("BUSD"));
 
-  static const $BTC_IDRT = const Pair(base: "BTC", quote: "IDRT");
+  static final $BTC_IDRT =
+      Pair.instance(base: Coin("BTC"), quote: Coin("IDRT"));
 
-  static const $BNB_IDRT = const Pair(base: "BNB", quote: "IDRT");
+  static final $BNB_IDRT =
+      Pair.instance(base: Coin("BNB"), quote: Coin("IDRT"));
 
-  static const $USDT_IDRT = const Pair(base: "USDT", quote: "IDRT");
+  static final $USDT_IDRT =
+      Pair.instance(base: Coin("USDT"), quote: Coin("IDRT"));
 
-  static const $BUSD_IDRT = const Pair(base: "BUSD", quote: "IDRT");
+  static final $BUSD_IDRT =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("IDRT"));
 
-  static const $CTSI_BTC = const Pair(base: "CTSI", quote: "BTC");
+  static final $CTSI_BTC =
+      Pair.instance(base: Coin("CTSI"), quote: Coin("BTC"));
 
-  static const $CTSI_USDT = const Pair(base: "CTSI", quote: "USDT");
+  static final $CTSI_USDT =
+      Pair.instance(base: Coin("CTSI"), quote: Coin("USDT"));
 
-  static const $CTSI_BNB = const Pair(base: "CTSI", quote: "BNB");
+  static final $CTSI_BNB =
+      Pair.instance(base: Coin("CTSI"), quote: Coin("BNB"));
 
-  static const $CTSI_BUSD = const Pair(base: "CTSI", quote: "BUSD");
+  static final $CTSI_BUSD =
+      Pair.instance(base: Coin("CTSI"), quote: Coin("BUSD"));
 
-  static const $HIVE_BNB = const Pair(base: "HIVE", quote: "BNB");
+  static final $HIVE_BNB =
+      Pair.instance(base: Coin("HIVE"), quote: Coin("BNB"));
 
-  static const $HIVE_BTC = const Pair(base: "HIVE", quote: "BTC");
+  static final $HIVE_BTC =
+      Pair.instance(base: Coin("HIVE"), quote: Coin("BTC"));
 
-  static const $HIVE_USDT = const Pair(base: "HIVE", quote: "USDT");
+  static final $HIVE_USDT =
+      Pair.instance(base: Coin("HIVE"), quote: Coin("USDT"));
 
-  static const $CHR_BNB = const Pair(base: "CHR", quote: "BNB");
+  static final $CHR_BNB = Pair.instance(base: Coin("CHR"), quote: Coin("BNB"));
 
-  static const $CHR_BTC = const Pair(base: "CHR", quote: "BTC");
+  static final $CHR_BTC = Pair.instance(base: Coin("CHR"), quote: Coin("BTC"));
 
-  static const $CHR_USDT = const Pair(base: "CHR", quote: "USDT");
+  static final $CHR_USDT =
+      Pair.instance(base: Coin("CHR"), quote: Coin("USDT"));
 
-  static const $BTCUP_USDT = const Pair(base: "BTCUP", quote: "USDT");
+  static final $BTCUP_USDT =
+      Pair.instance(base: Coin("BTCUP"), quote: Coin("USDT"));
 
-  static const $BTCDOWN_USDT = const Pair(base: "BTCDOWN", quote: "USDT");
+  static final $BTCDOWN_USDT =
+      Pair.instance(base: Coin("BTCDOWN"), quote: Coin("USDT"));
 
-  static const $GXS_USDT = const Pair(base: "GXS", quote: "USDT");
+  static final $GXS_USDT =
+      Pair.instance(base: Coin("GXS"), quote: Coin("USDT"));
 
-  static const $ARDR_USDT = const Pair(base: "ARDR", quote: "USDT");
+  static final $ARDR_USDT =
+      Pair.instance(base: Coin("ARDR"), quote: Coin("USDT"));
 
-  static const $ERD_BUSD = const Pair(base: "ERD", quote: "BUSD");
+  static final $ERD_BUSD =
+      Pair.instance(base: Coin("ERD"), quote: Coin("BUSD"));
 
-  static const $LEND_USDT = const Pair(base: "LEND", quote: "USDT");
+  static final $LEND_USDT =
+      Pair.instance(base: Coin("LEND"), quote: Coin("USDT"));
 
-  static const $HBAR_BUSD = const Pair(base: "HBAR", quote: "BUSD");
+  static final $HBAR_BUSD =
+      Pair.instance(base: Coin("HBAR"), quote: Coin("BUSD"));
 
-  static const $MATIC_BUSD = const Pair(base: "MATIC", quote: "BUSD");
+  static final $MATIC_BUSD =
+      Pair.instance(base: Coin("MATIC"), quote: Coin("BUSD"));
 
-  static const $WRX_BUSD = const Pair(base: "WRX", quote: "BUSD");
+  static final $WRX_BUSD =
+      Pair.instance(base: Coin("WRX"), quote: Coin("BUSD"));
 
-  static const $ZIL_BUSD = const Pair(base: "ZIL", quote: "BUSD");
+  static final $ZIL_BUSD =
+      Pair.instance(base: Coin("ZIL"), quote: Coin("BUSD"));
 
-  static const $MDT_BNB = const Pair(base: "MDT", quote: "BNB");
+  static final $MDT_BNB = Pair.instance(base: Coin("MDT"), quote: Coin("BNB"));
 
-  static const $MDT_BTC = const Pair(base: "MDT", quote: "BTC");
+  static final $MDT_BTC = Pair.instance(base: Coin("MDT"), quote: Coin("BTC"));
 
-  static const $MDT_USDT = const Pair(base: "MDT", quote: "USDT");
+  static final $MDT_USDT =
+      Pair.instance(base: Coin("MDT"), quote: Coin("USDT"));
 
-  static const $STMX_BNB = const Pair(base: "STMX", quote: "BNB");
+  static final $STMX_BNB =
+      Pair.instance(base: Coin("STMX"), quote: Coin("BNB"));
 
-  static const $STMX_BTC = const Pair(base: "STMX", quote: "BTC");
+  static final $STMX_BTC =
+      Pair.instance(base: Coin("STMX"), quote: Coin("BTC"));
 
-  static const $STMX_ETH = const Pair(base: "STMX", quote: "ETH");
+  static final $STMX_ETH =
+      Pair.instance(base: Coin("STMX"), quote: Coin("ETH"));
 
-  static const $STMX_USDT = const Pair(base: "STMX", quote: "USDT");
+  static final $STMX_USDT =
+      Pair.instance(base: Coin("STMX"), quote: Coin("USDT"));
 
-  static const $KNC_BUSD = const Pair(base: "KNC", quote: "BUSD");
+  static final $KNC_BUSD =
+      Pair.instance(base: Coin("KNC"), quote: Coin("BUSD"));
 
-  static const $KNC_USDT = const Pair(base: "KNC", quote: "USDT");
+  static final $KNC_USDT =
+      Pair.instance(base: Coin("KNC"), quote: Coin("USDT"));
 
-  static const $REP_BUSD = const Pair(base: "REP", quote: "BUSD");
+  static final $REP_BUSD =
+      Pair.instance(base: Coin("REP"), quote: Coin("BUSD"));
 
-  static const $REP_USDT = const Pair(base: "REP", quote: "USDT");
+  static final $REP_USDT =
+      Pair.instance(base: Coin("REP"), quote: Coin("USDT"));
 
-  static const $LRC_BUSD = const Pair(base: "LRC", quote: "BUSD");
+  static final $LRC_BUSD =
+      Pair.instance(base: Coin("LRC"), quote: Coin("BUSD"));
 
-  static const $LRC_USDT = const Pair(base: "LRC", quote: "USDT");
+  static final $LRC_USDT =
+      Pair.instance(base: Coin("LRC"), quote: Coin("USDT"));
 
-  static const $IQ_BNB = const Pair(base: "IQ", quote: "BNB");
+  static final $IQ_BNB = Pair.instance(base: Coin("IQ"), quote: Coin("BNB"));
 
-  static const $IQ_BUSD = const Pair(base: "IQ", quote: "BUSD");
+  static final $IQ_BUSD = Pair.instance(base: Coin("IQ"), quote: Coin("BUSD"));
 
-  static const $PNT_BTC = const Pair(base: "PNT", quote: "BTC");
+  static final $PNT_BTC = Pair.instance(base: Coin("PNT"), quote: Coin("BTC"));
 
-  static const $PNT_USDT = const Pair(base: "PNT", quote: "USDT");
+  static final $PNT_USDT =
+      Pair.instance(base: Coin("PNT"), quote: Coin("USDT"));
 
-  static const $BTC_GBP = const Pair(base: "BTC", quote: "GBP");
+  static final $BTC_GBP = Pair.instance(base: Coin("BTC"), quote: Coin("GBP"));
 
-  static const $ETH_GBP = const Pair(base: "ETH", quote: "GBP");
+  static final $ETH_GBP = Pair.instance(base: Coin("ETH"), quote: Coin("GBP"));
 
-  static const $XRP_GBP = const Pair(base: "XRP", quote: "GBP");
+  static final $XRP_GBP = Pair.instance(base: Coin("XRP"), quote: Coin("GBP"));
 
-  static const $BNB_GBP = const Pair(base: "BNB", quote: "GBP");
+  static final $BNB_GBP = Pair.instance(base: Coin("BNB"), quote: Coin("GBP"));
 
-  static const $GBP_BUSD = const Pair(base: "GBP", quote: "BUSD");
+  static final $GBP_BUSD =
+      Pair.instance(base: Coin("GBP"), quote: Coin("BUSD"));
 
-  static const $DGB_BNB = const Pair(base: "DGB", quote: "BNB");
+  static final $DGB_BNB = Pair.instance(base: Coin("DGB"), quote: Coin("BNB"));
 
-  static const $DGB_BTC = const Pair(base: "DGB", quote: "BTC");
+  static final $DGB_BTC = Pair.instance(base: Coin("DGB"), quote: Coin("BTC"));
 
-  static const $DGB_BUSD = const Pair(base: "DGB", quote: "BUSD");
+  static final $DGB_BUSD =
+      Pair.instance(base: Coin("DGB"), quote: Coin("BUSD"));
 
-  static const $BTC_UAH = const Pair(base: "BTC", quote: "UAH");
+  static final $BTC_UAH = Pair.instance(base: Coin("BTC"), quote: Coin("UAH"));
 
-  static const $USDT_UAH = const Pair(base: "USDT", quote: "UAH");
+  static final $USDT_UAH =
+      Pair.instance(base: Coin("USDT"), quote: Coin("UAH"));
 
-  static const $COMP_BTC = const Pair(base: "COMP", quote: "BTC");
+  static final $COMP_BTC =
+      Pair.instance(base: Coin("COMP"), quote: Coin("BTC"));
 
-  static const $COMP_BNB = const Pair(base: "COMP", quote: "BNB");
+  static final $COMP_BNB =
+      Pair.instance(base: Coin("COMP"), quote: Coin("BNB"));
 
-  static const $COMP_BUSD = const Pair(base: "COMP", quote: "BUSD");
+  static final $COMP_BUSD =
+      Pair.instance(base: Coin("COMP"), quote: Coin("BUSD"));
 
-  static const $COMP_USDT = const Pair(base: "COMP", quote: "USDT");
+  static final $COMP_USDT =
+      Pair.instance(base: Coin("COMP"), quote: Coin("USDT"));
 
-  static const $BTC_BIDR = const Pair(base: "BTC", quote: "BIDR");
+  static final $BTC_BIDR =
+      Pair.instance(base: Coin("BTC"), quote: Coin("BIDR"));
 
-  static const $ETH_BIDR = const Pair(base: "ETH", quote: "BIDR");
+  static final $ETH_BIDR =
+      Pair.instance(base: Coin("ETH"), quote: Coin("BIDR"));
 
-  static const $BNB_BIDR = const Pair(base: "BNB", quote: "BIDR");
+  static final $BNB_BIDR =
+      Pair.instance(base: Coin("BNB"), quote: Coin("BIDR"));
 
-  static const $BUSD_BIDR = const Pair(base: "BUSD", quote: "BIDR");
+  static final $BUSD_BIDR =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("BIDR"));
 
-  static const $USDT_BIDR = const Pair(base: "USDT", quote: "BIDR");
+  static final $USDT_BIDR =
+      Pair.instance(base: Coin("USDT"), quote: Coin("BIDR"));
 
-  static const $BKRW_USDT = const Pair(base: "BKRW", quote: "USDT");
+  static final $BKRW_USDT =
+      Pair.instance(base: Coin("BKRW"), quote: Coin("USDT"));
 
-  static const $BKRW_BUSD = const Pair(base: "BKRW", quote: "BUSD");
+  static final $BKRW_BUSD =
+      Pair.instance(base: Coin("BKRW"), quote: Coin("BUSD"));
 
-  static const $SC_USDT = const Pair(base: "SC", quote: "USDT");
+  static final $SC_USDT = Pair.instance(base: Coin("SC"), quote: Coin("USDT"));
 
-  static const $ZEN_USDT = const Pair(base: "ZEN", quote: "USDT");
+  static final $ZEN_USDT =
+      Pair.instance(base: Coin("ZEN"), quote: Coin("USDT"));
 
-  static const $SXP_BTC = const Pair(base: "SXP", quote: "BTC");
+  static final $SXP_BTC = Pair.instance(base: Coin("SXP"), quote: Coin("BTC"));
 
-  static const $SXP_BNB = const Pair(base: "SXP", quote: "BNB");
+  static final $SXP_BNB = Pair.instance(base: Coin("SXP"), quote: Coin("BNB"));
 
-  static const $SXP_BUSD = const Pair(base: "SXP", quote: "BUSD");
+  static final $SXP_BUSD =
+      Pair.instance(base: Coin("SXP"), quote: Coin("BUSD"));
 
-  static const $SNX_BTC = const Pair(base: "SNX", quote: "BTC");
+  static final $SNX_BTC = Pair.instance(base: Coin("SNX"), quote: Coin("BTC"));
 
-  static const $SNX_BNB = const Pair(base: "SNX", quote: "BNB");
+  static final $SNX_BNB = Pair.instance(base: Coin("SNX"), quote: Coin("BNB"));
 
-  static const $SNX_BUSD = const Pair(base: "SNX", quote: "BUSD");
+  static final $SNX_BUSD =
+      Pair.instance(base: Coin("SNX"), quote: Coin("BUSD"));
 
-  static const $SNX_USDT = const Pair(base: "SNX", quote: "USDT");
+  static final $SNX_USDT =
+      Pair.instance(base: Coin("SNX"), quote: Coin("USDT"));
 
-  static const $ETHUP_USDT = const Pair(base: "ETHUP", quote: "USDT");
+  static final $ETHUP_USDT =
+      Pair.instance(base: Coin("ETHUP"), quote: Coin("USDT"));
 
-  static const $ETHDOWN_USDT = const Pair(base: "ETHDOWN", quote: "USDT");
+  static final $ETHDOWN_USDT =
+      Pair.instance(base: Coin("ETHDOWN"), quote: Coin("USDT"));
 
-  static const $ADAUP_USDT = const Pair(base: "ADAUP", quote: "USDT");
+  static final $ADAUP_USDT =
+      Pair.instance(base: Coin("ADAUP"), quote: Coin("USDT"));
 
-  static const $ADADOWN_USDT = const Pair(base: "ADADOWN", quote: "USDT");
+  static final $ADADOWN_USDT =
+      Pair.instance(base: Coin("ADADOWN"), quote: Coin("USDT"));
 
-  static const $LINKUP_USDT = const Pair(base: "LINKUP", quote: "USDT");
+  static final $LINKUP_USDT =
+      Pair.instance(base: Coin("LINKUP"), quote: Coin("USDT"));
 
-  static const $LINKDOWN_USDT = const Pair(base: "LINKDOWN", quote: "USDT");
+  static final $LINKDOWN_USDT =
+      Pair.instance(base: Coin("LINKDOWN"), quote: Coin("USDT"));
 
-  static const $VTHO_BNB = const Pair(base: "VTHO", quote: "BNB");
+  static final $VTHO_BNB =
+      Pair.instance(base: Coin("VTHO"), quote: Coin("BNB"));
 
-  static const $VTHO_BUSD = const Pair(base: "VTHO", quote: "BUSD");
+  static final $VTHO_BUSD =
+      Pair.instance(base: Coin("VTHO"), quote: Coin("BUSD"));
 
-  static const $VTHO_USDT = const Pair(base: "VTHO", quote: "USDT");
+  static final $VTHO_USDT =
+      Pair.instance(base: Coin("VTHO"), quote: Coin("USDT"));
 
-  static const $DCR_BUSD = const Pair(base: "DCR", quote: "BUSD");
+  static final $DCR_BUSD =
+      Pair.instance(base: Coin("DCR"), quote: Coin("BUSD"));
 
-  static const $DGB_USDT = const Pair(base: "DGB", quote: "USDT");
+  static final $DGB_USDT =
+      Pair.instance(base: Coin("DGB"), quote: Coin("USDT"));
 
-  static const $GBP_USDT = const Pair(base: "GBP", quote: "USDT");
+  static final $GBP_USDT =
+      Pair.instance(base: Coin("GBP"), quote: Coin("USDT"));
 
-  static const $STORJ_BUSD = const Pair(base: "STORJ", quote: "BUSD");
+  static final $STORJ_BUSD =
+      Pair.instance(base: Coin("STORJ"), quote: Coin("BUSD"));
 
-  static const $SXP_USDT = const Pair(base: "SXP", quote: "USDT");
+  static final $SXP_USDT =
+      Pair.instance(base: Coin("SXP"), quote: Coin("USDT"));
 
-  static const $IRIS_BNB = const Pair(base: "IRIS", quote: "BNB");
+  static final $IRIS_BNB =
+      Pair.instance(base: Coin("IRIS"), quote: Coin("BNB"));
 
-  static const $IRIS_BTC = const Pair(base: "IRIS", quote: "BTC");
+  static final $IRIS_BTC =
+      Pair.instance(base: Coin("IRIS"), quote: Coin("BTC"));
 
-  static const $IRIS_BUSD = const Pair(base: "IRIS", quote: "BUSD");
+  static final $IRIS_BUSD =
+      Pair.instance(base: Coin("IRIS"), quote: Coin("BUSD"));
 
-  static const $MKR_BNB = const Pair(base: "MKR", quote: "BNB");
+  static final $MKR_BNB = Pair.instance(base: Coin("MKR"), quote: Coin("BNB"));
 
-  static const $MKR_BTC = const Pair(base: "MKR", quote: "BTC");
+  static final $MKR_BTC = Pair.instance(base: Coin("MKR"), quote: Coin("BTC"));
 
-  static const $MKR_USDT = const Pair(base: "MKR", quote: "USDT");
+  static final $MKR_USDT =
+      Pair.instance(base: Coin("MKR"), quote: Coin("USDT"));
 
-  static const $MKR_BUSD = const Pair(base: "MKR", quote: "BUSD");
+  static final $MKR_BUSD =
+      Pair.instance(base: Coin("MKR"), quote: Coin("BUSD"));
 
-  static const $DAI_BNB = const Pair(base: "DAI", quote: "BNB");
+  static final $DAI_BNB = Pair.instance(base: Coin("DAI"), quote: Coin("BNB"));
 
-  static const $DAI_BTC = const Pair(base: "DAI", quote: "BTC");
+  static final $DAI_BTC = Pair.instance(base: Coin("DAI"), quote: Coin("BTC"));
 
-  static const $DAI_USDT = const Pair(base: "DAI", quote: "USDT");
+  static final $DAI_USDT =
+      Pair.instance(base: Coin("DAI"), quote: Coin("USDT"));
 
-  static const $DAI_BUSD = const Pair(base: "DAI", quote: "BUSD");
+  static final $DAI_BUSD =
+      Pair.instance(base: Coin("DAI"), quote: Coin("BUSD"));
 
-  static const $RUNE_BNB = const Pair(base: "RUNE", quote: "BNB");
+  static final $RUNE_BNB =
+      Pair.instance(base: Coin("RUNE"), quote: Coin("BNB"));
 
-  static const $RUNE_BTC = const Pair(base: "RUNE", quote: "BTC");
+  static final $RUNE_BTC =
+      Pair.instance(base: Coin("RUNE"), quote: Coin("BTC"));
 
-  static const $RUNE_BUSD = const Pair(base: "RUNE", quote: "BUSD");
+  static final $RUNE_BUSD =
+      Pair.instance(base: Coin("RUNE"), quote: Coin("BUSD"));
 
-  static const $MANA_BUSD = const Pair(base: "MANA", quote: "BUSD");
+  static final $MANA_BUSD =
+      Pair.instance(base: Coin("MANA"), quote: Coin("BUSD"));
 
-  static const $DOGE_BUSD = const Pair(base: "DOGE", quote: "BUSD");
+  static final $DOGE_BUSD =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("BUSD"));
 
-  static const $LEND_BUSD = const Pair(base: "LEND", quote: "BUSD");
+  static final $LEND_BUSD =
+      Pair.instance(base: Coin("LEND"), quote: Coin("BUSD"));
 
-  static const $ZRX_BUSD = const Pair(base: "ZRX", quote: "BUSD");
+  static final $ZRX_BUSD =
+      Pair.instance(base: Coin("ZRX"), quote: Coin("BUSD"));
 
-  static const $DCR_USDT = const Pair(base: "DCR", quote: "USDT");
+  static final $DCR_USDT =
+      Pair.instance(base: Coin("DCR"), quote: Coin("USDT"));
 
-  static const $STORJ_USDT = const Pair(base: "STORJ", quote: "USDT");
+  static final $STORJ_USDT =
+      Pair.instance(base: Coin("STORJ"), quote: Coin("USDT"));
 
-  static const $XRP_BKRW = const Pair(base: "XRP", quote: "BKRW");
+  static final $XRP_BKRW =
+      Pair.instance(base: Coin("XRP"), quote: Coin("BKRW"));
 
-  static const $ADA_BKRW = const Pair(base: "ADA", quote: "BKRW");
+  static final $ADA_BKRW =
+      Pair.instance(base: Coin("ADA"), quote: Coin("BKRW"));
 
-  static const $BTC_AUD = const Pair(base: "BTC", quote: "AUD");
+  static final $BTC_AUD = Pair.instance(base: Coin("BTC"), quote: Coin("AUD"));
 
-  static const $ETH_AUD = const Pair(base: "ETH", quote: "AUD");
+  static final $ETH_AUD = Pair.instance(base: Coin("ETH"), quote: Coin("AUD"));
 
-  static const $AUD_BUSD = const Pair(base: "AUD", quote: "BUSD");
+  static final $AUD_BUSD =
+      Pair.instance(base: Coin("AUD"), quote: Coin("BUSD"));
 
-  static const $FIO_BNB = const Pair(base: "FIO", quote: "BNB");
+  static final $FIO_BNB = Pair.instance(base: Coin("FIO"), quote: Coin("BNB"));
 
-  static const $FIO_BTC = const Pair(base: "FIO", quote: "BTC");
+  static final $FIO_BTC = Pair.instance(base: Coin("FIO"), quote: Coin("BTC"));
 
-  static const $FIO_BUSD = const Pair(base: "FIO", quote: "BUSD");
+  static final $FIO_BUSD =
+      Pair.instance(base: Coin("FIO"), quote: Coin("BUSD"));
 
-  static const $BNBUP_USDT = const Pair(base: "BNBUP", quote: "USDT");
+  static final $BNBUP_USDT =
+      Pair.instance(base: Coin("BNBUP"), quote: Coin("USDT"));
 
-  static const $BNBDOWN_USDT = const Pair(base: "BNBDOWN", quote: "USDT");
+  static final $BNBDOWN_USDT =
+      Pair.instance(base: Coin("BNBDOWN"), quote: Coin("USDT"));
 
-  static const $XTZUP_USDT = const Pair(base: "XTZUP", quote: "USDT");
+  static final $XTZUP_USDT =
+      Pair.instance(base: Coin("XTZUP"), quote: Coin("USDT"));
 
-  static const $XTZDOWN_USDT = const Pair(base: "XTZDOWN", quote: "USDT");
+  static final $XTZDOWN_USDT =
+      Pair.instance(base: Coin("XTZDOWN"), quote: Coin("USDT"));
 
-  static const $AVA_BNB = const Pair(base: "AVA", quote: "BNB");
+  static final $AVA_BNB = Pair.instance(base: Coin("AVA"), quote: Coin("BNB"));
 
-  static const $AVA_BTC = const Pair(base: "AVA", quote: "BTC");
+  static final $AVA_BTC = Pair.instance(base: Coin("AVA"), quote: Coin("BTC"));
 
-  static const $AVA_BUSD = const Pair(base: "AVA", quote: "BUSD");
+  static final $AVA_BUSD =
+      Pair.instance(base: Coin("AVA"), quote: Coin("BUSD"));
 
-  static const $USDT_BKRW = const Pair(base: "USDT", quote: "BKRW");
+  static final $USDT_BKRW =
+      Pair.instance(base: Coin("USDT"), quote: Coin("BKRW"));
 
-  static const $BUSD_BKRW = const Pair(base: "BUSD", quote: "BKRW");
+  static final $BUSD_BKRW =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("BKRW"));
 
-  static const $IOTA_BUSD = const Pair(base: "IOTA", quote: "BUSD");
+  static final $IOTA_BUSD =
+      Pair.instance(base: Coin("IOTA"), quote: Coin("BUSD"));
 
-  static const $MANA_USDT = const Pair(base: "MANA", quote: "USDT");
+  static final $MANA_USDT =
+      Pair.instance(base: Coin("MANA"), quote: Coin("USDT"));
 
-  static const $XRP_AUD = const Pair(base: "XRP", quote: "AUD");
+  static final $XRP_AUD = Pair.instance(base: Coin("XRP"), quote: Coin("AUD"));
 
-  static const $BNB_AUD = const Pair(base: "BNB", quote: "AUD");
+  static final $BNB_AUD = Pair.instance(base: Coin("BNB"), quote: Coin("AUD"));
 
-  static const $AUD_USDT = const Pair(base: "AUD", quote: "USDT");
+  static final $AUD_USDT =
+      Pair.instance(base: Coin("AUD"), quote: Coin("USDT"));
 
-  static const $BAL_BNB = const Pair(base: "BAL", quote: "BNB");
+  static final $BAL_BNB = Pair.instance(base: Coin("BAL"), quote: Coin("BNB"));
 
-  static const $BAL_BTC = const Pair(base: "BAL", quote: "BTC");
+  static final $BAL_BTC = Pair.instance(base: Coin("BAL"), quote: Coin("BTC"));
 
-  static const $BAL_BUSD = const Pair(base: "BAL", quote: "BUSD");
+  static final $BAL_BUSD =
+      Pair.instance(base: Coin("BAL"), quote: Coin("BUSD"));
 
-  static const $YFI_BNB = const Pair(base: "YFI", quote: "BNB");
+  static final $YFI_BNB = Pair.instance(base: Coin("YFI"), quote: Coin("BNB"));
 
-  static const $YFI_BTC = const Pair(base: "YFI", quote: "BTC");
+  static final $YFI_BTC = Pair.instance(base: Coin("YFI"), quote: Coin("BTC"));
 
-  static const $YFI_BUSD = const Pair(base: "YFI", quote: "BUSD");
+  static final $YFI_BUSD =
+      Pair.instance(base: Coin("YFI"), quote: Coin("BUSD"));
 
-  static const $YFI_USDT = const Pair(base: "YFI", quote: "USDT");
+  static final $YFI_USDT =
+      Pair.instance(base: Coin("YFI"), quote: Coin("USDT"));
 
-  static const $BLZ_BUSD = const Pair(base: "BLZ", quote: "BUSD");
+  static final $BLZ_BUSD =
+      Pair.instance(base: Coin("BLZ"), quote: Coin("BUSD"));
 
-  static const $KMD_BUSD = const Pair(base: "KMD", quote: "BUSD");
+  static final $KMD_BUSD =
+      Pair.instance(base: Coin("KMD"), quote: Coin("BUSD"));
 
-  static const $BAL_USDT = const Pair(base: "BAL", quote: "USDT");
+  static final $BAL_USDT =
+      Pair.instance(base: Coin("BAL"), quote: Coin("USDT"));
 
-  static const $BLZ_USDT = const Pair(base: "BLZ", quote: "USDT");
+  static final $BLZ_USDT =
+      Pair.instance(base: Coin("BLZ"), quote: Coin("USDT"));
 
-  static const $IRIS_USDT = const Pair(base: "IRIS", quote: "USDT");
+  static final $IRIS_USDT =
+      Pair.instance(base: Coin("IRIS"), quote: Coin("USDT"));
 
-  static const $KMD_USDT = const Pair(base: "KMD", quote: "USDT");
+  static final $KMD_USDT =
+      Pair.instance(base: Coin("KMD"), quote: Coin("USDT"));
 
-  static const $BTC_DAI = const Pair(base: "BTC", quote: "DAI");
+  static final $BTC_DAI = Pair.instance(base: Coin("BTC"), quote: Coin("DAI"));
 
-  static const $ETH_DAI = const Pair(base: "ETH", quote: "DAI");
+  static final $ETH_DAI = Pair.instance(base: Coin("ETH"), quote: Coin("DAI"));
 
-  static const $BNB_DAI = const Pair(base: "BNB", quote: "DAI");
+  static final $BNB_DAI = Pair.instance(base: Coin("BNB"), quote: Coin("DAI"));
 
-  static const $USDT_DAI = const Pair(base: "USDT", quote: "DAI");
+  static final $USDT_DAI =
+      Pair.instance(base: Coin("USDT"), quote: Coin("DAI"));
 
-  static const $BUSD_DAI = const Pair(base: "BUSD", quote: "DAI");
+  static final $BUSD_DAI =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("DAI"));
 
-  static const $JST_BNB = const Pair(base: "JST", quote: "BNB");
+  static final $JST_BNB = Pair.instance(base: Coin("JST"), quote: Coin("BNB"));
 
-  static const $JST_BTC = const Pair(base: "JST", quote: "BTC");
+  static final $JST_BTC = Pair.instance(base: Coin("JST"), quote: Coin("BTC"));
 
-  static const $JST_BUSD = const Pair(base: "JST", quote: "BUSD");
+  static final $JST_BUSD =
+      Pair.instance(base: Coin("JST"), quote: Coin("BUSD"));
 
-  static const $JST_USDT = const Pair(base: "JST", quote: "USDT");
+  static final $JST_USDT =
+      Pair.instance(base: Coin("JST"), quote: Coin("USDT"));
 
-  static const $SRM_BNB = const Pair(base: "SRM", quote: "BNB");
+  static final $SRM_BNB = Pair.instance(base: Coin("SRM"), quote: Coin("BNB"));
 
-  static const $SRM_BTC = const Pair(base: "SRM", quote: "BTC");
+  static final $SRM_BTC = Pair.instance(base: Coin("SRM"), quote: Coin("BTC"));
 
-  static const $SRM_BUSD = const Pair(base: "SRM", quote: "BUSD");
+  static final $SRM_BUSD =
+      Pair.instance(base: Coin("SRM"), quote: Coin("BUSD"));
 
-  static const $SRM_USDT = const Pair(base: "SRM", quote: "USDT");
+  static final $SRM_USDT =
+      Pair.instance(base: Coin("SRM"), quote: Coin("USDT"));
 
-  static const $ANT_BNB = const Pair(base: "ANT", quote: "BNB");
+  static final $ANT_BNB = Pair.instance(base: Coin("ANT"), quote: Coin("BNB"));
 
-  static const $ANT_BTC = const Pair(base: "ANT", quote: "BTC");
+  static final $ANT_BTC = Pair.instance(base: Coin("ANT"), quote: Coin("BTC"));
 
-  static const $ANT_BUSD = const Pair(base: "ANT", quote: "BUSD");
+  static final $ANT_BUSD =
+      Pair.instance(base: Coin("ANT"), quote: Coin("BUSD"));
 
-  static const $ANT_USDT = const Pair(base: "ANT", quote: "USDT");
+  static final $ANT_USDT =
+      Pair.instance(base: Coin("ANT"), quote: Coin("USDT"));
 
-  static const $CRV_BNB = const Pair(base: "CRV", quote: "BNB");
+  static final $CRV_BNB = Pair.instance(base: Coin("CRV"), quote: Coin("BNB"));
 
-  static const $CRV_BTC = const Pair(base: "CRV", quote: "BTC");
+  static final $CRV_BTC = Pair.instance(base: Coin("CRV"), quote: Coin("BTC"));
 
-  static const $CRV_BUSD = const Pair(base: "CRV", quote: "BUSD");
+  static final $CRV_BUSD =
+      Pair.instance(base: Coin("CRV"), quote: Coin("BUSD"));
 
-  static const $CRV_USDT = const Pair(base: "CRV", quote: "USDT");
+  static final $CRV_USDT =
+      Pair.instance(base: Coin("CRV"), quote: Coin("USDT"));
 
-  static const $SAND_BNB = const Pair(base: "SAND", quote: "BNB");
+  static final $SAND_BNB =
+      Pair.instance(base: Coin("SAND"), quote: Coin("BNB"));
 
-  static const $SAND_BTC = const Pair(base: "SAND", quote: "BTC");
+  static final $SAND_BTC =
+      Pair.instance(base: Coin("SAND"), quote: Coin("BTC"));
 
-  static const $SAND_USDT = const Pair(base: "SAND", quote: "USDT");
+  static final $SAND_USDT =
+      Pair.instance(base: Coin("SAND"), quote: Coin("USDT"));
 
-  static const $SAND_BUSD = const Pair(base: "SAND", quote: "BUSD");
+  static final $SAND_BUSD =
+      Pair.instance(base: Coin("SAND"), quote: Coin("BUSD"));
 
-  static const $OCEAN_BNB = const Pair(base: "OCEAN", quote: "BNB");
+  static final $OCEAN_BNB =
+      Pair.instance(base: Coin("OCEAN"), quote: Coin("BNB"));
 
-  static const $OCEAN_BTC = const Pair(base: "OCEAN", quote: "BTC");
+  static final $OCEAN_BTC =
+      Pair.instance(base: Coin("OCEAN"), quote: Coin("BTC"));
 
-  static const $OCEAN_BUSD = const Pair(base: "OCEAN", quote: "BUSD");
+  static final $OCEAN_BUSD =
+      Pair.instance(base: Coin("OCEAN"), quote: Coin("BUSD"));
 
-  static const $OCEAN_USDT = const Pair(base: "OCEAN", quote: "USDT");
+  static final $OCEAN_USDT =
+      Pair.instance(base: Coin("OCEAN"), quote: Coin("USDT"));
 
-  static const $NMR_BNB = const Pair(base: "NMR", quote: "BNB");
+  static final $NMR_BNB = Pair.instance(base: Coin("NMR"), quote: Coin("BNB"));
 
-  static const $NMR_BTC = const Pair(base: "NMR", quote: "BTC");
+  static final $NMR_BTC = Pair.instance(base: Coin("NMR"), quote: Coin("BTC"));
 
-  static const $NMR_BUSD = const Pair(base: "NMR", quote: "BUSD");
+  static final $NMR_BUSD =
+      Pair.instance(base: Coin("NMR"), quote: Coin("BUSD"));
 
-  static const $NMR_USDT = const Pair(base: "NMR", quote: "USDT");
+  static final $NMR_USDT =
+      Pair.instance(base: Coin("NMR"), quote: Coin("USDT"));
 
-  static const $DOT_BNB = const Pair(base: "DOT", quote: "BNB");
+  static final $DOT_BNB = Pair.instance(base: Coin("DOT"), quote: Coin("BNB"));
 
-  static const $DOT_BTC = const Pair(base: "DOT", quote: "BTC");
+  static final $DOT_BTC = Pair.instance(base: Coin("DOT"), quote: Coin("BTC"));
 
-  static const $DOT_BUSD = const Pair(base: "DOT", quote: "BUSD");
+  static final $DOT_BUSD =
+      Pair.instance(base: Coin("DOT"), quote: Coin("BUSD"));
 
-  static const $DOT_USDT = const Pair(base: "DOT", quote: "USDT");
+  static final $DOT_USDT =
+      Pair.instance(base: Coin("DOT"), quote: Coin("USDT"));
 
-  static const $LUNA_BNB = const Pair(base: "LUNA", quote: "BNB");
+  static final $LUNA_BNB =
+      Pair.instance(base: Coin("LUNA"), quote: Coin("BNB"));
 
-  static const $LUNA_BTC = const Pair(base: "LUNA", quote: "BTC");
+  static final $LUNA_BTC =
+      Pair.instance(base: Coin("LUNA"), quote: Coin("BTC"));
 
-  static const $LUNA_BUSD = const Pair(base: "LUNA", quote: "BUSD");
+  static final $LUNA_BUSD =
+      Pair.instance(base: Coin("LUNA"), quote: Coin("BUSD"));
 
-  static const $LUNA_USDT = const Pair(base: "LUNA", quote: "USDT");
+  static final $LUNA_USDT =
+      Pair.instance(base: Coin("LUNA"), quote: Coin("USDT"));
 
-  static const $IDEX_BTC = const Pair(base: "IDEX", quote: "BTC");
+  static final $IDEX_BTC =
+      Pair.instance(base: Coin("IDEX"), quote: Coin("BTC"));
 
-  static const $IDEX_BUSD = const Pair(base: "IDEX", quote: "BUSD");
+  static final $IDEX_BUSD =
+      Pair.instance(base: Coin("IDEX"), quote: Coin("BUSD"));
 
-  static const $RSR_BNB = const Pair(base: "RSR", quote: "BNB");
+  static final $RSR_BNB = Pair.instance(base: Coin("RSR"), quote: Coin("BNB"));
 
-  static const $RSR_BTC = const Pair(base: "RSR", quote: "BTC");
+  static final $RSR_BTC = Pair.instance(base: Coin("RSR"), quote: Coin("BTC"));
 
-  static const $RSR_BUSD = const Pair(base: "RSR", quote: "BUSD");
+  static final $RSR_BUSD =
+      Pair.instance(base: Coin("RSR"), quote: Coin("BUSD"));
 
-  static const $RSR_USDT = const Pair(base: "RSR", quote: "USDT");
+  static final $RSR_USDT =
+      Pair.instance(base: Coin("RSR"), quote: Coin("USDT"));
 
-  static const $PAXG_BNB = const Pair(base: "PAXG", quote: "BNB");
+  static final $PAXG_BNB =
+      Pair.instance(base: Coin("PAXG"), quote: Coin("BNB"));
 
-  static const $PAXG_BTC = const Pair(base: "PAXG", quote: "BTC");
+  static final $PAXG_BTC =
+      Pair.instance(base: Coin("PAXG"), quote: Coin("BTC"));
 
-  static const $PAXG_BUSD = const Pair(base: "PAXG", quote: "BUSD");
+  static final $PAXG_BUSD =
+      Pair.instance(base: Coin("PAXG"), quote: Coin("BUSD"));
 
-  static const $PAXG_USDT = const Pair(base: "PAXG", quote: "USDT");
+  static final $PAXG_USDT =
+      Pair.instance(base: Coin("PAXG"), quote: Coin("USDT"));
 
-  static const $WNXM_BNB = const Pair(base: "WNXM", quote: "BNB");
+  static final $WNXM_BNB =
+      Pair.instance(base: Coin("WNXM"), quote: Coin("BNB"));
 
-  static const $WNXM_BTC = const Pair(base: "WNXM", quote: "BTC");
+  static final $WNXM_BTC =
+      Pair.instance(base: Coin("WNXM"), quote: Coin("BTC"));
 
-  static const $WNXM_BUSD = const Pair(base: "WNXM", quote: "BUSD");
+  static final $WNXM_BUSD =
+      Pair.instance(base: Coin("WNXM"), quote: Coin("BUSD"));
 
-  static const $WNXM_USDT = const Pair(base: "WNXM", quote: "USDT");
+  static final $WNXM_USDT =
+      Pair.instance(base: Coin("WNXM"), quote: Coin("USDT"));
 
-  static const $TRB_BNB = const Pair(base: "TRB", quote: "BNB");
+  static final $TRB_BNB = Pair.instance(base: Coin("TRB"), quote: Coin("BNB"));
 
-  static const $TRB_BTC = const Pair(base: "TRB", quote: "BTC");
+  static final $TRB_BTC = Pair.instance(base: Coin("TRB"), quote: Coin("BTC"));
 
-  static const $TRB_BUSD = const Pair(base: "TRB", quote: "BUSD");
+  static final $TRB_BUSD =
+      Pair.instance(base: Coin("TRB"), quote: Coin("BUSD"));
 
-  static const $TRB_USDT = const Pair(base: "TRB", quote: "USDT");
+  static final $TRB_USDT =
+      Pair.instance(base: Coin("TRB"), quote: Coin("USDT"));
 
-  static const $ETH_NGN = const Pair(base: "ETH", quote: "NGN");
+  static final $ETH_NGN = Pair.instance(base: Coin("ETH"), quote: Coin("NGN"));
 
-  static const $DOT_BIDR = const Pair(base: "DOT", quote: "BIDR");
+  static final $DOT_BIDR =
+      Pair.instance(base: Coin("DOT"), quote: Coin("BIDR"));
 
-  static const $LINK_AUD = const Pair(base: "LINK", quote: "AUD");
+  static final $LINK_AUD =
+      Pair.instance(base: Coin("LINK"), quote: Coin("AUD"));
 
-  static const $SXP_AUD = const Pair(base: "SXP", quote: "AUD");
+  static final $SXP_AUD = Pair.instance(base: Coin("SXP"), quote: Coin("AUD"));
 
-  static const $BZRX_BNB = const Pair(base: "BZRX", quote: "BNB");
+  static final $BZRX_BNB =
+      Pair.instance(base: Coin("BZRX"), quote: Coin("BNB"));
 
-  static const $BZRX_BTC = const Pair(base: "BZRX", quote: "BTC");
+  static final $BZRX_BTC =
+      Pair.instance(base: Coin("BZRX"), quote: Coin("BTC"));
 
-  static const $BZRX_BUSD = const Pair(base: "BZRX", quote: "BUSD");
+  static final $BZRX_BUSD =
+      Pair.instance(base: Coin("BZRX"), quote: Coin("BUSD"));
 
-  static const $BZRX_USDT = const Pair(base: "BZRX", quote: "USDT");
+  static final $BZRX_USDT =
+      Pair.instance(base: Coin("BZRX"), quote: Coin("USDT"));
 
-  static const $WBTC_BTC = const Pair(base: "WBTC", quote: "BTC");
+  static final $WBTC_BTC =
+      Pair.instance(base: Coin("WBTC"), quote: Coin("BTC"));
 
-  static const $WBTC_ETH = const Pair(base: "WBTC", quote: "ETH");
+  static final $WBTC_ETH =
+      Pair.instance(base: Coin("WBTC"), quote: Coin("ETH"));
 
-  static const $SUSHI_BNB = const Pair(base: "SUSHI", quote: "BNB");
+  static final $SUSHI_BNB =
+      Pair.instance(base: Coin("SUSHI"), quote: Coin("BNB"));
 
-  static const $SUSHI_BTC = const Pair(base: "SUSHI", quote: "BTC");
+  static final $SUSHI_BTC =
+      Pair.instance(base: Coin("SUSHI"), quote: Coin("BTC"));
 
-  static const $SUSHI_BUSD = const Pair(base: "SUSHI", quote: "BUSD");
+  static final $SUSHI_BUSD =
+      Pair.instance(base: Coin("SUSHI"), quote: Coin("BUSD"));
 
-  static const $SUSHI_USDT = const Pair(base: "SUSHI", quote: "USDT");
+  static final $SUSHI_USDT =
+      Pair.instance(base: Coin("SUSHI"), quote: Coin("USDT"));
 
-  static const $YFII_BNB = const Pair(base: "YFII", quote: "BNB");
+  static final $YFII_BNB =
+      Pair.instance(base: Coin("YFII"), quote: Coin("BNB"));
 
-  static const $YFII_BTC = const Pair(base: "YFII", quote: "BTC");
+  static final $YFII_BTC =
+      Pair.instance(base: Coin("YFII"), quote: Coin("BTC"));
 
-  static const $YFII_BUSD = const Pair(base: "YFII", quote: "BUSD");
+  static final $YFII_BUSD =
+      Pair.instance(base: Coin("YFII"), quote: Coin("BUSD"));
 
-  static const $YFII_USDT = const Pair(base: "YFII", quote: "USDT");
+  static final $YFII_USDT =
+      Pair.instance(base: Coin("YFII"), quote: Coin("USDT"));
 
-  static const $KSM_BNB = const Pair(base: "KSM", quote: "BNB");
+  static final $KSM_BNB = Pair.instance(base: Coin("KSM"), quote: Coin("BNB"));
 
-  static const $KSM_BTC = const Pair(base: "KSM", quote: "BTC");
+  static final $KSM_BTC = Pair.instance(base: Coin("KSM"), quote: Coin("BTC"));
 
-  static const $KSM_BUSD = const Pair(base: "KSM", quote: "BUSD");
+  static final $KSM_BUSD =
+      Pair.instance(base: Coin("KSM"), quote: Coin("BUSD"));
 
-  static const $KSM_USDT = const Pair(base: "KSM", quote: "USDT");
+  static final $KSM_USDT =
+      Pair.instance(base: Coin("KSM"), quote: Coin("USDT"));
 
-  static const $EGLD_BNB = const Pair(base: "EGLD", quote: "BNB");
+  static final $EGLD_BNB =
+      Pair.instance(base: Coin("EGLD"), quote: Coin("BNB"));
 
-  static const $EGLD_BTC = const Pair(base: "EGLD", quote: "BTC");
+  static final $EGLD_BTC =
+      Pair.instance(base: Coin("EGLD"), quote: Coin("BTC"));
 
-  static const $EGLD_BUSD = const Pair(base: "EGLD", quote: "BUSD");
+  static final $EGLD_BUSD =
+      Pair.instance(base: Coin("EGLD"), quote: Coin("BUSD"));
 
-  static const $EGLD_USDT = const Pair(base: "EGLD", quote: "USDT");
+  static final $EGLD_USDT =
+      Pair.instance(base: Coin("EGLD"), quote: Coin("USDT"));
 
-  static const $DIA_BNB = const Pair(base: "DIA", quote: "BNB");
+  static final $DIA_BNB = Pair.instance(base: Coin("DIA"), quote: Coin("BNB"));
 
-  static const $DIA_BTC = const Pair(base: "DIA", quote: "BTC");
+  static final $DIA_BTC = Pair.instance(base: Coin("DIA"), quote: Coin("BTC"));
 
-  static const $DIA_BUSD = const Pair(base: "DIA", quote: "BUSD");
+  static final $DIA_BUSD =
+      Pair.instance(base: Coin("DIA"), quote: Coin("BUSD"));
 
-  static const $DIA_USDT = const Pair(base: "DIA", quote: "USDT");
+  static final $DIA_USDT =
+      Pair.instance(base: Coin("DIA"), quote: Coin("USDT"));
 
-  static const $RUNE_USDT = const Pair(base: "RUNE", quote: "USDT");
+  static final $RUNE_USDT =
+      Pair.instance(base: Coin("RUNE"), quote: Coin("USDT"));
 
-  static const $FIO_USDT = const Pair(base: "FIO", quote: "USDT");
+  static final $FIO_USDT =
+      Pair.instance(base: Coin("FIO"), quote: Coin("USDT"));
 
-  static const $UMA_BTC = const Pair(base: "UMA", quote: "BTC");
+  static final $UMA_BTC = Pair.instance(base: Coin("UMA"), quote: Coin("BTC"));
 
-  static const $UMA_USDT = const Pair(base: "UMA", quote: "USDT");
+  static final $UMA_USDT =
+      Pair.instance(base: Coin("UMA"), quote: Coin("USDT"));
 
-  static const $EOSUP_USDT = const Pair(base: "EOSUP", quote: "USDT");
+  static final $EOSUP_USDT =
+      Pair.instance(base: Coin("EOSUP"), quote: Coin("USDT"));
 
-  static const $EOSDOWN_USDT = const Pair(base: "EOSDOWN", quote: "USDT");
+  static final $EOSDOWN_USDT =
+      Pair.instance(base: Coin("EOSDOWN"), quote: Coin("USDT"));
 
-  static const $TRXUP_USDT = const Pair(base: "TRXUP", quote: "USDT");
+  static final $TRXUP_USDT =
+      Pair.instance(base: Coin("TRXUP"), quote: Coin("USDT"));
 
-  static const $TRXDOWN_USDT = const Pair(base: "TRXDOWN", quote: "USDT");
+  static final $TRXDOWN_USDT =
+      Pair.instance(base: Coin("TRXDOWN"), quote: Coin("USDT"));
 
-  static const $XRPUP_USDT = const Pair(base: "XRPUP", quote: "USDT");
+  static final $XRPUP_USDT =
+      Pair.instance(base: Coin("XRPUP"), quote: Coin("USDT"));
 
-  static const $XRPDOWN_USDT = const Pair(base: "XRPDOWN", quote: "USDT");
+  static final $XRPDOWN_USDT =
+      Pair.instance(base: Coin("XRPDOWN"), quote: Coin("USDT"));
 
-  static const $DOTUP_USDT = const Pair(base: "DOTUP", quote: "USDT");
+  static final $DOTUP_USDT =
+      Pair.instance(base: Coin("DOTUP"), quote: Coin("USDT"));
 
-  static const $DOTDOWN_USDT = const Pair(base: "DOTDOWN", quote: "USDT");
+  static final $DOTDOWN_USDT =
+      Pair.instance(base: Coin("DOTDOWN"), quote: Coin("USDT"));
 
-  static const $SRM_BIDR = const Pair(base: "SRM", quote: "BIDR");
+  static final $SRM_BIDR =
+      Pair.instance(base: Coin("SRM"), quote: Coin("BIDR"));
 
-  static const $ONE_BIDR = const Pair(base: "ONE", quote: "BIDR");
+  static final $ONE_BIDR =
+      Pair.instance(base: Coin("ONE"), quote: Coin("BIDR"));
 
-  static const $LINK_TRY = const Pair(base: "LINK", quote: "TRY");
+  static final $LINK_TRY =
+      Pair.instance(base: Coin("LINK"), quote: Coin("TRY"));
 
-  static const $USDT_NGN = const Pair(base: "USDT", quote: "NGN");
+  static final $USDT_NGN =
+      Pair.instance(base: Coin("USDT"), quote: Coin("NGN"));
 
-  static const $BEL_BNB = const Pair(base: "BEL", quote: "BNB");
+  static final $BEL_BNB = Pair.instance(base: Coin("BEL"), quote: Coin("BNB"));
 
-  static const $BEL_BTC = const Pair(base: "BEL", quote: "BTC");
+  static final $BEL_BTC = Pair.instance(base: Coin("BEL"), quote: Coin("BTC"));
 
-  static const $BEL_BUSD = const Pair(base: "BEL", quote: "BUSD");
+  static final $BEL_BUSD =
+      Pair.instance(base: Coin("BEL"), quote: Coin("BUSD"));
 
-  static const $BEL_USDT = const Pair(base: "BEL", quote: "USDT");
+  static final $BEL_USDT =
+      Pair.instance(base: Coin("BEL"), quote: Coin("USDT"));
 
-  static const $WING_BNB = const Pair(base: "WING", quote: "BNB");
+  static final $WING_BNB =
+      Pair.instance(base: Coin("WING"), quote: Coin("BNB"));
 
-  static const $WING_BTC = const Pair(base: "WING", quote: "BTC");
+  static final $WING_BTC =
+      Pair.instance(base: Coin("WING"), quote: Coin("BTC"));
 
-  static const $SWRV_BNB = const Pair(base: "SWRV", quote: "BNB");
+  static final $SWRV_BNB =
+      Pair.instance(base: Coin("SWRV"), quote: Coin("BNB"));
 
-  static const $SWRV_BUSD = const Pair(base: "SWRV", quote: "BUSD");
+  static final $SWRV_BUSD =
+      Pair.instance(base: Coin("SWRV"), quote: Coin("BUSD"));
 
-  static const $WING_BUSD = const Pair(base: "WING", quote: "BUSD");
+  static final $WING_BUSD =
+      Pair.instance(base: Coin("WING"), quote: Coin("BUSD"));
 
-  static const $WING_USDT = const Pair(base: "WING", quote: "USDT");
+  static final $WING_USDT =
+      Pair.instance(base: Coin("WING"), quote: Coin("USDT"));
 
-  static const $LTCUP_USDT = const Pair(base: "LTCUP", quote: "USDT");
+  static final $LTCUP_USDT =
+      Pair.instance(base: Coin("LTCUP"), quote: Coin("USDT"));
 
-  static const $LTCDOWN_USDT = const Pair(base: "LTCDOWN", quote: "USDT");
+  static final $LTCDOWN_USDT =
+      Pair.instance(base: Coin("LTCDOWN"), quote: Coin("USDT"));
 
-  static const $LEND_BKRW = const Pair(base: "LEND", quote: "BKRW");
+  static final $LEND_BKRW =
+      Pair.instance(base: Coin("LEND"), quote: Coin("BKRW"));
 
-  static const $SXP_EUR = const Pair(base: "SXP", quote: "EUR");
+  static final $SXP_EUR = Pair.instance(base: Coin("SXP"), quote: Coin("EUR"));
 
-  static const $CREAM_BNB = const Pair(base: "CREAM", quote: "BNB");
+  static final $CREAM_BNB =
+      Pair.instance(base: Coin("CREAM"), quote: Coin("BNB"));
 
-  static const $CREAM_BUSD = const Pair(base: "CREAM", quote: "BUSD");
+  static final $CREAM_BUSD =
+      Pair.instance(base: Coin("CREAM"), quote: Coin("BUSD"));
 
-  static const $UNI_BNB = const Pair(base: "UNI", quote: "BNB");
+  static final $UNI_BNB = Pair.instance(base: Coin("UNI"), quote: Coin("BNB"));
 
-  static const $UNI_BTC = const Pair(base: "UNI", quote: "BTC");
+  static final $UNI_BTC = Pair.instance(base: Coin("UNI"), quote: Coin("BTC"));
 
-  static const $UNI_BUSD = const Pair(base: "UNI", quote: "BUSD");
+  static final $UNI_BUSD =
+      Pair.instance(base: Coin("UNI"), quote: Coin("BUSD"));
 
-  static const $UNI_USDT = const Pair(base: "UNI", quote: "USDT");
+  static final $UNI_USDT =
+      Pair.instance(base: Coin("UNI"), quote: Coin("USDT"));
 
-  static const $NBS_BTC = const Pair(base: "NBS", quote: "BTC");
+  static final $NBS_BTC = Pair.instance(base: Coin("NBS"), quote: Coin("BTC"));
 
-  static const $NBS_USDT = const Pair(base: "NBS", quote: "USDT");
+  static final $NBS_USDT =
+      Pair.instance(base: Coin("NBS"), quote: Coin("USDT"));
 
-  static const $OXT_BTC = const Pair(base: "OXT", quote: "BTC");
+  static final $OXT_BTC = Pair.instance(base: Coin("OXT"), quote: Coin("BTC"));
 
-  static const $OXT_USDT = const Pair(base: "OXT", quote: "USDT");
+  static final $OXT_USDT =
+      Pair.instance(base: Coin("OXT"), quote: Coin("USDT"));
 
-  static const $SUN_BTC = const Pair(base: "SUN", quote: "BTC");
+  static final $SUN_BTC = Pair.instance(base: Coin("SUN"), quote: Coin("BTC"));
 
-  static const $SUN_USDT = const Pair(base: "SUN", quote: "USDT");
+  static final $SUN_USDT =
+      Pair.instance(base: Coin("SUN"), quote: Coin("USDT"));
 
-  static const $AVAX_BNB = const Pair(base: "AVAX", quote: "BNB");
+  static final $AVAX_BNB =
+      Pair.instance(base: Coin("AVAX"), quote: Coin("BNB"));
 
-  static const $AVAX_BTC = const Pair(base: "AVAX", quote: "BTC");
+  static final $AVAX_BTC =
+      Pair.instance(base: Coin("AVAX"), quote: Coin("BTC"));
 
-  static const $AVAX_BUSD = const Pair(base: "AVAX", quote: "BUSD");
+  static final $AVAX_BUSD =
+      Pair.instance(base: Coin("AVAX"), quote: Coin("BUSD"));
 
-  static const $AVAX_USDT = const Pair(base: "AVAX", quote: "USDT");
+  static final $AVAX_USDT =
+      Pair.instance(base: Coin("AVAX"), quote: Coin("USDT"));
 
-  static const $HNT_BTC = const Pair(base: "HNT", quote: "BTC");
+  static final $HNT_BTC = Pair.instance(base: Coin("HNT"), quote: Coin("BTC"));
 
-  static const $HNT_USDT = const Pair(base: "HNT", quote: "USDT");
+  static final $HNT_USDT =
+      Pair.instance(base: Coin("HNT"), quote: Coin("USDT"));
 
-  static const $BAKE_BNB = const Pair(base: "BAKE", quote: "BNB");
+  static final $BAKE_BNB =
+      Pair.instance(base: Coin("BAKE"), quote: Coin("BNB"));
 
-  static const $BURGER_BNB = const Pair(base: "BURGER", quote: "BNB");
+  static final $BURGER_BNB =
+      Pair.instance(base: Coin("BURGER"), quote: Coin("BNB"));
 
-  static const $SXP_BIDR = const Pair(base: "SXP", quote: "BIDR");
+  static final $SXP_BIDR =
+      Pair.instance(base: Coin("SXP"), quote: Coin("BIDR"));
 
-  static const $LINK_BKRW = const Pair(base: "LINK", quote: "BKRW");
+  static final $LINK_BKRW =
+      Pair.instance(base: Coin("LINK"), quote: Coin("BKRW"));
 
-  static const $FLM_BNB = const Pair(base: "FLM", quote: "BNB");
+  static final $FLM_BNB = Pair.instance(base: Coin("FLM"), quote: Coin("BNB"));
 
-  static const $FLM_BTC = const Pair(base: "FLM", quote: "BTC");
+  static final $FLM_BTC = Pair.instance(base: Coin("FLM"), quote: Coin("BTC"));
 
-  static const $FLM_BUSD = const Pair(base: "FLM", quote: "BUSD");
+  static final $FLM_BUSD =
+      Pair.instance(base: Coin("FLM"), quote: Coin("BUSD"));
 
-  static const $FLM_USDT = const Pair(base: "FLM", quote: "USDT");
+  static final $FLM_USDT =
+      Pair.instance(base: Coin("FLM"), quote: Coin("USDT"));
 
-  static const $SCRT_BTC = const Pair(base: "SCRT", quote: "BTC");
+  static final $SCRT_BTC =
+      Pair.instance(base: Coin("SCRT"), quote: Coin("BTC"));
 
-  static const $SCRT_ETH = const Pair(base: "SCRT", quote: "ETH");
+  static final $SCRT_ETH =
+      Pair.instance(base: Coin("SCRT"), quote: Coin("ETH"));
 
-  static const $CAKE_BNB = const Pair(base: "CAKE", quote: "BNB");
+  static final $CAKE_BNB =
+      Pair.instance(base: Coin("CAKE"), quote: Coin("BNB"));
 
-  static const $CAKE_BUSD = const Pair(base: "CAKE", quote: "BUSD");
+  static final $CAKE_BUSD =
+      Pair.instance(base: Coin("CAKE"), quote: Coin("BUSD"));
 
-  static const $SPARTA_BNB = const Pair(base: "SPARTA", quote: "BNB");
+  static final $SPARTA_BNB =
+      Pair.instance(base: Coin("SPARTA"), quote: Coin("BNB"));
 
-  static const $UNIUP_USDT = const Pair(base: "UNIUP", quote: "USDT");
+  static final $UNIUP_USDT =
+      Pair.instance(base: Coin("UNIUP"), quote: Coin("USDT"));
 
-  static const $UNIDOWN_USDT = const Pair(base: "UNIDOWN", quote: "USDT");
+  static final $UNIDOWN_USDT =
+      Pair.instance(base: Coin("UNIDOWN"), quote: Coin("USDT"));
 
-  static const $ORN_BTC = const Pair(base: "ORN", quote: "BTC");
+  static final $ORN_BTC = Pair.instance(base: Coin("ORN"), quote: Coin("BTC"));
 
-  static const $ORN_USDT = const Pair(base: "ORN", quote: "USDT");
+  static final $ORN_USDT =
+      Pair.instance(base: Coin("ORN"), quote: Coin("USDT"));
 
-  static const $TRX_NGN = const Pair(base: "TRX", quote: "NGN");
+  static final $TRX_NGN = Pair.instance(base: Coin("TRX"), quote: Coin("NGN"));
 
-  static const $SXP_TRY = const Pair(base: "SXP", quote: "TRY");
+  static final $SXP_TRY = Pair.instance(base: Coin("SXP"), quote: Coin("TRY"));
 
-  static const $UTK_BTC = const Pair(base: "UTK", quote: "BTC");
+  static final $UTK_BTC = Pair.instance(base: Coin("UTK"), quote: Coin("BTC"));
 
-  static const $UTK_USDT = const Pair(base: "UTK", quote: "USDT");
+  static final $UTK_USDT =
+      Pair.instance(base: Coin("UTK"), quote: Coin("USDT"));
 
-  static const $XVS_BNB = const Pair(base: "XVS", quote: "BNB");
+  static final $XVS_BNB = Pair.instance(base: Coin("XVS"), quote: Coin("BNB"));
 
-  static const $XVS_BTC = const Pair(base: "XVS", quote: "BTC");
+  static final $XVS_BTC = Pair.instance(base: Coin("XVS"), quote: Coin("BTC"));
 
-  static const $XVS_BUSD = const Pair(base: "XVS", quote: "BUSD");
+  static final $XVS_BUSD =
+      Pair.instance(base: Coin("XVS"), quote: Coin("BUSD"));
 
-  static const $XVS_USDT = const Pair(base: "XVS", quote: "USDT");
+  static final $XVS_USDT =
+      Pair.instance(base: Coin("XVS"), quote: Coin("USDT"));
 
-  static const $ALPHA_BNB = const Pair(base: "ALPHA", quote: "BNB");
+  static final $ALPHA_BNB =
+      Pair.instance(base: Coin("ALPHA"), quote: Coin("BNB"));
 
-  static const $ALPHA_BTC = const Pair(base: "ALPHA", quote: "BTC");
+  static final $ALPHA_BTC =
+      Pair.instance(base: Coin("ALPHA"), quote: Coin("BTC"));
 
-  static const $ALPHA_BUSD = const Pair(base: "ALPHA", quote: "BUSD");
+  static final $ALPHA_BUSD =
+      Pair.instance(base: Coin("ALPHA"), quote: Coin("BUSD"));
 
-  static const $ALPHA_USDT = const Pair(base: "ALPHA", quote: "USDT");
+  static final $ALPHA_USDT =
+      Pair.instance(base: Coin("ALPHA"), quote: Coin("USDT"));
 
-  static const $VIDT_BTC = const Pair(base: "VIDT", quote: "BTC");
+  static final $VIDT_BTC =
+      Pair.instance(base: Coin("VIDT"), quote: Coin("BTC"));
 
-  static const $VIDT_BUSD = const Pair(base: "VIDT", quote: "BUSD");
+  static final $VIDT_BUSD =
+      Pair.instance(base: Coin("VIDT"), quote: Coin("BUSD"));
 
-  static const $AAVE_BNB = const Pair(base: "AAVE", quote: "BNB");
+  static final $AAVE_BNB =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("BNB"));
 
-  static const $BTC_BRL = const Pair(base: "BTC", quote: "BRL");
+  static final $BTC_BRL = Pair.instance(base: Coin("BTC"), quote: Coin("BRL"));
 
-  static const $USDT_BRL = const Pair(base: "USDT", quote: "BRL");
+  static final $USDT_BRL =
+      Pair.instance(base: Coin("USDT"), quote: Coin("BRL"));
 
-  static const $AAVE_BTC = const Pair(base: "AAVE", quote: "BTC");
+  static final $AAVE_BTC =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("BTC"));
 
-  static const $AAVE_ETH = const Pair(base: "AAVE", quote: "ETH");
+  static final $AAVE_ETH =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("ETH"));
 
-  static const $AAVE_BUSD = const Pair(base: "AAVE", quote: "BUSD");
+  static final $AAVE_BUSD =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("BUSD"));
 
-  static const $AAVE_USDT = const Pair(base: "AAVE", quote: "USDT");
+  static final $AAVE_USDT =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("USDT"));
 
-  static const $AAVE_BKRW = const Pair(base: "AAVE", quote: "BKRW");
+  static final $AAVE_BKRW =
+      Pair.instance(base: Coin("AAVE"), quote: Coin("BKRW"));
 
-  static const $NEAR_BNB = const Pair(base: "NEAR", quote: "BNB");
+  static final $NEAR_BNB =
+      Pair.instance(base: Coin("NEAR"), quote: Coin("BNB"));
 
-  static const $NEAR_BTC = const Pair(base: "NEAR", quote: "BTC");
+  static final $NEAR_BTC =
+      Pair.instance(base: Coin("NEAR"), quote: Coin("BTC"));
 
-  static const $NEAR_BUSD = const Pair(base: "NEAR", quote: "BUSD");
+  static final $NEAR_BUSD =
+      Pair.instance(base: Coin("NEAR"), quote: Coin("BUSD"));
 
-  static const $NEAR_USDT = const Pair(base: "NEAR", quote: "USDT");
+  static final $NEAR_USDT =
+      Pair.instance(base: Coin("NEAR"), quote: Coin("USDT"));
 
-  static const $SXPUP_USDT = const Pair(base: "SXPUP", quote: "USDT");
+  static final $SXPUP_USDT =
+      Pair.instance(base: Coin("SXPUP"), quote: Coin("USDT"));
 
-  static const $SXPDOWN_USDT = const Pair(base: "SXPDOWN", quote: "USDT");
+  static final $SXPDOWN_USDT =
+      Pair.instance(base: Coin("SXPDOWN"), quote: Coin("USDT"));
 
-  static const $DOT_BKRW = const Pair(base: "DOT", quote: "BKRW");
+  static final $DOT_BKRW =
+      Pair.instance(base: Coin("DOT"), quote: Coin("BKRW"));
 
-  static const $SXP_GBP = const Pair(base: "SXP", quote: "GBP");
+  static final $SXP_GBP = Pair.instance(base: Coin("SXP"), quote: Coin("GBP"));
 
-  static const $FIL_BNB = const Pair(base: "FIL", quote: "BNB");
+  static final $FIL_BNB = Pair.instance(base: Coin("FIL"), quote: Coin("BNB"));
 
-  static const $FIL_BTC = const Pair(base: "FIL", quote: "BTC");
+  static final $FIL_BTC = Pair.instance(base: Coin("FIL"), quote: Coin("BTC"));
 
-  static const $FIL_BUSD = const Pair(base: "FIL", quote: "BUSD");
+  static final $FIL_BUSD =
+      Pair.instance(base: Coin("FIL"), quote: Coin("BUSD"));
 
-  static const $FIL_USDT = const Pair(base: "FIL", quote: "USDT");
+  static final $FIL_USDT =
+      Pair.instance(base: Coin("FIL"), quote: Coin("USDT"));
 
-  static const $FILUP_USDT = const Pair(base: "FILUP", quote: "USDT");
+  static final $FILUP_USDT =
+      Pair.instance(base: Coin("FILUP"), quote: Coin("USDT"));
 
-  static const $FILDOWN_USDT = const Pair(base: "FILDOWN", quote: "USDT");
+  static final $FILDOWN_USDT =
+      Pair.instance(base: Coin("FILDOWN"), quote: Coin("USDT"));
 
-  static const $YFIUP_USDT = const Pair(base: "YFIUP", quote: "USDT");
+  static final $YFIUP_USDT =
+      Pair.instance(base: Coin("YFIUP"), quote: Coin("USDT"));
 
-  static const $YFIDOWN_USDT = const Pair(base: "YFIDOWN", quote: "USDT");
+  static final $YFIDOWN_USDT =
+      Pair.instance(base: Coin("YFIDOWN"), quote: Coin("USDT"));
 
-  static const $INJ_BNB = const Pair(base: "INJ", quote: "BNB");
+  static final $INJ_BNB = Pair.instance(base: Coin("INJ"), quote: Coin("BNB"));
 
-  static const $INJ_BTC = const Pair(base: "INJ", quote: "BTC");
+  static final $INJ_BTC = Pair.instance(base: Coin("INJ"), quote: Coin("BTC"));
 
-  static const $INJ_BUSD = const Pair(base: "INJ", quote: "BUSD");
+  static final $INJ_BUSD =
+      Pair.instance(base: Coin("INJ"), quote: Coin("BUSD"));
 
-  static const $INJ_USDT = const Pair(base: "INJ", quote: "USDT");
+  static final $INJ_USDT =
+      Pair.instance(base: Coin("INJ"), quote: Coin("USDT"));
 
-  static const $AERGO_BTC = const Pair(base: "AERGO", quote: "BTC");
+  static final $AERGO_BTC =
+      Pair.instance(base: Coin("AERGO"), quote: Coin("BTC"));
 
-  static const $AERGO_BUSD = const Pair(base: "AERGO", quote: "BUSD");
+  static final $AERGO_BUSD =
+      Pair.instance(base: Coin("AERGO"), quote: Coin("BUSD"));
 
-  static const $LINK_EUR = const Pair(base: "LINK", quote: "EUR");
+  static final $LINK_EUR =
+      Pair.instance(base: Coin("LINK"), quote: Coin("EUR"));
 
-  static const $ONE_BUSD = const Pair(base: "ONE", quote: "BUSD");
+  static final $ONE_BUSD =
+      Pair.instance(base: Coin("ONE"), quote: Coin("BUSD"));
 
-  static const $EASY_ETH = const Pair(base: "EASY", quote: "ETH");
+  static final $EASY_ETH =
+      Pair.instance(base: Coin("EASY"), quote: Coin("ETH"));
 
-  static const $AUDIO_BTC = const Pair(base: "AUDIO", quote: "BTC");
+  static final $AUDIO_BTC =
+      Pair.instance(base: Coin("AUDIO"), quote: Coin("BTC"));
 
-  static const $AUDIO_BUSD = const Pair(base: "AUDIO", quote: "BUSD");
+  static final $AUDIO_BUSD =
+      Pair.instance(base: Coin("AUDIO"), quote: Coin("BUSD"));
 
-  static const $AUDIO_USDT = const Pair(base: "AUDIO", quote: "USDT");
+  static final $AUDIO_USDT =
+      Pair.instance(base: Coin("AUDIO"), quote: Coin("USDT"));
 
-  static const $CTK_BNB = const Pair(base: "CTK", quote: "BNB");
+  static final $CTK_BNB = Pair.instance(base: Coin("CTK"), quote: Coin("BNB"));
 
-  static const $CTK_BTC = const Pair(base: "CTK", quote: "BTC");
+  static final $CTK_BTC = Pair.instance(base: Coin("CTK"), quote: Coin("BTC"));
 
-  static const $CTK_BUSD = const Pair(base: "CTK", quote: "BUSD");
+  static final $CTK_BUSD =
+      Pair.instance(base: Coin("CTK"), quote: Coin("BUSD"));
 
-  static const $CTK_USDT = const Pair(base: "CTK", quote: "USDT");
+  static final $CTK_USDT =
+      Pair.instance(base: Coin("CTK"), quote: Coin("USDT"));
 
-  static const $BCHUP_USDT = const Pair(base: "BCHUP", quote: "USDT");
+  static final $BCHUP_USDT =
+      Pair.instance(base: Coin("BCHUP"), quote: Coin("USDT"));
 
-  static const $BCHDOWN_USDT = const Pair(base: "BCHDOWN", quote: "USDT");
+  static final $BCHDOWN_USDT =
+      Pair.instance(base: Coin("BCHDOWN"), quote: Coin("USDT"));
 
-  static const $BOT_BTC = const Pair(base: "BOT", quote: "BTC");
+  static final $BOT_BTC = Pair.instance(base: Coin("BOT"), quote: Coin("BTC"));
 
-  static const $BOT_BUSD = const Pair(base: "BOT", quote: "BUSD");
+  static final $BOT_BUSD =
+      Pair.instance(base: Coin("BOT"), quote: Coin("BUSD"));
 
-  static const $ETH_BRL = const Pair(base: "ETH", quote: "BRL");
+  static final $ETH_BRL = Pair.instance(base: Coin("ETH"), quote: Coin("BRL"));
 
-  static const $DOT_EUR = const Pair(base: "DOT", quote: "EUR");
+  static final $DOT_EUR = Pair.instance(base: Coin("DOT"), quote: Coin("EUR"));
 
-  static const $AKRO_BTC = const Pair(base: "AKRO", quote: "BTC");
+  static final $AKRO_BTC =
+      Pair.instance(base: Coin("AKRO"), quote: Coin("BTC"));
 
-  static const $AKRO_USDT = const Pair(base: "AKRO", quote: "USDT");
+  static final $AKRO_USDT =
+      Pair.instance(base: Coin("AKRO"), quote: Coin("USDT"));
 
-  static const $KP3R_BNB = const Pair(base: "KP3R", quote: "BNB");
+  static final $KP3R_BNB =
+      Pair.instance(base: Coin("KP3R"), quote: Coin("BNB"));
 
-  static const $KP3R_BUSD = const Pair(base: "KP3R", quote: "BUSD");
+  static final $KP3R_BUSD =
+      Pair.instance(base: Coin("KP3R"), quote: Coin("BUSD"));
 
-  static const $AXS_BNB = const Pair(base: "AXS", quote: "BNB");
+  static final $AXS_BNB = Pair.instance(base: Coin("AXS"), quote: Coin("BNB"));
 
-  static const $AXS_BTC = const Pair(base: "AXS", quote: "BTC");
+  static final $AXS_BTC = Pair.instance(base: Coin("AXS"), quote: Coin("BTC"));
 
-  static const $AXS_BUSD = const Pair(base: "AXS", quote: "BUSD");
+  static final $AXS_BUSD =
+      Pair.instance(base: Coin("AXS"), quote: Coin("BUSD"));
 
-  static const $AXS_USDT = const Pair(base: "AXS", quote: "USDT");
+  static final $AXS_USDT =
+      Pair.instance(base: Coin("AXS"), quote: Coin("USDT"));
 
-  static const $HARD_BNB = const Pair(base: "HARD", quote: "BNB");
+  static final $HARD_BNB =
+      Pair.instance(base: Coin("HARD"), quote: Coin("BNB"));
 
-  static const $HARD_BTC = const Pair(base: "HARD", quote: "BTC");
+  static final $HARD_BTC =
+      Pair.instance(base: Coin("HARD"), quote: Coin("BTC"));
 
-  static const $HARD_BUSD = const Pair(base: "HARD", quote: "BUSD");
+  static final $HARD_BUSD =
+      Pair.instance(base: Coin("HARD"), quote: Coin("BUSD"));
 
-  static const $HARD_USDT = const Pair(base: "HARD", quote: "USDT");
+  static final $HARD_USDT =
+      Pair.instance(base: Coin("HARD"), quote: Coin("USDT"));
 
-  static const $BNB_BRL = const Pair(base: "BNB", quote: "BRL");
+  static final $BNB_BRL = Pair.instance(base: Coin("BNB"), quote: Coin("BRL"));
 
-  static const $LTC_EUR = const Pair(base: "LTC", quote: "EUR");
+  static final $LTC_EUR = Pair.instance(base: Coin("LTC"), quote: Coin("EUR"));
 
-  static const $RENBTC_BTC = const Pair(base: "RENBTC", quote: "BTC");
+  static final $RENBTC_BTC =
+      Pair.instance(base: Coin("RENBTC"), quote: Coin("BTC"));
 
-  static const $RENBTC_ETH = const Pair(base: "RENBTC", quote: "ETH");
+  static final $RENBTC_ETH =
+      Pair.instance(base: Coin("RENBTC"), quote: Coin("ETH"));
 
-  static const $DNT_BUSD = const Pair(base: "DNT", quote: "BUSD");
+  static final $DNT_BUSD =
+      Pair.instance(base: Coin("DNT"), quote: Coin("BUSD"));
 
-  static const $DNT_USDT = const Pair(base: "DNT", quote: "USDT");
+  static final $DNT_USDT =
+      Pair.instance(base: Coin("DNT"), quote: Coin("USDT"));
 
-  static const $SLP_ETH = const Pair(base: "SLP", quote: "ETH");
+  static final $SLP_ETH = Pair.instance(base: Coin("SLP"), quote: Coin("ETH"));
 
-  static const $ADA_EUR = const Pair(base: "ADA", quote: "EUR");
+  static final $ADA_EUR = Pair.instance(base: Coin("ADA"), quote: Coin("EUR"));
 
-  static const $LTC_NGN = const Pair(base: "LTC", quote: "NGN");
+  static final $LTC_NGN = Pair.instance(base: Coin("LTC"), quote: Coin("NGN"));
 
-  static const $CVP_ETH = const Pair(base: "CVP", quote: "ETH");
+  static final $CVP_ETH = Pair.instance(base: Coin("CVP"), quote: Coin("ETH"));
 
-  static const $CVP_BUSD = const Pair(base: "CVP", quote: "BUSD");
+  static final $CVP_BUSD =
+      Pair.instance(base: Coin("CVP"), quote: Coin("BUSD"));
 
-  static const $STRAX_BTC = const Pair(base: "STRAX", quote: "BTC");
+  static final $STRAX_BTC =
+      Pair.instance(base: Coin("STRAX"), quote: Coin("BTC"));
 
-  static const $STRAX_ETH = const Pair(base: "STRAX", quote: "ETH");
+  static final $STRAX_ETH =
+      Pair.instance(base: Coin("STRAX"), quote: Coin("ETH"));
 
-  static const $STRAX_BUSD = const Pair(base: "STRAX", quote: "BUSD");
+  static final $STRAX_BUSD =
+      Pair.instance(base: Coin("STRAX"), quote: Coin("BUSD"));
 
-  static const $STRAX_USDT = const Pair(base: "STRAX", quote: "USDT");
+  static final $STRAX_USDT =
+      Pair.instance(base: Coin("STRAX"), quote: Coin("USDT"));
 
-  static const $FOR_BTC = const Pair(base: "FOR", quote: "BTC");
+  static final $FOR_BTC = Pair.instance(base: Coin("FOR"), quote: Coin("BTC"));
 
-  static const $FOR_BUSD = const Pair(base: "FOR", quote: "BUSD");
+  static final $FOR_BUSD =
+      Pair.instance(base: Coin("FOR"), quote: Coin("BUSD"));
 
-  static const $UNFI_BNB = const Pair(base: "UNFI", quote: "BNB");
+  static final $UNFI_BNB =
+      Pair.instance(base: Coin("UNFI"), quote: Coin("BNB"));
 
-  static const $UNFI_BTC = const Pair(base: "UNFI", quote: "BTC");
+  static final $UNFI_BTC =
+      Pair.instance(base: Coin("UNFI"), quote: Coin("BTC"));
 
-  static const $UNFI_BUSD = const Pair(base: "UNFI", quote: "BUSD");
+  static final $UNFI_BUSD =
+      Pair.instance(base: Coin("UNFI"), quote: Coin("BUSD"));
 
-  static const $UNFI_USDT = const Pair(base: "UNFI", quote: "USDT");
+  static final $UNFI_USDT =
+      Pair.instance(base: Coin("UNFI"), quote: Coin("USDT"));
 
-  static const $FRONT_ETH = const Pair(base: "FRONT", quote: "ETH");
+  static final $FRONT_ETH =
+      Pair.instance(base: Coin("FRONT"), quote: Coin("ETH"));
 
-  static const $FRONT_BUSD = const Pair(base: "FRONT", quote: "BUSD");
+  static final $FRONT_BUSD =
+      Pair.instance(base: Coin("FRONT"), quote: Coin("BUSD"));
 
-  static const $BCHA_BUSD = const Pair(base: "BCHA", quote: "BUSD");
+  static final $BCHA_BUSD =
+      Pair.instance(base: Coin("BCHA"), quote: Coin("BUSD"));
 
-  static const $ROSE_BTC = const Pair(base: "ROSE", quote: "BTC");
+  static final $ROSE_BTC =
+      Pair.instance(base: Coin("ROSE"), quote: Coin("BTC"));
 
-  static const $ROSE_BUSD = const Pair(base: "ROSE", quote: "BUSD");
+  static final $ROSE_BUSD =
+      Pair.instance(base: Coin("ROSE"), quote: Coin("BUSD"));
 
-  static const $ROSE_USDT = const Pair(base: "ROSE", quote: "USDT");
+  static final $ROSE_USDT =
+      Pair.instance(base: Coin("ROSE"), quote: Coin("USDT"));
 
-  static const $AVAX_TRY = const Pair(base: "AVAX", quote: "TRY");
+  static final $AVAX_TRY =
+      Pair.instance(base: Coin("AVAX"), quote: Coin("TRY"));
 
-  static const $BUSD_BRL = const Pair(base: "BUSD", quote: "BRL");
+  static final $BUSD_BRL =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("BRL"));
 
-  static const $AVA_USDT = const Pair(base: "AVA", quote: "USDT");
+  static final $AVA_USDT =
+      Pair.instance(base: Coin("AVA"), quote: Coin("USDT"));
 
-  static const $SYS_BUSD = const Pair(base: "SYS", quote: "BUSD");
+  static final $SYS_BUSD =
+      Pair.instance(base: Coin("SYS"), quote: Coin("BUSD"));
 
-  static const $XEM_USDT = const Pair(base: "XEM", quote: "USDT");
+  static final $XEM_USDT =
+      Pair.instance(base: Coin("XEM"), quote: Coin("USDT"));
 
-  static const $HEGIC_ETH = const Pair(base: "HEGIC", quote: "ETH");
+  static final $HEGIC_ETH =
+      Pair.instance(base: Coin("HEGIC"), quote: Coin("ETH"));
 
-  static const $HEGIC_BUSD = const Pair(base: "HEGIC", quote: "BUSD");
+  static final $HEGIC_BUSD =
+      Pair.instance(base: Coin("HEGIC"), quote: Coin("BUSD"));
 
-  static const $AAVEUP_USDT = const Pair(base: "AAVEUP", quote: "USDT");
+  static final $AAVEUP_USDT =
+      Pair.instance(base: Coin("AAVEUP"), quote: Coin("USDT"));
 
-  static const $AAVEDOWN_USDT = const Pair(base: "AAVEDOWN", quote: "USDT");
+  static final $AAVEDOWN_USDT =
+      Pair.instance(base: Coin("AAVEDOWN"), quote: Coin("USDT"));
 
-  static const $PROM_BNB = const Pair(base: "PROM", quote: "BNB");
+  static final $PROM_BNB =
+      Pair.instance(base: Coin("PROM"), quote: Coin("BNB"));
 
-  static const $PROM_BUSD = const Pair(base: "PROM", quote: "BUSD");
+  static final $PROM_BUSD =
+      Pair.instance(base: Coin("PROM"), quote: Coin("BUSD"));
 
-  static const $XRP_BRL = const Pair(base: "XRP", quote: "BRL");
+  static final $XRP_BRL = Pair.instance(base: Coin("XRP"), quote: Coin("BRL"));
 
-  static const $XRP_NGN = const Pair(base: "XRP", quote: "NGN");
+  static final $XRP_NGN = Pair.instance(base: Coin("XRP"), quote: Coin("NGN"));
 
-  static const $SKL_BTC = const Pair(base: "SKL", quote: "BTC");
+  static final $SKL_BTC = Pair.instance(base: Coin("SKL"), quote: Coin("BTC"));
 
-  static const $SKL_BUSD = const Pair(base: "SKL", quote: "BUSD");
+  static final $SKL_BUSD =
+      Pair.instance(base: Coin("SKL"), quote: Coin("BUSD"));
 
-  static const $SKL_USDT = const Pair(base: "SKL", quote: "USDT");
+  static final $SKL_USDT =
+      Pair.instance(base: Coin("SKL"), quote: Coin("USDT"));
 
-  static const $BCH_EUR = const Pair(base: "BCH", quote: "EUR");
+  static final $BCH_EUR = Pair.instance(base: Coin("BCH"), quote: Coin("EUR"));
 
-  static const $YFI_EUR = const Pair(base: "YFI", quote: "EUR");
+  static final $YFI_EUR = Pair.instance(base: Coin("YFI"), quote: Coin("EUR"));
 
-  static const $ZIL_BIDR = const Pair(base: "ZIL", quote: "BIDR");
+  static final $ZIL_BIDR =
+      Pair.instance(base: Coin("ZIL"), quote: Coin("BIDR"));
 
-  static const $SUSD_BTC = const Pair(base: "SUSD", quote: "BTC");
+  static final $SUSD_BTC =
+      Pair.instance(base: Coin("SUSD"), quote: Coin("BTC"));
 
-  static const $SUSD_ETH = const Pair(base: "SUSD", quote: "ETH");
+  static final $SUSD_ETH =
+      Pair.instance(base: Coin("SUSD"), quote: Coin("ETH"));
 
-  static const $SUSD_USDT = const Pair(base: "SUSD", quote: "USDT");
+  static final $SUSD_USDT =
+      Pair.instance(base: Coin("SUSD"), quote: Coin("USDT"));
 
-  static const $COVER_ETH = const Pair(base: "COVER", quote: "ETH");
+  static final $COVER_ETH =
+      Pair.instance(base: Coin("COVER"), quote: Coin("ETH"));
 
-  static const $COVER_BUSD = const Pair(base: "COVER", quote: "BUSD");
+  static final $COVER_BUSD =
+      Pair.instance(base: Coin("COVER"), quote: Coin("BUSD"));
 
-  static const $GLM_BTC = const Pair(base: "GLM", quote: "BTC");
+  static final $GLM_BTC = Pair.instance(base: Coin("GLM"), quote: Coin("BTC"));
 
-  static const $GLM_ETH = const Pair(base: "GLM", quote: "ETH");
+  static final $GLM_ETH = Pair.instance(base: Coin("GLM"), quote: Coin("ETH"));
 
-  static const $GHST_ETH = const Pair(base: "GHST", quote: "ETH");
+  static final $GHST_ETH =
+      Pair.instance(base: Coin("GHST"), quote: Coin("ETH"));
 
-  static const $GHST_BUSD = const Pair(base: "GHST", quote: "BUSD");
+  static final $GHST_BUSD =
+      Pair.instance(base: Coin("GHST"), quote: Coin("BUSD"));
 
-  static const $SUSHIUP_USDT = const Pair(base: "SUSHIUP", quote: "USDT");
+  static final $SUSHIUP_USDT =
+      Pair.instance(base: Coin("SUSHIUP"), quote: Coin("USDT"));
 
-  static const $SUSHIDOWN_USDT = const Pair(base: "SUSHIDOWN", quote: "USDT");
+  static final $SUSHIDOWN_USDT =
+      Pair.instance(base: Coin("SUSHIDOWN"), quote: Coin("USDT"));
 
-  static const $XLMUP_USDT = const Pair(base: "XLMUP", quote: "USDT");
+  static final $XLMUP_USDT =
+      Pair.instance(base: Coin("XLMUP"), quote: Coin("USDT"));
 
-  static const $XLMDOWN_USDT = const Pair(base: "XLMDOWN", quote: "USDT");
+  static final $XLMDOWN_USDT =
+      Pair.instance(base: Coin("XLMDOWN"), quote: Coin("USDT"));
 
-  static const $LINK_BRL = const Pair(base: "LINK", quote: "BRL");
+  static final $LINK_BRL =
+      Pair.instance(base: Coin("LINK"), quote: Coin("BRL"));
 
-  static const $LINK_NGN = const Pair(base: "LINK", quote: "NGN");
+  static final $LINK_NGN =
+      Pair.instance(base: Coin("LINK"), quote: Coin("NGN"));
 
-  static const $LTC_RUB = const Pair(base: "LTC", quote: "RUB");
+  static final $LTC_RUB = Pair.instance(base: Coin("LTC"), quote: Coin("RUB"));
 
-  static const $TRX_TRY = const Pair(base: "TRX", quote: "TRY");
+  static final $TRX_TRY = Pair.instance(base: Coin("TRX"), quote: Coin("TRY"));
 
-  static const $XLM_EUR = const Pair(base: "XLM", quote: "EUR");
+  static final $XLM_EUR = Pair.instance(base: Coin("XLM"), quote: Coin("EUR"));
 
-  static const $DF_ETH = const Pair(base: "DF", quote: "ETH");
+  static final $DF_ETH = Pair.instance(base: Coin("DF"), quote: Coin("ETH"));
 
-  static const $DF_BUSD = const Pair(base: "DF", quote: "BUSD");
+  static final $DF_BUSD = Pair.instance(base: Coin("DF"), quote: Coin("BUSD"));
 
-  static const $GRT_BTC = const Pair(base: "GRT", quote: "BTC");
+  static final $GRT_BTC = Pair.instance(base: Coin("GRT"), quote: Coin("BTC"));
 
-  static const $GRT_ETH = const Pair(base: "GRT", quote: "ETH");
+  static final $GRT_ETH = Pair.instance(base: Coin("GRT"), quote: Coin("ETH"));
 
-  static const $GRT_USDT = const Pair(base: "GRT", quote: "USDT");
+  static final $GRT_USDT =
+      Pair.instance(base: Coin("GRT"), quote: Coin("USDT"));
 
-  static const $JUV_BTC = const Pair(base: "JUV", quote: "BTC");
+  static final $JUV_BTC = Pair.instance(base: Coin("JUV"), quote: Coin("BTC"));
 
-  static const $JUV_BUSD = const Pair(base: "JUV", quote: "BUSD");
+  static final $JUV_BUSD =
+      Pair.instance(base: Coin("JUV"), quote: Coin("BUSD"));
 
-  static const $JUV_USDT = const Pair(base: "JUV", quote: "USDT");
+  static final $JUV_USDT =
+      Pair.instance(base: Coin("JUV"), quote: Coin("USDT"));
 
-  static const $PSG_BTC = const Pair(base: "PSG", quote: "BTC");
+  static final $PSG_BTC = Pair.instance(base: Coin("PSG"), quote: Coin("BTC"));
 
-  static const $PSG_BUSD = const Pair(base: "PSG", quote: "BUSD");
+  static final $PSG_BUSD =
+      Pair.instance(base: Coin("PSG"), quote: Coin("BUSD"));
 
-  static const $PSG_USDT = const Pair(base: "PSG", quote: "USDT");
+  static final $PSG_USDT =
+      Pair.instance(base: Coin("PSG"), quote: Coin("USDT"));
 
-  static const $BUSD_BVND = const Pair(base: "BUSD", quote: "BVND");
+  static final $BUSD_BVND =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("BVND"));
 
-  static const $USDT_BVND = const Pair(base: "USDT", quote: "BVND");
+  static final $USDT_BVND =
+      Pair.instance(base: Coin("USDT"), quote: Coin("BVND"));
 
-  static const $1INCH_BTC = const Pair(base: "1INCH", quote: "BTC");
+  static final $1INCH_BTC =
+      Pair.instance(base: Coin("1INCH"), quote: Coin("BTC"));
 
-  static const $1INCH_USDT = const Pair(base: "1INCH", quote: "USDT");
+  static final $1INCH_USDT =
+      Pair.instance(base: Coin("1INCH"), quote: Coin("USDT"));
 
-  static const $REEF_BTC = const Pair(base: "REEF", quote: "BTC");
+  static final $REEF_BTC =
+      Pair.instance(base: Coin("REEF"), quote: Coin("BTC"));
 
-  static const $REEF_USDT = const Pair(base: "REEF", quote: "USDT");
+  static final $REEF_USDT =
+      Pair.instance(base: Coin("REEF"), quote: Coin("USDT"));
 
-  static const $OG_BTC = const Pair(base: "OG", quote: "BTC");
+  static final $OG_BTC = Pair.instance(base: Coin("OG"), quote: Coin("BTC"));
 
-  static const $OG_USDT = const Pair(base: "OG", quote: "USDT");
+  static final $OG_USDT = Pair.instance(base: Coin("OG"), quote: Coin("USDT"));
 
-  static const $ATM_BTC = const Pair(base: "ATM", quote: "BTC");
+  static final $ATM_BTC = Pair.instance(base: Coin("ATM"), quote: Coin("BTC"));
 
-  static const $ATM_USDT = const Pair(base: "ATM", quote: "USDT");
+  static final $ATM_USDT =
+      Pair.instance(base: Coin("ATM"), quote: Coin("USDT"));
 
-  static const $ASR_BTC = const Pair(base: "ASR", quote: "BTC");
+  static final $ASR_BTC = Pair.instance(base: Coin("ASR"), quote: Coin("BTC"));
 
-  static const $ASR_USDT = const Pair(base: "ASR", quote: "USDT");
+  static final $ASR_USDT =
+      Pair.instance(base: Coin("ASR"), quote: Coin("USDT"));
 
-  static const $CELO_BTC = const Pair(base: "CELO", quote: "BTC");
+  static final $CELO_BTC =
+      Pair.instance(base: Coin("CELO"), quote: Coin("BTC"));
 
-  static const $CELO_USDT = const Pair(base: "CELO", quote: "USDT");
+  static final $CELO_USDT =
+      Pair.instance(base: Coin("CELO"), quote: Coin("USDT"));
 
-  static const $RIF_BTC = const Pair(base: "RIF", quote: "BTC");
+  static final $RIF_BTC = Pair.instance(base: Coin("RIF"), quote: Coin("BTC"));
 
-  static const $RIF_USDT = const Pair(base: "RIF", quote: "USDT");
+  static final $RIF_USDT =
+      Pair.instance(base: Coin("RIF"), quote: Coin("USDT"));
 
-  static const $CHZ_TRY = const Pair(base: "CHZ", quote: "TRY");
+  static final $CHZ_TRY = Pair.instance(base: Coin("CHZ"), quote: Coin("TRY"));
 
-  static const $XLM_TRY = const Pair(base: "XLM", quote: "TRY");
+  static final $XLM_TRY = Pair.instance(base: Coin("XLM"), quote: Coin("TRY"));
 
-  static const $LINK_GBP = const Pair(base: "LINK", quote: "GBP");
+  static final $LINK_GBP =
+      Pair.instance(base: Coin("LINK"), quote: Coin("GBP"));
 
-  static const $GRT_EUR = const Pair(base: "GRT", quote: "EUR");
+  static final $GRT_EUR = Pair.instance(base: Coin("GRT"), quote: Coin("EUR"));
 
-  static const $BTCST_BTC = const Pair(base: "BTCST", quote: "BTC");
+  static final $BTCST_BTC =
+      Pair.instance(base: Coin("BTCST"), quote: Coin("BTC"));
 
-  static const $BTCST_BUSD = const Pair(base: "BTCST", quote: "BUSD");
+  static final $BTCST_BUSD =
+      Pair.instance(base: Coin("BTCST"), quote: Coin("BUSD"));
 
-  static const $BTCST_USDT = const Pair(base: "BTCST", quote: "USDT");
+  static final $BTCST_USDT =
+      Pair.instance(base: Coin("BTCST"), quote: Coin("USDT"));
 
-  static const $TRU_BTC = const Pair(base: "TRU", quote: "BTC");
+  static final $TRU_BTC = Pair.instance(base: Coin("TRU"), quote: Coin("BTC"));
 
-  static const $TRU_BUSD = const Pair(base: "TRU", quote: "BUSD");
+  static final $TRU_BUSD =
+      Pair.instance(base: Coin("TRU"), quote: Coin("BUSD"));
 
-  static const $TRU_USDT = const Pair(base: "TRU", quote: "USDT");
+  static final $TRU_USDT =
+      Pair.instance(base: Coin("TRU"), quote: Coin("USDT"));
 
-  static const $DEXE_ETH = const Pair(base: "DEXE", quote: "ETH");
+  static final $DEXE_ETH =
+      Pair.instance(base: Coin("DEXE"), quote: Coin("ETH"));
 
-  static const $DEXE_BUSD = const Pair(base: "DEXE", quote: "BUSD");
+  static final $DEXE_BUSD =
+      Pair.instance(base: Coin("DEXE"), quote: Coin("BUSD"));
 
-  static const $EOS_EUR = const Pair(base: "EOS", quote: "EUR");
+  static final $EOS_EUR = Pair.instance(base: Coin("EOS"), quote: Coin("EUR"));
 
-  static const $LTC_BRL = const Pair(base: "LTC", quote: "BRL");
+  static final $LTC_BRL = Pair.instance(base: Coin("LTC"), quote: Coin("BRL"));
 
-  static const $USDC_BUSD = const Pair(base: "USDC", quote: "BUSD");
+  static final $USDC_BUSD =
+      Pair.instance(base: Coin("USDC"), quote: Coin("BUSD"));
 
-  static const $TUSD_BUSD = const Pair(base: "TUSD", quote: "BUSD");
+  static final $TUSD_BUSD =
+      Pair.instance(base: Coin("TUSD"), quote: Coin("BUSD"));
 
-  static const $PAX_BUSD = const Pair(base: "PAX", quote: "BUSD");
+  static final $PAX_BUSD =
+      Pair.instance(base: Coin("PAX"), quote: Coin("BUSD"));
 
-  static const $CKB_BTC = const Pair(base: "CKB", quote: "BTC");
+  static final $CKB_BTC = Pair.instance(base: Coin("CKB"), quote: Coin("BTC"));
 
-  static const $CKB_BUSD = const Pair(base: "CKB", quote: "BUSD");
+  static final $CKB_BUSD =
+      Pair.instance(base: Coin("CKB"), quote: Coin("BUSD"));
 
-  static const $CKB_USDT = const Pair(base: "CKB", quote: "USDT");
+  static final $CKB_USDT =
+      Pair.instance(base: Coin("CKB"), quote: Coin("USDT"));
 
-  static const $TWT_BTC = const Pair(base: "TWT", quote: "BTC");
+  static final $TWT_BTC = Pair.instance(base: Coin("TWT"), quote: Coin("BTC"));
 
-  static const $TWT_BUSD = const Pair(base: "TWT", quote: "BUSD");
+  static final $TWT_BUSD =
+      Pair.instance(base: Coin("TWT"), quote: Coin("BUSD"));
 
-  static const $TWT_USDT = const Pair(base: "TWT", quote: "USDT");
+  static final $TWT_USDT =
+      Pair.instance(base: Coin("TWT"), quote: Coin("USDT"));
 
-  static const $FIRO_BTC = const Pair(base: "FIRO", quote: "BTC");
+  static final $FIRO_BTC =
+      Pair.instance(base: Coin("FIRO"), quote: Coin("BTC"));
 
-  static const $FIRO_ETH = const Pair(base: "FIRO", quote: "ETH");
+  static final $FIRO_ETH =
+      Pair.instance(base: Coin("FIRO"), quote: Coin("ETH"));
 
-  static const $FIRO_USDT = const Pair(base: "FIRO", quote: "USDT");
+  static final $FIRO_USDT =
+      Pair.instance(base: Coin("FIRO"), quote: Coin("USDT"));
 
-  static const $BETH_ETH = const Pair(base: "BETH", quote: "ETH");
+  static final $BETH_ETH =
+      Pair.instance(base: Coin("BETH"), quote: Coin("ETH"));
 
-  static const $DOGE_EUR = const Pair(base: "DOGE", quote: "EUR");
+  static final $DOGE_EUR =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("EUR"));
 
-  static const $DOGE_TRY = const Pair(base: "DOGE", quote: "TRY");
+  static final $DOGE_TRY =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("TRY"));
 
-  static const $DOGE_AUD = const Pair(base: "DOGE", quote: "AUD");
+  static final $DOGE_AUD =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("AUD"));
 
-  static const $DOGE_BRL = const Pair(base: "DOGE", quote: "BRL");
+  static final $DOGE_BRL =
+      Pair.instance(base: Coin("DOGE"), quote: Coin("BRL"));
 
-  static const $DOT_NGN = const Pair(base: "DOT", quote: "NGN");
+  static final $DOT_NGN = Pair.instance(base: Coin("DOT"), quote: Coin("NGN"));
 
-  static const $PROS_ETH = const Pair(base: "PROS", quote: "ETH");
+  static final $PROS_ETH =
+      Pair.instance(base: Coin("PROS"), quote: Coin("ETH"));
 
-  static const $LIT_BTC = const Pair(base: "LIT", quote: "BTC");
+  static final $LIT_BTC = Pair.instance(base: Coin("LIT"), quote: Coin("BTC"));
 
-  static const $LIT_BUSD = const Pair(base: "LIT", quote: "BUSD");
+  static final $LIT_BUSD =
+      Pair.instance(base: Coin("LIT"), quote: Coin("BUSD"));
 
-  static const $LIT_USDT = const Pair(base: "LIT", quote: "USDT");
+  static final $LIT_USDT =
+      Pair.instance(base: Coin("LIT"), quote: Coin("USDT"));
 
-  static const $BTC_VAI = const Pair(base: "BTC", quote: "VAI");
+  static final $BTC_VAI = Pair.instance(base: Coin("BTC"), quote: Coin("VAI"));
 
-  static const $BUSD_VAI = const Pair(base: "BUSD", quote: "VAI");
+  static final $BUSD_VAI =
+      Pair.instance(base: Coin("BUSD"), quote: Coin("VAI"));
 
-  static const $SFP_BTC = const Pair(base: "SFP", quote: "BTC");
+  static final $SFP_BTC = Pair.instance(base: Coin("SFP"), quote: Coin("BTC"));
 
-  static const $SFP_BUSD = const Pair(base: "SFP", quote: "BUSD");
+  static final $SFP_BUSD =
+      Pair.instance(base: Coin("SFP"), quote: Coin("BUSD"));
 
-  static const $SFP_USDT = const Pair(base: "SFP", quote: "USDT");
+  static final $SFP_USDT =
+      Pair.instance(base: Coin("SFP"), quote: Coin("USDT"));
 
-  static const _pairs = {
+  static final _pairs = {
     "ETHBTC": $ETH_BTC,
     "ETH/BTC": $ETH_BTC,
     "LTCBTC": $LTC_BTC,

@@ -121,6 +121,18 @@ class _$AppDao extends AppDao {
                   'base': item.base,
                   'quote': item.quote
                 }),
+        _tickerEntityUpdateAdapter = UpdateAdapter(
+            database,
+            'tickers',
+            ['id'],
+            (TickerEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'exchange': item.exchange,
+                  'base': item.base,
+                  'quote': item.quote,
+                  'updatedAt': item.updatedAt,
+                  'price': item.price
+                }),
         _tickerWatchEntityDeletionAdapter = DeletionAdapter(
             database,
             'ticker_watches',
@@ -141,6 +153,8 @@ class _$AppDao extends AppDao {
   final InsertionAdapter<TickerEntity> _tickerEntityInsertionAdapter;
 
   final InsertionAdapter<TickerWatchEntity> _tickerWatchEntityInsertionAdapter;
+
+  final UpdateAdapter<TickerEntity> _tickerEntityUpdateAdapter;
 
   final DeletionAdapter<TickerWatchEntity> _tickerWatchEntityDeletionAdapter;
 
@@ -193,12 +207,24 @@ class _$AppDao extends AppDao {
   @override
   Future<int> insertTicker(TickerEntity ticker) {
     return _tickerEntityInsertionAdapter.insertAndReturnId(
-        ticker, OnConflictStrategy.abort);
+        ticker, OnConflictStrategy.replace);
+  }
+
+  @override
+  Future<List<int>> insertTickers(List<TickerEntity> tickers) {
+    return _tickerEntityInsertionAdapter.insertListAndReturnIds(
+        tickers, OnConflictStrategy.replace);
   }
 
   @override
   Future<int> insertTickerWatch(TickerWatchEntity ticker) {
     return _tickerWatchEntityInsertionAdapter.insertAndReturnId(
+        ticker, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<int> updateTicker(TickerEntity ticker) {
+    return _tickerEntityUpdateAdapter.updateAndReturnChangedRows(
         ticker, OnConflictStrategy.abort);
   }
 

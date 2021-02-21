@@ -5,11 +5,11 @@ import 'package:le_crypto_alerts/repositories/background_service/bridges/backgro
 
 DesktopBackgroundServiceBridge _applicationBridge;
 DesktopBackgroundServiceBridge _serviceBridge;
+BackgroundServiceManager _manager;
 
 class DesktopBackgroundServiceBridge extends BackgroundServiceBridge {
-  BackgroundServiceManager manager;
-
   DesktopBackgroundServiceBridge({scope: BackgroundServiceBridgeScope}) : super(scope: scope) {
+    /// APPLICATION SCOPE
     if (scope == BackgroundServiceBridgeScope.APPLICATION) {
       _applicationBridge = this;
       _serviceBridge = DesktopBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.SERVICE);
@@ -17,29 +17,33 @@ class DesktopBackgroundServiceBridge extends BackgroundServiceBridge {
   }
 
   Future<void> initialize() async {
-    this.manager = BackgroundServiceManager(_serviceBridge);
-    this.manager.start();
+    /// APPLICATION SCOPE
+    if (scope == BackgroundServiceBridgeScope.APPLICATION) {
+      _manager = BackgroundServiceManager(_serviceBridge);
+      _manager.start();
+    }
   }
 
   @override
   void sendData(Map<String, Object> event) {
+    //note: precisamos simular o comportamento da bridge mobile
+    event = json.decode(json.encode(event));
 
-    /// handle application bridge
+    /// APPLICATION SCOPE
     if (scope == BackgroundServiceBridgeScope.APPLICATION) {
       print("data from app");
       print(event);
 
-      manager.onDataReceived(json.decode(json.encode(event)));
+      _manager.onDataReceived(event);
 
       return;
     }
 
-    /// handle service bridge
+    /// SERVICE SCOPE
     if (scope == BackgroundServiceBridgeScope.SERVICE) {
-      print("data from serv");
-      print(event);
-
-      _applicationBridge.streamController.sink.add(json.decode(json.encode(event)));
+      // print("data from serv");
+      // print(event);
+      _applicationBridge.streamController.sink.add(event);
       return;
     }
   }

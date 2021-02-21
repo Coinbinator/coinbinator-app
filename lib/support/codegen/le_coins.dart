@@ -60,7 +60,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
         ..returns = cb.refer("Coin", 'package:le_crypto_alerts/support/utils.dart')
         ..requiredParameters.add(cb.Parameter((p) => p
           ..name = "value"
-          ..type = cb.refer("String")))
+          ..type = cb.refer("dynamic")))
         // ..lambda = true
         ..body = cb.Code("return _getCoin(value);")));
 
@@ -69,7 +69,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
           ..name = "\$${coin.symbol}"
           ..static = true
           ..modifier = cb.FieldModifier.constant
-          ..assignment = cb.Code('const Coin(name:"${coin.name}", symbol:"${coin.symbol}")');
+          ..assignment = cb.Code('const Coin.instance(name:"${coin.name}", symbol:"${coin.symbol}")');
 
         c.fields.add(field.build());
       }
@@ -111,14 +111,14 @@ class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
         cb.Field((f) => f
           ..name = "\$${pair.base}_${pair.quote}"
           ..static = true
-          ..modifier = cb.FieldModifier.constant
-          ..assignment = cb.Code('const Pair(base:"${pair.base}", quote:"${pair.quote}")'))
+          ..modifier = cb.FieldModifier.final$
+          ..assignment = cb.Code('Pair.instance(base:Coin("${pair.base}"), quote:Coin("${pair.quote}"))'))
     ];
 
     final pairAliasesField = cb.Field((f) => f
       ..name = "_pairs"
       ..static = true
-      ..modifier = cb.FieldModifier.constant
+      ..modifier = cb.FieldModifier.final$
       ..assignment = cb.Code([
         "{",
         for (final pair in knownPairs) ...[

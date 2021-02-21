@@ -12,8 +12,14 @@ abstract class AppDao {
   @Query("SELECT * FROM tickers WHERE id = :id")
   Future<TickerEntity> findTickerById(String id);
 
-  @insert
+  @Insert(onConflict: OnConflictStrategy.replace)
   Future<int> insertTicker(TickerEntity ticker);
+
+  @Insert(onConflict: OnConflictStrategy.replace)
+  Future<List<int>> insertTickers(List<TickerEntity> tickers);
+
+  @update
+  Future<int> updateTicker(TickerEntity ticker);
 
   /* TickerWatchEntity  */
 
