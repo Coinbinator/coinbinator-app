@@ -1,3 +1,5 @@
+library utils;
+
 import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 

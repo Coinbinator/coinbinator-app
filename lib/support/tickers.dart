@@ -5,10 +5,10 @@ class Tickers {
 
   get tickers => _tickers;
 
-  getTicker(Exchange exchange, Pair pair, {register: false}) {
+  Ticker getTicker(Exchange exchange, Pair pair, {register: false}) {
     if (exchange == null || pair == null) return null;
 
-    final ticker = _tickers.firstWhere((element) => element.exchange == exchange && element.pair == pair, orElse: () => null);
+    final ticker = _tickers.firstWhere((element) => element.exchange.id == exchange.id && element.pair.eq( pair ), orElse: () => null);
 
     if (ticker != null) return ticker;
 

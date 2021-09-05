@@ -7,6 +7,7 @@ import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
 import 'package:le_crypto_alerts/pages/_common/DefaultLinearProgressIndicator.dart';
 import 'package:le_crypto_alerts/pages/portfolio/_portfolio_card.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioPage extends StatefulWidget {
@@ -103,6 +104,7 @@ class PortfolioPageState extends State<PortfolioPage> {
                     //     " accounts: ${portfolioModel.portfolioResumes.length}"
                     //     ""),
                     for (final portfolio in portfolioModel.portfolioResumes) PortfolioCard(portfolio: portfolio),
+                    SelectableText(E.currency(portfolioModel.portfolioResumes.map((e) => e.totalUsd).reduce((value, element) => (value ?? 0) + (element ?? 0))))
                   ],
                 ),
               ),

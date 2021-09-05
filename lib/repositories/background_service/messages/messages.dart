@@ -1,7 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:le_crypto_alerts/repositories/background_service/background_service_manager.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
-part "background_service_support.g.dart";
+part 'messages.g.dart';
 
 class MessageTypes {
   static const String TICKER = "TICKER";
@@ -29,3 +30,4 @@ class TickersMessage {
 
   static TickersMessage fromJson(json) => _$TickersMessageFromJson(json);
 }
+

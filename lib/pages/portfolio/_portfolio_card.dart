@@ -45,13 +45,18 @@ class PortfolioCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(portfolio.name, style: LeColors.t18m),
-                      Text(E.currency(portfolio.totalUsd), style: LeColors.t22b),
                     ],
+                  ),
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(E.currency(portfolio.totalUsd), style: LeColors.t22b),
                   ),
                 ),
                 Center(
                   child: IconButton(
-                    icon: Icon(model.isCardOpened(portfolio.account.id) ? Icons.remove : Icons.add ),
+                    icon: Icon(model.isCardOpened(portfolio.account.id) ? Icons.remove : Icons.add),
                     onPressed: () => model.toggleCardOpened(portfolio.account.id),
                   ),
                 ),

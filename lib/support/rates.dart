@@ -28,7 +28,7 @@ class Rates {
     if (amount == 0) return 0;
 
     /// They are the same
-    if (from == to) return 1 * amount;
+    if (from == to) return 1 * amount; 
 
     final fromAlias = _coinAliases[from] ?? {from};
     final toAlias = _coinAliases[to] ?? {to};

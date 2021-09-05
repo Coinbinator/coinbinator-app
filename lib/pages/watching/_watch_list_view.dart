@@ -66,9 +66,9 @@ class WatchListView extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(children: [
-                        TextSpan(style: style1, text: tickerWatch.pair.base),
+                        TextSpan(style: style1, text: tickerWatch.pair.base?.symbol),
                         TextSpan(style: style2, text: '/'),
-                        TextSpan(style: style2, text: tickerWatch.pair.quote),
+                        TextSpan(style: style2, text: tickerWatch.pair.quote?.symbol),
                       ]),
                     ),
                     RichText(
@@ -78,19 +78,19 @@ class WatchListView extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Column(
-                //   children: [
-                //     RichText(
-                //       // text: TextSpan(style: style1, text: "${E.currency(ticker.price, decimalDigits: 2, symbol: 'USD', name: 'Dolar', locale: 'en_us')}"),
-                //       text: TextSpan(style: style1, text: "${E.currency(ticker.price, symbol: "")}"),
-                //     ),
-                //     RichText(
-                //       // text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
-                //       // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
-                //       text: TextSpan(style: stylePositive, text: ticker.pair.quote),
-                //     ),
-                //   ],
-                // ),
+                Column(children: [
+                  if (ticker != null) ...[
+                    RichText(
+                      // text: TextSpan(style: style1, text: "${E.currency(ticker.price, decimalDigits: 2, symbol: 'USD', name: 'Dolar', locale: 'en_us')}"),
+                      text: TextSpan(style: style1, text: "${E.currency(ticker.price, symbol: "")}"),
+                    ),
+                    RichText(
+                      // text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
+                      // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
+                      text: TextSpan(style: stylePositive, text: ticker.pair.quote?.symbol),
+                    ),
+                  ],
+                ]),
               ],
             ),
           )),

@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
+import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/support/background_service_support.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 class BackgroundServiceManager {
@@ -21,10 +21,19 @@ class BackgroundServiceManager {
   }
 
   _tick(Timer timer) async {
-    print("tick tock");
+    if (_bridge == null) {
+      print("no bridge");
+      return;
+    }
+
+    if (!(await _bridge.isServiceRunning())) {
+      timer.cancel();
+      return;
+    }
+
+    _bridge.sendData({'type': 'ping'});
 
     final accounts = await app().getAccounts();
-
     final watchingModel = WatchingPageModel();
     await watchingModel.initialize();
 
@@ -47,12 +56,6 @@ class BackgroundServiceManager {
     }
 
     // await _loadExchangeInfo();
-
-    //NOTE: is service still running
-    if (!(await _bridge.isServiceRunning())) {
-      timer.cancel();
-      return;
-    }
 
     //NOTE: we are working before the last work completed?
     // _working += 1;
@@ -108,11 +111,11 @@ class BackgroundServiceManager {
   Future<void> _checkCryptosFromBinance() async {
     try {
       print("Check cryptos ( binance )");
-      final tickers = await _binance.getTickerPrice();
+      final exchangeTickers = await _binance.getTickerPrice();
 
-      final updaterTickers = List<Ticker>.of([]);
+      final tickers = List<Ticker>.empty(growable: true);
 
-      for (final exchangeTicker in tickers) {
+      for (final exchangeTicker in exchangeTickers) {
         // print( exchangeTicker ); print( exchangeTicker.lePair);
         final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair, register: true);
 
@@ -121,11 +124,10 @@ class BackgroundServiceManager {
         ticker.price = double.tryParse(exchangeTicker.price);
         ticker.date = DateTime.now();
 
-        updaterTickers.add(ticker);
+        tickers.add(ticker);
       }
 
-      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(updaterTickers)});
-      print("  done");
+      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(tickers)});
     } catch (e) {
       print("err:");
       print(e);
@@ -148,5 +150,11 @@ class BackgroundServiceManager {
     // if (event["action"] == "stopService") {
     //   _bridge.stopBackgroundService();
     // }
+  }
+
+  void onDataReceived(Map<String, dynamic> event) {
+    print('manager received: ');
+    print(event);
+    print('---');
   }
 }

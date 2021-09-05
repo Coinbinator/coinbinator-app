@@ -250,6 +250,6 @@ class BinanceRepository {
   @deprecated
   String convertPairToSymbol(Pair pair) {
     if (pair == null) return null;
-    return pair.base + pair.quote;
+    return pair.base.symbol + pair.quote.symbol;
   }
 }

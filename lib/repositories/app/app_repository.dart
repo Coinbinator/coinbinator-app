@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/database/Persistence.dart';
+import 'package:le_crypto_alerts/database/daos/AppDao.dart';
+import 'package:le_crypto_alerts/database/persistence.dart';
 import 'package:le_crypto_alerts/models/portfolio_model.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
@@ -34,7 +35,11 @@ class _AppRepository {
 
   final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
-  final persistence = Persistence();
+  AppDatabase _persistence;
+
+  AppDatabase get persistence => _persistence;
+
+  AppDao get appDao => _persistence?.appDao;
 
   final _singletons = Map<Type, dynamic>();
 
@@ -42,7 +47,7 @@ class _AppRepository {
 
   final tickers = Tickers();
 
-  final tickerListeners = List<AppTickerListener>();
+  final tickerListeners = List<AppTickerListener>.empty(growable: true);
 
   final rates = Rates();
 
@@ -57,6 +62,8 @@ class _AppRepository {
 
   Future<void> loadConfig() async {
     if (_configLoaded) return;
+
+    _persistence = await AppDatabase.build();
 
     await DotEnv.load(fileName: ".env");
 
