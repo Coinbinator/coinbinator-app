@@ -16,8 +16,8 @@ abstract class AppDatabase extends FloorDatabase {
 
   static build() async {
     /// O Builder padrao tem um defeito e nao encontra o path do linux
-    //final databasePath = join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default.db');
-    final databasePath = join('default.db');
+    final databasePath = join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default.db');
+    //final databasePath = join('default.db');
 
     final database = _$AppDatabase();
 

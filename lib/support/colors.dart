@@ -47,10 +47,10 @@ abstract class LeColors {
   });
 
   static const TextStyle t09m = TextStyle(fontSize: 9, color: Color(0xffA0A0A9));
-
+  static const TextStyle t12m = TextStyle(fontSize: 12, color: Color(0xffA0A0A9));
   static const TextStyle t18 = TextStyle(fontSize: 18);
   static const TextStyle t18m = TextStyle(fontSize: 18, color: Color(0xffA0A0A9));
   static const TextStyle t18b = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
-
   static const TextStyle t22b = TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
+  static const TextStyle t26b = TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
 }

@@ -83,13 +83,31 @@ class _AppRepository {
   Future<List<Account>> getAccounts() async {
     return [
       BinanceAccount()
+        ..id = 1
         ..name = "Binance"
         ..apiKey = config.test_binance_api_key
         ..apiSecret = config.test_binance_api_secret,
       MercadoBitcoinAccount()
+        ..id = 2
         ..name = "Mercado Bitcoin"
         ..tapiId = config.test_mercado_bitcoin_tapi_id
         ..tapiSecret = config.test_mercado_bitcoin_tapi_secret,
     ];
+  }
+
+  Future<Account> getAccountById(int accountId) async {
+    final accounts = await getAccounts();
+    return accounts.firstWhere((account) => account.id == accountId, orElse: () => null);
+  }
+
+  Future<PortfolioWalletResume> getAccountPortfolioResume(Account account) async {
+    //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
+    if (account is BinanceAccount) {
+      return instance<BinanceRepository>().getAccountPortfolio(account: account);
+    }
+    if (account is MercadoBitcoinAccount) {
+      return instance<MercadoBitcoinRepository>().getAccountPortfolio(account: account);
+    }
+    throw Exception("tipo de conta desconhecido");
   }
 }

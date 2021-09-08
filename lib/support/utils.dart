@@ -187,6 +187,11 @@ class PortfolioWalletResume {
   List<PortfolioWalletCoin> coins;
 
   double get totalUsd => coins.map((coin) => coin.usdRate).fold(0, (x, y) => x + y);
+
+  String get displayName {
+    if (name == null || name.isEmpty) return "Unnamed Portfolio";
+    return name;
+  }
 }
 
 class PortfolioWalletCoin {

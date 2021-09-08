@@ -42,13 +42,7 @@ class PortfolioModel extends ChangeNotifier {
 
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
     portfolioResumes = await Future.wait(accounts.map((account) {
-      if (account is BinanceAccount) {
-        return instance<BinanceRepository>().getAccountPortfolio(account: account);
-      }
-      if (account is MercadoBitcoinAccount) {
-        return instance<MercadoBitcoinRepository>().getAccountPortfolio(account: account);
-      }
-      throw Exception("tipo de conta desconhecido");
+      return app().getAccountPortfolioResume(account);
     }));
 
     updatedPortfoliosAt = DateTime.now();

@@ -7,6 +7,7 @@ const String TEST_MERCADO_BITCOIN_TAPI_SECRET = 'TEST_MERCADO_BITCOIN_TAPI_SECRE
 const String ROUTE_ROOT = '/';
 const String ROUTE_WATCHING = '/';
 const String ROUTE_PORTFOLIO = '/portfolio';
+const String ROUTE_PORTFOLIO_DETAILS = '/portfolio/aasd';
 const String ROUTE_SETTINGS = '/settings';
 
 const int ALARM_ID_DEFAULT = 0;

@@ -224,7 +224,7 @@ class BinanceRepository {
       ..sort((a, b) => a.usdRate < b.usdRate ? 1 : -1);
 
     return PortfolioWalletResume()
-    ..account = account
+      ..account = account
       ..name = account.name
       ..coins = coins;
   }
