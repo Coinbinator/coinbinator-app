@@ -12,12 +12,11 @@ part 'persistence.g.dart';
 
 @Database(version: 1, entities: [AccountEntity, TickerEntity, TickerWatchEntity])
 abstract class AppDatabase extends FloorDatabase {
-  AppDao get appDao ;
+  AppDao get appDao;
 
   static build() async {
     /// O Builder padrao tem um defeito e nao encontra o path do linux
     final databasePath = join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default.db');
-    //final databasePath = join('default.db');
 
     final database = _$AppDatabase();
 
