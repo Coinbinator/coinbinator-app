@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
-import 'package:le_crypto_alerts/support/pairs.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+
+enum CryptoAlertType { ABSOLUTE, PERCENTAGE }
 
 class AlarmDefaultHandler {
   final List<CryptoPairAlert> alerts = [
@@ -101,8 +102,6 @@ class AlarmDefaultHandler {
     print('---');
   }
 }
-
-enum CryptoAlertType { ABSOLUTE, PERCENTAGE }
 
 class CryptoPairAlert {
   final Pair pair;

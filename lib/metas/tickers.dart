@@ -1,4 +1,7 @@
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
+import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 
 class Tickers {
   final _tickers = List<Ticker>.empty(growable: true);
@@ -8,7 +11,7 @@ class Tickers {
   Ticker getTicker(Exchange exchange, Pair pair, {register: false}) {
     if (exchange == null || pair == null) return null;
 
-    final ticker = _tickers.firstWhere((element) => element.exchange.id == exchange.id && element.pair.eq( pair ), orElse: () => null);
+    final ticker = _tickers.firstWhere((element) => element.exchange.id == exchange.id && element.pair.eq(pair), orElse: () => null);
 
     if (ticker != null) return ticker;
 

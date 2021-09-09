@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
 import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
+import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/watching/_watch_list_view.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
 import '_add_watch_dialog.dart';
@@ -116,7 +117,7 @@ class WatchingPageState extends State<WatchingPage> {
           title: _appBarTitle(),
           actions: _appBarActions(),
         ),
-        body:  WatchListView(),
+        body: WatchListView(),
         floatingActionButton: _floatingActionButton(),
         bottomNavigationBar: DefaultBottomNavigationBar(),
       ),

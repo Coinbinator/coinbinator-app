@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
@@ -20,9 +21,6 @@ void main() {
       final exchangeInfo = await instance<BinanceRepository>().getExchangeInfo();
 
       expect(exchangeInfo, isA<BinanceExchangeInformation>());
-
-
-
     });
   });
 

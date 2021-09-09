@@ -65,8 +65,8 @@ class DefaultBottomNavigationBar extends StatelessWidget {
             return false;
           });
 
-          print("DefaultBottomNavigationBar:");
-          print("  Unknown route at index: $index.");
+          // print("DefaultBottomNavigationBar:");
+          // print("  Unknown route at index: $index. ($routeName)");
           return;
         }
 

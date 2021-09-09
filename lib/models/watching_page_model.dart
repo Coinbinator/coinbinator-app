@@ -2,10 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
+import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
+import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
-class WatchingPageModel extends ChangeNotifier with AppTickerListener {
+class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   bool initialized = false;
 
   final List<TickerWatch> watchingTickers = [];

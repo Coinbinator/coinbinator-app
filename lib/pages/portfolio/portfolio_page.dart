@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/models/portfolio_model.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
-import 'package:provider/provider.dart';
 
 class PortfolioPage extends StatefulWidget {
   PortfolioPage({Key key}) : super(key: key);
@@ -29,16 +27,7 @@ class PortfolioPageState extends State<PortfolioPage> {
         drawer: DefaultDrawer(),
         appBar: portfolioAppBar(
           working: false,
-          actions: [
-            // IconButton(
-            //   icon: Icon(Icons.refresh),
-            //   onPressed: () => model.updatePortfolios(),
-            // ),
-            // IconButton(
-            //   icon: Icon(Icons.menu),
-            //   onPressed: () => model.updatePortfolios(),
-            // ),
-          ],
+          actions: [],
         ),
         body: Navigator(
           initialRoute: ROUTE_PORTFOLIO,
@@ -49,14 +38,6 @@ class PortfolioPageState extends State<PortfolioPage> {
         ),
         bottomNavigationBar: DefaultBottomNavigationBar(),
       ),
-    );
-
-    return Navigator(
-      initialRoute: ROUTE_PORTFOLIO,
-      onGenerateRoute: (settings) {
-        WidgetBuilder builder = _getNavigatorRouteBuilder(settings);
-        return MaterialPageRoute(builder: builder, settings: settings);
-      },
     );
   }
 
@@ -71,7 +52,7 @@ class PortfolioPageState extends State<PortfolioPage> {
       assert(args != null, 'missing portfolio details argument.');
 
       return (BuildContext context) => PortfolioDetailsPage(
-            portfolioId: args?.portfolioId,
+            accountId: args?.portfolioId,
           );
     }
 

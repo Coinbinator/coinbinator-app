@@ -2,18 +2,21 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
+import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
-import 'package:le_crypto_alerts/support/coins.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_support.dart';
+import 'package:le_crypto_alerts/support/abstract_exchange_repository.dart';
 import 'package:sembast/timestamp.dart';
 
 const API_URL = 'https://www.mercadobitcoin.com.br/api/';
 const TAPI_URL = 'https://www.mercadobitcoin.com.br/tapi/v3/';
 const TAPI_URI = '/tapi/v3/';
 
-class MercadoBitcoinRepository {
+class MercadoBitcoinRepository extends AbstractExchangeRepository<MercadoBitcoinAccount> {
   Future<Map<String, dynamic>> _tapi({MercadoBitcoinAccount account, Map<String, dynamic> parameters}) async {
     final dio = Dio();
 
@@ -48,15 +51,26 @@ class MercadoBitcoinRepository {
     return MercadoBitcoinAccountInfo.fromJson(response);
   }
 
-  Future<PortfolioWalletResume> getAccountPortfolio({MercadoBitcoinAccount account}) async {
+  Future<MercadoBitcoinListOrdersResponse> getAccountTrades({MercadoBitcoinAccount account, Pair pair}) async {
+    final response = await _tapi(account: account, parameters: {
+      'tapi_method': 'list_orders',
+      'tapi_nonce': Timestamp.now().millisecondsSinceEpoch / 100,
+      'coin_pair': 'BRLBTC',
+      // 'status_list': '[2, 3]',
+      // 'has_fills': 1,
+    });
+    print(response);
+    return MercadoBitcoinListOrdersResponse.fromJson(response);
+  }
+
+  Future<PortfolioAccountResume> getAccountPortfolioResume({MercadoBitcoinAccount account}) async {
     final accountInfo = await getAccountInfo(account: account);
 
-    return PortfolioWalletResume()
+    return PortfolioAccountResume()
       ..account = account
-      ..name = account.name
       ..coins = [
         for (var e in accountInfo.responseData.balance.entries)
-          PortfolioWalletCoin()
+          PortfolioAccountResumeAsset()
             ..coin = Coins.getCoin(e.key)
             ..amount = double.tryParse(e.value.total)
             ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD, amount: double.tryParse(e.value.total))

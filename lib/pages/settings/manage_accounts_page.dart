@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
 
 class ManageAccountsPage extends StatefulWidget {
   // PortfoliosPage({Key key}) : super(key: key);
@@ -10,7 +10,7 @@ class ManageAccountsPage extends StatefulWidget {
 }
 
 class ManageAccountsPageState extends State<ManageAccountsPage> {
-  List<Account> accounts;
+  List<AbstractExchangeAccount> accounts;
 
   Future<void> loadAccounts() async {
     final _accounts = await app().getAccounts();

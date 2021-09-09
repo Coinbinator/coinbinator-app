@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/models/portfolio_model.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioListPage extends StatefulWidget {
@@ -19,56 +17,31 @@ class PortfolioListPage extends StatefulWidget {
 }
 
 class PortfolioListPageState extends State<PortfolioListPage> {
-  PortfolioModel model;
+  // PortfolioListModel model;
 
   Timer timer;
-
-  Future<void> _updateWallets() async {
-    await model.updatePortfolios();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    if (timer == null) {
-      // timer = Timer.periodic(Duration(seconds: 15), (Timer timer) => _updateWallets());
-    }
-
-    () async {}();
-  }
-
-  @override
-  @mustCallSuper
-  void dispose() {
-    if (timer != null) {
-      timer.cancel();
-    }
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioModel>(create: (context) {
-          return model = PortfolioModel()..init();
-        }),
+        ChangeNotifierProvider<PortfolioListModel>(create: (context) => new PortfolioListModel()..init()),
       ],
       builder: (context, child) {
-        final portfolioModel = Provider.of<PortfolioModel>(context);
+        final model = Provider.of<PortfolioListModel>(context);
 
         return RefreshIndicator(
-          onRefresh: _updateWallets,
+          onRefresh: model.refresh,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: ListView(
               children: [
                 // Text(""
-                //     " updating: ${portfolioModel.updatingPortfolios}"
-                //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                //     " accounts: ${portfolioModel.portfolioResumes.length}"
+                //     " updating: ${model.updatingPortfolios}"
+                //     " last update: ${model.updatedPortfoliosAt ?? 'unknown'}"
+                //     " accounts: ${model.portfolioResumes.length}"
                 //     ""),
-                _buildPortfolioHoldingsResume(),
+                _buildPortfolioHoldingsResume(context),
                 Table(
                   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
                   columnWidths: {
@@ -79,65 +52,19 @@ class PortfolioListPageState extends State<PortfolioListPage> {
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: [
                     _buildPortfolioTableHeader(),
-                    for (final portfolio in portfolioModel.portfolioResumes) ...[_buildPortfolioTableRow(portfolio)]
+                    for (final portfolio in model.portfolioResumes) ...[_buildPortfolioTableRow(portfolio)]
                   ],
                 ),
               ],
             ),
           ),
         );
-
-        return Scaffold(
-          drawer: DefaultDrawer(),
-          appBar: portfolioAppBar(
-            working: model.updatingPortfolios,
-            actions: [
-              IconButton(
-                icon: Icon(Icons.refresh),
-                onPressed: () => model.updatePortfolios(),
-              ),
-              IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () => model.updatePortfolios(),
-              ),
-            ],
-          ),
-          body: RefreshIndicator(
-            onRefresh: _updateWallets,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: ListView(
-                children: [
-                  // Text(""
-                  //     " updating: ${portfolioModel.updatingPortfolios}"
-                  //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                  //     " accounts: ${portfolioModel.portfolioResumes.length}"
-                  //     ""),
-                  _buildPortfolioHoldingsResume(),
-                  Table(
-                    // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                    columnWidths: {
-                      1: IntrinsicColumnWidth(),
-                      2: IntrinsicColumnWidth(),
-                      3: IntrinsicColumnWidth(),
-                    },
-                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                    children: [
-                      _buildPortfolioTableHeader(),
-                      for (final portfolio in portfolioModel.portfolioResumes) ...[_buildPortfolioTableRow(portfolio)]
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          bottomNavigationBar: DefaultBottomNavigationBar(),
-        );
       },
     );
   }
 
-  Widget _buildPortfolioHoldingsResume() {
+  Widget _buildPortfolioHoldingsResume(BuildContext context) {
+    final model = Provider.of<PortfolioListModel>(context);
     final double holdingsTotalAmount = model.portfolioResumes.isEmpty ? 0 : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
     return Card(
@@ -178,7 +105,7 @@ class PortfolioListPageState extends State<PortfolioListPage> {
     ]);
   }
 
-  TableRow _buildPortfolioTableRow(PortfolioWalletResume portfolio) {
+  TableRow _buildPortfolioTableRow(PortfolioAccountResume portfolio) {
     return TableRow(children: [
       /// EXCHANGE
       Align(
@@ -187,7 +114,7 @@ class PortfolioListPageState extends State<PortfolioListPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(portfolio.name, style: LeColors.t18m),
+            Text(portfolio.displayName, style: LeColors.t18m),
           ],
         ),
       ),
@@ -214,7 +141,6 @@ class PortfolioListPageState extends State<PortfolioListPage> {
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
         child: IconButton(
-          // icon: Icon(model.isCardOpened(portfolio.account.id) ? Icons.chevron_right : Icons.chevron_right),
           icon: Icon(Icons.chevron_right),
           onPressed: () => Navigator.of(context).pushNamed(ROUTE_PORTFOLIO_DETAILS, arguments: PortfolioDetailsRouteArguments(portfolio.account.id)),
         ),

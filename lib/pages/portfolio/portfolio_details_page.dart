@@ -1,136 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultBottomNavigationBar.dart';
-import 'package:le_crypto_alerts/pages/_common/DefaultDrawer.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_model.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioDetailsPage extends StatefulWidget {
-  final int portfolioId;
+  final int accountId;
 
-  PortfolioDetailsPage({Key key, this.portfolioId}) : super(key: key);
+  PortfolioDetailsPage({Key key, this.accountId}) : super(key: key);
 
   @override
   PortfolioDetailsPageState createState() => PortfolioDetailsPageState();
 }
 
 class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
-  @override
-  void initState() {
-    super.initState();
-    () async {}();
-  }
-
-  @override
-  @mustCallSuper
-  void dispose() {
-    super.dispose();
-  }
+  PortfolioDetailsModel model;
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) {
-          return PortfolioDetailsModel(widget.portfolioId)..init();
-        }),
+        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => (model = PortfolioDetailsModel(widget.accountId))..init()),
       ],
       builder: (context, child) {
-        final model = Provider.of<PortfolioDetailsModel>(context);
+        Provider.of<PortfolioDetailsModel>(context);
 
-        return !model.initialized
-            ? Container()
-            : RefreshIndicator(
-                onRefresh: () => model.updatePortfolios(),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: ListView(
-                    children: [
-                      // Text(""
-                      //     " updating: ${portfolioModel.updatingPortfolios}"
-                      //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                      //     " accounts: ${portfolioModel.portfolioResumes.length}"
-                      //     ""),
-                      _buildPortfolioHoldingsResume(context),
-                      Table(
-                        // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                        columnWidths: {
-                          1: IntrinsicColumnWidth(),
-                          2: IntrinsicColumnWidth(),
-                          3: IntrinsicColumnWidth(),
-                        },
-                        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                        children: [
-                          _buildPortfolioTableHeader(),
-                          for (final coin in model.portfolioResume.coins) ...[_buildPortfolioTableRow(context, coin)]
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
+        if (!model.initialized) {
+          return Container();
+        }
 
-        return WillPopScope(
-          onWillPop: () async {
-            return true;
-          },
-          child: Scaffold(
-            drawer: DefaultDrawer(),
-            appBar: portfolioAppBar(
-              working: model.updatingPortfolios,
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.refresh),
-                  onPressed: () => model.updatePortfolios(),
-                ),
-                IconButton(
-                  icon: Icon(Icons.menu),
-                  onPressed: () => model.updatePortfolios(),
+        return RefreshIndicator(
+          onRefresh: () => model.updatePortfolios(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: ListView(
+              children: [
+                // Text(""
+                //     " updating: ${portfolioModel.updatingPortfolios}"
+                //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
+                //     " accounts: ${portfolioModel.portfolioResumes.length}"
+                //     ""),
+                _buildPortfolioHoldingsResume(),
+                Table(
+                  // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
+                  columnWidths: {
+                    1: IntrinsicColumnWidth(),
+                    2: IntrinsicColumnWidth(),
+                    3: IntrinsicColumnWidth(),
+                  },
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  children: [
+                    _buildPortfolioTableHeader(),
+                    for (final coin in model.portfolioResume.coins) ...[_buildPortfolioTableRow(context, coin)]
+                  ],
                 ),
               ],
             ),
-            body: !model.initialized
-                ? Container()
-                : RefreshIndicator(
-                    onRefresh: () => model.updatePortfolios(),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: ListView(
-                        children: [
-                          // Text(""
-                          //     " updating: ${portfolioModel.updatingPortfolios}"
-                          //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                          //     " accounts: ${portfolioModel.portfolioResumes.length}"
-                          //     ""),
-                          _buildPortfolioHoldingsResume(context),
-                          Table(
-                            // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                            columnWidths: {
-                              1: IntrinsicColumnWidth(),
-                              2: IntrinsicColumnWidth(),
-                              3: IntrinsicColumnWidth(),
-                            },
-                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                            children: [
-                              _buildPortfolioTableHeader(),
-                              for (final coin in model.portfolioResume.coins) ...[_buildPortfolioTableRow(context, coin)]
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-            bottomNavigationBar: DefaultBottomNavigationBar(),
           ),
         );
       },
     );
   }
 
-  Widget _buildPortfolioHoldingsResume(BuildContext context) {
-    final model = Provider.of<PortfolioDetailsModel>(context);
+  Widget _buildPortfolioHoldingsResume() {
     final double holdingsTotalAmount = model.portfolioResume.totalUsd;
 
     return Card(
@@ -182,7 +115,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
     ]);
   }
 
-  TableRow _buildPortfolioTableRow(BuildContext context, PortfolioWalletCoin coin) {
+  TableRow _buildPortfolioTableRow(BuildContext context, PortfolioAccountResumeAsset coin) {
     final model = Provider.of<PortfolioDetailsModel>(context);
     final coinIndex = model.portfolioResume.coins.indexOf(coin);
 

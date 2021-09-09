@@ -1,13 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
-class PortfolioModel extends ChangeNotifier {
+class PortfolioListModel extends ChangeNotifier {
   bool initialized = false;
 
   bool working = false;
@@ -16,9 +14,9 @@ class PortfolioModel extends ChangeNotifier {
 
   DateTime updatedPortfoliosAt;
 
-  List<Account> accounts = [];
+  List<AbstractExchangeAccount> accounts = [];
 
-  List<PortfolioWalletResume> portfolioResumes = [];
+  List<PortfolioAccountResume> portfolioResumes = [];
 
   Map<int, bool> portfolioCardsOpened = {};
 
@@ -58,5 +56,9 @@ class PortfolioModel extends ChangeNotifier {
   void toggleCardOpened(int id) {
     portfolioCardsOpened[id] = !(portfolioCardsOpened[id] == true);
     notifyListeners();
+  }
+
+  Future<void> refresh() async {
+    await updatePortfolios();
   }
 }

@@ -3,19 +3,70 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
-import 'package:le_crypto_alerts/support/coins.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/support/abstract_exchange_repository.dart';
+import 'package:le_crypto_alerts/support/e.dart';
 import 'package:sembast/timestamp.dart';
 
-class BinanceRepository {
+class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
   int _serverTimeDelta;
 
   Timestamp _ratesUpdatedAt;
 
   BinanceRepository();
+
+  Future<PortfolioAccountResume> getAccountPortfolioResume({BinanceAccount account}) async {
+    //TODO: adicionar validacao e nao atualizar rates se a ultima atualizacao foi recente
+    updateRates();
+
+    final capitals = await getCapitalConfigGetAll(account: account);
+
+    if (capitals == null) {
+      //TODO: log error
+      return null;
+    }
+
+    // <Coin, PortfolioWalletCoin>
+    // var coins = capitals.asMap().map((_, capital) {
+    var coins = capitals.map((capital) {
+      final portfolioCoinAmount = [
+        E.toDouble(capital.free),
+        E.toDouble(capital.freeze),
+        E.toDouble(capital.ipoable),
+        E.toDouble(capital.ipoing),
+        E.toDouble(capital.locked),
+        E.toDouble(capital.storage),
+        E.toDouble(capital.withdrawing),
+      ].fold(0.0, (a, b) => a + b);
+
+      if (portfolioCoinAmount <= 0.0) {
+        return null;
+      }
+
+      final coin = capital.leCoin;
+      final portfolioCoin = PortfolioAccountResumeAsset()
+        ..coin = coin
+        ..amount = portfolioCoinAmount
+        ..btcRate = app().rates.getRateFromTo(coin, Coins.$BTC, amount: portfolioCoinAmount)
+        ..usdRate = app().rates.getRateFromTo(coin, Coins.$USD, amount: portfolioCoinAmount);
+
+      return portfolioCoin;
+    }).toList();
+
+    coins
+      ..removeWhere((value) => value == null || value.amount <= 0.0)
+      ..sort((a, b) => a.usdRate < b.usdRate ? 1 : -1);
+
+    return PortfolioAccountResume()
+      ..account = account
+      ..coins = coins;
+  }
 
   //region DIO
 
@@ -181,7 +232,13 @@ class BinanceRepository {
     _ratesUpdatedAt = Timestamp.now();
   }
 
-  Future<PortfolioWalletResume> getAccountPortfolio({BinanceAccount account}) async {
+  @deprecated
+  String convertPairToSymbol(Pair pair) {
+    if (pair == null) return null;
+    return pair.base.symbol + pair.quote.symbol;
+  }
+
+  Future<PortfolioAccountResume> getAccountPortfolio({BinanceAccount account}) async {
     //TODO: adicionar validacao e nao atualizar rates se a ultima atualizacao foi recente
     updateRates();
 
@@ -210,7 +267,7 @@ class BinanceRepository {
       }
 
       final coin = capital.leCoin;
-      final portfolioCoin = PortfolioWalletCoin()
+      final portfolioCoin = PortfolioAccountResumeAsset()
         ..coin = coin
         ..amount = portfolioCoinAmount
         ..btcRate = app().rates.getRateFromTo(coin, Coins.$BTC, amount: portfolioCoinAmount)
@@ -223,33 +280,8 @@ class BinanceRepository {
       ..removeWhere((value) => value == null || value.amount <= 0.0)
       ..sort((a, b) => a.usdRate < b.usdRate ? 1 : -1);
 
-    return PortfolioWalletResume()
+    return PortfolioAccountResume()
       ..account = account
-      ..name = account.name
       ..coins = coins;
-  }
-
-  //
-  // @deprecated
-  // Future<List<Pair>> getExchangePairs() async {
-  //   var exchangeInfo = await getExchangeInfo();
-  //
-  //   if (exchangeInfo == null) {
-  //     return List<Pair>.empty();
-  //   }
-  //
-  //   return List.from(exchangeInfo.symbols)
-  //       .map((symbol) => new Pair(
-  //             // exchange: Exchange.BINANCE,
-  //             base: symbol['baseAsset'],
-  //             quote: symbol['quoteAsset'],
-  //           ))
-  //       .toList();
-  // }
-
-  @deprecated
-  String convertPairToSymbol(Pair pair) {
-    if (pair == null) return null;
-    return pair.base.symbol + pair.quote.symbol;
   }
 }

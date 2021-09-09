@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:le_crypto_alerts/support/pairs.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 
 void main() {
   testWidgets('tests utils : exchange classes', (WidgetTester tester) async {

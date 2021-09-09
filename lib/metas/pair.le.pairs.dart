@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of utils;
+part of 'pair.dart';
 
 // **************************************************************************
 // LePairsGenerator

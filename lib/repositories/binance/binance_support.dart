@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:le_crypto_alerts/support/coins.dart';
-import 'package:le_crypto_alerts/support/pairs.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 
 part "binance_support.g.dart";
 

@@ -1,42 +1,10 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'utils.dart';
+part of 'ticker.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
-
-Exchange _$ExchangeFromJson(Map<String, dynamic> json) {
-  return Exchange(
-    json['id'],
-  );
-}
-
-Map<String, dynamic> _$ExchangeToJson(Exchange instance) => <String, dynamic>{
-      'id': instance.id,
-    };
-
-Coin _$CoinFromJson(Map<String, dynamic> json) {
-  return Coin(
-    json['symbol'],
-  );
-}
-
-Map<String, dynamic> _$CoinToJson(Coin instance) => <String, dynamic>{
-      'symbol': instance.symbol,
-    };
-
-Pair _$PairFromJson(Map<String, dynamic> json) {
-  return Pair(
-    base: Coin._fromJson(json['base'] as String),
-    quote: Coin._fromJson(json['quote'] as String),
-  );
-}
-
-Map<String, dynamic> _$PairToJson(Pair instance) => <String, dynamic>{
-      'base': Coin._toJson(instance.base),
-      'quote': Coin._toJson(instance.quote),
-    };
 
 Ticker _$TickerFromJson(Map<String, dynamic> json) {
   return Ticker(

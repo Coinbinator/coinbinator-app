@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:le_crypto_alerts/repositories/background_service/background_service_manager.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
 
 part 'messages.g.dart';
 
@@ -30,4 +29,3 @@ class TickersMessage {
 
   static TickersMessage fromJson(json) => _$TickersMessageFromJson(json);
 }
-

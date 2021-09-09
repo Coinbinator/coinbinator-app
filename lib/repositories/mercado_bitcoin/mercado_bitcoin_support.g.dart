@@ -84,3 +84,74 @@ Map<String, dynamic> _$MercadoBitcoinAccountWithdrawalLimitsEntryToJson(
       'available': instance.available,
       'total': instance.total,
     };
+
+MercadoBitcoinListOrdersResponse _$MercadoBitcoinListOrdersResponseFromJson(
+    Map<String, dynamic> json) {
+  return MercadoBitcoinListOrdersResponse()
+    ..responseData = json['response_data'] == null
+        ? null
+        : MercadoBitcoinListOrdersResponseData.fromJson(
+            json['response_data'] as Map<String, dynamic>)
+    ..statusCode = json['status_code']
+    ..serverUnixTimestamp = json['server_unix_timestamp'];
+}
+
+Map<String, dynamic> _$MercadoBitcoinListOrdersResponseToJson(
+        MercadoBitcoinListOrdersResponse instance) =>
+    <String, dynamic>{
+      'response_data': instance.responseData,
+      'status_code': instance.statusCode,
+      'server_unix_timestamp': instance.serverUnixTimestamp,
+    };
+
+MercadoBitcoinListOrdersResponseData
+    _$MercadoBitcoinListOrdersResponseDataFromJson(Map<String, dynamic> json) {
+  return MercadoBitcoinListOrdersResponseData()
+    ..orders = (json['orders'] as List)
+        ?.map((e) => e == null
+            ? null
+            : MercadoBitcoinListOrdersOrder.fromJson(e as Map<String, dynamic>))
+        ?.toList();
+}
+
+Map<String, dynamic> _$MercadoBitcoinListOrdersResponseDataToJson(
+        MercadoBitcoinListOrdersResponseData instance) =>
+    <String, dynamic>{
+      'orders': instance.orders,
+    };
+
+MercadoBitcoinListOrdersOrder _$MercadoBitcoinListOrdersOrderFromJson(
+    Map<String, dynamic> json) {
+  return MercadoBitcoinListOrdersOrder()
+    ..orderId = json['order_id']
+    ..coinPair = json['coin_pair']
+    ..orderType = json['order_type']
+    ..status = json['status']
+    ..hasFills = json['has_fills']
+    ..quantity = json['quantity']
+    ..limitPrice = json['limit_price']
+    ..executedQuantity = json['executed_quantity']
+    ..executedPriceAvg = json['executed_price_avg']
+    ..fee = json['fee']
+    ..createdTimestamp = json['created_timestamp']
+    ..updatedTimestamp = json['updated_timestamp']
+    ..operations = json['operations'];
+}
+
+Map<String, dynamic> _$MercadoBitcoinListOrdersOrderToJson(
+        MercadoBitcoinListOrdersOrder instance) =>
+    <String, dynamic>{
+      'order_id': instance.orderId,
+      'coin_pair': instance.coinPair,
+      'order_type': instance.orderType,
+      'status': instance.status,
+      'has_fills': instance.hasFills,
+      'quantity': instance.quantity,
+      'limit_price': instance.limitPrice,
+      'executed_quantity': instance.executedQuantity,
+      'executed_price_avg': instance.executedPriceAvg,
+      'fee': instance.fee,
+      'created_timestamp': instance.createdTimestamp,
+      'updated_timestamp': instance.updatedTimestamp,
+      'operations': instance.operations,
+    };

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
 class PortfolioDetailsModel extends ChangeNotifier {
   final int accountId;
@@ -16,9 +16,9 @@ class PortfolioDetailsModel extends ChangeNotifier {
 
   DateTime updatedPortfoliosAt;
 
-  Account account;
+  AbstractExchangeAccount account;
 
-  PortfolioWalletResume portfolioResume;
+  PortfolioAccountResume portfolioResume;
 
   PortfolioDetailsModel(this.accountId);
 
@@ -43,6 +43,9 @@ class PortfolioDetailsModel extends ChangeNotifier {
     portfolioResume = await app().getAccountPortfolioResume(account);
     updatedPortfoliosAt = DateTime.now();
     updatingPortfolios = false;
+
+    // portfolioTransactions =
+    await app().getAccountPortfolioTransactions(account);
 
     notifyListeners();
   }

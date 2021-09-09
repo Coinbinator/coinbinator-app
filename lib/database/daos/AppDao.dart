@@ -4,8 +4,6 @@ import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
 
 @dao
 abstract class AppDao {
-  /* TickerEntity  */
-
   @Query("SELECT * FROM tickers ")
   Future<List<TickerEntity>> findTickers();
 

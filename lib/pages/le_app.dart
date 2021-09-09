@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
 import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
@@ -15,7 +14,7 @@ class LeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider<AppModel>(create: (context) => AppModel()),
+          ChangeNotifierProvider<AppModel>(create: (context) => AppModel()..init()),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),
         builder: (context, child) => MaterialApp(

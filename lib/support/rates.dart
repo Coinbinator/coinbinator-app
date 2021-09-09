@@ -1,9 +1,18 @@
-import 'package:le_crypto_alerts/support/coins.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
 
 final Map<Coin, Set<Coin>> _coinAliases = {
   Coins.$USD: {Coins.$USD, Coins.$USDT, Coins.$USDC, Coins.$TUSD},
 };
+
+class Rate {
+  final Coin base;
+  final Coin quote;
+
+  double price = -1;
+
+  Rate({this.base, this.quote});
+}
 
 class Rates {
   final rates = Set<Rate>();
@@ -28,7 +37,7 @@ class Rates {
     if (amount == 0) return 0;
 
     /// They are the same
-    if (from == to) return 1 * amount; 
+    if (from == to) return 1 * amount;
 
     final fromAlias = _coinAliases[from] ?? {from};
     final toAlias = _coinAliases[to] ?? {to};
@@ -51,13 +60,4 @@ class Rates {
     /// We didin't find the connection
     return -1;
   }
-}
-
-class Rate {
-  final Coin base;
-  final Coin quote;
-
-  double price = -1;
-
-  Rate({this.base, this.quote});
 }

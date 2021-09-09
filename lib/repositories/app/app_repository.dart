@@ -4,15 +4,19 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
 import 'package:le_crypto_alerts/database/persistence.dart';
-import 'package:le_crypto_alerts/models/portfolio_model.dart';
+import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
+import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/background_service_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
-import 'package:le_crypto_alerts/support/accounts/accounts.dart';
+import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/support/rates.dart';
-import 'package:le_crypto_alerts/support/tickers.dart';
+import 'package:le_crypto_alerts/metas/tickers.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 
 part '_support.dart';
@@ -22,7 +26,8 @@ _AppRepository app() {
 }
 
 T instance<T>() {
-  if (T is PortfolioModel) throw Exception("deprecated models em singleton");
+  if (T is PortfolioListModel) throw Exception("deprecated models em singleton");
+
   return _AppRepository._instance._singletons[T];
 }
 
@@ -47,7 +52,7 @@ class _AppRepository {
 
   final tickers = Tickers();
 
-  final tickerListeners = List<AppTickerListener>.empty(growable: true);
+  final tickerListeners = List<AbstractAppTickerListener>.empty(growable: true);
 
   final rates = Rates();
 
@@ -80,7 +85,7 @@ class _AppRepository {
     _configLoaded = true;
   }
 
-  Future<List<Account>> getAccounts() async {
+  Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
       BinanceAccount()
         ..id = 1
@@ -95,19 +100,23 @@ class _AppRepository {
     ];
   }
 
-  Future<Account> getAccountById(int accountId) async {
+  Future<AbstractExchangeAccount> getAccountById(int accountId) async {
     final accounts = await getAccounts();
     return accounts.firstWhere((account) => account.id == accountId, orElse: () => null);
   }
 
-  Future<PortfolioWalletResume> getAccountPortfolioResume(Account account) async {
+  Future<PortfolioAccountResume> getAccountPortfolioResume(AbstractExchangeAccount account) async {
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
     if (account is BinanceAccount) {
-      return instance<BinanceRepository>().getAccountPortfolio(account: account);
+      return instance<BinanceRepository>().getAccountPortfolioResume(account: account);
     }
     if (account is MercadoBitcoinAccount) {
-      return instance<MercadoBitcoinRepository>().getAccountPortfolio(account: account);
+      return instance<MercadoBitcoinRepository>().getAccountPortfolioResume(account: account);
     }
     throw Exception("tipo de conta desconhecido");
+  }
+
+  getAccountPortfolioTransactions(AbstractExchangeAccount account) async {
+
   }
 }

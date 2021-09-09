@@ -52,5 +52,70 @@ class MercadoBitcoinAccountWithdrawalLimitsEntry {
   static MercadoBitcoinAccountWithdrawalLimitsEntry fromJson(json) => _$MercadoBitcoinAccountWithdrawalLimitsEntryFromJson(json);
 }
 
-// @JsonSerializable()
-// class MercadoBitcoinAccountBalance {}
+@JsonSerializable()
+class MercadoBitcoinListOrdersResponse {
+  @JsonKey(name: 'response_data')
+  MercadoBitcoinListOrdersResponseData responseData;
+
+  @JsonKey(name: 'status_code')
+  dynamic statusCode;
+
+  @JsonKey(name: 'server_unix_timestamp')
+  dynamic serverUnixTimestamp;
+
+  static MercadoBitcoinListOrdersResponse fromJson(json) => _$MercadoBitcoinListOrdersResponseFromJson(json);
+
+  static Map<String, dynamic> toJson(MercadoBitcoinListOrdersResponse instance) => _$MercadoBitcoinListOrdersResponseToJson(instance);
+}
+
+@JsonSerializable()
+class MercadoBitcoinListOrdersResponseData {
+  @JsonKey(name: 'orders')
+  List<MercadoBitcoinListOrdersOrder> orders;
+
+  static MercadoBitcoinListOrdersResponseData fromJson(json) => _$MercadoBitcoinListOrdersResponseDataFromJson(json);
+}
+
+@JsonSerializable()
+class MercadoBitcoinListOrdersOrder {
+  @JsonKey(name: 'order_id')
+  dynamic orderId;
+
+  @JsonKey(name: 'coin_pair')
+  dynamic coinPair;
+
+  @JsonKey(name: 'order_type')
+  dynamic orderType;
+
+  @JsonKey(name: 'status')
+  dynamic status;
+
+  @JsonKey(name: 'has_fills')
+  dynamic hasFills;
+
+  @JsonKey(name: 'quantity')
+  dynamic quantity;
+
+  @JsonKey(name: 'limit_price')
+  dynamic limitPrice;
+
+  @JsonKey(name: 'executed_quantity')
+  dynamic executedQuantity;
+
+  @JsonKey(name: 'executed_price_avg')
+  dynamic executedPriceAvg;
+
+  @JsonKey(name: 'fee')
+  dynamic fee;
+
+  @JsonKey(name: 'created_timestamp')
+  dynamic createdTimestamp;
+
+  @JsonKey(name: 'updated_timestamp')
+  dynamic updatedTimestamp;
+
+  @JsonKey(name: 'operations')
+  dynamic operations;
+
+  static MercadoBitcoinListOrdersOrder fromJson(json) => _$MercadoBitcoinListOrdersOrderFromJson(json);
+}
