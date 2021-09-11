@@ -53,4 +53,6 @@ abstract class LeColors {
   static const TextStyle t18b = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
   static const TextStyle t22b = TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
   static const TextStyle t26b = TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
+
+
 }

@@ -3,10 +3,11 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
-import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_orders_resume.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
@@ -14,59 +15,21 @@ import 'package:le_crypto_alerts/support/abstract_exchange_repository.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:sembast/timestamp.dart';
 
+String _convertPairToString(Pair value) => value == null ? null : "${value.base.symbol}${value.quote.symbol}";
+
+Pair _convertStringToPair(String value) {
+  if (value == null || value.isEmpty) return null;
+
+  final pair = Pairs.getPair(value);
+  if (pair != null) return pair;
+
+  throw Exception('Unable to convert string ($value) to pair instance');
+}
+
 class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
   int _serverTimeDelta;
 
   Timestamp _ratesUpdatedAt;
-
-  BinanceRepository();
-
-  Future<PortfolioAccountResume> getAccountPortfolioResume({BinanceAccount account}) async {
-    //TODO: adicionar validacao e nao atualizar rates se a ultima atualizacao foi recente
-    updateRates();
-
-    final capitals = await getCapitalConfigGetAll(account: account);
-
-    if (capitals == null) {
-      //TODO: log error
-      return null;
-    }
-
-    // <Coin, PortfolioWalletCoin>
-    // var coins = capitals.asMap().map((_, capital) {
-    var coins = capitals.map((capital) {
-      final portfolioCoinAmount = [
-        E.toDouble(capital.free),
-        E.toDouble(capital.freeze),
-        E.toDouble(capital.ipoable),
-        E.toDouble(capital.ipoing),
-        E.toDouble(capital.locked),
-        E.toDouble(capital.storage),
-        E.toDouble(capital.withdrawing),
-      ].fold(0.0, (a, b) => a + b);
-
-      if (portfolioCoinAmount <= 0.0) {
-        return null;
-      }
-
-      final coin = capital.leCoin;
-      final portfolioCoin = PortfolioAccountResumeAsset()
-        ..coin = coin
-        ..amount = portfolioCoinAmount
-        ..btcRate = app().rates.getRateFromTo(coin, Coins.$BTC, amount: portfolioCoinAmount)
-        ..usdRate = app().rates.getRateFromTo(coin, Coins.$USD, amount: portfolioCoinAmount);
-
-      return portfolioCoin;
-    }).toList();
-
-    coins
-      ..removeWhere((value) => value == null || value.amount <= 0.0)
-      ..sort((a, b) => a.usdRate < b.usdRate ? 1 : -1);
-
-    return PortfolioAccountResume()
-      ..account = account
-      ..coins = coins;
-  }
 
   //region DIO
 
@@ -166,6 +129,7 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
   Future<BinanceExchangeInformation> getExchangeInfo() async {
     try {
       final response = await _doGet<Map<String, dynamic>>("$BINANCE_API_URL/api/v3/exchangeInfo");
+
       if (response.statusCode != 200) throw HttpException("Api Error", uri: response.request.uri);
 
       return BinanceExchangeInformation.fromJson(response.data);
@@ -212,6 +176,52 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
     return null;
   }
 
+  /// My Trades
+  Future<List<BinanceTrade>> getMyTrades({BinanceAccount account, Pair pair}) async {
+    try {
+      final response = await _doGet<List>(
+        "$BINANCE_API_URL/api/v3/myTrades",
+        account: account,
+        queryParameters: {
+          "symbol": _convertPairToString(pair),
+          "timestamp": await _timestampNormalized,
+        },
+      );
+
+      if (response.statusCode != 200) throw HttpException("Api Error", uri: response.request.uri);
+
+      return response.data.map<BinanceTrade>((ticker) => BinanceTrade.fromJson(ticker)).toList();
+    } catch (e) {
+      print("err: getMyTrades");
+      print(e);
+    }
+
+    return null;
+  }
+
+  /// All Orders
+  Future<List<BinanceOrder>> getAllOrders({BinanceAccount account, Pair pair}) async {
+    try {
+      final response = await _doGet<List>(
+        "$BINANCE_API_URL/api/v3/allOrders",
+        account: account,
+        queryParameters: {
+          "symbol": _convertPairToString(pair),
+          "timestamp": await _timestampNormalized,
+        },
+      );
+
+      if (response.statusCode != 200) throw HttpException("Api Error", uri: response.request.uri);
+
+      return response.data.map<BinanceOrder>((order) => BinanceOrder.fromJson(order)).toList();
+    } catch (e) {
+      print("err: getAllOrders");
+      print(e);
+    }
+
+    return null;
+  }
+
   Future<void> updateRates() async {
     final tickers = await getTickerPrice();
     if (tickers == null) {
@@ -238,7 +248,7 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
     return pair.base.symbol + pair.quote.symbol;
   }
 
-  Future<PortfolioAccountResume> getAccountPortfolio({BinanceAccount account}) async {
+  Future<PortfolioAccountResume> getAccountPortfolioResume({BinanceAccount account}) async {
     //TODO: adicionar validacao e nao atualizar rates se a ultima atualizacao foi recente
     updateRates();
 
@@ -283,5 +293,35 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
     return PortfolioAccountResume()
       ..account = account
       ..coins = coins;
+  }
+
+  @override
+  Future<PortfolioAccountOrdersResume> getAccountOrderHistoryResume({BinanceAccount account}) async {
+    //TODO: these pairs should be configured on BinanceAccount settings
+    final pairs = [
+      Pairs.$BTC_USDT,
+      // Pairs.$BTC_USDC,
+      Pairs.$ETH_USDT,
+      // Pairs.$ETH_USDC,
+    ];
+    final ordersByPair = await Future.wait(pairs.map((pair) => getAllOrders(account: account, pair: pair)));
+
+    return new PortfolioAccountOrdersResume()
+      ..account = account
+      ..orders = [
+        for (final orders in ordersByPair)
+          for (final order in orders)
+            PortfolioAccountOrderResume()
+              ..pair = _convertStringToPair(order.symbol)
+              ..type = order.type
+              ..status = order.status
+              ..filled = order.origQty == order.executedQty
+              ..quantity = order.origQty
+              ..executedQuantity = order.executedQty
+              ..priceLimit = order.stopPrice
+              ..priceAvg = order.executedQty
+              ..createdAt = DateTime.fromMillisecondsSinceEpoch(order.time)
+              ..updatedAt = DateTime.fromMillisecondsSinceEpoch(order.time),
+      ];
   }
 }

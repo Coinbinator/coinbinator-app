@@ -3,10 +3,10 @@ import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
+import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/watching/_watch_list_view.dart';
-import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:provider/provider.dart';
 
 import '_add_watch_dialog.dart';
@@ -112,10 +112,11 @@ class WatchingPageState extends State<WatchingPage> {
       },
       child: Scaffold(
         drawer: DefaultDrawer(),
-        appBar: AppBar(
-          leading: _appBarLeading(),
-          title: _appBarTitle(),
+        appBar: defaultAppBar(
+          icon: Icons.widgets,
+          title: " Watching",
           actions: _appBarActions(),
+          working: false,
         ),
         body: WatchListView(),
         floatingActionButton: _floatingActionButton(),
@@ -133,24 +134,6 @@ class WatchingPageState extends State<WatchingPage> {
     }
 
     return null;
-  }
-
-  Widget _appBarTitle() {
-    if (selectingTickerWatches()) {
-      return null;
-    }
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(Icons.widgets),
-        Text(
-          " Watching",
-          style: LeColors.t22b,
-        ),
-      ],
-    );
   }
 
   List<Widget> _appBarActions() {

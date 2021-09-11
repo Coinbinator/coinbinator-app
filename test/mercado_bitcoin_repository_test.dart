@@ -17,12 +17,15 @@ void main() {
     await tester.runAsync(() async {
       await _init();
       final account = await app().getAccountById(2);
-      final trades = await instance<MercadoBitcoinRepository>().getAccountTrades(account: account);
+      final ordersResume = await instance<MercadoBitcoinRepository>().getAccountOrderHistoryResume(account: account);
 
-      print(trades.responseData.orders);
+      print(ordersResume.orders);
       // expect(exchangeInfo, isA<BinanceExchangeInformation>());
     });
   });
+
+
+
   //
   // testWidgets('test getTickerPrice', (WidgetTester tester) async {
   //   await tester.runAsync(() async {

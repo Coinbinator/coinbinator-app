@@ -25,7 +25,7 @@ class _RouteInfo {
 
 const _routesInfos = [
   _RouteInfo(routeName: ROUTE_WATCHING, label: "Watching", icon: Icon(Icons.widgets)),
-  _RouteInfo(routeName: null, label: "Alerts", icon: Icon(Icons.access_alarm)),
+  _RouteInfo(routeName: ROUTE_ALERTS, label: "Alerts", icon: Icon(Icons.access_alarm)),
   _RouteInfo(routeName: ROUTE_PORTFOLIO, label: "My Portfolios", icon: Icon(Icons.account_balance_wallet)),
 ];
 

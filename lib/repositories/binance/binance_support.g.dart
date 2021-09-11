@@ -172,3 +172,82 @@ Map<String, dynamic> _$BinanceCapitalConfigToJson(
       'trading': instance.trading,
       'networkList': instance.networkList,
     };
+
+BinanceTrade _$BinanceTradeFromJson(Map<String, dynamic> json) {
+  return BinanceTrade()
+    ..symbol = json['symbol'] as String
+    ..id = json['id']
+    ..orderId = json['orderId']
+    ..orderListId = json['orderListId']
+    ..price = double.tryParse(json['price'] as String)
+    ..qty = double.tryParse(json['qty'] as String)
+    ..quoteQty = double.tryParse(json['quoteQty'] as String)
+    ..commission = double.tryParse(json['commission'] as String)
+    ..commissionAsset = json['commissionAsset']
+    ..time = json['time'] as int
+    ..isBuyer = booleanFromJson(json['isBuyer'])
+    ..isMaker = booleanFromJson(json['isMaker'])
+    ..isBestMatch = booleanFromJson(json['isBestMatch']);
+}
+
+Map<String, dynamic> _$BinanceTradeToJson(BinanceTrade instance) =>
+    <String, dynamic>{
+      'symbol': instance.symbol,
+      'id': instance.id,
+      'orderId': instance.orderId,
+      'orderListId': instance.orderListId,
+      'price': instance.price,
+      'qty': instance.qty,
+      'quoteQty': instance.quoteQty,
+      'commission': instance.commission,
+      'commissionAsset': instance.commissionAsset,
+      'time': instance.time,
+      'isBuyer': instance.isBuyer,
+      'isMaker': instance.isMaker,
+      'isBestMatch': instance.isBestMatch,
+    };
+
+BinanceOrder _$BinanceOrderFromJson(Map<String, dynamic> json) {
+  return BinanceOrder()
+    ..symbol = json['symbol']
+    ..orderId = json['orderId'] as int
+    ..orderListId = json['orderListId'] as int
+    ..clientOrderId = json['clientOrderId']
+    ..price = double.tryParse(json['price'] as String)
+    ..origQty = double.tryParse(json['origQty'] as String)
+    ..executedQty = double.tryParse(json['executedQty'] as String)
+    ..cummulativeQuoteQty =
+        double.tryParse(json['cummulativeQuoteQty'] as String)
+    ..status = json['status'] as String
+    ..timeInForce = json['timeInForce'] as String
+    ..type = json['type'] as String
+    ..side = json['side'] as String
+    ..stopPrice = double.tryParse(json['stopPrice'] as String)
+    ..icebergQty = double.tryParse(json['icebergQty'] as String)
+    ..time = json['time'] as int
+    ..updateTime = json['updateTime'] as int
+    ..isWorking = json['isWorking'] as bool
+    ..origQuoteOrderQty = double.tryParse(json['origQuoteOrderQty'] as String);
+}
+
+Map<String, dynamic> _$BinanceOrderToJson(BinanceOrder instance) =>
+    <String, dynamic>{
+      'symbol': instance.symbol,
+      'orderId': instance.orderId,
+      'orderListId': instance.orderListId,
+      'clientOrderId': instance.clientOrderId,
+      'price': instance.price,
+      'origQty': instance.origQty,
+      'executedQty': instance.executedQty,
+      'cummulativeQuoteQty': instance.cummulativeQuoteQty,
+      'status': instance.status,
+      'timeInForce': instance.timeInForce,
+      'type': instance.type,
+      'side': instance.side,
+      'stopPrice': instance.stopPrice,
+      'icebergQty': instance.icebergQty,
+      'time': instance.time,
+      'updateTime': instance.updateTime,
+      'isWorking': instance.isWorking,
+      'origQuoteOrderQty': instance.origQuoteOrderQty,
+    };

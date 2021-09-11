@@ -42,6 +42,8 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                 //     " accounts: ${portfolioModel.portfolioResumes.length}"
                 //     ""),
                 _buildPortfolioHoldingsResume(),
+
+                ///
                 Table(
                   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
                   columnWidths: {
@@ -55,6 +57,14 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                     for (final coin in model.portfolioResume.coins) ...[_buildPortfolioTableRow(context, coin)]
                   ],
                 ),
+
+                /// Orders
+                // Table(
+                //   children: [
+                //     for (final order in model.orders) ...[_buildPortfolioTableRow(context, coin)]
+                //       TableRow()
+                //   ],
+                // ),
               ],
             ),
           ),

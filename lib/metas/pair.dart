@@ -55,6 +55,6 @@ Pair _getPair(String value) {
 }
 
 List<Pair> _getAll() {
-  //TODO: garantir uma lista unica para nao precisar desse filtro ( deve melhorar performance )
+  //TODO: garantir uma lista de pares unicos para nao precisar desse filtro ( deve melhorar performance )
   return Pairs._pairs.values.toSet().toList();
 }

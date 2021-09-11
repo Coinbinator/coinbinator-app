@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
 
 class PortfolioPage extends StatefulWidget {
   PortfolioPage({Key key}) : super(key: key);
@@ -25,7 +25,9 @@ class PortfolioPageState extends State<PortfolioPage> {
       },
       child: Scaffold(
         drawer: DefaultDrawer(),
-        appBar: portfolioAppBar(
+        appBar: defaultAppBar(
+          icon: Icons.account_balance_wallet,
+          title: " My Portfolios",
           working: false,
           actions: [],
         ),

@@ -108,11 +108,11 @@ class MercadoBitcoinListOrdersOrder {
   @JsonKey(name: 'fee')
   dynamic fee;
 
-  @JsonKey(name: 'created_timestamp')
-  dynamic createdTimestamp;
+  @JsonKey(name: 'created_timestamp', fromJson: int.tryParse)
+  int createdTimestamp;
 
-  @JsonKey(name: 'updated_timestamp')
-  dynamic updatedTimestamp;
+  @JsonKey(name: 'updated_timestamp', fromJson: int.tryParse)
+  int updatedTimestamp;
 
   @JsonKey(name: 'operations')
   dynamic operations;

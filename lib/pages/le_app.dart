@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/models/app_model.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/alerts/alerts_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
 import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
@@ -36,6 +37,7 @@ class LeApp extends StatelessWidget {
                       ],
                       builder: (context, child) => WatchingPage(),
                     ),
+                ROUTE_ALERTS: (context) => AlertsPage(),
                 ROUTE_PORTFOLIO: (context) => PortfolioPage(),
                 // ROUTE_PORTFOLIO_DETAILS: (context) => PortfolioDetailsPage(),
                 ROUTE_SETTINGS: (context) => SettingsPage(),

@@ -133,8 +133,8 @@ MercadoBitcoinListOrdersOrder _$MercadoBitcoinListOrdersOrderFromJson(
     ..executedQuantity = json['executed_quantity']
     ..executedPriceAvg = json['executed_price_avg']
     ..fee = json['fee']
-    ..createdTimestamp = json['created_timestamp']
-    ..updatedTimestamp = json['updated_timestamp']
+    ..createdTimestamp = int.tryParse(json['created_timestamp'] as String)
+    ..updatedTimestamp = int.tryParse(json['updated_timestamp'] as String)
     ..operations = json['operations'];
 }
 

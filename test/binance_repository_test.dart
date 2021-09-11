@@ -43,4 +43,15 @@ void main() {
       expect(tickerPrices, isA<List<BinanceCapitalConfig>>());
     });
   });
+
+  testWidgets('test getAccountOrderHistoryResume', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      await _init();
+      final account = await app().getAccountById(1);
+      final ordersResume = await instance<BinanceRepository>().getAccountOrderHistoryResume(account: account);
+
+      print(ordersResume.orders);
+      // expect(exchangeInfo, isA<BinanceExchangeInformation>());
+    });
+  });
 }
