@@ -1,85 +1,100 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
+import 'package:le_crypto_alerts/support/e.dart';
+import 'package:provider/provider.dart';
 
-class AlertsCreatePage extends StatefulWidget {
-  AlertsCreatePage({Key key}) : super(key: key);
 
-  @override
-  AlertsCreatePageState createState() => AlertsCreatePageState();
-}
-
-class AlertsCreatePageState extends State<AlertsCreatePage> {
+class AlertsCreatePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Column(children: [
-          Text("When symbol:"),
-          Row(children: [
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline1), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline2), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline3), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline4), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline5), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline6), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.subtitle1), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.subtitle2), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.bodyText1), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.bodyText2), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.caption), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.button), onPressed: () => null),
-            // OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.overline), onPressed: () => null),
-
-            ///
-            OutlinedButton(child: Text("BTC", style: Theme.of(context).textTheme.headline5), onPressed: () => null),
-            OutlinedButton(child: Text("ETH", style: Theme.of(context).textTheme.headline5), onPressed: () => null),
-            OutlinedButton(child: Text("XRP", style: Theme.of(context).textTheme.headline5), onPressed: () => null),
-            OutlinedButton(
-              child: Icon(Icons.search),
-              style: ButtonStyle(
-                textStyle: MaterialStateProperty.resolveWith<TextStyle>((states) => Theme.of(context).textTheme.headline1),
-              ),
-              onPressed: () => null,
-            ),
-          ]),
-          Text("BTC"),
-        ]),
-        Column(children: [
-          Text("Reaches:"),
-          TextField(),
-          Row(children: [
-            Text("Current price:"),
-            Text("\$ 40,000.00"),
-
-            ///
-            OutlinedButton(
-              onPressed: () => null,
-              child: Text("-10%"),
-            ),
-            OutlinedButton(
-              onPressed: () => null,
-              child: Text("-1%"),
-            ),
-            OutlinedButton(
-              onPressed: () => null,
-              child: Text("0%"),
-            ),
-            OutlinedButton(
-              onPressed: () => null,
-              child: Text("+1%"),
-            ),
-            OutlinedButton(
-              onPressed: () => null,
-              child: Text("+10%"),
-            ),
-          ]),
-        ]),
-        Row(
-          children: [
-            ElevatedButton(child: Text("CANCEL"), onPressed: () => null),
-            ElevatedButton(child: Text("OK"), onPressed: () => null),
-          ],
-        )
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AlertsCreatePageModel>(
+            create: (context) => AlertsCreatePageModel()..init()),
       ],
+      builder: (context, child) {
+        final model = Provider.of<AlertsCreatePageModel>(context);
+
+        return ListView(
+          children: [
+            /// SYMBOL / PAIR
+            Column(children: [
+              Text("When:"),
+              ToggleButtons(
+                children: [
+                  for (final coin in model.commonCoins) ...[
+                    Text(coin.symbol,
+                        style: Theme.of(context).textTheme.headline5),
+                  ],
+                  Row(
+                    children: [
+                      if (model.userCoin != null) ...[
+                        Text("${model.userCoin.name} ",
+                            style: Theme.of(context).textTheme.headline5),
+                        Icon(Icons.change_history_rounded),
+                      ],
+                      if (model.userCoin == null) ...[
+                        Icon(Icons.search),
+                      ],
+                    ],
+                  )
+                ],
+                isSelected: [
+                  ...model.commonCoins.map((e) => e == model.selectedCoin),
+                  false,
+                ],
+                onPressed: (index) {
+                  if (index < model.commonCoins.length)
+                    return model
+                        .setSelectedCoin(model.commonCoins.elementAt(index));
+                },
+              ),
+              // Text("BTC"),
+            ]),
+
+            /// PRICE LIMIT
+            Column(children: [
+              Text("Current at:"),
+              Text("${E.currency(model.currentPrice)}"),
+
+              ///
+              Text("Reaches:"),
+
+              Text(
+                  "${E.currency(model.limitPrice)} ${E.percentageOf(model.limitPrice, model.currentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.currentPrice))}"),
+              // Text("${E.percentageOf(model.limitPrice, model.currentPrice)}"),
+
+              ToggleButtons(
+                children: [
+                  for (final priceLimitModifier in model.priceLimitModifiers)
+                    Text(E.percentage(
+                      priceLimitModifier,
+                      decimalDigits: 0,
+                      forcePositiveSign: priceLimitModifier != 0,
+                    )),
+                ],
+                isSelected:
+                    model.priceLimitModifiers.map((e) => false).toList(),
+                onPressed: (index) => model.applyPriceLimitModifier(
+                    model.priceLimitModifiers.elementAt(index)),
+              ),
+            ]),
+
+            /// COMMIT & CANCEL
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                    child: Text("CANCEL"),
+                    onPressed: () => model.cancelAlarm(context)),
+                TextButton(
+                    child: Text("OK"),
+                    onPressed: () => model.commitAlarm(context)),
+              ],
+            )
+          ],
+        );
+      },
     );
-  }
+  } 
 }

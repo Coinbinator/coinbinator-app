@@ -36,7 +36,7 @@ class BackgroundServiceManager {
 
     final accounts = await app().getAccounts();
     final watchingModel = WatchingPageModel();
-    await watchingModel.initialize();
+    await watchingModel.init();
 
     // print(watchingModel.watchingTickers);
 

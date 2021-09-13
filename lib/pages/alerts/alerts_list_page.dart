@@ -1,37 +1,51 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/pages/_common/default_custom_scroll_view.dart';
+import 'package:le_crypto_alerts/pages/alerts/alerts_list_page_model.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
+import 'package:le_crypto_alerts/support/e.dart';
+import 'package:provider/provider.dart';
 
-class AlertsListPage extends StatefulWidget {
+class AlertsListPage extends StatelessWidget {
   AlertsListPage({Key key}) : super(key: key);
 
   @override
-  AlertsListPageState createState() => AlertsListPageState();
-}
-
-class AlertsListPageState extends State<AlertsListPage> {
-  @override
   Widget build(BuildContext context) {
-    return defaultCustomScrollView(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AlertsListPageModel>(
+            create: (context) => AlertsListPageModel()..init()),
+      ],
+      builder: (context, child) {
+        final model = Provider.of<AlertsListPageModel>(context);
 
-        /// MENU
-        menuChildren: [
-          OutlinedButton(
-            onPressed: () => Navigator.of(context).pushNamed(ROUTE_ALERTS_CREATE),
-            child: Text("new alert"),
-          ),
-        ],
+        return defaultCustomScrollView(
+            /// MENU
+            menuChildren: [
+              OutlinedButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(ROUTE_ALERTS_CREATE),
+                child: Text("new alert 2"),
+              ),
+            ],
 
-        /// LIST
-        slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate([
-              // for (final tickerWatch in model.watchingTickers) ...[
-              //   buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
-            ]),
-          ),
-        ]);
+            /// LIST
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  for (final alert in model.alerts) ...[
+                    Text("when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                  ],
+                  //   buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
+                ]),
+              ),
+            ]);
+      },
+    );
   }
 
   WidgetBuilder _getNavigatorRouteBuilder(RouteSettings settings) {
@@ -65,7 +79,8 @@ class WatchListViewMenuDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       color: LeColors.white.shade50,
       child: Padding(

@@ -15,7 +15,8 @@ class LeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider<AppModel>(create: (context) => AppModel()..init()),
+          ChangeNotifierProvider<AppModel>(
+              create: (context) => AppModel()..init()),
         ],
         // child: HomePage(title: 'Le Crypto Alerts'),
         builder: (context, child) => MaterialApp(
@@ -31,12 +32,7 @@ class LeApp extends StatelessWidget {
               ],
               routes: {
                 // ROUTE_ROOT: (context) => HomePage(),
-                ROUTE_WATCHING: (context) => MultiProvider(
-                      providers: [
-                        ChangeNotifierProvider<WatchingPageModel>(create: (context) => WatchingPageModel()..initialize()),
-                      ],
-                      builder: (context, child) => WatchingPage(),
-                    ),
+                ROUTE_WATCHING: (context) => WatchingPage(),
                 ROUTE_ALERTS: (context) => AlertsPage(),
                 ROUTE_PORTFOLIO: (context) => PortfolioPage(),
                 // ROUTE_PORTFOLIO_DETAILS: (context) => PortfolioDetailsPage(),

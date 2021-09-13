@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
-import 'package:le_crypto_alerts/database/persistence.dart';
+import 'package:le_crypto_alerts/database/app_database.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
@@ -12,6 +12,7 @@ import 'package:le_crypto_alerts/metas/tickers.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
+import 'package:le_crypto_alerts/repositories/app/_alerts_app_context.dart';
 import 'package:le_crypto_alerts/repositories/background_service/background_service_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
@@ -30,7 +31,7 @@ T instance<T>() {
   return _AppRepository._instance._singletons[T];
 }
 
-class _AppRepository {
+class _AppRepository with AlertsAppContext {
   static final _instance = _AppRepository();
 
   bool _configLoaded = false;

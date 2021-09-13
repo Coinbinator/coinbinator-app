@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:le_crypto_alerts/database/persistence.dart';
+import 'package:le_crypto_alerts/database/app_database.dart';
 
 void main() {
   testWidgets('tests floor app dao', (WidgetTester tester) async {

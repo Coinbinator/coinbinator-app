@@ -17,37 +17,33 @@ Future askConfirmation(
   Widget content,
 }) async {
   // set up the buttons
-  Widget cancelButton = FlatButton(
-    child: Text("Cancel"),
-    onPressed: () => Navigator.pop(context, false),
-  );
-  Widget continueButton = FlatButton(
-    child: Text("Continue"),
-    onPressed: () => Navigator.pop(context, true),
-  );
 
-  if (title == null) {
-    title = Text("Confirm");
-  }
-
-  if (content == null) {
-    content = Text("R U SURE?");
-  }
+  if (title == null) title = Text("Confirm");
+  if (content == null) content = Text("R U SURE?");
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: title,
     content: content,
     actions: [
-      cancelButton,
-      continueButton,
+      TextButton(
+        child: Text("CANCEL"),
+        onPressed: () => Navigator.pop(context, false),
+      ),
+      TextButton(
+        child: Text("OK"),
+        onPressed: () => Navigator.pop(context, true),
+      ),
     ],
   );
+
   // show the dialog
-  return await showDialog(
+  final result = await showDialog(
     context: context,
     builder: (BuildContext context) {
       return alert;
     },
   );
+
+  return result == null ? false : result;
 }

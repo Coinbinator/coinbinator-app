@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/desktop_background_service_bridge.dart';
@@ -43,9 +44,12 @@ class BackgroundServiceRepository {
 
     for (final ticker in message.tickers) {
       final staticTicker = app().tickers.getTicker(ticker.exchange, ticker.pair, register: true);
-      if (staticTicker.price == ticker.price) continue;
+      
+      if( staticTicker.pair.eq(Pairs.$BTC_USDT))
+        print("$ticker ${(staticTicker.price - ticker.price)} ==> ${staticTicker.price}");
 
-      print("$ticker ${(staticTicker.price - ticker.price)}");
+      if (staticTicker.price == ticker.price) continue;
+      
 
       staticTicker.price = ticker.price;
       staticTicker.date = ticker.date;
