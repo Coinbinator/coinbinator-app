@@ -3,8 +3,7 @@ import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
-
-class AlertsCreatePage extends StatelessWidget{
+class AlertsCreatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -15,8 +14,13 @@ class AlertsCreatePage extends StatelessWidget{
       builder: (context, child) {
         final model = Provider.of<AlertsCreatePageModel>(context);
 
-        return ListView(
+        return SimpleDialog(
+          // semanticContainer: true,
+
           children: [
+            // ListView(
+            // shrinkWrap: true,
+            // children: [
             /// SYMBOL / PAIR
             Column(children: [
               Text("When:"),
@@ -93,8 +97,10 @@ class AlertsCreatePage extends StatelessWidget{
               ],
             )
           ],
+          // ),
+          // ],
         );
       },
     );
-  } 
+  }
 }

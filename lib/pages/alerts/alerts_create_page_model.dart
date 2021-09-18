@@ -77,10 +77,10 @@ class AlertsCreatePageModel extends ChangeNotifier {
       limitPrice: limitPrice,
     ));
 
-    Navigator.of(context).pushReplacementNamed(ROUTE_ALERTS);
+    Navigator.of(context).pop();
   }
 
   cancelAlarm(BuildContext context) {
-    Navigator.of(context).pushReplacementNamed(ROUTE_ALERTS);
+    Navigator.of(context).pop();
   }
 }

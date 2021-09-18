@@ -23,7 +23,7 @@ const String ROUTE_ALERTS = '/alerts';
 const String ROUTE_ALERTS_CREATE = '/alerts/new';
 
 ///
-const String ROUTE_ALERTS_EDIT = '/alerts/edit';
+const String ROUTE_ALERTS_EDIT = '/root/alerts/edit';
 
 ///
 const String ROUTE_SETTINGS = '/settings';

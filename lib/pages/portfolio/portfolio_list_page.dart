@@ -25,7 +25,8 @@ class PortfolioListPageState extends State<PortfolioListPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioListModel>(create: (context) => new PortfolioListModel()..init()),
+        ChangeNotifierProvider<PortfolioListModel>(
+            create: (context) => new PortfolioListModel()..init()),
       ],
       builder: (context, child) {
         final model = Provider.of<PortfolioListModel>(context);
@@ -52,7 +53,19 @@ class PortfolioListPageState extends State<PortfolioListPage> {
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: [
                     _buildPortfolioTableHeader(),
-                    for (final portfolio in model.portfolioResumes) ...[_buildPortfolioTableRow(portfolio)]
+                    for (final portfolio in model.portfolioResumes) ...[
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                      _buildPortfolioTableRow(portfolio),
+                    ]
                   ],
                 ),
               ],
@@ -65,7 +78,9 @@ class PortfolioListPageState extends State<PortfolioListPage> {
 
   Widget _buildPortfolioHoldingsResume(BuildContext context) {
     final model = Provider.of<PortfolioListModel>(context);
-    final double holdingsTotalAmount = model.portfolioResumes.isEmpty ? 0 : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
+    final double holdingsTotalAmount = model.portfolioResumes.isEmpty
+        ? 0
+        : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
     return Card(
       color: LeColors.white.shade50,
@@ -77,7 +92,8 @@ class PortfolioListPageState extends State<PortfolioListPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('My holdings'),
-            SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
+            SelectableText('${E.currency(holdingsTotalAmount)}',
+                maxLines: 1, style: LeColors.t26b),
           ],
         ),
       ),
@@ -133,7 +149,8 @@ class PortfolioListPageState extends State<PortfolioListPage> {
         padding: const EdgeInsets.fromLTRB(22, 8, 0, 8),
         child: Align(
           alignment: Alignment.centerRight,
-          child: SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t22b),
+          child: SelectableText(E.currency(portfolio.totalUsd),
+              maxLines: 1, style: LeColors.t22b),
         ),
       ),
 
@@ -142,7 +159,9 @@ class PortfolioListPageState extends State<PortfolioListPage> {
         padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
         child: IconButton(
           icon: Icon(Icons.chevron_right),
-          onPressed: () => Navigator.of(context).pushNamed(ROUTE_PORTFOLIO_DETAILS, arguments: PortfolioDetailsRouteArguments(portfolio.account.id)),
+          onPressed: () => Navigator.of(context).pushNamed(
+              ROUTE_PORTFOLIO_DETAILS,
+              arguments: PortfolioDetailsRouteArguments(portfolio.account.id)),
         ),
       ),
     ]);

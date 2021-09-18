@@ -28,6 +28,9 @@ class WatchListView extends StatelessWidget {
         SliverList(
             delegate: SliverChildListDelegate([
           for (final tickerWatch in model.watchingTickers) ...[
+            // TextButton(
+            //     onPressed: () => Navigator.of(context).pop(),
+            //     child: Text("asd")),
             buildListItem(context, tickerWatch,
                 app().tickers.getTickerFromTickerWatch(tickerWatch)),
           ],

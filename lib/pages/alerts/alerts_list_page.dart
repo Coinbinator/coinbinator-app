@@ -1,18 +1,16 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_custom_scroll_view.dart';
+import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page_model.dart';
-import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
 class AlertsListPage extends StatelessWidget {
-  AlertsListPage({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -23,46 +21,57 @@ class AlertsListPage extends StatelessWidget {
       builder: (context, child) {
         final model = Provider.of<AlertsListPageModel>(context);
 
-        return defaultCustomScrollView(
-            /// MENU
-            menuChildren: [
-              OutlinedButton(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(ROUTE_ALERTS_CREATE),
-                child: Text("new alert 2"),
-              ),
-            ],
+        return Scaffold(
+          drawer: DefaultDrawer(),
+          appBar: defaultAppBar(
+            icon: Icons.alarm,
+            title: " Alarms",
+            working: false,
+            actions: [],
+          ),
+          body: defaultCustomScrollView(
 
-            /// LIST
-            slivers: [
-              SliverList(
-                delegate: SliverChildListDelegate([
-                  for (final alert in model.alerts) ...[
-                    Text("when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
-                  ],
-                  //   buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
-                ]),
-              ),
-            ]);
+              /// MENU
+              menuChildren: [
+                OutlinedButton(
+                  onPressed: () =>
+                      Navigator.of(context).push(alertCreatePageRoute(context)),
+                  child: Text("new alert"),
+                ),
+              ],
+
+              /// LIST
+              slivers: [
+                SliverList(
+                  delegate: SliverChildListDelegate([
+                    for (final alert in model.alerts) ...[
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                      Text(
+                          "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),
+                    ],
+                    //   buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
+                  ]),
+                ),
+              ]),
+          bottomNavigationBar: DefaultBottomNavigationBar(),
+        );
       },
     );
-  }
-
-  WidgetBuilder _getNavigatorRouteBuilder(RouteSettings settings) {
-    // if (settings.name == ROUTE_ALERTS) {
-    //   return (BuildContext context) => PortfolioListPage();
-    // }
-    //
-    // if (settings.name == ROUTE_ALERTS_CREATE) {
-    //   // final args = settings.arguments as PortfolioDetailsRouteArguments;
-    //   //assert(args != null, 'missing portfolio details argument.');
-    //
-    //   return (BuildContext context) => PortfolioDetailsPage(
-    //       // accountId: args?.portfolioId,
-    //       );
-    // }
-
-    return (BuildContext context) => Container(child: Text(settings.name));
   }
 }
 
