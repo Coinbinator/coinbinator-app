@@ -37,7 +37,18 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
   double currentPrice = 0;
 
+  double get _currentPriceNotZero => currentPrice <= 0 ? 100 : currentPrice;
+
   double limitPrice = 0;
+
+  double get limitPriceVariation {
+    return limitPrice == 0 ? -1 : (limitPrice / _currentPriceNotZero - 1);
+  }
+
+  set limitPriceVariation(double value) {
+    limitPrice = _currentPriceNotZero + _currentPriceNotZero * value;
+    notifyListeners();
+  }
 
   init() async {
     setSelectedCoin(Coins.$BTC);
@@ -50,8 +61,8 @@ class AlertsCreatePageModel extends ChangeNotifier {
         .tickers
         .getTicker(Exchanges.Binance, Pairs.getPair(value.symbol + "USDT"));
 
-    this.currentPrice = ticker.price;
-    this.limitPrice = ticker.price;
+    currentPrice = ticker?.price ?? -1;
+    limitPrice = ticker?.price ?? _currentPriceNotZero;
 
     notifyListeners();
   }
@@ -64,9 +75,9 @@ class AlertsCreatePageModel extends ChangeNotifier {
     }
 
     // final basePrice = limitPrice != 0 ? limitPrice : currentPrice != 0 ? currentPrice : 100;
-    final basePrice = currentPrice != 0 ? currentPrice : 100;
+    //final basePrice = currentPrice != 0 ? currentPrice : 100;
 
-    limitPrice = max(0, limitPrice + (basePrice * value));
+    limitPrice = max(0, limitPrice + (_currentPriceNotZero * value));
     notifyListeners();
   }
 

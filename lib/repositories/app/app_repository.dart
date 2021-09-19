@@ -25,11 +25,7 @@ _AppRepository app() {
   return _AppRepository._instance;
 }
 
-T instance<T>() {
-  if (T is PortfolioListModel) throw Exception("deprecated models em singleton");
-
-  return _AppRepository._instance._singletons[T];
-}
+T instance<T>() => _AppRepository._instance._singletons[T];
 
 class _AppRepository with AlertsAppContext {
   static final _instance = _AppRepository();
@@ -65,8 +61,16 @@ class _AppRepository with AlertsAppContext {
     });
   }
 
+  T instance<T>() {
+    if (T is PortfolioListModel)
+      throw Exception("deprecated models em singleton");
+
+    return _singletons[T];
+  }
+
   Future<void> loadConfig() async {
     if (_configLoaded) return;
+    _configLoaded = true;
 
     _persistence = await AppDatabase.build();
 
@@ -78,11 +82,10 @@ class _AppRepository with AlertsAppContext {
     assert(config.test_binance_api_secret != null);
 
     config.test_mercado_bitcoin_tapi_id = env[TEST_MERCADO_BITCOIN_TAPI_ID];
-    config.test_mercado_bitcoin_tapi_secret = env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
+    config.test_mercado_bitcoin_tapi_secret =
+        env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
     assert(config.test_mercado_bitcoin_tapi_id != null);
     assert(config.test_mercado_bitcoin_tapi_secret != null);
-
-    _configLoaded = true;
   }
 
   Future<List<AbstractExchangeAccount>> getAccounts() async {
@@ -102,16 +105,20 @@ class _AppRepository with AlertsAppContext {
 
   Future<AbstractExchangeAccount> getAccountById(int accountId) async {
     final accounts = await getAccounts();
-    return accounts.firstWhere((account) => account.id == accountId, orElse: () => null);
+    return accounts.firstWhere((account) => account.id == accountId,
+        orElse: () => null);
   }
 
-  Future<PortfolioAccountResume> getAccountPortfolioResume(AbstractExchangeAccount account) async {
+  Future<PortfolioAccountResume> getAccountPortfolioResume(
+      AbstractExchangeAccount account) async {
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
     if (account is BinanceAccount) {
-      return instance<BinanceRepository>().getAccountPortfolioResume(account: account);
+      return instance<BinanceRepository>()
+          .getAccountPortfolioResume(account: account);
     }
     if (account is MercadoBitcoinAccount) {
-      return instance<MercadoBitcoinRepository>().getAccountPortfolioResume(account: account);
+      return instance<MercadoBitcoinRepository>()
+          .getAccountPortfolioResume(account: account);
     }
     throw Exception("tipo de conta desconhecido");
   }

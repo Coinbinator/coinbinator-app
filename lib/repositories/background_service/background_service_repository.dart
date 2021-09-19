@@ -45,12 +45,11 @@ class BackgroundServiceRepository {
     for (final ticker in message.tickers) {
       final staticTicker = app().tickers.getTicker(ticker.exchange, ticker.pair, register: true);
       
-      if( staticTicker.pair.eq(Pairs.$BTC_USDT))
-        print("$ticker ${(staticTicker.price - ticker.price)} ==> ${staticTicker.price}");
+      // if( staticTicker.pair.eq(Pairs.$BTC_USDT))
+      //   print("$ticker ${(staticTicker.price - ticker.price)} ==> ${staticTicker.price}");
 
       if (staticTicker.price == ticker.price) continue;
       
-
       staticTicker.price = ticker.price;
       staticTicker.date = ticker.date;
 

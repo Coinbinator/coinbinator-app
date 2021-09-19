@@ -93,8 +93,19 @@ class LeApp extends StatelessWidget with RouteAware {
     }
 
     /// PORTIFOLIO :: LIST
-    if (ROUTE_PORTFOLIO == settings.name)
-      return MaterialPageRoute(builder: (_) => PortfolioPage());
+    if (ROUTE_PORTFOLIO == settings.name) {
+      return MaterialPageRoute(
+          builder: (_) =>
+              Stack(fit: StackFit.expand, clipBehavior: Clip.none, children: [
+                PortfolioPage(),
+                Opacity(
+                    opacity: .0,
+                    child: IgnorePointer(
+                        child: Image(
+                            image:
+                                AssetImage('assets/refs/screenshot_1.png')))),
+              ]));
+    }
 
     /// UNKNOW
     return MaterialPageRoute(builder: (_) => Container());

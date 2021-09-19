@@ -14,4 +14,16 @@ class _MockAlarmingRepository extends AlarmingRepository {
     bool wakeup = false,
     bool rescheduleOnReboot = false,
   }) async {}
+
+  @override
+  Future<void> oneShot(
+    Duration delay,
+    int id,
+    Function callback, {
+    bool alarmClock = false,
+    bool allowWhileIdle = false,
+    bool exact = false,
+    bool wakeup = false,
+    bool rescheduleOnReboot = false,
+  }) async {}
 }

@@ -3,12 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
+import 'package:provider/provider.dart';
 
-class PortfolioDetailsModel extends ChangeNotifier {
+class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
+  final BuildContext context;
+
   final int accountId;
-
-  bool initialized = false;
 
   bool working = false;
 
@@ -20,15 +23,17 @@ class PortfolioDetailsModel extends ChangeNotifier {
 
   PortfolioAccountResume portfolioResume;
 
-  PortfolioDetailsModel(this.accountId);
+  PortfolioDetailsModel(this.context, this.accountId);
 
   Future<void> init() async {
-    if (initialized) return;
+    if (status != ModelStatus.UNINITIALIZED) return;
+    status = ModelStatus.INITIALIZING;
 
     await reloadAccounts();
     await updatePortfolios();
 
-    initialized = true;
+    status = ModelStatus.INITIALIZED;
+    notifyListeners();
   }
 
   Future<void> reloadAccounts() async {
@@ -37,6 +42,7 @@ class PortfolioDetailsModel extends ChangeNotifier {
   }
 
   Future<void> updatePortfolios() async {
+    final busyToken = context.read<PortfolioModel>().busyToken();
     updatingPortfolios = true;
     notifyListeners();
 
@@ -47,6 +53,7 @@ class PortfolioDetailsModel extends ChangeNotifier {
     // portfolioTransactions =
     await app().getAccountPortfolioTransactions(account);
 
+    busyToken.release();
     notifyListeners();
   }
 }

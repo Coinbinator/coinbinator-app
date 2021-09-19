@@ -4,6 +4,8 @@ import 'package:le_crypto_alerts/metas/ticker.dart';
 part 'messages.g.dart';
 
 class MessageTypes {
+  static const String PING = 'ping';
+  static const String PONG = 'pong';
   static const String TICKER = "TICKER";
   static const String TICKERS = "TICKERS";
 }

@@ -16,6 +16,55 @@ class _AndroidAlarmingRepository extends AlarmingRepository {
     bool wakeup = false,
     bool rescheduleOnReboot = false,
   }) async {
-    return AndroidAlarmManager.periodic(duration, id, callback, startAt: startAt, wakeup: wakeup, rescheduleOnReboot: rescheduleOnReboot);
+    return AndroidAlarmManager.periodic(duration, id, callback,
+        startAt: startAt,
+        wakeup: wakeup,
+        rescheduleOnReboot: rescheduleOnReboot);
+  }
+
+  @override
+  Future<void> oneShot(
+    Duration delay,
+    int id,
+    Function callback, {
+    bool alarmClock = false,
+    bool allowWhileIdle = false,
+    bool exact = false,
+    bool wakeup = false,
+    bool rescheduleOnReboot = false,
+  }) async {
+    return AndroidAlarmManager.oneShot(
+      delay,
+      id,
+      callback,
+      alarmClock: alarmClock,
+      allowWhileIdle: allowWhileIdle,
+      exact: exact,
+      wakeup: wakeup,
+      rescheduleOnReboot: rescheduleOnReboot,
+    );
+  }
+
+  @override
+  Future<void> dqdwqdqw(
+    Duration delay,
+    int id,
+    Function callback, {
+    bool alarmClock = false,
+    bool allowWhileIdle = false,
+    bool exact = false,
+    bool wakeup = false,
+    bool rescheduleOnReboot = false,
+  }) async {
+    return AndroidAlarmManager.oneShot(
+      delay,
+      id,
+      callback,
+      alarmClock: alarmClock,
+      allowWhileIdle: allowWhileIdle,
+      exact: exact,
+      wakeup: wakeup,
+      rescheduleOnReboot: rescheduleOnReboot,
+    );
   }
 }

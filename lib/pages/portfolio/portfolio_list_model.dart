@@ -3,12 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:path/path.dart';
+import 'package:provider/provider.dart';
 
-class PortfolioListModel extends ChangeNotifier {
-  bool initialized = false;
-
-  bool working = false;
+class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
+  final BuildContext context;
 
   bool updatingPortfolios = false;
 
@@ -18,47 +21,48 @@ class PortfolioListModel extends ChangeNotifier {
 
   List<PortfolioAccountResume> portfolioResumes = [];
 
-  Map<int, bool> portfolioCardsOpened = {};
+  PortfolioListModel(this.context);
 
   Future<void> init() async {
-    if (initialized) return;
+    if (status != ModelStatus.UNINITIALIZED) return;
+    status = ModelStatus.INITIALIZING;
 
     await reloadAccounts();
     await updatePortfolios();
 
-    initialized = true;
+    status = ModelStatus.INITIALIZED;
   }
 
   Future<void> reloadAccounts() async {
+    final busyToken = context.read<PortfolioModel>().busyToken();
+
     accounts = await app().getAccounts();
+
+    busyToken.release();
     notifyListeners();
   }
 
   Future<void> updatePortfolios() async {
+    final busyToken = context
+        .read<PortfolioModel>()
+        .busyToken(messagee: "Updating Portifolios");
+
     updatingPortfolios = true;
     notifyListeners();
 
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    portfolioResumes = await Future.wait(accounts.map((account) {
-      return app().getAccountPortfolioResume(account);
-    }));
+    final portifolioResumesFutures =
+        accounts.map((account) => app().getAccountPortfolioResume(account));
+    portfolioResumes = await Future.wait(portifolioResumesFutures);
 
     updatedPortfoliosAt = DateTime.now();
     updatingPortfolios = false;
-
+    busyToken.release();
     notifyListeners();
   }
 
-  bool isCardOpened(int id) {
-    return portfolioCardsOpened[id] == true;
-  }
-
-  void toggleCardOpened(int id) {
-    portfolioCardsOpened[id] = !(portfolioCardsOpened[id] == true);
-    notifyListeners();
-  }
-
-  Future<void> refresh() async {
+  // ignore: non_constant_identifier_names
+  Future<void> refresh(BuildContext context) async {
     await updatePortfolios();
   }
 }

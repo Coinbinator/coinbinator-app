@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
 import 'package:le_crypto_alerts/support/e.dart';
@@ -81,6 +83,17 @@ class AlertsCreatePage extends StatelessWidget {
                     model.priceLimitModifiers.map((e) => false).toList(),
                 onPressed: (index) => model.applyPriceLimitModifier(
                     model.priceLimitModifiers.elementAt(index)),
+              ),
+
+              ///
+              ///
+              Slider(
+                value: max(min(model.limitPriceVariation, 1), -1),
+                min: (0.0 - 1.0),
+                max: (0.0 + 1.0),
+                onChanged: (value) {
+                  model.limitPriceVariation = value;
+                },
               ),
             ]),
 

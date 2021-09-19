@@ -1,12 +1,19 @@
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/exchange_meta.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 class BackgroundServiceManager {
   final BackgroundServiceBridge _bridge;
@@ -15,23 +22,29 @@ class BackgroundServiceManager {
 
   int _working = 0;
 
+  DateTime alertAlarmAt;
+
   BackgroundServiceManager(this._bridge) : super();
 
   start() async {
     Timer.periodic(Duration(seconds: 5), _tick);
+    Timer.periodic(Duration(seconds: 5), _checkAlerts);
   }
 
   _tick(Timer timer) async {
+    ///NOTE: managerm se bridge
     if (_bridge == null) {
       print("no bridge");
       return;
     }
 
+    ///NOTE: servico parou
     if (!(await _bridge.isServiceRunning())) {
       timer.cancel();
       return;
     }
 
+    ///
     _bridge.sendData({'type': 'ping'});
 
     final accounts = await app().getAccounts();
@@ -118,7 +131,9 @@ class BackgroundServiceManager {
 
       for (final exchangeTicker in exchangeTickers) {
         // print( exchangeTicker ); print( exchangeTicker.lePair);
-        final ticker = app().tickers.getTicker(Exchanges.Binance, exchangeTicker.lePair, register: true);
+        final ticker = app().tickers.getTicker(
+            Exchanges.Binance, exchangeTicker.lePair,
+            register: true);
 
         if (ticker == null) continue;
 
@@ -128,11 +143,62 @@ class BackgroundServiceManager {
         tickers.add(ticker);
       }
 
-      _bridge.sendData({"type": MessageTypes.TICKERS, "data": TickersMessage(tickers)});
+      _bridge.sendData(
+          {"type": MessageTypes.TICKERS, "data": TickersMessage(tickers)});
     } catch (e) {
       print("err:");
       print(e);
     }
+  }
+
+  Future<void> _checkAlerts(Timer timer) async {
+    final activeAlerts = <AlertEntity>[];
+
+    for (AlertEntity alert in await app().appDao.findAllAlerts()) {
+      final ticker = app().tickers.getTicker(
+          Exchanges.Binance, Pairs.getPair(alert.coin.symbol + 'USDT'));
+
+      if (ticker == null) continue;
+
+      print("checking $alert");
+
+      if (alert.referencePrice < alert.limitPrice &&
+          alert.limitPrice > ticker.price) {
+        activeAlerts.add(alert);
+        // print(
+        //     "  ${alert.coin} is active at ${alert.limitPrice} from ${ticker.price}");
+        // instance<AlarmingRepository>().oneShot(
+        //     Duration.zero, ALARM_ID_ALERT_ACTIVE, () => {},
+        //     alarmClock: true, wakeup: true);
+      }
+      if (alert.referencePrice > alert.limitPrice &&
+          alert.limitPrice < ticker.price) {
+        activeAlerts.add(alert);
+      }
+
+      // print(ticker);
+    }
+
+    if (activeAlerts.isNotEmpty) {
+      if (alertAlarmAt == null || DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
+        alertAlarmAt = DateTime.now();
+
+        // FlutterRingtonePlayer.play(
+        //   android: AndroidSounds.notification,
+        //   ios: IosSounds.glass,
+        //   looping: false, // Android only - API >= 28
+        //   volume: 0.1, // Android only - API >= 28
+        //   asAlarm: true, // Android only - all APIs
+        // );
+
+        asdadadadasda();
+        // instance<AlarmingRepository>().oneShot(
+        //     Duration(seconds: 2), ALARM_ID_ALERT_ACTIVE, asdadadadasda,
+        //     wakeup: true, exact: true, allowWhileIdle: true, alarmClock: true);
+      }
+    }
+
+    print("check alerts");
   }
 
   void _serviceOnDataReceived(Map<String, dynamic> event) async {
@@ -158,4 +224,11 @@ class BackgroundServiceManager {
     print(event);
     print('---');
   }
+}
+
+asdadadadasda() {
+  print(
+      " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
+  print(
+      "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
 }

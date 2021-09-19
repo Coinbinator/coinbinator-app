@@ -19,6 +19,17 @@ abstract class AlarmingRepository {
     bool rescheduleOnReboot = false,
   });
 
+  Future<void> oneShot(
+    Duration delay,
+    int id,
+    Function callback, {
+    bool alarmClock = false,
+    bool allowWhileIdle = false,
+    bool exact = false,
+    bool wakeup = false,
+    bool rescheduleOnReboot = false,
+  });
+
   static getPlatformRepositoryInstance() {
     /// Android
     if (Platform.isAndroid) return _AndroidAlarmingRepository();

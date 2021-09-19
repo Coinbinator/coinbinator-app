@@ -5,30 +5,25 @@ import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
-class PortfolioDetailsPage extends StatefulWidget {
+class PortfolioDetailsPage extends StatelessWidget {
   final int accountId;
 
   PortfolioDetailsPage({Key key, this.accountId}) : super(key: key);
 
   @override
-  PortfolioDetailsPageState createState() => PortfolioDetailsPageState();
-}
-
-class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
-  PortfolioDetailsModel model;
-
-  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => (model = PortfolioDetailsModel(widget.accountId))..init()),
+        ChangeNotifierProvider<PortfolioDetailsModel>(
+            create: (context) =>
+                PortfolioDetailsModel(context, accountId)..init()),
       ],
       builder: (context, child) {
-        Provider.of<PortfolioDetailsModel>(context);
+        final model = context.watch<PortfolioDetailsModel>();
 
-        if (!model.initialized) {
-          return Container();
-        }
+        // if (!model.initialized) {
+        //   return Container();
+        // }
 
         return RefreshIndicator(
           onRefresh: () => model.updatePortfolios(),
@@ -41,22 +36,32 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                 //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
                 //     " accounts: ${portfolioModel.portfolioResumes.length}"
                 //     ""),
-                _buildPortfolioHoldingsResume(),
+                _buildPortfolioHoldingsResume(context),
+
+                if (!model.initialized)
+                  ...[]
+                else if (model.portfolioResume == null ||
+                    model.portfolioResume.coins.isEmpty) ...[
+                  _buildEmptyPortfolio(context),
+                ] else ...[
+                  Table(
+                    // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
+                    columnWidths: {
+                      1: IntrinsicColumnWidth(),
+                      2: IntrinsicColumnWidth(),
+                      3: IntrinsicColumnWidth(),
+                    },
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                    children: [
+                      _buildPortfolioTableHeader(),
+                      for (final coin in model.portfolioResume.coins) ...[
+                        _buildPortfolioTableRow(context, coin)
+                      ]
+                    ],
+                  ),
+                ],
 
                 ///
-                Table(
-                  // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                  columnWidths: {
-                    1: IntrinsicColumnWidth(),
-                    2: IntrinsicColumnWidth(),
-                    3: IntrinsicColumnWidth(),
-                  },
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  children: [
-                    _buildPortfolioTableHeader(),
-                    for (final coin in model.portfolioResume.coins) ...[_buildPortfolioTableRow(context, coin)]
-                  ],
-                ),
 
                 /// Orders
                 // Table(
@@ -73,8 +78,14 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
     );
   }
 
-  Widget _buildPortfolioHoldingsResume() {
-    final double holdingsTotalAmount = model.portfolioResume.totalUsd;
+  Widget _buildPortfolioHoldingsResume(BuildContext context) {
+    final model = context.watch<PortfolioDetailsModel>();
+
+    final holdingsTotalAmount =
+        model.portfolioResume == null ? 0 : model.portfolioResume.totalUsd;
+
+    final displayName =
+        model.portfolioResume == null ? "" : model.portfolioResume.displayName;
 
     return Card(
       color: LeColors.white.shade50,
@@ -88,8 +99,9 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('My Portfolios / "${model.portfolioResume.displayName}"'),
-                SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
+                Text('My Portfolios / "$displayName"'),
+                SelectableText('${E.currency(holdingsTotalAmount)}',
+                    maxLines: 1, style: LeColors.t26b),
               ],
             ),
             IconButton(
@@ -125,7 +137,8 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
     ]);
   }
 
-  TableRow _buildPortfolioTableRow(BuildContext context, PortfolioAccountResumeAsset coin) {
+  TableRow _buildPortfolioTableRow(
+      BuildContext context, PortfolioAccountResumeAsset coin) {
     final model = Provider.of<PortfolioDetailsModel>(context);
     final coinIndex = model.portfolioResume.coins.indexOf(coin);
 
@@ -156,13 +169,31 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               //
-              SelectableText(E.currency(coin.usdRate), maxLines: 1, style: LeColors.t22b),
+              SelectableText(E.currency(coin.usdRate),
+                  maxLines: 1, style: LeColors.t22b),
               //
-              Text(E.currency(coin.amount, symbol: coin.coin.symbol + " "), style: LeColors.t12m)
+              Text(E.currency(coin.amount, symbol: coin.coin.symbol + " "),
+                  style: LeColors.t12m)
             ],
           ),
         ),
       ],
+    );
+  }
+
+  _buildEmptyPortfolio(BuildContext context) {
+    return Container(
+      child: Expanded(
+        child: Column(
+          // mainAxisSize: MainAxisSize.max,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Portifolio has no assets!"),
+            // ElevatedButton(onPressed: () => {}, child: Text("Add new account")),
+          ],
+        ),
+      ),
     );
   }
 }
