@@ -6,8 +6,6 @@ import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
-import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
@@ -61,7 +59,6 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
     notifyListeners();
   }
 
-  // ignore: non_constant_identifier_names
   Future<void> refresh(BuildContext context) async {
     await updatePortfolios();
   }

@@ -44,6 +44,27 @@ class AlertsListPage extends StatelessWidget {
               slivers: [
                 SliverList(
                   delegate: SliverChildListDelegate([
+                    ///
+                    DataTable(
+                        dividerThickness: 0,
+                        horizontalMargin: 4,
+                        showCheckboxColumn: false,
+                        columns: [
+                          DataColumn(label: Text(".")),
+                          DataColumn(label: Text(".")),
+                        ],
+                        rows: [
+                          for (final alert in model.alerts) ...[
+                            DataRow(
+                              cells: [
+                                DataCell(Text("...")),
+                                DataCell(Icon(Icons.add_alert)),
+                              ],
+                            ),
+                          ],
+                        ]),
+
+                    ///
                     for (final alert in model.alerts) ...[
                       Text(
                           "when '${alert.coin}' reaches '${E.currency(alert.limitPrice)}' "),

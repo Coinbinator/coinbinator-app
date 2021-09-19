@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
@@ -42,17 +41,23 @@ class PortfolioListPage extends StatelessWidget {
                 ] else if (model.portfolioResumes.isEmpty) ...[
                   _buildEmptyPortfolio(context),
                 ] else if (model.portfolioResumes.isNotEmpty) ...[
-                  DataTable(
-                    columns: _buildPortfolioDataTableColumns(context),
-                    dividerThickness: 0,
-                    horizontalMargin: 0,
-                    showCheckboxColumn: false,
-                    rows: [
-                      for (final portfolio in model.portfolioResumes) ...[
-                        _buildPortfolioDataRow(context, portfolio),
+                  Card(
+                    child: Column(
+                      children: [
+                        DataTable(
+                          dividerThickness: 0,
+                          horizontalMargin: 4,
+                          showCheckboxColumn: false,
+                          columns: _buildPortfolioDataTableColumns(context),
+                          rows: [
+                            for (final portfolio in model.portfolioResumes) ...[
+                              _buildPortfolioDataRow(context, portfolio),
+                            ],
+                          ],
+                        ),
                       ],
-                    ],
-                  ),
+                    ),
+                  )
                 ],
                 // Table(
                 //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
@@ -129,11 +134,6 @@ class PortfolioListPage extends StatelessWidget {
           if (selected)
             Navigator.of(context)
                 .push(portifolioDetailsPageRoute(context, portfolio));
-
-          // if (selected)
-          //   Navigator.of(context).pushNamed(ROUTE_PORTFOLIO_DETAILS,
-          //       arguments:
-          //           PortfolioDetailsRouteArguments(portfolio.account.id));
         },
         cells: [
           /// EXCHANGE
@@ -171,9 +171,7 @@ class PortfolioListPage extends StatelessWidget {
     );
   }
 
-  ///
-  /// DEPRECATED
-  ///
+  //region DEPRECATED
 
   @deprecated
   TableRow _buildPortfolioTableHeader() {
@@ -236,4 +234,7 @@ class PortfolioListPage extends StatelessWidget {
       ),
     ]);
   }
+
+  //endregion
+
 }

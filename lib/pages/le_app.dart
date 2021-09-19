@@ -52,9 +52,7 @@ class LeApp extends StatelessWidget with RouteAware {
                       // ],
                       // routes: {
                       //   // ROUTE_ROOT: (context) => HomePage(),
-                      //   ROUTE_WATCHING: (context) => WatchingPage(),
                       //   ROUTE_ALERTS: (context) => AlertsPage(),
-                      //   ROUTE_PORTFOLIO: (context) => PortfolioPage(),
                       //   // ROUTE_PORTFOLIO_DETAILS: (context) => PortfolioDetailsPage(),
                       //   ROUTE_SETTINGS: (context) => SettingsPage(),
                       // },
@@ -66,10 +64,7 @@ class LeApp extends StatelessWidget with RouteAware {
 
   List<Route<dynamic>> _onGenerateInitialRoutes(String initialRoute) {
     return [
-      MaterialPageRoute(builder: (_) => WatchingPage()),
-      // MaterialPageRoute(builder: (_) => WatchingPage()),
-      // MaterialPageRoute(builder: (_) => WatchingPage()),
-      // MaterialPageRoute(builder: (_) => WatchingPage()),
+      getWatchingPageRoute(),
     ];
   }
 
@@ -79,12 +74,12 @@ class LeApp extends StatelessWidget with RouteAware {
 
     /// WATCHING :: LIST
     if (ROUTE_WATCHING == settings.name) {
-      return MaterialPageRoute(builder: (_) => WatchingPage());
+      return getWatchingPageRoute();
     }
 
     /// ALERTS :: LIST
     if (ROUTE_ALERTS == settings.name) {
-      return alertListPageRoute(context);
+      return getAlertListPageRoute();
     }
 
     /// ALERTS :: CREATE
@@ -95,6 +90,7 @@ class LeApp extends StatelessWidget with RouteAware {
     /// PORTIFOLIO :: LIST
     if (ROUTE_PORTFOLIO == settings.name) {
       return MaterialPageRoute(
+          settings: RouteSettings(name: ROUTE_PORTFOLIO),
           builder: (_) =>
               Stack(fit: StackFit.expand, clipBehavior: Clip.none, children: [
                 PortfolioPage(),

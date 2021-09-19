@@ -3,6 +3,7 @@ import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_model.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
+import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioDetailsPage extends StatelessWidget {
@@ -17,6 +18,7 @@ class PortfolioDetailsPage extends StatelessWidget {
         ChangeNotifierProvider<PortfolioDetailsModel>(
             create: (context) =>
                 PortfolioDetailsModel(context, accountId)..init()),
+                
       ],
       builder: (context, child) {
         final model = context.watch<PortfolioDetailsModel>();
@@ -44,21 +46,72 @@ class PortfolioDetailsPage extends StatelessWidget {
                     model.portfolioResume.coins.isEmpty) ...[
                   _buildEmptyPortfolio(context),
                 ] else ...[
-                  Table(
-                    // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                    columnWidths: {
-                      1: IntrinsicColumnWidth(),
-                      2: IntrinsicColumnWidth(),
-                      3: IntrinsicColumnWidth(),
-                    },
-                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                    children: [
-                      _buildPortfolioTableHeader(),
-                      for (final coin in model.portfolioResume.coins) ...[
-                        _buildPortfolioTableRow(context, coin)
-                      ]
-                    ],
-                  ),
+                  ///
+                  ///
+                  ///
+
+                  Card(
+                    child: Column(
+                      children: [
+                        ///
+                        IgnorePointer(
+                          child: DataTable(
+                              dividerThickness: 0,
+                              horizontalMargin: 4,
+                              showCheckboxColumn: false,
+                              columns: _buildPortfolioDataTableColumns(context),
+                              rows: [
+                                for (final asset
+                                    in model.getPortifolioMainAssets()) ...[
+                                  _buildPortfolioDataRow(context, asset),
+                                ],
+                              ]),
+                        ),
+
+                        ///
+                        _buildToggleSubAssets(context),
+
+                        ///
+                        if (model.displaySubAssets)
+                          IgnorePointer(
+                            child: DataTable(
+                                dividerThickness: 0,
+                                horizontalMargin: 4,
+                                //NOTE: we will hide this table header
+                                headingRowHeight: 0,
+                                showCheckboxColumn: false,
+                                columns:
+                                    _buildPortfolioDataTableColumns(context),
+                                rows: [
+                                  for (final asset
+                                      in model.getPortifolioSubAssets()) ...[
+                                    _buildPortfolioDataRow(context, asset),
+                                  ],
+                                ]),
+                          ),
+                      ],
+                    ),
+                  )
+
+                  ///
+                  ///
+                  ///
+
+                  // Table(
+                  //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
+                  //   columnWidths: {
+                  //     1: IntrinsicColumnWidth(),
+                  //     2: IntrinsicColumnWidth(),
+                  //     3: IntrinsicColumnWidth(),
+                  //   },
+                  //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  //   children: [
+                  //     _buildPortfolioTableHeader(),
+                  //     for (final coin in model.portfolioResume.coins) ...[
+                  //       _buildPortfolioTableRow(context, coin)
+                  //     ]
+                  //   ],
+                  // ),
                 ],
 
                 ///
@@ -99,7 +152,15 @@ class PortfolioDetailsPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('My Portfolios / "$displayName"'),
+                ///
+                if (model.portfolioResume == null) Text('My Portfolios / ...'),
+
+                ///
+                if (model.portfolioResume != null)
+                  Text(
+                      'My Portfolios / "${model.portfolioResume.displayName}"'),
+
+                ///
                 SelectableText('${E.currency(holdingsTotalAmount)}',
                     maxLines: 1, style: LeColors.t26b),
               ],
@@ -115,6 +176,85 @@ class PortfolioDetailsPage extends StatelessWidget {
     );
   }
 
+  List<DataColumn> _buildPortfolioDataTableColumns(BuildContext context) {
+    return [
+      DataColumn(
+        label: Text('Symbol', style: LeColors.t12m),
+      ),
+      DataColumn(
+        numeric: true,
+        label: Text('Value', style: LeColors.t12m),
+      ),
+    ];
+  }
+
+  DataRow _buildPortfolioDataRow(
+      BuildContext context, PortfolioAccountResumeAsset asset) {
+    return DataRow(selected: false,
+        // onSelectChanged: (selected) {
+        //   // if (selected)
+        //   //   Navigator.of(context)
+        //   //       .push(portifolioDetailsPageRoute(context, portfolio));
+        // },
+        cells: [
+          /// SYMBOL
+          DataCell(Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(asset.coin.symbol, style: LeColors.t18m),
+              Text(asset.coin.name, style: LeColors.t12m),
+            ],
+          )),
+
+          /// VALUE
+          DataCell(Align(
+            alignment: Alignment.centerRight,
+            child: SelectableText(
+              E.currency(asset.usdRate),
+              maxLines: 1,
+              style: LeColors.t16m,
+            ),
+          )),
+        ]);
+  }
+
+  Widget _buildEmptyPortfolio(BuildContext context) {
+    return Container(
+      child: Expanded(
+        child: Column(
+          // mainAxisSize: MainAxisSize.max,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Portifolio has no assets!"),
+            // ElevatedButton(onPressed: () => {}, child: Text("Add new account")),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildToggleSubAssets(BuildContext context) {
+    final model = context.watch<PortfolioDetailsModel>();
+
+    ///NOTE: no sub assets to be showun
+    if (model.getPortifolioSubAssets().isEmpty && !model.displaySubAssets) {
+      return Container();
+    }
+
+    return TextButton(
+      onPressed: () => model.toggleDisplaySubAssets(),
+      child: value(() {
+        if (model.displaySubAssets) return Text("hide sub assets");
+        return Text("show ${model.getPortifolioSubAssets().length} sub assets");
+      }),
+    );
+  }
+
+  //region DEPRECATED
+
+  @deprecated
   TableRow _buildPortfolioTableHeader() {
     return TableRow(children: [
       /// SYMBOL
@@ -137,6 +277,7 @@ class PortfolioDetailsPage extends StatelessWidget {
     ]);
   }
 
+  @deprecated
   TableRow _buildPortfolioTableRow(
       BuildContext context, PortfolioAccountResumeAsset coin) {
     final model = Provider.of<PortfolioDetailsModel>(context);
@@ -181,19 +322,6 @@ class PortfolioDetailsPage extends StatelessWidget {
     );
   }
 
-  _buildEmptyPortfolio(BuildContext context) {
-    return Container(
-      child: Expanded(
-        child: Column(
-          // mainAxisSize: MainAxisSize.max,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Portifolio has no assets!"),
-            // ElevatedButton(onPressed: () => {}, child: Text("Add new account")),
-          ],
-        ),
-      ),
-    );
-  }
+  //endregion
+
 }

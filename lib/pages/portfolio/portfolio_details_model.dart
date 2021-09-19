@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
@@ -22,6 +23,8 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
   AbstractExchangeAccount account;
 
   PortfolioAccountResume portfolioResume;
+
+  bool displaySubAssets = false;
 
   PortfolioDetailsModel(this.context, this.accountId);
 
@@ -55,5 +58,42 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
 
     busyToken.release();
     notifyListeners();
+  }
+
+  Iterable<PortfolioAccountResumeAsset> getPortifolioMainAssets() {
+    //NOTE: no portifolio or assets available
+    if (portfolioResume == null || portfolioResume.coins == null) return [];
+
+    return portfolioResume.coins.where((asset) {
+      if (!asset.isMainAsset()) return false;
+
+      return true;
+    });
+  }
+
+  Iterable<PortfolioAccountResumeAsset> getPortifolioSubAssets() {
+    //NOTE: no portifolio or assets available
+    if (portfolioResume == null || portfolioResume.coins == null) return [];
+
+    return portfolioResume.coins.where((asset) {
+      if (!asset.isSubAsset()) return false;
+
+      return true;
+    });
+  }
+
+  void toggleDisplaySubAssets() {
+    displaySubAssets = !displaySubAssets;
+    notifyListeners();
+  }
+}
+
+extension on PortfolioAccountResumeAsset {
+  bool isMainAsset() {
+    return usdRate >= 10;
+  }
+
+  bool isSubAsset() {
+    return !isMainAsset();
   }
 }
