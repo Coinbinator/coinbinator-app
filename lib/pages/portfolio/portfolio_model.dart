@@ -6,9 +6,11 @@ class PortfolioModel extends ChangeNotifier {
 
   bool get isWorking => workingWorkers.isNotEmpty;
 
-  addWorkingWorker(dynamic worker) {
+  addWorkingWorker(dynamic worker) async {
     workingWorkers.add(worker);
-    notifyListeners();
+    try {
+      notifyListeners();
+    } catch (e) {}
   }
 
   void removeWorkingWorker(dynamic worker) {

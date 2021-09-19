@@ -75,20 +75,29 @@ class DefaultBottomNavigationBar extends StatelessWidget {
         if (index == exactRouteInfoEntry?.key) return;
 
         final route = _routesInfos[index].routeBuilder();
-        if (route != null)
-          Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-            route,
-            (route) {
-              final isMainRoute = _routesInfos.firstWhere(
-                      (element) =>
-                          element.isExactRouteName(route.settings.name),
-                      orElse: () => null) !=
-                  null;
+        if (route != null) debugPrint("CLICK CLICK");
+        bool stopOnNext = false;
 
-              if (isMainRoute) return true;
-              return false;
-            },
-          );
+        final navigator = Navigator.of(context, rootNavigator: true);
+        final modalRoute = ModalRoute.of(context);
+
+        navigator.pushAndRemoveUntil(
+          route,
+          (route) {
+            final isMainRoute = _routesInfos.firstWhere(
+                    (element) => element.isExactRouteName(route.settings.name),
+                    orElse: () => null) !=
+                null;
+
+return false;
+            // print("${route.settings.name} --> $isMainRoute --> $stopOnNext ");
+
+            // if (isMainRoute) stopOnNext = true;
+            // if (stopOnNext) return true;
+
+            // return false;
+          },
+        );
 
         /// nome da proxima rota
         // final routeName = _routesInfos[index].routeName;

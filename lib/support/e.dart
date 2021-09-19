@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 
 abstract class E {
+  ///
   static String currency(value,
       {String locale,
       String name = '\$',
@@ -15,6 +16,20 @@ abstract class E {
     return formatter.format(value);
   }
 
+  static String amountVariationResume(
+      {String prefix: '', double amount: 0, double base}) {
+    final parts = [
+      amount != null ? prefix : null,
+      amount != null ? E.currency(amount) : null,
+      amount != null && base != null && base != 0 ? percentage(amount / base - 1, forcePositiveSign: true) : null,
+    ];
+    return parts
+        .where((element) =>
+            element != null && (element is String && element.isNotEmpty))
+        .join(" ");
+  }
+
+  ///
   static double toDouble(value) {
     if (value is String) {
       return double.tryParse(value) ?? 0;
@@ -22,6 +37,7 @@ abstract class E {
     return (value as num).toDouble();
   }
 
+  ///
   static String percentage(value,
       {String locale, int decimalDigits: 2, bool forcePositiveSign: false}) {
     if (value == null) {
@@ -44,7 +60,7 @@ abstract class E {
 
   static percentageOf(double value, double base,
       {String locale, int decimalDigits: 2, bool forcePositiveSign: false}) {
-    final result = base == 0 ? 0 :  value/ base -1;
+    final result = base == 0 ? 0 : value / base - 1;
 
     return percentage(result,
         locale: locale,
