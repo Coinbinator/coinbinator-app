@@ -88,7 +88,9 @@ class AlertsCreatePageModel extends ChangeNotifier {
       limitPrice: limitPrice,
     ));
 
-    Navigator.of(context).pop();
+    try {
+      Navigator.of(context).pop();
+    } catch (e) {}
   }
 
   cancelAlarm(BuildContext context) {

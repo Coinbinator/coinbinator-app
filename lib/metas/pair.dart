@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
 
 part "pair.g.dart";
@@ -28,11 +29,8 @@ class Pair {
     assert(quote != null, "pair.quote nao pode ser null");
   }
 
-  factory Pair({dynamic base, dynamic quote}) => Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
-
-  factory Pair.f1(String value) => Pairs.getPair(value);
-
-  factory Pair.f2(String base, String quote) => Pair(base: Coin(base), quote: Coin(quote));
+  factory Pair({dynamic base, dynamic quote}) =>
+      Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
 
   bool eq(Pair pair) {
     if (pair == this) return true;
@@ -52,6 +50,26 @@ class Pair {
 Pair _getPair(String value) {
   //TODO: mudar essa consulta para suportar a lista sem os alias
   return Pairs._pairs[value?.toUpperCase()];
+}
+
+Pair _getPair2(dynamic base, dynamic quote) {
+  //NOTE
+  // adding support for lists of coins like ( "BTC", ["USD", "USDT", "USDC"])
+  if (base is Iterable || quote is Iterable) {
+    final itBase = base is Iterable ? base : [base];
+    final itQuote = quote is Iterable ? quote : [quote];
+
+    for (final b in itBase) {
+      for (final q in itQuote) {
+        final pair = _getPair2(b, q);
+        if (pair != null) return pair;
+      }
+    }
+
+    return null;
+  }
+
+  return _getPair(Coins.getCoin(base).symbol + Coins.getCoin(quote).symbol);
 }
 
 List<Pair> _getAll() {

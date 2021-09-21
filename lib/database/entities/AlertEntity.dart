@@ -12,13 +12,17 @@ class AlertEntity {
 
   final double limitPrice;
 
+  int triggerState;
 
+  DateTime triggerAt;
 
   AlertEntity({
     this.id,
     this.coin,
     this.referencePrice,
     this.limitPrice,
+    this.triggerState = AlertEntityState.STATE_IDLE,
+    this.triggerAt,
   });
 
   bool get isBullish {
@@ -29,6 +33,8 @@ class AlertEntity {
     return referencePrice > limitPrice;
   }
 
+  bool get isActive => triggerState == AlertEntityState.STATE_ACTIVE;
+
   bool testTrigger(double price) {
     if (price == null) return false;
     if (isBullish && price >= limitPrice) return true;
@@ -36,4 +42,9 @@ class AlertEntity {
 
     return false;
   }
+}
+
+abstract class AlertEntityState {
+  static const int STATE_IDLE = 0;
+  static const int STATE_ACTIVE = 1;
 }

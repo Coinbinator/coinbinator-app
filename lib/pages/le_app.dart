@@ -19,33 +19,6 @@ class LeApp extends StatefulWidget with RouteAware {
 
 class LeAppState extends State<LeApp> {
   @override
-  initState() {
-    super.initState();
-
-    /// shorhand para atializacao das mensagens do Slash
-    _say(String message) => MAIN_APP_WIDGET?.currentContext
-        ?.read<SplashModel>()
-        ?.setInitializetionMessage(message);
-
-    Future.microtask(() async {
-      _say("Loading configurations...");
-      await app().loadConfig();
-
-      _say("Starting internal objects...");
-      await instance<AlarmingRepository>().initialize();
-      await instance<BackgroundServiceRepository>().initialize();
-
-      _say("Complete.");
-      Timer.periodic(Duration(seconds: 1), (timer) {
-        if (MAIN_NAVIGATOR_KEY.currentState != null) {
-          MAIN_NAVIGATOR_KEY.currentState.push(getWatchingPageRoute());
-          timer.cancel();
-        }
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [

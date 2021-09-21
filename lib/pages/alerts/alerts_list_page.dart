@@ -95,17 +95,24 @@ class AlertsListPageState extends State<StatefulWidget> {
                                           color: Colors.red,
                                         ),
                                     ])),
-                                DataCell(Row(
+                                DataCell(Column(
                                   mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(E.currency(alert.limitPrice)),
+                                    Text("l: " + E.currencyAlt(alert.limitPrice)),
+                                    Text(E.amountVariationResume(
+                                      prefix: 'c:',
+                                      amount:
+                                          model.coinsCurrentPrices[alert.coin],
+                                      base: alert.limitPrice,
+                                    ), maxLines: 1,),
                                   ],
                                 )),
                                 DataCell(Container(
                                     padding: EdgeInsets.zero,
                                     margin: EdgeInsets.zero,
                                     child: value(() {
-                                      if (_testAlertTrigger(context, alert))
+                                      if (alert.isActive)
                                         return Icon(Icons.alarm_on);
 
                                       return Opacity(
@@ -125,9 +132,9 @@ class AlertsListPageState extends State<StatefulWidget> {
     );
   }
 
-  _testAlertTrigger(BuildContext context, AlertEntity alert) {
-    final currentPrice =
-        context.read<AlertsListPageModel>().coinsCurrentPrices[alert.coin];
-    return alert.testTrigger(currentPrice);
-  }
+  // _testAlertTrigger(BuildContext context, AlertEntity alert) {
+  //   final currentPrice =
+  //       context.read<AlertsListPageModel>().coinsCurrentPrices[alert.coin];
+  //   return alert.testTrigger(currentPrice);
+  // }
 }

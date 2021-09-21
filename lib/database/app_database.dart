@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:floor/floor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:le_crypto_alerts/database/converters/CoinConverter.dart';
+import 'package:le_crypto_alerts/database/converters/DateTimeConverter%20.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
 import 'package:le_crypto_alerts/database/entities/AccountEntity.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
@@ -16,7 +17,7 @@ import 'package:sqflite/sqflite.dart' as sqflite;
 
 part 'app_database.g.dart';
 
-@TypeConverters([CoinConverter])
+@TypeConverters([CoinConverter, DateTimeConverter])
 @Database(
     version: 1,
     entities: [AccountEntity, AlertEntity, TickerEntity, TickerWatchEntity])
@@ -31,7 +32,7 @@ abstract class AppDatabase extends FloorDatabase {
       // if (Platform.isAndroid)
 
       return join(
-          await sqfliteDatabaseFactory.getDatabasesPath(), 'default_0.db');
+          await sqfliteDatabaseFactory.getDatabasesPath(), 'default_1.db');
     });
 
     debugPrint("database: $databasePath");

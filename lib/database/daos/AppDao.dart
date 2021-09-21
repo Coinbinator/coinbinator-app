@@ -34,7 +34,6 @@ abstract class AppDao {
   @delete
   Future<int> deleteTickerWatch(TickerWatchEntity ticker);
 
-
   /* ALERTS */
 
   @Query("SELECT * FROM alerts")
@@ -43,6 +42,18 @@ abstract class AppDao {
   @Query("SELECT * FROM alerts")
   Stream<List<AlertEntity>> findAllAlertsAsStream();
 
+  @Query(
+      'SELECT * FROM alerts WHERE triggerState=${AlertEntityState.STATE_ACTIVE}')
+  Stream<List<AlertEntity>> findActiveAlertsAsStream();
+
   @insert
   Future<int> insertAlert(AlertEntity alert);
+
+  @update
+  Future<int> updateAlert(AlertEntity alert);
+
+  @transaction
+  Future<void> updateAlerts(Iterable<AlertEntity> alerts) async {
+    for (final alert in alerts) await updateAlert(alert);
+  }
 }

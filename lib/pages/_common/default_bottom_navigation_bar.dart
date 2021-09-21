@@ -36,11 +36,13 @@ class _RouteInfo {
   }
 
   BottomNavigationBarItem build(BuildContext context) {
+    final notificationText = notification?.call(context);
+
     return BottomNavigationBarItem(
       icon: Stack(
         children: [
           icon,
-          if (notification?.call(context) != null)
+          if (notificationText != null)
             new Positioned(
               right: 0,
               child: new Container(
@@ -54,7 +56,7 @@ class _RouteInfo {
                   minHeight: 12,
                 ),
                 child: new Text(
-                  '20',
+                  notificationText,
                   style: new TextStyle(
                     color: Colors.white,
                     fontSize: 8,
@@ -83,9 +85,9 @@ final _routesInfos = [
     label: "Alerts",
     icon: Icon(Icons.access_alarm),
     notification: (BuildContext context) {
-      if (context.watch<LeAppModel>().alertsActive.length > 0) {
-        return "${context.watch<LeAppModel>().alertsActive.length}";
-      }
+      final currentActiveAlertsCount =
+          Provider.of<LeAppModel>(context).currentActiveAlerts.length;
+      if (currentActiveAlertsCount > 0) return "$currentActiveAlertsCount";
       return null;
     },
   ),

@@ -5940,7 +5940,11 @@ class Pairs {
     return _getAll();
   }
 
-  static Pair getPair(String value) {
+  static Pair getPair(dynamic value) {
     return _getPair(value);
+  }
+
+  static Pair getPair2(dynamic base, dynamic quote) {
+    return _getPair2(base, quote);
   }
 }

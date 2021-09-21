@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:floor/floor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
@@ -10,6 +11,9 @@ import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/exchange.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
@@ -50,8 +54,6 @@ class _AppRepository with AlertsAppContext {
   AppDao get appDao => _persistence?.appDao;
 
   final _singletons = Map<Type, dynamic>();
-
-  LeApp rootWidget;
 
   final tickers = Tickers();
 
@@ -123,9 +125,9 @@ class _AppRepository with AlertsAppContext {
     assert(config.test_mercado_bitcoin_tapi_secret != null);
   }
 
-  ///
   /// ACCOUNTS
-  ///
+  /// ACCOUNTS
+  /// ACCOUNTS
 
   Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
@@ -164,18 +166,70 @@ class _AppRepository with AlertsAppContext {
 
   getAccountPortfolioTransactions(AbstractExchangeAccount account) async {}
 
-  ///
   /// ALERTS
-  ///
+  /// ALERTS
+  /// ALERTS
 
   setAlerts(List<AlertEntity> value) {
     this.alerts = value;
-    //TODO: verifiar se é necessario atualizar o triggers ( se o valores dispararam nessa troca )
+    //TODO: verificar se é necessario atualizar o triggers ( se o valores dispararam nessa troca )
   }
 
-  ///
+  DateTime updateAlertsStateAt = DateTime.now();
+
+  updateAlertsState() async {
+    //TODO: refactor to be a throttled function and not a IS/ISNOT thing
+    final now = DateTime.now();
+    if (now.difference(updateAlertsStateAt).inSeconds < 5) return;
+    updateAlertsStateAt = now;
+
+    Set<AlertEntity> updatePendingAlerts = {};
+
+    for (final alert in alerts) {
+      final ticker = tickers.getTicker(
+          Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES),
+          register: true);
+
+      // NOTE:
+      // validating ticker state
+      if (ticker == null) continue;
+      if (ticker.price == null || ticker.price < 0) continue;
+
+      //NOTE:
+      // alert is not active so we will test if it should be
+      if (!alert.isActive) {
+        if (!alert.testTrigger(ticker.price)) continue;
+
+        alert.triggerState = AlertEntityState.STATE_ACTIVE;
+        alert.triggerAt = DateTime.now();
+        updatePendingAlerts.add(alert
+          ..triggerState = AlertEntityState.STATE_ACTIVE
+          ..triggerAt = DateTime.now());
+
+        continue;
+      }
+
+      //NOTE:
+      // alert is active
+      // so we will check if it shoulding be
+      if (alert.isActive) {
+        if (alert.testTrigger(ticker.price)) continue;
+        if (now.difference(alert.triggerAt).inSeconds <= 10) continue;
+
+        updatePendingAlerts
+            .add(alert..triggerState = AlertEntityState.STATE_IDLE);
+        continue;
+      }
+    }
+
+    if (updatePendingAlerts.isNotEmpty) {
+      await appDao.updateAlerts(updatePendingAlerts);
+    }
+  }
+
   /// TICKERS
-  ///
+  /// TICKERS
+  /// TICKERS
 
   void updateTicker(Ticker newTicker) {
     //NOTE: desabilitando todos os pares que não forem USD
@@ -192,22 +246,6 @@ class _AppRepository with AlertsAppContext {
 
     _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
 
-    Set<AlertEntity> _alertsActive = {};
-    for (final alert in alerts) {
-      if (!staticTicker.pair.quote.isUSD) continue;
-      if (alert.coin != staticTicker.pair.base) continue;
-      if (!alert.testTrigger(staticTicker.price)) continue;
-
-      _alertsActive.add(alert);
-    }
-    if (!setEquals(alertsActive, _alertsActive)) {
-      alertsActive
-        ..clear()
-        ..addAll(_alertsActive);
-
-      MAIN_APP_WIDGET.currentContext
-          ?.read<LeAppModel>()
-          ?.setCurrentActiveAlarms(alertsActive);
-    }
+    updateAlertsState();
   }
 }

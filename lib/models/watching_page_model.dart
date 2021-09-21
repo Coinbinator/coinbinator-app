@@ -33,7 +33,7 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
     for (final tickerWatchEntity in await app().appDao.findAllTickerWatches()) {
       watchingTickers.add(TickerWatch(
         exchange: Exchange(tickerWatchEntity.exchange),
-        pair: Pair.f2(tickerWatchEntity.base, tickerWatchEntity.quote),
+        pair: Pairs.getPair2(tickerWatchEntity.base, tickerWatchEntity.quote),
       ));
     }
 

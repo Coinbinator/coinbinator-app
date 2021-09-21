@@ -82,7 +82,7 @@ class _$AppDatabase extends AppDatabase {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `accounts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` TEXT, `extras` TEXT)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `referencePrice` REAL, `limitPrice` REAL)');
+            'CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `referencePrice` REAL, `limitPrice` REAL, `triggerState` INTEGER, `triggerAt` INTEGER)');
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `tickers` (`id` TEXT, `exchange` TEXT, `base` TEXT, `quote` TEXT, `updatedAt` INTEGER, `price` REAL, PRIMARY KEY (`id`))');
         await database.execute(
@@ -130,7 +130,9 @@ class _$AppDao extends AppDao {
                   'id': item.id,
                   'coin': _coinConverter.encode(item.coin),
                   'referencePrice': item.referencePrice,
-                  'limitPrice': item.limitPrice
+                  'limitPrice': item.limitPrice,
+                  'triggerState': item.triggerState,
+                  'triggerAt': _dateTimeConverter.encode(item.triggerAt)
                 },
             changeListener),
         _tickerEntityUpdateAdapter = UpdateAdapter(
@@ -145,6 +147,19 @@ class _$AppDao extends AppDao {
                   'updatedAt': item.updatedAt,
                   'price': item.price
                 }),
+        _alertEntityUpdateAdapter = UpdateAdapter(
+            database,
+            'alerts',
+            ['id'],
+            (AlertEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'coin': _coinConverter.encode(item.coin),
+                  'referencePrice': item.referencePrice,
+                  'limitPrice': item.limitPrice,
+                  'triggerState': item.triggerState,
+                  'triggerAt': _dateTimeConverter.encode(item.triggerAt)
+                },
+            changeListener),
         _tickerWatchEntityDeletionAdapter = DeletionAdapter(
             database,
             'ticker_watches',
@@ -169,6 +184,8 @@ class _$AppDao extends AppDao {
   final InsertionAdapter<AlertEntity> _alertEntityInsertionAdapter;
 
   final UpdateAdapter<TickerEntity> _tickerEntityUpdateAdapter;
+
+  final UpdateAdapter<AlertEntity> _alertEntityUpdateAdapter;
 
   final DeletionAdapter<TickerWatchEntity> _tickerWatchEntityDeletionAdapter;
 
@@ -225,7 +242,9 @@ class _$AppDao extends AppDao {
             id: row['id'] as int,
             coin: _coinConverter.decode(row['coin'] as String),
             referencePrice: row['referencePrice'] as double,
-            limitPrice: row['limitPrice'] as double));
+            limitPrice: row['limitPrice'] as double,
+            triggerState: row['triggerState'] as int,
+            triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
   }
 
   @override
@@ -237,7 +256,24 @@ class _$AppDao extends AppDao {
             id: row['id'] as int,
             coin: _coinConverter.decode(row['coin'] as String),
             referencePrice: row['referencePrice'] as double,
-            limitPrice: row['limitPrice'] as double));
+            limitPrice: row['limitPrice'] as double,
+            triggerState: row['triggerState'] as int,
+            triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
+  }
+
+  @override
+  Stream<List<AlertEntity>> findActiveAlertsAsStream() {
+    return _queryAdapter.queryListStream(
+        'SELECT * FROM alerts WHERE triggerState=1',
+        queryableName: 'alerts',
+        isView: false,
+        mapper: (Map<String, dynamic> row) => AlertEntity(
+            id: row['id'] as int,
+            coin: _coinConverter.decode(row['coin'] as String),
+            referencePrice: row['referencePrice'] as double,
+            limitPrice: row['limitPrice'] as double,
+            triggerState: row['triggerState'] as int,
+            triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
   }
 
   @override
@@ -271,10 +307,31 @@ class _$AppDao extends AppDao {
   }
 
   @override
+  Future<int> updateAlert(AlertEntity alert) {
+    return _alertEntityUpdateAdapter.updateAndReturnChangedRows(
+        alert, OnConflictStrategy.abort);
+  }
+
+  @override
   Future<int> deleteTickerWatch(TickerWatchEntity ticker) {
     return _tickerWatchEntityDeletionAdapter.deleteAndReturnChangedRows(ticker);
+  }
+
+  @override
+  Future<void> updateAlerts(Iterable<AlertEntity> alerts) async {
+    if (database is sqflite.Transaction) {
+      await super.updateAlerts(alerts);
+    } else {
+      await (database as sqflite.Database)
+          .transaction<void>((transaction) async {
+        final transactionDatabase = _$AppDatabase(changeListener)
+          ..database = transaction;
+        await transactionDatabase.appDao.updateAlerts(alerts);
+      });
+    }
   }
 }
 
 // ignore_for_file: unused_element
 final _coinConverter = CoinConverter();
+final _dateTimeConverter = DateTimeConverter();

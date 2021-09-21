@@ -10,6 +10,6 @@ class CoinConverter extends TypeConverter<Coin, String> {
 
   @override
   String encode(Coin value) {
-    return value?.symbol;
+    return value?.symbol ?? null;
   }
 }
