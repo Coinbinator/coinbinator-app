@@ -9,9 +9,12 @@ import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
-class PortfolioListPage extends StatelessWidget {
-  PortfolioListPage({Key key}) : super(key: key);
+class PortifolioListPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => PortifolioListPageState();
+}
 
+class PortifolioListPageState extends State<PortifolioListPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [

@@ -1,15 +1,20 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
 import 'package:le_crypto_alerts/database/app_database.dart';
+import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
+import 'package:le_crypto_alerts/pages/le_app_model.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/app/_alerts_app_context.dart';
@@ -17,7 +22,9 @@ import 'package:le_crypto_alerts/repositories/background_service/background_serv
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
-import 'package:le_crypto_alerts/support/rates.dart';
+import 'package:le_crypto_alerts/metas/rates.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
+import 'package:provider/provider.dart';
 
 part '_support.dart';
 
@@ -34,7 +41,7 @@ class _AppRepository with AlertsAppContext {
 
   final config = _AppConfig();
 
-  final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+  // final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
   AppDatabase _persistence;
 
@@ -48,16 +55,35 @@ class _AppRepository with AlertsAppContext {
 
   final tickers = Tickers();
 
-  final tickerListeners = List<AbstractAppTickerListener>.empty(growable: true);
+  final _tickerListeners =
+      List<AbstractAppTickerListener>.empty(growable: true);
+
+  List<AbstractAppTickerListener> get tickerListeners => _tickerListeners;
 
   final rates = Rates();
 
+  // alert entity stream
+  Stream<List<AlertEntity>> alertsStream;
+
+  // alert eneity subscription instance
+  // ignore: cancel_subscriptions
+  StreamSubscription<List<AlertEntity>> alertsStreamSubscription;
+
+  // current list of alerts entitties instances
+  List<AlertEntity> alerts = [];
+
+  // current list of alerts entitties instances
+  Set<AlertEntity> alertsActive = {};
+
   _AppRepository() {
     this._singletons.addAll({
-      BinanceRepository: BinanceRepository(),
-      MercadoBitcoinRepository: MercadoBitcoinRepository(),
+      /// CORE
       AlarmingRepository: AlarmingRepository.getPlatformRepositoryInstance(),
       BackgroundServiceRepository: BackgroundServiceRepository(),
+
+      /// Exchanges
+      BinanceRepository: BinanceRepository(),
+      MercadoBitcoinRepository: MercadoBitcoinRepository(),
     });
   }
 
@@ -72,10 +98,19 @@ class _AppRepository with AlertsAppContext {
     if (_configLoaded) return;
     _configLoaded = true;
 
-    _persistence = await AppDatabase.build();
-
     await DotEnv.load(fileName: ".env");
 
+    // building database
+    _persistence = await AppDatabase.build();
+
+    // creating global listeners
+    alertsStream = appDao.findAllAlertsAsStream();
+    alertsStreamSubscription = alertsStream.listen((event) {
+      setAlerts(event);
+    });
+    setAlerts(await alertsStream.first);
+
+    // debug accounts
     config.test_binance_api_key = env[TEST_BINANCE_API_KEY];
     config.test_binance_api_secret = env[TEST_BINANCE_API_SECRET];
     assert(config.test_binance_api_key != null);
@@ -87,6 +122,10 @@ class _AppRepository with AlertsAppContext {
     assert(config.test_mercado_bitcoin_tapi_id != null);
     assert(config.test_mercado_bitcoin_tapi_secret != null);
   }
+
+  ///
+  /// ACCOUNTS
+  ///
 
   Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
@@ -124,4 +163,51 @@ class _AppRepository with AlertsAppContext {
   }
 
   getAccountPortfolioTransactions(AbstractExchangeAccount account) async {}
+
+  ///
+  /// ALERTS
+  ///
+
+  setAlerts(List<AlertEntity> value) {
+    this.alerts = value;
+    //TODO: verifiar se é necessario atualizar o triggers ( se o valores dispararam nessa troca )
+  }
+
+  ///
+  /// TICKERS
+  ///
+
+  void updateTicker(Ticker newTicker) {
+    //NOTE: desabilitando todos os pares que não forem USD
+    if (!newTicker.pair.quote.isUSD) return;
+
+    final staticTicker =
+        tickers.getTicker(newTicker.exchange, newTicker.pair, register: true);
+
+    // nothing changed
+    if (staticTicker.price == newTicker.price) return;
+
+    staticTicker.price = newTicker.price;
+    staticTicker.date = newTicker.date;
+
+    _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
+
+    Set<AlertEntity> _alertsActive = {};
+    for (final alert in alerts) {
+      if (!staticTicker.pair.quote.isUSD) continue;
+      if (alert.coin != staticTicker.pair.base) continue;
+      if (!alert.testTrigger(staticTicker.price)) continue;
+
+      _alertsActive.add(alert);
+    }
+    if (!setEquals(alertsActive, _alertsActive)) {
+      alertsActive
+        ..clear()
+        ..addAll(_alertsActive);
+
+      MAIN_APP_WIDGET.currentContext
+          ?.read<LeAppModel>()
+          ?.setCurrentActiveAlarms(alertsActive);
+    }
+  }
 }

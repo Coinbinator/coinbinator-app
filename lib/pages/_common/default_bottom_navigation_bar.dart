@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
+import 'package:le_crypto_alerts/pages/le_app_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
+import 'package:provider/provider.dart';
 
 class _RouteInfo {
   final String routeName;
@@ -13,7 +15,14 @@ class _RouteInfo {
 
   final Icon icon;
 
-  const _RouteInfo({this.routeName, this.routeBuilder, this.label, this.icon});
+  final String Function(BuildContext context) notification;
+
+  const _RouteInfo(
+      {this.routeName,
+      this.routeBuilder,
+      this.label,
+      this.icon,
+      this.notification});
 
   bool isExactRouteName(String value) {
     return routeName == value;
@@ -24,6 +33,40 @@ class _RouteInfo {
     if (routeName == "/" && value != "/") return false;
 
     return value.startsWith(routeName);
+  }
+
+  BottomNavigationBarItem build(BuildContext context) {
+    return BottomNavigationBarItem(
+      icon: Stack(
+        children: [
+          icon,
+          if (notification?.call(context) != null)
+            new Positioned(
+              right: 0,
+              child: new Container(
+                padding: EdgeInsets.all(1),
+                decoration: new BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                constraints: BoxConstraints(
+                  minWidth: 12,
+                  minHeight: 12,
+                ),
+                child: new Text(
+                  '20',
+                  style: new TextStyle(
+                    color: Colors.white,
+                    fontSize: 8,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+        ],
+      ),
+      label: label,
+    );
   }
 }
 
@@ -39,6 +82,12 @@ final _routesInfos = [
     routeBuilder: getAlertListPageRoute,
     label: "Alerts",
     icon: Icon(Icons.access_alarm),
+    notification: (BuildContext context) {
+      if (context.watch<LeAppModel>().alertsActive.length > 0) {
+        return "${context.watch<LeAppModel>().alertsActive.length}";
+      }
+      return null;
+    },
   ),
   _RouteInfo(
     routeName: ROUTE_PORTFOLIO,
@@ -67,8 +116,7 @@ class DefaultBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: exactRouteInfoEntry?.key ?? nestedRouteInfoEntry?.key ?? 0,
       items: [
-        for (final routeInfo in _routesInfos)
-          BottomNavigationBarItem(icon: routeInfo.icon, label: routeInfo.label),
+        for (final routeInfo in _routesInfos) routeInfo.build(context),
       ],
       onTap: (index) {
         /// ignorando a mesma rota
@@ -81,23 +129,28 @@ class DefaultBottomNavigationBar extends StatelessWidget {
         final navigator = Navigator.of(context, rootNavigator: true);
         final modalRoute = ModalRoute.of(context);
 
-        navigator.pushAndRemoveUntil(
-          route,
-          (route) {
-            final isMainRoute = _routesInfos.firstWhere(
-                    (element) => element.isExactRouteName(route.settings.name),
-                    orElse: () => null) !=
-                null;
+        // while (navigator.canPop()) navigator.pop();
+        // navigator.pushReplacement(route);
 
-return false;
-            // print("${route.settings.name} --> $isMainRoute --> $stopOnNext ");
+        navigator.push(route);
 
-            // if (isMainRoute) stopOnNext = true;
-            // if (stopOnNext) return true;
+        // navigator.pushAndRemoveUntil(
+        //   route,
+        //   (route) {
+        //     final isMainRoute = _routesInfos.firstWhere(
+        //             (element) => element.isExactRouteName(route.settings.name),
+        //             orElse: () => null) !=
+        //         null;
 
-            // return false;
-          },
-        );
+        //     return false;
+        //     // print("${route.settings.name} --> $isMainRoute --> $stopOnNext ");
+
+        //     // if (isMainRoute) stopOnNext = true;
+        //     // if (stopOnNext) return true;
+
+        //     // return false;
+        //   },
+        // );
 
         /// nome da proxima rota
         // final routeName = _routesInfos[index].routeName;

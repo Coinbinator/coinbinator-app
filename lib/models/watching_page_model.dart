@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
@@ -10,7 +11,6 @@ import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
 import 'package:le_crypto_alerts/pages/watching/_add_watch_dialog.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
 class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   bool initialized = false;
@@ -20,8 +20,6 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   final Map<TickerWatch, Ticker> watchingTickerTickers = {};
 
   Set<String> selectedTickerWatches = Set<String>();
-
-  // WatchingPageModel() {}
 
   init() async {
     if (app().appDao == null) return;
@@ -36,10 +34,6 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
       watchingTickers.add(TickerWatch(
         exchange: Exchange(tickerWatchEntity.exchange),
         pair: Pair.f2(tickerWatchEntity.base, tickerWatchEntity.quote),
-
-        // pair: Pairs.getPair(
-        //   "${tickerWatchEntity.base}${tickerWatchEntity.quote}",
-        // ),
       ));
     }
 
@@ -168,12 +162,12 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
 
     if (watchTicker == null) return;
 
-    print("()()()()()()()()()()()()())");
+    // print("()()()()()()()()()()()()())");
 
     watchingTickerTickers[watchTicker] = ticker;
 
     notifyListeners();
 
-    print("+_+_+_+_+_+_+_+_+_+_+_+_");
+    // print("+_+_+_+_+_+_+_+_+_+_+_+_");
   }
 }

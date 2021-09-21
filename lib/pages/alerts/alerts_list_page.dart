@@ -13,16 +13,12 @@ import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
-int a = 0;
-
 class AlertsListPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AlertsListPageState();
 }
 
 class AlertsListPageState extends State<StatefulWidget> {
-  final n = a++;
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -31,7 +27,7 @@ class AlertsListPageState extends State<StatefulWidget> {
             create: (context) => AlertsListPageModel()..init()),
       ],
       builder: (context, child) {
-        debugPrint("$n ----------------- ALERT BUILD...");
+        debugPrint("--------------- ALERT BUILD...");
         final model = context.watch<AlertsListPageModel>();
 
         return Scaffold(
@@ -133,40 +129,5 @@ class AlertsListPageState extends State<StatefulWidget> {
     final currentPrice =
         context.read<AlertsListPageModel>().coinsCurrentPrices[alert.coin];
     return alert.testTrigger(currentPrice);
-  }
-}
-
-class WatchListViewMenuDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  double get maxExtent => 40;
-
-  @override
-  double get minExtent => 0;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
-  }
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: LeColors.white.shade50,
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            OutlinedButton(
-              onPressed: () {
-                //context.findAncestorStateOfType<WatchingPageState>().startAddTickerWatch();
-              },
-              child: Text("Add watch"),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }

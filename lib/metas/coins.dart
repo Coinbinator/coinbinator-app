@@ -8,10 +8,10 @@ part 'coins.le.coins.dart';
 const _ = null;
 
 //TODO: mover <unknownCoins> para dentro do <Coins>.
-final unknownCoins = Map<String, Coin>();
+final _unknownCoins = Map<String, Coin>();
 
 Coin _getCoin(dynamic value) {
-  if (value == null || value == "") return null;
+  if (value == null || (value is String && value == "")) return null;
   if (value is Coin) return _getCoin(value.symbol);
 
   assert(value is String, 'tipo inesperado para processar coin');
@@ -22,13 +22,13 @@ Coin _getCoin(dynamic value) {
     return Coins._coins[symbol];
   }
 
-  //NOTE: é possivel que a versão compilada não coins. vamos salvar elas em uma lista a parte
+  //NOTE: é esperado que a versão compilada não possua todas coins existentes. vamos salvar elas em uma lista a parte
   //TODO: adicionar referencia que essa coin não é conhecida ( na versão compilada )
-  if (!unknownCoins.containsKey(symbol)) {
+  if (!_unknownCoins.containsKey(symbol)) {
     // print("UNKNOWN COIN: $symbol");
-    unknownCoins[symbol] = Coin.instance(symbol: symbol, name: symbol);
+    _unknownCoins[symbol] = Coin.instance(symbol: symbol, name: symbol);
   }
-  return unknownCoins[symbol];
+  return _unknownCoins[symbol];
 }
 
 Map<String, Coin> _getAll() {

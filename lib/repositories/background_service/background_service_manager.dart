@@ -1,19 +1,14 @@
 import 'dart:async';
-import 'dart:developer';
 
-import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
-import 'package:le_crypto_alerts/metas/exchange_meta.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/models/watching_page_model.dart';
-import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 class BackgroundServiceManager {
   final BackgroundServiceBridge _bridge;
@@ -160,7 +155,7 @@ class BackgroundServiceManager {
 
       if (ticker == null) continue;
 
-      print("checking $alert");
+      // print("checking $alert");
 
       if (alert.referencePrice < alert.limitPrice &&
           alert.limitPrice > ticker.price) {
@@ -191,14 +186,14 @@ class BackgroundServiceManager {
         //   asAlarm: true, // Android only - all APIs
         // );
 
-        asdadadadasda();
+        // asdadadadasda();
         // instance<AlarmingRepository>().oneShot(
         //     Duration(seconds: 2), ALARM_ID_ALERT_ACTIVE, asdadadadasda,
         //     wakeup: true, exact: true, allowWhileIdle: true, alarmClock: true);
       }
     }
 
-    print("check alerts");
+    // print("check alerts");
   }
 
   void _serviceOnDataReceived(Map<String, dynamic> event) async {
@@ -226,9 +221,9 @@ class BackgroundServiceManager {
   }
 }
 
-asdadadadasda() {
-  print(
-      " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
-  print(
-      "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
-}
+// asdadadadasda() {
+  // print(
+  //     " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
+  // print(
+  //     "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
+// }

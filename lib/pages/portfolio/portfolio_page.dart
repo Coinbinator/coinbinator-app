@@ -45,7 +45,7 @@ class PortfolioPage extends StatelessWidget {
 
   WidgetBuilder _getNavigatorRouteBuilder(RouteSettings settings) {
     if (settings.name == ROUTE_PORTFOLIO) {
-      return (BuildContext context) => PortfolioListPage();
+      return (BuildContext context) => PortifolioListPage();
     }
 
     // if (settings.name == ROUTE_PORTFOLIO_DETAILS) {

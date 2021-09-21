@@ -1,8 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
+
 const String TEST_BINANCE_API_KEY = 'TEST_BINANCE_API_KEY';
 const String TEST_BINANCE_API_SECRET = 'TEST_BINANCE_API_SECRET';
 
 const String TEST_MERCADO_BITCOIN_TAPI_ID = 'TEST_MERCADO_BITCOIN_TAPI_ID';
-const String TEST_MERCADO_BITCOIN_TAPI_SECRET = 'TEST_MERCADO_BITCOIN_TAPI_SECRET';
+const String TEST_MERCADO_BITCOIN_TAPI_SECRET =
+    'TEST_MERCADO_BITCOIN_TAPI_SECRET';
 
 /// INITIAL APP ROUTE
 const String ROUTE_ROOT = '/';
@@ -31,3 +35,11 @@ const String ROUTE_SETTINGS = '/settings';
 const int ALARM_ID_DEFAULT = 0;
 const int ALARM_ID_ALERT_ACTIVE = 1;
 const int ALARM_MIN_USER_ALARMS = 1000;
+
+// ignore: non_constant_identifier_names
+final MAIN_APP_WIDGET = GlobalKey<State<MaterialApp>>();
+
+// ignore: non_constant_identifier_names
+final MAIN_NAVIGATOR_KEY = GlobalKey<NavigatorState>();
+
+

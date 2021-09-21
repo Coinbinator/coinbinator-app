@@ -12,6 +12,8 @@ class AlertEntity {
 
   final double limitPrice;
 
+
+
   AlertEntity({
     this.id,
     this.coin,

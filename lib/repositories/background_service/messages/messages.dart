@@ -23,6 +23,7 @@ class TickerMessage {
 
 @JsonSerializable()
 class TickersMessage {
+  //TODO: criar um modelo de "dado" mais leve para o "Ticker" ( somente dentro daas mensagens que são compartilhadas entre o app e o bg ) para reduzir custo de memoria
   final List<Ticker> tickers;
 
   TickersMessage(this.tickers);

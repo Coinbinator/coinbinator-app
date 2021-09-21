@@ -29,44 +29,35 @@ class BackgroundServiceRepository {
         handleMessage__tickers(TickersMessage.fromJson(data));
         return;
     }
-    print("event from app bridge");
-    print(event);
+
+    //
+    // print("event from app bridge");
+    // print(event);
   }
 
   // ignore: non_constant_identifier_names
   void handleMessage__ticker(TickerMessage message) {
-    print("handle ticker");
+    throw UnimplementedError(
+        "Handling of ${MessageTypes.TICKERS} is not completed");
   }
 
   // ignore: non_constant_identifier_names
   void handleMessage__tickers(TickersMessage message) async {
-    print("handle tickers");
-
     for (final ticker in message.tickers) {
-      final staticTicker = app().tickers.getTicker(ticker.exchange, ticker.pair, register: true);
-      
-      // if( staticTicker.pair.eq(Pairs.$BTC_USDT))
-      //   print("$ticker ${(staticTicker.price - ticker.price)} ==> ${staticTicker.price}");
-
-      if (staticTicker.price == ticker.price) continue;
-      
-      staticTicker.price = ticker.price;
-      staticTicker.date = ticker.date;
-
-      app().tickerListeners.forEach((element) => element.onTicker(staticTicker));
+      app().updateTicker(ticker);
     }
-
-    // app().appDao.insertTickers(message.tickers.map((e) => e.toEntity()).toList());
-    // print( (await app().appDao.findTickers()) .length );
-    print('done');
   }
 
   static BackgroundServiceBridge getPlatformBackgroundServiceBridge() {
     /// Mobile
-    if (Platform.isAndroid) return MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
+    if (Platform.isAndroid)
+      return MobileBackgroundServiceBridge(
+          scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// Desktop
-    if (Platform.isLinux) return DesktopBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
+    if (Platform.isLinux)
+      return DesktopBackgroundServiceBridge(
+          scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// not supported platform
     throw Exception("plataforma nao suportada");

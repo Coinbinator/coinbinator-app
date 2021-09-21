@@ -11,20 +11,24 @@ class Tickers {
   Ticker getTicker(Exchange exchange, Pair pair, {register: false}) {
     if (exchange == null || pair == null) return null;
 
-    final ticker = _tickers.firstWhere((element) => element.exchange.id == exchange.id && element.pair.eq(pair), orElse: () => null);
+    final ticker = _tickers.firstWhere(
+        (element) =>
+            element.exchange.id == exchange.id && element.pair.eq(pair),
+        orElse: () => null);
 
     if (ticker != null) return ticker;
 
     if (register == false) return null;
 
-    final newTicker = Ticker(exchange: exchange, pair: pair, date: DateTime.now(), price: -1);
+    final newTicker =
+        Ticker(exchange: exchange, pair: pair, date: DateTime.now(), price: -1);
 
     _tickers.add(newTicker);
 
     return newTicker;
   }
 
-  getTickerFromTickerWatch(TickerWatch tickerWatch) {
+  Ticker getTickerFromTickerWatch(TickerWatch tickerWatch) {
     return getTicker(tickerWatch.exchange, tickerWatch.pair);
   }
 }
