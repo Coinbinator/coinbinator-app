@@ -128,7 +128,7 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
                       children: [
                         TextButton(
                             child: Icon(Icons.delete),
-                            onPressed: () => model.cancelAlarm(context)),
+                            onPressed: () => model.removeAlarm(context)),
                         TextButton(
                             child: Icon(Icons.close),
                             onPressed: () => model.cancelAlarm(context)),

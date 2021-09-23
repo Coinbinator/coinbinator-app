@@ -169,7 +169,20 @@ class _$AppDao extends AppDao {
                   'exchange': item.exchange,
                   'base': item.base,
                   'quote': item.quote
-                });
+                }),
+        _alertEntityDeletionAdapter = DeletionAdapter(
+            database,
+            'alerts',
+            ['id'],
+            (AlertEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'coin': _coinConverter.encode(item.coin),
+                  'referencePrice': item.referencePrice,
+                  'limitPrice': item.limitPrice,
+                  'triggerState': item.triggerState,
+                  'triggerAt': _dateTimeConverter.encode(item.triggerAt)
+                },
+            changeListener);
 
   final sqflite.DatabaseExecutor database;
 
@@ -188,6 +201,8 @@ class _$AppDao extends AppDao {
   final UpdateAdapter<AlertEntity> _alertEntityUpdateAdapter;
 
   final DeletionAdapter<TickerWatchEntity> _tickerWatchEntityDeletionAdapter;
+
+  final DeletionAdapter<AlertEntity> _alertEntityDeletionAdapter;
 
   @override
   Future<List<TickerEntity>> findTickers() async {
@@ -315,6 +330,11 @@ class _$AppDao extends AppDao {
   @override
   Future<int> deleteTickerWatch(TickerWatchEntity ticker) {
     return _tickerWatchEntityDeletionAdapter.deleteAndReturnChangedRows(ticker);
+  }
+
+  @override
+  Future<int> deleteAlert(AlertEntity alert) {
+    return _alertEntityDeletionAdapter.deleteAndReturnChangedRows(alert);
   }
 
   @override

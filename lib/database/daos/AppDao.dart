@@ -52,6 +52,9 @@ abstract class AppDao {
   @update
   Future<int> updateAlert(AlertEntity alert);
 
+  @delete
+  Future<int> deleteAlert(AlertEntity alert);
+
   @transaction
   Future<void> updateAlerts(Iterable<AlertEntity> alerts) async {
     for (final alert in alerts) await updateAlert(alert);
