@@ -18,7 +18,7 @@ import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
-import 'package:le_crypto_alerts/pages/le_app_model.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/app/_alerts_app_context.dart';
@@ -170,9 +170,22 @@ class _AppRepository with AlertsAppContext {
   /// ALERTS
   /// ALERTS
 
+  persistAlertEntity(AlertEntity alert) async {
+    if (alert == null) return;
+    if (alert.id == null || alert.id <= 0) {
+      return await app().appDao.insertAlert(alert);
+    }
+    return await app().appDao.updateAlert(alert);
+  }
+
+  removeAlertEntity(AlertEntity alert) async {
+    if (alert == null) return;
+    return await app().appDao.deleteAlert(alert);
+  }
+
   setAlerts(List<AlertEntity> value) {
-    this.alerts = value;
     //TODO: verificar se é necessario atualizar o triggers ( se o valores dispararam nessa troca )
+    this.alerts = value;
   }
 
   DateTime updateAlertsStateAt = DateTime.now();
@@ -188,7 +201,7 @@ class _AppRepository with AlertsAppContext {
     for (final alert in alerts) {
       final ticker = tickers.getTicker(
           Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES),
-          register: true);
+          createOnMissing: true);
 
       // NOTE:
       // validating ticker state
@@ -231,21 +244,36 @@ class _AppRepository with AlertsAppContext {
   /// TICKERS
   /// TICKERS
 
-  void updateTicker(Ticker newTicker) {
+  bool updateTickers(Iterable<Ticker> newTickers) {
+    debugPrint("Updating ${newTickers.length} tickers");
+
+    bool anyTickerChanged = false;
+    for (final ticker in newTickers) {
+      anyTickerChanged = updateTicker(ticker) || anyTickerChanged;
+    }
+    if (anyTickerChanged) updateAlertsState();
+    return anyTickerChanged;
+  }
+
+  bool updateTicker(
+    Ticker newTicker, {
+    final bool callUpdateAlertState: false,
+  }) {
     //NOTE: desabilitando todos os pares que não forem USD
-    if (!newTicker.pair.quote.isUSD) return;
+    if (!newTicker.pair.quote.isUSD) return false;
 
-    final staticTicker =
-        tickers.getTicker(newTicker.exchange, newTicker.pair, register: true);
-
-    // nothing changed
-    if (staticTicker.price == newTicker.price) return;
+    final staticTicker = tickers.getTicker(newTicker.exchange, newTicker.pair,
+        createOnMissing: true);
+    final tickerChanged = staticTicker.price != newTicker.price;
 
     staticTicker.price = newTicker.price;
-    staticTicker.date = newTicker.date;
+    staticTicker.updatedAt = newTicker.updatedAt;
 
-    _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
+    if (tickerChanged) {
+      _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
+      if (callUpdateAlertState) updateAlertsState();
+    }
 
-    updateAlertsState();
+    return tickerChanged;
   }
 }

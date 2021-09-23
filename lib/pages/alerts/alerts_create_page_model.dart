@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
@@ -10,6 +9,8 @@ import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 
 class AlertsCreatePageModel extends ChangeNotifier {
+  AlertEntity alert;
+
   List<Coin> commonCoins = <Coin>[
     Coins.$BTC,
     Coins.$ETH,
@@ -37,9 +38,9 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
   double currentPrice = 0;
 
-  double get _currentPriceNotZero => currentPrice <= 0 ? 100 : currentPrice;
-
   double limitPrice = 0;
+
+  double get _currentPriceNotZero => currentPrice <= 0 ? 100 : currentPrice;
 
   double get limitPriceVariation {
     return limitPrice == 0 ? -1 : (limitPrice / _currentPriceNotZero - 1);
@@ -50,8 +51,32 @@ class AlertsCreatePageModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  AlertsCreatePageModel(this.alert);
+
   init() async {
-    setSelectedCoin(Coins.$BTC);
+    if (alert != null) {
+      await setSelectedCoin(alert.coin);
+      currentPrice = alert.referencePrice;
+      limitPrice = alert.limitPrice;
+
+      notifyListeners();
+      return;
+    }
+
+    //
+    await setSelectedCoin(commonCoins.first);
+    notifyListeners();
+  }
+
+  @override
+  dispose() {
+    alert = null;
+    commonCoins = null;
+    priceLimitModifiers = null;
+    userCoin = null;
+    currentPrice = null;
+    limitPrice = null;
+    super.dispose();
   }
 
   setSelectedCoin(Coin value) async {
@@ -82,18 +107,37 @@ class AlertsCreatePageModel extends ChangeNotifier {
   }
 
   commitAlarm(BuildContext context) async {
-    await app().registerAlert(AlertEntity(
-      coin: selectedCoin,
-      referencePrice: currentPrice,
-      limitPrice: limitPrice,
-    ));
-
-    try {
+    if (alert == null) {
+      await app().persistAlertEntity(AlertEntity(
+        coin: selectedCoin,
+        referencePrice: currentPrice,
+        limitPrice: limitPrice,
+      ));
       Navigator.of(context).pop();
-    } catch (e) {}
+      return;
+    }
+    await app().persistAlertEntity(alert
+      // ..coin = selectedCoin
+      ..referencePrice = currentPrice
+      ..limitPrice = limitPrice);
+    Navigator.of(context).pop();
   }
 
   cancelAlarm(BuildContext context) {
     Navigator.of(context).pop();
+  }
+
+  removeAlarm(BuildContext context) async {
+    await app().removeAlertEntity(alert);
+    Navigator.of(context).pop();
+  }
+
+  T when<T>({
+    T Function() creating,
+    T Function() ediding,
+  }) {
+    if (alert != null) return ediding();
+
+    return creating();
   }
 }

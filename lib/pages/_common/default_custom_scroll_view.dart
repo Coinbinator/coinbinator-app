@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 
 Widget defaultCustomScrollView({
+  @required BuildContext context,
   List<Widget> menuChildren = const <Widget>[],
+  List<Widget> Function(BuildContext context) menuChildrenBuilder,
   List<Widget> slivers = const <Widget>[],
+  List<Widget> Function(BuildContext context) sliversBuilder,
 }) {
   return CustomScrollView(
     slivers: [
@@ -11,23 +14,18 @@ Widget defaultCustomScrollView({
         SliverPersistentHeader(
           pinned: true,
           floating: true,
-          delegate: DefaultCustomListViewMenuDelegate(
+          delegate: _DefaultCustomListViewMenuDelegate(
             menuChildren: menuChildren,
+            menuChildrenBuilder: menuChildrenBuilder,
           ),
         ),
       ...slivers,
-// ),
-//       SliverList(
-//           delegate: SliverChildListDelegate([
-//for (final tickerWatch in model.watchingTickers) ...[
-//buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
-//],
-//       ]))
+      if (sliversBuilder != null) ...sliversBuilder(context)
     ],
   );
 }
 
-class DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate {
+class _DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate {
   @override
   double get maxExtent => 40;
 
@@ -36,8 +34,11 @@ class DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate {
 
   final List<Widget> menuChildren;
 
-  DefaultCustomListViewMenuDelegate({
+  List<Widget> Function(BuildContext context) menuChildrenBuilder;
+
+  _DefaultCustomListViewMenuDelegate({
     this.menuChildren,
+    this.menuChildrenBuilder,
   });
 
   @override
@@ -46,7 +47,8 @@ class DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       color: LeColors.white.shade50,
       child: Padding(
@@ -55,12 +57,7 @@ class DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             ...menuChildren,
-            // OutlinedButton(
-            //   onPressed: () {
-            //     //context.findAncestorStateOfType<WatchingPageState>().startAddTickerWatch();
-            //   },
-            //   child: Text("Add watch"),
-            // ),
+            if (menuChildrenBuilder != null) ...menuChildrenBuilder(context),
           ],
         ),
       ),

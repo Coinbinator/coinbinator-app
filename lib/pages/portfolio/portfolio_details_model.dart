@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
+import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
@@ -14,15 +15,13 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
 
   final int accountId;
 
-  bool working = false;
-
-  bool updatingPortfolios = false;
-
-  DateTime updatedPortfoliosAt;
+  bool refreshing = false;
 
   AbstractExchangeAccount account;
 
   PortfolioAccountResume portfolioResume;
+
+  DateTime portfolioResumeUpdatedAt;
 
   bool displaySubAssets = false;
 
@@ -32,31 +31,31 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
     if (status != ModelStatus.UNINITIALIZED) return;
     status = ModelStatus.INITIALIZING;
 
-    await reloadAccounts();
-    await updatePortfolios();
+    await refresh();
 
     status = ModelStatus.INITIALIZED;
     notifyListeners();
   }
 
-  Future<void> reloadAccounts() async {
-    account = await app().getAccountById(accountId);
-    notifyListeners();
+  @override
+  dispose() {
+    super.dispose();
   }
 
-  Future<void> updatePortfolios() async {
-    final busyToken = context.read<PortfolioModel>().busyToken();
-    updatingPortfolios = true;
-    notifyListeners();
+  Future<void> refresh() async {
+    final busyToken =
+        context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
+    refreshing = true;
+
+    account = await app().getAccountById(accountId);
 
     portfolioResume = await app().getAccountPortfolioResume(account);
-    updatedPortfoliosAt = DateTime.now();
-    updatingPortfolios = false;
+    portfolioResumeUpdatedAt = DateTime.now();
 
-    // portfolioTransactions =
-    await app().getAccountPortfolioTransactions(account);
+    // portfolioTransactions = await app().getAccountPortfolioTransactions(account);
 
     busyToken.release();
+    refreshing = false;
     notifyListeners();
   }
 
@@ -85,6 +84,22 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
   void toggleDisplaySubAssets() {
     displaySubAssets = !displaySubAssets;
     notifyListeners();
+  }
+
+  List<Widget> when({
+    List<Widget> Function() initialize,
+    List<Widget> Function() emptyPorfilio,
+    List<Widget> Function() ready,
+  }) {
+    if (!initialized) {
+      return initialize?.call() ?? [];
+    }
+
+    if (portfolioResume == null || portfolioResume.coins.isEmpty) {
+      return emptyPorfilio?.call() ?? [];
+    }
+
+    return ready?.call() ?? [];
   }
 }
 

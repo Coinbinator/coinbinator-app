@@ -4,11 +4,11 @@ import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 
 class Tickers {
-  final _tickers = List<Ticker>.empty(growable: true);
+  final _tickers = Set<Ticker>(); //(growable: true);
 
   get tickers => _tickers;
 
-  Ticker getTicker(Exchange exchange, Pair pair, {register: false}) {
+  Ticker getTicker(Exchange exchange, Pair pair, {createOnMissing: false}) {
     if (exchange == null || pair == null) return null;
 
     final ticker = _tickers.firstWhere(
@@ -18,10 +18,10 @@ class Tickers {
 
     if (ticker != null) return ticker;
 
-    if (register == false) return null;
+    if (createOnMissing == false) return null;
 
     final newTicker =
-        Ticker(exchange: exchange, pair: pair, date: DateTime.now(), price: -1);
+        Ticker(exchange: exchange, pair: pair, updatedAt: DateTime.now(), price: -1);
 
     _tickers.add(newTicker);
 

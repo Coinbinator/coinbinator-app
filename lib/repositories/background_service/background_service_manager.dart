@@ -4,7 +4,7 @@ import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
-import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/watching/watching_page_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
@@ -15,11 +15,13 @@ class BackgroundServiceManager {
 
   final BinanceRepository _binance = instance<BinanceRepository>();
 
-  int _working = 0;
+  bool _isTickRunning = false;
 
   DateTime alertAlarmAt;
 
   BackgroundServiceManager(this._bridge) : super();
+
+  Map<Pair, double> binanceCurrentPrices = {};
 
   start() async {
     Timer.periodic(Duration(seconds: 5), _tick);
@@ -29,15 +31,22 @@ class BackgroundServiceManager {
   _tick(Timer timer) async {
     ///NOTE: managerm se bridge
     if (_bridge == null) {
-      print("no bridge");
+      print("(_tick): no bridge");
       return;
     }
 
     ///NOTE: servico parou
     if (!(await _bridge.isServiceRunning())) {
+      print("(_tick): service is not running");
       timer.cancel();
       return;
     }
+
+    if (_isTickRunning) {
+      print("(_tick): tick running concurrence");
+      return;
+    }
+    _isTickRunning = true;
 
     ///
     _bridge.sendData({'type': 'ping'});
@@ -85,6 +94,7 @@ class BackgroundServiceManager {
 
     // print("X $_working");
     // _working = 0;
+    _isTickRunning = false;
   }
 
   Future<void> _loadExchangeInfo() async {
@@ -125,21 +135,33 @@ class BackgroundServiceManager {
       final tickers = List<Ticker>.empty(growable: true);
 
       for (final exchangeTicker in exchangeTickers) {
-        // print( exchangeTicker ); print( exchangeTicker.lePair);
-        final ticker = app().tickers.getTicker(
-            Exchanges.Binance, exchangeTicker.lePair,
-            register: true);
+        //NOTE:
+        // checking if the price changed, before notify main app
+        final tickerLastPrice = binanceCurrentPrices[exchangeTicker.lePair];
+        if (tickerLastPrice != null &&
+            tickerLastPrice == double.tryParse(exchangeTicker.price)) continue;
 
-        if (ticker == null) continue;
+        final staticTicker = app().tickers.getTicker(
+              Exchanges.Binance,
+              exchangeTicker.lePair,
+              createOnMissing: true,
+            );
 
-        ticker.price = double.tryParse(exchangeTicker.price);
-        ticker.date = DateTime.now();
+        if (staticTicker == null) continue;
 
-        tickers.add(ticker);
+        staticTicker.price = double.tryParse(exchangeTicker.price);
+        staticTicker.updatedAt = DateTime.now();
+
+        tickers.add(staticTicker);
+        binanceCurrentPrices[exchangeTicker.lePair] = staticTicker.price;
       }
 
-      _bridge.sendData(
-          {"type": MessageTypes.TICKERS, "data": TickersMessage(tickers)});
+      if (tickers.isNotEmpty) {
+        _bridge.sendData({
+          "type": MessageTypes.TICKERS,
+          "data": TickersMessage(tickers),
+        });
+      }
     } catch (e) {
       print("err:");
       print(e);
@@ -175,7 +197,8 @@ class BackgroundServiceManager {
     }
 
     if (activeAlerts.isNotEmpty) {
-      if (alertAlarmAt == null || DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
+      if (alertAlarmAt == null ||
+          DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
         alertAlarmAt = DateTime.now();
 
         // FlutterRingtonePlayer.play(

@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
@@ -136,7 +135,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
         onSelectChanged: (selected) {
           if (selected)
             Navigator.of(context)
-                .push(portifolioDetailsPageRoute(context, portfolio));
+                .push(getPortifolioDetailsPageRoute(context, portfolio));
         },
         cells: [
           /// EXCHANGE

@@ -3,13 +3,17 @@ import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:provider/provider.dart';
 
-class PortfolioPage extends StatelessWidget {
+class PortfolioPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => PortfolioPageState();
+}
+
+class PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -19,14 +23,15 @@ class PortfolioPage extends StatelessWidget {
       child: ChangeNotifierProvider<PortfolioModel>(
         create: (BuildContext context) => PortfolioModel(),
         builder: (BuildContext context, _) {
-          final model = Provider.of<PortfolioModel>(context);
+          final model = Provider.of<PortfolioModel>(context, listen: false);
+          // model.lockUntilPostFrame();
 
           return Scaffold(
             drawer: DefaultDrawer(),
             appBar: defaultAppBar(
               icon: Icons.account_balance_wallet,
               title: " My Portfolios",
-              working: model.isWorking,
+              // working: model.isWorking,
               actions: [],
             ),
             body: Navigator(
@@ -41,6 +46,11 @@ class PortfolioPage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  @override
+  deactivate() {
+    super.deactivate();
   }
 
   WidgetBuilder _getNavigatorRouteBuilder(RouteSettings settings) {

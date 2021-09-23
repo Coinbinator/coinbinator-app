@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page.dart';
@@ -29,15 +30,27 @@ Route getPortifolioListPageRoute() {
   );
 }
 
-Route alertCreatePageRoute(BuildContext context) {
+Route getAlertCreatePageRoute(BuildContext context) {
   return DialogRoute(
     context: context,
+    settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
     useSafeArea: true,
     builder: (context) => AlertsCreatePage(),
   );
 }
 
-Route portifolioDetailsPageRoute(
+Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
+  assert(alert?.id != null, "alert.id should not be null");
+
+  return DialogRoute(
+    context: context,
+    settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
+    useSafeArea: true,
+    builder: (context) => AlertsCreatePage(alert: alert),
+  );
+}
+
+Route getPortifolioDetailsPageRoute(
     final BuildContext context, final PortfolioAccountResume portifolio) {
   assert(context != null);
   assert(portifolio != null);

@@ -15,7 +15,9 @@ Ticker _$TickerFromJson(Map<String, dynamic> json) {
         ? null
         : Pair.fromJson(json['pair'] as Map<String, dynamic>),
     price: (json['price'] as num)?.toDouble(),
-    date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
+    updatedAt: json['updatedAt'] == null
+        ? null
+        : DateTime.parse(json['updatedAt'] as String),
   );
 }
 
@@ -23,5 +25,5 @@ Map<String, dynamic> _$TickerToJson(Ticker instance) => <String, dynamic>{
       'exchange': instance.exchange,
       'pair': instance.pair,
       'price': instance.price,
-      'date': instance.date?.toIso8601String(),
+      'updatedAt': instance.updatedAt?.toIso8601String(),
     };

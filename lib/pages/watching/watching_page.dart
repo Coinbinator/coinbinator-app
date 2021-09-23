@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/models/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/watching/watching_page_model.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
@@ -31,7 +31,6 @@ class WatchingPage extends StatelessWidget {
                 icon: Icons.widgets,
                 title: " Watching",
                 actions: _appBarActions(context),
-                working: false,
               ),
               body: WatchListView(),
               floatingActionButton: _floatingActionButton(context),

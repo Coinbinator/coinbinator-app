@@ -1,20 +1,18 @@
 // part "utils.g.dart.bkp";
 
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
-
 T value<T>(Function() func) {
   return func() as T;
 }
 
-class BudyToken {
-  //TODO: criar uma interface para o parent e release
-  final PortfolioModel parent;
-
+class BusyToken {
   final String message;
 
-  BudyToken(final this.parent, {this.message});
+  Function(BusyToken token) releaseCallback;
+
+  BusyToken(this.releaseCallback, {this.message});
 
   release() {
-    parent.removeWorkingWorker(this);
+    releaseCallback?.call(this);
+    releaseCallback = null;
   }
 }

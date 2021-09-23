@@ -7,3359 +7,4644 @@ part of 'pair.dart';
 // **************************************************************************
 
 class Pairs {
+  // ignore: non_constant_identifier_names
   static final $ETH_BTC = Pair.instance(base: Coin("ETH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_BTC = Pair.instance(base: Coin("LTC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_BTC = Pair.instance(base: Coin("BNB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_BTC = Pair.instance(base: Coin("NEO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $QTUM_ETH =
       Pair.instance(base: Coin("QTUM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_ETH = Pair.instance(base: Coin("EOS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SNT_ETH = Pair.instance(base: Coin("SNT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BNT_ETH = Pair.instance(base: Coin("BNT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BCC_BTC = Pair.instance(base: Coin("BCC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GAS_BTC = Pair.instance(base: Coin("GAS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_ETH = Pair.instance(base: Coin("BNB"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_USDT =
       Pair.instance(base: Coin("BTC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_USDT =
       Pair.instance(base: Coin("ETH"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HSR_BTC = Pair.instance(base: Coin("HSR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OAX_ETH = Pair.instance(base: Coin("OAX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DNT_ETH = Pair.instance(base: Coin("DNT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MCO_ETH = Pair.instance(base: Coin("MCO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ICN_ETH = Pair.instance(base: Coin("ICN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MCO_BTC = Pair.instance(base: Coin("MCO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WTC_BTC = Pair.instance(base: Coin("WTC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WTC_ETH = Pair.instance(base: Coin("WTC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LRC_BTC = Pair.instance(base: Coin("LRC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LRC_ETH = Pair.instance(base: Coin("LRC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $QTUM_BTC =
       Pair.instance(base: Coin("QTUM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $YOYO_BTC =
       Pair.instance(base: Coin("YOYO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OMG_BTC = Pair.instance(base: Coin("OMG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OMG_ETH = Pair.instance(base: Coin("OMG"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ZRX_BTC = Pair.instance(base: Coin("ZRX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ZRX_ETH = Pair.instance(base: Coin("ZRX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STRAT_BTC =
       Pair.instance(base: Coin("STRAT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STRAT_ETH =
       Pair.instance(base: Coin("STRAT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SNGLS_BTC =
       Pair.instance(base: Coin("SNGLS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SNGLS_ETH =
       Pair.instance(base: Coin("SNGLS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BQX_BTC = Pair.instance(base: Coin("BQX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BQX_ETH = Pair.instance(base: Coin("BQX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $KNC_BTC = Pair.instance(base: Coin("KNC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $KNC_ETH = Pair.instance(base: Coin("KNC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $FUN_BTC = Pair.instance(base: Coin("FUN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FUN_ETH = Pair.instance(base: Coin("FUN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SNM_BTC = Pair.instance(base: Coin("SNM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SNM_ETH = Pair.instance(base: Coin("SNM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_ETH = Pair.instance(base: Coin("NEO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $IOTA_BTC =
       Pair.instance(base: Coin("IOTA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $IOTA_ETH =
       Pair.instance(base: Coin("IOTA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_BTC =
       Pair.instance(base: Coin("LINK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_ETH =
       Pair.instance(base: Coin("LINK"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $XVG_BTC = Pair.instance(base: Coin("XVG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XVG_ETH = Pair.instance(base: Coin("XVG"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SALT_BTC =
       Pair.instance(base: Coin("SALT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SALT_ETH =
       Pair.instance(base: Coin("SALT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MDA_BTC = Pair.instance(base: Coin("MDA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MDA_ETH = Pair.instance(base: Coin("MDA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MTL_BTC = Pair.instance(base: Coin("MTL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MTL_ETH = Pair.instance(base: Coin("MTL"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SUB_BTC = Pair.instance(base: Coin("SUB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SUB_ETH = Pair.instance(base: Coin("SUB"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_BTC = Pair.instance(base: Coin("EOS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SNT_BTC = Pair.instance(base: Coin("SNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_ETH = Pair.instance(base: Coin("ETC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_BTC = Pair.instance(base: Coin("ETC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MTH_BTC = Pair.instance(base: Coin("MTH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MTH_ETH = Pair.instance(base: Coin("MTH"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ENG_BTC = Pair.instance(base: Coin("ENG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ENG_ETH = Pair.instance(base: Coin("ENG"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DNT_BTC = Pair.instance(base: Coin("DNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_BTC = Pair.instance(base: Coin("ZEC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_ETH = Pair.instance(base: Coin("ZEC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BNT_BTC = Pair.instance(base: Coin("BNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AST_BTC = Pair.instance(base: Coin("AST"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AST_ETH = Pair.instance(base: Coin("AST"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DASH_BTC =
       Pair.instance(base: Coin("DASH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DASH_ETH =
       Pair.instance(base: Coin("DASH"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $OAX_BTC = Pair.instance(base: Coin("OAX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ICN_BTC = Pair.instance(base: Coin("ICN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BTG_BTC = Pair.instance(base: Coin("BTG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BTG_ETH = Pair.instance(base: Coin("BTG"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $EVX_BTC = Pair.instance(base: Coin("EVX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $EVX_ETH = Pair.instance(base: Coin("EVX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $REQ_BTC = Pair.instance(base: Coin("REQ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $REQ_ETH = Pair.instance(base: Coin("REQ"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $VIB_BTC = Pair.instance(base: Coin("VIB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VIB_ETH = Pair.instance(base: Coin("VIB"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $HSR_ETH = Pair.instance(base: Coin("HSR"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_BTC = Pair.instance(base: Coin("TRX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_ETH = Pair.instance(base: Coin("TRX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $POWR_BTC =
       Pair.instance(base: Coin("POWR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $POWR_ETH =
       Pair.instance(base: Coin("POWR"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ARK_BTC = Pair.instance(base: Coin("ARK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ARK_ETH = Pair.instance(base: Coin("ARK"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $YOYO_ETH =
       Pair.instance(base: Coin("YOYO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_BTC = Pair.instance(base: Coin("XRP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_ETH = Pair.instance(base: Coin("XRP"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MOD_BTC = Pair.instance(base: Coin("MOD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MOD_ETH = Pair.instance(base: Coin("MOD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ENJ_BTC = Pair.instance(base: Coin("ENJ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ENJ_ETH = Pair.instance(base: Coin("ENJ"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STORJ_BTC =
       Pair.instance(base: Coin("STORJ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STORJ_ETH =
       Pair.instance(base: Coin("STORJ"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_USDT =
       Pair.instance(base: Coin("BNB"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $VEN_BNB = Pair.instance(base: Coin("VEN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $YOYO_BNB =
       Pair.instance(base: Coin("YOYO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $POWR_BNB =
       Pair.instance(base: Coin("POWR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $VEN_BTC = Pair.instance(base: Coin("VEN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VEN_ETH = Pair.instance(base: Coin("VEN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $KMD_BTC = Pair.instance(base: Coin("KMD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $KMD_ETH = Pair.instance(base: Coin("KMD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NULS_BNB =
       Pair.instance(base: Coin("NULS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $RCN_BTC = Pair.instance(base: Coin("RCN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RCN_ETH = Pair.instance(base: Coin("RCN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RCN_BNB = Pair.instance(base: Coin("RCN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NULS_BTC =
       Pair.instance(base: Coin("NULS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NULS_ETH =
       Pair.instance(base: Coin("NULS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RDN_BTC = Pair.instance(base: Coin("RDN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RDN_ETH = Pair.instance(base: Coin("RDN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RDN_BNB = Pair.instance(base: Coin("RDN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XMR_BTC = Pair.instance(base: Coin("XMR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XMR_ETH = Pair.instance(base: Coin("XMR"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DLT_BNB = Pair.instance(base: Coin("DLT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WTC_BNB = Pair.instance(base: Coin("WTC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DLT_BTC = Pair.instance(base: Coin("DLT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DLT_ETH = Pair.instance(base: Coin("DLT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AMB_BTC = Pair.instance(base: Coin("AMB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AMB_ETH = Pair.instance(base: Coin("AMB"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AMB_BNB = Pair.instance(base: Coin("AMB"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BCC_ETH = Pair.instance(base: Coin("BCC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BCC_USDT =
       Pair.instance(base: Coin("BCC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCC_BNB = Pair.instance(base: Coin("BCC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_BTC = Pair.instance(base: Coin("BAT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_ETH = Pair.instance(base: Coin("BAT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_BNB = Pair.instance(base: Coin("BAT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_BTC =
       Pair.instance(base: Coin("BCPT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_ETH =
       Pair.instance(base: Coin("BCPT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_BNB =
       Pair.instance(base: Coin("BCPT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ARN_BTC = Pair.instance(base: Coin("ARN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ARN_ETH = Pair.instance(base: Coin("ARN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GVT_BTC = Pair.instance(base: Coin("GVT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GVT_ETH = Pair.instance(base: Coin("GVT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CDT_BTC = Pair.instance(base: Coin("CDT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CDT_ETH = Pair.instance(base: Coin("CDT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GXS_BTC = Pair.instance(base: Coin("GXS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GXS_ETH = Pair.instance(base: Coin("GXS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_USDT =
       Pair.instance(base: Coin("NEO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_BNB = Pair.instance(base: Coin("NEO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $POE_BTC = Pair.instance(base: Coin("POE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $POE_ETH = Pair.instance(base: Coin("POE"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $QSP_BTC = Pair.instance(base: Coin("QSP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $QSP_ETH = Pair.instance(base: Coin("QSP"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $QSP_BNB = Pair.instance(base: Coin("QSP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BTS_BTC = Pair.instance(base: Coin("BTS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BTS_ETH = Pair.instance(base: Coin("BTS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BTS_BNB = Pair.instance(base: Coin("BTS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XZC_BTC = Pair.instance(base: Coin("XZC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XZC_ETH = Pair.instance(base: Coin("XZC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $XZC_BNB = Pair.instance(base: Coin("XZC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LSK_BTC = Pair.instance(base: Coin("LSK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LSK_ETH = Pair.instance(base: Coin("LSK"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LSK_BNB = Pair.instance(base: Coin("LSK"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TNT_BTC = Pair.instance(base: Coin("TNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TNT_ETH = Pair.instance(base: Coin("TNT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $FUEL_BTC =
       Pair.instance(base: Coin("FUEL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FUEL_ETH =
       Pair.instance(base: Coin("FUEL"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MANA_BTC =
       Pair.instance(base: Coin("MANA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MANA_ETH =
       Pair.instance(base: Coin("MANA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BCD_BTC = Pair.instance(base: Coin("BCD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCD_ETH = Pair.instance(base: Coin("BCD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DGD_BTC = Pair.instance(base: Coin("DGD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DGD_ETH = Pair.instance(base: Coin("DGD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $IOTA_BNB =
       Pair.instance(base: Coin("IOTA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ADX_BTC = Pair.instance(base: Coin("ADX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ADX_ETH = Pair.instance(base: Coin("ADX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ADX_BNB = Pair.instance(base: Coin("ADX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_BTC = Pair.instance(base: Coin("ADA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_ETH = Pair.instance(base: Coin("ADA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $PPT_BTC = Pair.instance(base: Coin("PPT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PPT_ETH = Pair.instance(base: Coin("PPT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CMT_BTC = Pair.instance(base: Coin("CMT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CMT_ETH = Pair.instance(base: Coin("CMT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CMT_BNB = Pair.instance(base: Coin("CMT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_BTC = Pair.instance(base: Coin("XLM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_ETH = Pair.instance(base: Coin("XLM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_BNB = Pair.instance(base: Coin("XLM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CND_BTC = Pair.instance(base: Coin("CND"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CND_ETH = Pair.instance(base: Coin("CND"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CND_BNB = Pair.instance(base: Coin("CND"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LEND_BTC =
       Pair.instance(base: Coin("LEND"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LEND_ETH =
       Pair.instance(base: Coin("LEND"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WABI_BTC =
       Pair.instance(base: Coin("WABI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WABI_ETH =
       Pair.instance(base: Coin("WABI"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WABI_BNB =
       Pair.instance(base: Coin("WABI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_ETH = Pair.instance(base: Coin("LTC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_USDT =
       Pair.instance(base: Coin("LTC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_BNB = Pair.instance(base: Coin("LTC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TNB_BTC = Pair.instance(base: Coin("TNB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TNB_ETH = Pair.instance(base: Coin("TNB"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_BTC =
       Pair.instance(base: Coin("WAVES"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_ETH =
       Pair.instance(base: Coin("WAVES"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_BNB =
       Pair.instance(base: Coin("WAVES"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_BTC = Pair.instance(base: Coin("GTO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_ETH = Pair.instance(base: Coin("GTO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_BNB = Pair.instance(base: Coin("GTO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ICX_BTC = Pair.instance(base: Coin("ICX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ICX_ETH = Pair.instance(base: Coin("ICX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ICX_BNB = Pair.instance(base: Coin("ICX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $OST_BTC = Pair.instance(base: Coin("OST"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OST_ETH = Pair.instance(base: Coin("OST"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $OST_BNB = Pair.instance(base: Coin("OST"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ELF_BTC = Pair.instance(base: Coin("ELF"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ELF_ETH = Pair.instance(base: Coin("ELF"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AION_BTC =
       Pair.instance(base: Coin("AION"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AION_ETH =
       Pair.instance(base: Coin("AION"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AION_BNB =
       Pair.instance(base: Coin("AION"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NEBL_BTC =
       Pair.instance(base: Coin("NEBL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NEBL_ETH =
       Pair.instance(base: Coin("NEBL"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NEBL_BNB =
       Pair.instance(base: Coin("NEBL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BRD_BTC = Pair.instance(base: Coin("BRD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BRD_ETH = Pair.instance(base: Coin("BRD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BRD_BNB = Pair.instance(base: Coin("BRD"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MCO_BNB = Pair.instance(base: Coin("MCO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $EDO_BTC = Pair.instance(base: Coin("EDO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $EDO_ETH = Pair.instance(base: Coin("EDO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WINGS_BTC =
       Pair.instance(base: Coin("WINGS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WINGS_ETH =
       Pair.instance(base: Coin("WINGS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NAV_BTC = Pair.instance(base: Coin("NAV"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NAV_ETH = Pair.instance(base: Coin("NAV"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NAV_BNB = Pair.instance(base: Coin("NAV"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LUN_BTC = Pair.instance(base: Coin("LUN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LUN_ETH = Pair.instance(base: Coin("LUN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $TRIG_BTC =
       Pair.instance(base: Coin("TRIG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TRIG_ETH =
       Pair.instance(base: Coin("TRIG"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $TRIG_BNB =
       Pair.instance(base: Coin("TRIG"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $APPC_BTC =
       Pair.instance(base: Coin("APPC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $APPC_ETH =
       Pair.instance(base: Coin("APPC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $APPC_BNB =
       Pair.instance(base: Coin("APPC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $VIBE_BTC =
       Pair.instance(base: Coin("VIBE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VIBE_ETH =
       Pair.instance(base: Coin("VIBE"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RLC_BTC = Pair.instance(base: Coin("RLC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RLC_ETH = Pair.instance(base: Coin("RLC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RLC_BNB = Pair.instance(base: Coin("RLC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $INS_BTC = Pair.instance(base: Coin("INS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $INS_ETH = Pair.instance(base: Coin("INS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $PIVX_BTC =
       Pair.instance(base: Coin("PIVX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PIVX_ETH =
       Pair.instance(base: Coin("PIVX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $PIVX_BNB =
       Pair.instance(base: Coin("PIVX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $IOST_BTC =
       Pair.instance(base: Coin("IOST"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $IOST_ETH =
       Pair.instance(base: Coin("IOST"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CHAT_BTC =
       Pair.instance(base: Coin("CHAT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CHAT_ETH =
       Pair.instance(base: Coin("CHAT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STEEM_BTC =
       Pair.instance(base: Coin("STEEM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STEEM_ETH =
       Pair.instance(base: Coin("STEEM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STEEM_BNB =
       Pair.instance(base: Coin("STEEM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NANO_BTC =
       Pair.instance(base: Coin("NANO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NANO_ETH =
       Pair.instance(base: Coin("NANO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NANO_BNB =
       Pair.instance(base: Coin("NANO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $VIA_BTC = Pair.instance(base: Coin("VIA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VIA_ETH = Pair.instance(base: Coin("VIA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $VIA_BNB = Pair.instance(base: Coin("VIA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BLZ_BTC = Pair.instance(base: Coin("BLZ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BLZ_ETH = Pair.instance(base: Coin("BLZ"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BLZ_BNB = Pair.instance(base: Coin("BLZ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $AE_BTC = Pair.instance(base: Coin("AE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AE_ETH = Pair.instance(base: Coin("AE"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AE_BNB = Pair.instance(base: Coin("AE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $RPX_BTC = Pair.instance(base: Coin("RPX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RPX_ETH = Pair.instance(base: Coin("RPX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RPX_BNB = Pair.instance(base: Coin("RPX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NCASH_BTC =
       Pair.instance(base: Coin("NCASH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NCASH_ETH =
       Pair.instance(base: Coin("NCASH"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NCASH_BNB =
       Pair.instance(base: Coin("NCASH"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $POA_BTC = Pair.instance(base: Coin("POA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $POA_ETH = Pair.instance(base: Coin("POA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $POA_BNB = Pair.instance(base: Coin("POA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_BTC = Pair.instance(base: Coin("ZIL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_ETH = Pair.instance(base: Coin("ZIL"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_BNB = Pair.instance(base: Coin("ZIL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_BTC = Pair.instance(base: Coin("ONT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_ETH = Pair.instance(base: Coin("ONT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_BNB = Pair.instance(base: Coin("ONT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $STORM_BTC =
       Pair.instance(base: Coin("STORM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STORM_ETH =
       Pair.instance(base: Coin("STORM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STORM_BNB =
       Pair.instance(base: Coin("STORM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $QTUM_BNB =
       Pair.instance(base: Coin("QTUM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $QTUM_USDT =
       Pair.instance(base: Coin("QTUM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XEM_BTC = Pair.instance(base: Coin("XEM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XEM_ETH = Pair.instance(base: Coin("XEM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $XEM_BNB = Pair.instance(base: Coin("XEM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WAN_BTC = Pair.instance(base: Coin("WAN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WAN_ETH = Pair.instance(base: Coin("WAN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $WAN_BNB = Pair.instance(base: Coin("WAN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WPR_BTC = Pair.instance(base: Coin("WPR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WPR_ETH = Pair.instance(base: Coin("WPR"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $QLC_BTC = Pair.instance(base: Coin("QLC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $QLC_ETH = Pair.instance(base: Coin("QLC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SYS_BTC = Pair.instance(base: Coin("SYS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SYS_ETH = Pair.instance(base: Coin("SYS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SYS_BNB = Pair.instance(base: Coin("SYS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $QLC_BNB = Pair.instance(base: Coin("QLC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $GRS_BTC = Pair.instance(base: Coin("GRS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GRS_ETH = Pair.instance(base: Coin("GRS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_USDT =
       Pair.instance(base: Coin("ADA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_BNB = Pair.instance(base: Coin("ADA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CLOAK_BTC =
       Pair.instance(base: Coin("CLOAK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CLOAK_ETH =
       Pair.instance(base: Coin("CLOAK"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GNT_BTC = Pair.instance(base: Coin("GNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GNT_ETH = Pair.instance(base: Coin("GNT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GNT_BNB = Pair.instance(base: Coin("GNT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LOOM_BTC =
       Pair.instance(base: Coin("LOOM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LOOM_ETH =
       Pair.instance(base: Coin("LOOM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LOOM_BNB =
       Pair.instance(base: Coin("LOOM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_USDT =
       Pair.instance(base: Coin("XRP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCN_BTC = Pair.instance(base: Coin("BCN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCN_ETH = Pair.instance(base: Coin("BCN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $BCN_BNB = Pair.instance(base: Coin("BCN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $REP_BTC = Pair.instance(base: Coin("REP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $REP_ETH = Pair.instance(base: Coin("REP"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $REP_BNB = Pair.instance(base: Coin("REP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_TUSD =
       Pair.instance(base: Coin("BTC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TUSD_BTC =
       Pair.instance(base: Coin("TUSD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_TUSD =
       Pair.instance(base: Coin("ETH"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TUSD_ETH =
       Pair.instance(base: Coin("TUSD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $TUSD_BNB =
       Pair.instance(base: Coin("TUSD"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ZEN_BTC = Pair.instance(base: Coin("ZEN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ZEN_ETH = Pair.instance(base: Coin("ZEN"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ZEN_BNB = Pair.instance(base: Coin("ZEN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SKY_BTC = Pair.instance(base: Coin("SKY"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SKY_ETH = Pair.instance(base: Coin("SKY"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SKY_BNB = Pair.instance(base: Coin("SKY"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_USDT =
       Pair.instance(base: Coin("EOS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_BNB = Pair.instance(base: Coin("EOS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CVC_BTC = Pair.instance(base: Coin("CVC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CVC_ETH = Pair.instance(base: Coin("CVC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CVC_BNB = Pair.instance(base: Coin("CVC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $THETA_BTC =
       Pair.instance(base: Coin("THETA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $THETA_ETH =
       Pair.instance(base: Coin("THETA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $THETA_BNB =
       Pair.instance(base: Coin("THETA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_BNB = Pair.instance(base: Coin("XRP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TUSD_USDT =
       Pair.instance(base: Coin("TUSD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IOTA_USDT =
       Pair.instance(base: Coin("IOTA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_USDT =
       Pair.instance(base: Coin("XLM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IOTX_BTC =
       Pair.instance(base: Coin("IOTX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $IOTX_ETH =
       Pair.instance(base: Coin("IOTX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $QKC_BTC = Pair.instance(base: Coin("QKC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $QKC_ETH = Pair.instance(base: Coin("QKC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AGI_BTC = Pair.instance(base: Coin("AGI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AGI_ETH = Pair.instance(base: Coin("AGI"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AGI_BNB = Pair.instance(base: Coin("AGI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NXS_BTC = Pair.instance(base: Coin("NXS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NXS_ETH = Pair.instance(base: Coin("NXS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NXS_BNB = Pair.instance(base: Coin("NXS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ENJ_BNB = Pair.instance(base: Coin("ENJ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DATA_BTC =
       Pair.instance(base: Coin("DATA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DATA_ETH =
       Pair.instance(base: Coin("DATA"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_USDT =
       Pair.instance(base: Coin("ONT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_BNB = Pair.instance(base: Coin("TRX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_USDT =
       Pair.instance(base: Coin("TRX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_USDT =
       Pair.instance(base: Coin("ETC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_BNB = Pair.instance(base: Coin("ETC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ICX_USDT =
       Pair.instance(base: Coin("ICX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SC_BTC = Pair.instance(base: Coin("SC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SC_ETH = Pair.instance(base: Coin("SC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SC_BNB = Pair.instance(base: Coin("SC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NPXS_BTC =
       Pair.instance(base: Coin("NPXS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NPXS_ETH =
       Pair.instance(base: Coin("NPXS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $VEN_USDT =
       Pair.instance(base: Coin("VEN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KEY_BTC = Pair.instance(base: Coin("KEY"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $KEY_ETH = Pair.instance(base: Coin("KEY"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NAS_BTC = Pair.instance(base: Coin("NAS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NAS_ETH = Pair.instance(base: Coin("NAS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $NAS_BNB = Pair.instance(base: Coin("NAS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MFT_BTC = Pair.instance(base: Coin("MFT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MFT_ETH = Pair.instance(base: Coin("MFT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $MFT_BNB = Pair.instance(base: Coin("MFT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DENT_BTC =
       Pair.instance(base: Coin("DENT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DENT_ETH =
       Pair.instance(base: Coin("DENT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ARDR_BTC =
       Pair.instance(base: Coin("ARDR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ARDR_ETH =
       Pair.instance(base: Coin("ARDR"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ARDR_BNB =
       Pair.instance(base: Coin("ARDR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NULS_USDT =
       Pair.instance(base: Coin("NULS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HOT_BTC = Pair.instance(base: Coin("HOT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HOT_ETH = Pair.instance(base: Coin("HOT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $VET_BTC = Pair.instance(base: Coin("VET"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VET_ETH = Pair.instance(base: Coin("VET"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $VET_USDT =
       Pair.instance(base: Coin("VET"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $VET_BNB = Pair.instance(base: Coin("VET"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DOCK_BTC =
       Pair.instance(base: Coin("DOCK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DOCK_ETH =
       Pair.instance(base: Coin("DOCK"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $POLY_BTC =
       Pair.instance(base: Coin("POLY"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $POLY_BNB =
       Pair.instance(base: Coin("POLY"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PHX_BTC = Pair.instance(base: Coin("PHX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PHX_ETH = Pair.instance(base: Coin("PHX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $PHX_BNB = Pair.instance(base: Coin("PHX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $HC_BTC = Pair.instance(base: Coin("HC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HC_ETH = Pair.instance(base: Coin("HC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GO_BTC = Pair.instance(base: Coin("GO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GO_BNB = Pair.instance(base: Coin("GO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_BTC = Pair.instance(base: Coin("PAX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_BNB = Pair.instance(base: Coin("PAX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_USDT =
       Pair.instance(base: Coin("PAX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_ETH = Pair.instance(base: Coin("PAX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $RVN_BTC = Pair.instance(base: Coin("RVN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RVN_BNB = Pair.instance(base: Coin("RVN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DCR_BTC = Pair.instance(base: Coin("DCR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DCR_BNB = Pair.instance(base: Coin("DCR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $USDC_BNB =
       Pair.instance(base: Coin("USDC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MITH_BTC =
       Pair.instance(base: Coin("MITH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MITH_BNB =
       Pair.instance(base: Coin("MITH"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_BTC =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCHSV_BTC =
       Pair.instance(base: Coin("BCHSV"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_USDT =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCHSV_USDT =
       Pair.instance(base: Coin("BCHSV"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_PAX = Pair.instance(base: Coin("BNB"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_PAX = Pair.instance(base: Coin("BTC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_PAX = Pair.instance(base: Coin("ETH"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_PAX = Pair.instance(base: Coin("XRP"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_PAX = Pair.instance(base: Coin("EOS"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_PAX = Pair.instance(base: Coin("XLM"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $REN_BTC = Pair.instance(base: Coin("REN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $REN_BNB = Pair.instance(base: Coin("REN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_TUSD =
       Pair.instance(base: Coin("BNB"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_TUSD =
       Pair.instance(base: Coin("XRP"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_TUSD =
       Pair.instance(base: Coin("EOS"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_TUSD =
       Pair.instance(base: Coin("XLM"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_USDC =
       Pair.instance(base: Coin("BNB"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_USDC =
       Pair.instance(base: Coin("BTC"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_USDC =
       Pair.instance(base: Coin("ETH"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_USDC =
       Pair.instance(base: Coin("XRP"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_USDC =
       Pair.instance(base: Coin("EOS"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_USDC =
       Pair.instance(base: Coin("XLM"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $USDC_USDT =
       Pair.instance(base: Coin("USDC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_TUSD =
       Pair.instance(base: Coin("ADA"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_TUSD =
       Pair.instance(base: Coin("TRX"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_TUSD =
       Pair.instance(base: Coin("NEO"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_XRP = Pair.instance(base: Coin("TRX"), quote: Coin("XRP"));
 
+// ignore: non_constant_identifier_names
   static final $XZC_XRP = Pair.instance(base: Coin("XZC"), quote: Coin("XRP"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_TUSD =
       Pair.instance(base: Coin("PAX"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $USDC_TUSD =
       Pair.instance(base: Coin("USDC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $USDC_PAX =
       Pair.instance(base: Coin("USDC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_USDT =
       Pair.instance(base: Coin("LINK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_TUSD =
       Pair.instance(base: Coin("LINK"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_PAX =
       Pair.instance(base: Coin("LINK"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_USDC =
       Pair.instance(base: Coin("LINK"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_USDT =
       Pair.instance(base: Coin("WAVES"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_TUSD =
       Pair.instance(base: Coin("WAVES"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_PAX =
       Pair.instance(base: Coin("WAVES"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_USDC =
       Pair.instance(base: Coin("WAVES"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_TUSD =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_PAX =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_USDC =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BCHSV_TUSD =
       Pair.instance(base: Coin("BCHSV"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCHSV_PAX =
       Pair.instance(base: Coin("BCHSV"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BCHSV_USDC =
       Pair.instance(base: Coin("BCHSV"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_TUSD =
       Pair.instance(base: Coin("LTC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_PAX = Pair.instance(base: Coin("LTC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_USDC =
       Pair.instance(base: Coin("LTC"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_PAX = Pair.instance(base: Coin("TRX"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_USDC =
       Pair.instance(base: Coin("TRX"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_BTC = Pair.instance(base: Coin("BTT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_BNB = Pair.instance(base: Coin("BTT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_USDT =
       Pair.instance(base: Coin("BTT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_USDS =
       Pair.instance(base: Coin("BNB"), quote: Coin("USDS"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_USDS =
       Pair.instance(base: Coin("BTC"), quote: Coin("USDS"));
 
+// ignore: non_constant_identifier_names
   static final $USDS_USDT =
       Pair.instance(base: Coin("USDS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $USDS_PAX =
       Pair.instance(base: Coin("USDS"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $USDS_TUSD =
       Pair.instance(base: Coin("USDS"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $USDS_USDC =
       Pair.instance(base: Coin("USDS"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_PAX = Pair.instance(base: Coin("BTT"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_TUSD =
       Pair.instance(base: Coin("BTT"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_USDC =
       Pair.instance(base: Coin("BTT"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ONG_BNB = Pair.instance(base: Coin("ONG"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ONG_BTC = Pair.instance(base: Coin("ONG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ONG_USDT =
       Pair.instance(base: Coin("ONG"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HOT_BNB = Pair.instance(base: Coin("HOT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $HOT_USDT =
       Pair.instance(base: Coin("HOT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_USDT =
       Pair.instance(base: Coin("ZIL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ZRX_BNB = Pair.instance(base: Coin("ZRX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ZRX_USDT =
       Pair.instance(base: Coin("ZRX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FET_BNB = Pair.instance(base: Coin("FET"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FET_BTC = Pair.instance(base: Coin("FET"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FET_USDT =
       Pair.instance(base: Coin("FET"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_USDT =
       Pair.instance(base: Coin("BAT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XMR_BNB = Pair.instance(base: Coin("XMR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XMR_USDT =
       Pair.instance(base: Coin("XMR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_BNB = Pair.instance(base: Coin("ZEC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_USDT =
       Pair.instance(base: Coin("ZEC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_PAX = Pair.instance(base: Coin("ZEC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_TUSD =
       Pair.instance(base: Coin("ZEC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_USDC =
       Pair.instance(base: Coin("ZEC"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $IOST_BNB =
       Pair.instance(base: Coin("IOST"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $IOST_USDT =
       Pair.instance(base: Coin("IOST"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CELR_BNB =
       Pair.instance(base: Coin("CELR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CELR_BTC =
       Pair.instance(base: Coin("CELR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CELR_USDT =
       Pair.instance(base: Coin("CELR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_PAX = Pair.instance(base: Coin("ADA"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_USDC =
       Pair.instance(base: Coin("ADA"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_PAX = Pair.instance(base: Coin("NEO"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_USDC =
       Pair.instance(base: Coin("NEO"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $DASH_BNB =
       Pair.instance(base: Coin("DASH"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DASH_USDT =
       Pair.instance(base: Coin("DASH"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NANO_USDT =
       Pair.instance(base: Coin("NANO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $OMG_BNB = Pair.instance(base: Coin("OMG"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $OMG_USDT =
       Pair.instance(base: Coin("OMG"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $THETA_USDT =
       Pair.instance(base: Coin("THETA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ENJ_USDT =
       Pair.instance(base: Coin("ENJ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MITH_USDT =
       Pair.instance(base: Coin("MITH"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MATIC_BNB =
       Pair.instance(base: Coin("MATIC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MATIC_BTC =
       Pair.instance(base: Coin("MATIC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MATIC_USDT =
       Pair.instance(base: Coin("MATIC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_BNB =
       Pair.instance(base: Coin("ATOM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_BTC =
       Pair.instance(base: Coin("ATOM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_USDT =
       Pair.instance(base: Coin("ATOM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_USDC =
       Pair.instance(base: Coin("ATOM"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_PAX =
       Pair.instance(base: Coin("ATOM"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_TUSD =
       Pair.instance(base: Coin("ATOM"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_USDC =
       Pair.instance(base: Coin("ETC"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_PAX = Pair.instance(base: Coin("ETC"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_TUSD =
       Pair.instance(base: Coin("ETC"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_USDC =
       Pair.instance(base: Coin("BAT"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_PAX = Pair.instance(base: Coin("BAT"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_TUSD =
       Pair.instance(base: Coin("BAT"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PHB_BNB = Pair.instance(base: Coin("PHB"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PHB_BTC = Pair.instance(base: Coin("PHB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PHB_USDC =
       Pair.instance(base: Coin("PHB"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $PHB_TUSD =
       Pair.instance(base: Coin("PHB"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PHB_PAX = Pair.instance(base: Coin("PHB"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_BNB =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_BTC =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_USDT =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_USDC =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_TUSD =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TFUEL_PAX =
       Pair.instance(base: Coin("TFUEL"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_BNB = Pair.instance(base: Coin("ONE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_BTC = Pair.instance(base: Coin("ONE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_USDT =
       Pair.instance(base: Coin("ONE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_TUSD =
       Pair.instance(base: Coin("ONE"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_PAX = Pair.instance(base: Coin("ONE"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_USDC =
       Pair.instance(base: Coin("ONE"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_BNB = Pair.instance(base: Coin("FTM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_BTC = Pair.instance(base: Coin("FTM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_USDT =
       Pair.instance(base: Coin("FTM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_TUSD =
       Pair.instance(base: Coin("FTM"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_PAX = Pair.instance(base: Coin("FTM"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $FTM_USDC =
       Pair.instance(base: Coin("FTM"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BTCB_BTC =
       Pair.instance(base: Coin("BTCB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_TUSD =
       Pair.instance(base: Coin("BCPT"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_PAX =
       Pair.instance(base: Coin("BCPT"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BCPT_USDC =
       Pair.instance(base: Coin("BCPT"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_BNB =
       Pair.instance(base: Coin("ALGO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_BTC =
       Pair.instance(base: Coin("ALGO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_USDT =
       Pair.instance(base: Coin("ALGO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_TUSD =
       Pair.instance(base: Coin("ALGO"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_PAX =
       Pair.instance(base: Coin("ALGO"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_USDC =
       Pair.instance(base: Coin("ALGO"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $USDSB_USDT =
       Pair.instance(base: Coin("USDSB"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $USDSB_USDS =
       Pair.instance(base: Coin("USDSB"), quote: Coin("USDS"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_USDT =
       Pair.instance(base: Coin("GTO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_PAX = Pair.instance(base: Coin("GTO"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_TUSD =
       Pair.instance(base: Coin("GTO"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $GTO_USDC =
       Pair.instance(base: Coin("GTO"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_BNB = Pair.instance(base: Coin("ERD"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_BTC = Pair.instance(base: Coin("ERD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_USDT =
       Pair.instance(base: Coin("ERD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_PAX = Pair.instance(base: Coin("ERD"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_USDC =
       Pair.instance(base: Coin("ERD"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_BNB =
       Pair.instance(base: Coin("DOGE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_BTC =
       Pair.instance(base: Coin("DOGE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_USDT =
       Pair.instance(base: Coin("DOGE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_PAX =
       Pair.instance(base: Coin("DOGE"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_USDC =
       Pair.instance(base: Coin("DOGE"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $DUSK_BNB =
       Pair.instance(base: Coin("DUSK"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DUSK_BTC =
       Pair.instance(base: Coin("DUSK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DUSK_USDT =
       Pair.instance(base: Coin("DUSK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DUSK_USDC =
       Pair.instance(base: Coin("DUSK"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $DUSK_PAX =
       Pair.instance(base: Coin("DUSK"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BGBP_USDC =
       Pair.instance(base: Coin("BGBP"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_BNB =
       Pair.instance(base: Coin("ANKR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_BTC =
       Pair.instance(base: Coin("ANKR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_USDT =
       Pair.instance(base: Coin("ANKR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_TUSD =
       Pair.instance(base: Coin("ANKR"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_PAX =
       Pair.instance(base: Coin("ANKR"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ANKR_USDC =
       Pair.instance(base: Coin("ANKR"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_PAX = Pair.instance(base: Coin("ONT"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_USDC =
       Pair.instance(base: Coin("ONT"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $WIN_BNB = Pair.instance(base: Coin("WIN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WIN_BTC = Pair.instance(base: Coin("WIN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WIN_USDT =
       Pair.instance(base: Coin("WIN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WIN_USDC =
       Pair.instance(base: Coin("WIN"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $COS_BNB = Pair.instance(base: Coin("COS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $COS_BTC = Pair.instance(base: Coin("COS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $COS_USDT =
       Pair.instance(base: Coin("COS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TUSDB_TUSD =
       Pair.instance(base: Coin("TUSDB"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NPXS_USDT =
       Pair.instance(base: Coin("NPXS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NPXS_USDC =
       Pair.instance(base: Coin("NPXS"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $COCOS_BNB =
       Pair.instance(base: Coin("COCOS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $COCOS_BTC =
       Pair.instance(base: Coin("COCOS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $COCOS_USDT =
       Pair.instance(base: Coin("COCOS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MTL_USDT =
       Pair.instance(base: Coin("MTL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TOMO_BNB =
       Pair.instance(base: Coin("TOMO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TOMO_BTC =
       Pair.instance(base: Coin("TOMO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TOMO_USDT =
       Pair.instance(base: Coin("TOMO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TOMO_USDC =
       Pair.instance(base: Coin("TOMO"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $PERL_BNB =
       Pair.instance(base: Coin("PERL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PERL_BTC =
       Pair.instance(base: Coin("PERL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PERL_USDC =
       Pair.instance(base: Coin("PERL"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $PERL_USDT =
       Pair.instance(base: Coin("PERL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DENT_USDT =
       Pair.instance(base: Coin("DENT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MFT_USDT =
       Pair.instance(base: Coin("MFT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KEY_USDT =
       Pair.instance(base: Coin("KEY"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $STORM_USDT =
       Pair.instance(base: Coin("STORM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOCK_USDT =
       Pair.instance(base: Coin("DOCK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WAN_USDT =
       Pair.instance(base: Coin("WAN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FUN_USDT =
       Pair.instance(base: Coin("FUN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CVC_USDT =
       Pair.instance(base: Coin("CVC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_TRX = Pair.instance(base: Coin("BTT"), quote: Coin("TRX"));
 
+// ignore: non_constant_identifier_names
   static final $WIN_TRX = Pair.instance(base: Coin("WIN"), quote: Coin("TRX"));
 
+// ignore: non_constant_identifier_names
   static final $CHZ_BNB = Pair.instance(base: Coin("CHZ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CHZ_BTC = Pair.instance(base: Coin("CHZ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CHZ_USDT =
       Pair.instance(base: Coin("CHZ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BAND_BNB =
       Pair.instance(base: Coin("BAND"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BAND_BTC =
       Pair.instance(base: Coin("BAND"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BAND_USDT =
       Pair.instance(base: Coin("BAND"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_BUSD =
       Pair.instance(base: Coin("BNB"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_BUSD =
       Pair.instance(base: Coin("BTC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_USDT =
       Pair.instance(base: Coin("BUSD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BEAM_BNB =
       Pair.instance(base: Coin("BEAM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BEAM_BTC =
       Pair.instance(base: Coin("BEAM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BEAM_USDT =
       Pair.instance(base: Coin("BEAM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XTZ_BNB = Pair.instance(base: Coin("XTZ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XTZ_BTC = Pair.instance(base: Coin("XTZ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XTZ_USDT =
       Pair.instance(base: Coin("XTZ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $REN_USDT =
       Pair.instance(base: Coin("REN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $RVN_USDT =
       Pair.instance(base: Coin("RVN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HC_USDT = Pair.instance(base: Coin("HC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HBAR_BNB =
       Pair.instance(base: Coin("HBAR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $HBAR_BTC =
       Pair.instance(base: Coin("HBAR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HBAR_USDT =
       Pair.instance(base: Coin("HBAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NKN_BNB = Pair.instance(base: Coin("NKN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NKN_BTC = Pair.instance(base: Coin("NKN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NKN_USDT =
       Pair.instance(base: Coin("NKN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_BUSD =
       Pair.instance(base: Coin("XRP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_BUSD =
       Pair.instance(base: Coin("ETH"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCHABC_BUSD =
       Pair.instance(base: Coin("BCHABC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_BUSD =
       Pair.instance(base: Coin("LTC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_BUSD =
       Pair.instance(base: Coin("LINK"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETC_BUSD =
       Pair.instance(base: Coin("ETC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STX_BNB = Pair.instance(base: Coin("STX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $STX_BTC = Pair.instance(base: Coin("STX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STX_USDT =
       Pair.instance(base: Coin("STX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KAVA_BNB =
       Pair.instance(base: Coin("KAVA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $KAVA_BTC =
       Pair.instance(base: Coin("KAVA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $KAVA_USDT =
       Pair.instance(base: Coin("KAVA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_NGN =
       Pair.instance(base: Coin("BUSD"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_NGN = Pair.instance(base: Coin("BNB"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_NGN = Pair.instance(base: Coin("BTC"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $ARPA_BNB =
       Pair.instance(base: Coin("ARPA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ARPA_BTC =
       Pair.instance(base: Coin("ARPA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ARPA_USDT =
       Pair.instance(base: Coin("ARPA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_BUSD =
       Pair.instance(base: Coin("TRX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_BUSD =
       Pair.instance(base: Coin("EOS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $IOTX_USDT =
       Pair.instance(base: Coin("IOTX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $RLC_USDT =
       Pair.instance(base: Coin("RLC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MCO_USDT =
       Pair.instance(base: Coin("MCO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_BUSD =
       Pair.instance(base: Coin("XLM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_BUSD =
       Pair.instance(base: Coin("ADA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $CTXC_BNB =
       Pair.instance(base: Coin("CTXC"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CTXC_BTC =
       Pair.instance(base: Coin("CTXC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CTXC_USDT =
       Pair.instance(base: Coin("CTXC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_BNB = Pair.instance(base: Coin("BCH"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_BTC = Pair.instance(base: Coin("BCH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_USDT =
       Pair.instance(base: Coin("BCH"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_USDC =
       Pair.instance(base: Coin("BCH"), quote: Coin("USDC"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_TUSD =
       Pair.instance(base: Coin("BCH"), quote: Coin("TUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_PAX = Pair.instance(base: Coin("BCH"), quote: Coin("PAX"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_BUSD =
       Pair.instance(base: Coin("BCH"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_RUB = Pair.instance(base: Coin("BTC"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_RUB = Pair.instance(base: Coin("ETH"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_RUB = Pair.instance(base: Coin("XRP"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_RUB = Pair.instance(base: Coin("BNB"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $TROY_BNB =
       Pair.instance(base: Coin("TROY"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TROY_BTC =
       Pair.instance(base: Coin("TROY"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TROY_USDT =
       Pair.instance(base: Coin("TROY"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_RUB =
       Pair.instance(base: Coin("BUSD"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $QTUM_BUSD =
       Pair.instance(base: Coin("QTUM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $VET_BUSD =
       Pair.instance(base: Coin("VET"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $VITE_BNB =
       Pair.instance(base: Coin("VITE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $VITE_BTC =
       Pair.instance(base: Coin("VITE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VITE_USDT =
       Pair.instance(base: Coin("VITE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FTT_BNB = Pair.instance(base: Coin("FTT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FTT_BTC = Pair.instance(base: Coin("FTT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FTT_USDT =
       Pair.instance(base: Coin("FTT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_TRY = Pair.instance(base: Coin("BTC"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_TRY = Pair.instance(base: Coin("BNB"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_TRY =
       Pair.instance(base: Coin("BUSD"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_TRY = Pair.instance(base: Coin("ETH"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_TRY = Pair.instance(base: Coin("XRP"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_TRY =
       Pair.instance(base: Coin("USDT"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_RUB =
       Pair.instance(base: Coin("USDT"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_EUR = Pair.instance(base: Coin("BTC"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_EUR = Pair.instance(base: Coin("ETH"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_EUR = Pair.instance(base: Coin("BNB"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_EUR = Pair.instance(base: Coin("XRP"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $EUR_BUSD =
       Pair.instance(base: Coin("EUR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EUR_USDT =
       Pair.instance(base: Coin("EUR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $OGN_BNB = Pair.instance(base: Coin("OGN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $OGN_BTC = Pair.instance(base: Coin("OGN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OGN_USDT =
       Pair.instance(base: Coin("OGN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DREP_BNB =
       Pair.instance(base: Coin("DREP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DREP_BTC =
       Pair.instance(base: Coin("DREP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DREP_USDT =
       Pair.instance(base: Coin("DREP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BULL_USDT =
       Pair.instance(base: Coin("BULL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BULL_BUSD =
       Pair.instance(base: Coin("BULL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BEAR_USDT =
       Pair.instance(base: Coin("BEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BEAR_BUSD =
       Pair.instance(base: Coin("BEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETHBULL_USDT =
       Pair.instance(base: Coin("ETHBULL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETHBULL_BUSD =
       Pair.instance(base: Coin("ETHBULL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETHBEAR_USDT =
       Pair.instance(base: Coin("ETHBEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETHBEAR_BUSD =
       Pair.instance(base: Coin("ETHBEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TCT_BNB = Pair.instance(base: Coin("TCT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TCT_BTC = Pair.instance(base: Coin("TCT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TCT_USDT =
       Pair.instance(base: Coin("TCT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WRX_BNB = Pair.instance(base: Coin("WRX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WRX_BTC = Pair.instance(base: Coin("WRX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WRX_USDT =
       Pair.instance(base: Coin("WRX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ICX_BUSD =
       Pair.instance(base: Coin("ICX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTS_USDT =
       Pair.instance(base: Coin("BTS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTS_BUSD =
       Pair.instance(base: Coin("BTS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LSK_USDT =
       Pair.instance(base: Coin("LSK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNT_USDT =
       Pair.instance(base: Coin("BNT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNT_BUSD =
       Pair.instance(base: Coin("BNT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LTO_BNB = Pair.instance(base: Coin("LTO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LTO_BTC = Pair.instance(base: Coin("LTO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LTO_USDT =
       Pair.instance(base: Coin("LTO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ATOM_BUSD =
       Pair.instance(base: Coin("ATOM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DASH_BUSD =
       Pair.instance(base: Coin("DASH"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NEO_BUSD =
       Pair.instance(base: Coin("NEO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WAVES_BUSD =
       Pair.instance(base: Coin("WAVES"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XTZ_BUSD =
       Pair.instance(base: Coin("XTZ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EOSBULL_USDT =
       Pair.instance(base: Coin("EOSBULL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EOSBULL_BUSD =
       Pair.instance(base: Coin("EOSBULL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EOSBEAR_USDT =
       Pair.instance(base: Coin("EOSBEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EOSBEAR_BUSD =
       Pair.instance(base: Coin("EOSBEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XRPBULL_USDT =
       Pair.instance(base: Coin("XRPBULL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRPBULL_BUSD =
       Pair.instance(base: Coin("XRPBULL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XRPBEAR_USDT =
       Pair.instance(base: Coin("XRPBEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRPBEAR_BUSD =
       Pair.instance(base: Coin("XRPBEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BAT_BUSD =
       Pair.instance(base: Coin("BAT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ENJ_BUSD =
       Pair.instance(base: Coin("ENJ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NANO_BUSD =
       Pair.instance(base: Coin("NANO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ONT_BUSD =
       Pair.instance(base: Coin("ONT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $RVN_BUSD =
       Pair.instance(base: Coin("RVN"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STRAT_BUSD =
       Pair.instance(base: Coin("STRAT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STRAT_BNB =
       Pair.instance(base: Coin("STRAT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $STRAT_USDT =
       Pair.instance(base: Coin("STRAT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AION_BUSD =
       Pair.instance(base: Coin("AION"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AION_USDT =
       Pair.instance(base: Coin("AION"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MBL_BNB = Pair.instance(base: Coin("MBL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MBL_BTC = Pair.instance(base: Coin("MBL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MBL_USDT =
       Pair.instance(base: Coin("MBL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $COTI_BNB =
       Pair.instance(base: Coin("COTI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $COTI_BTC =
       Pair.instance(base: Coin("COTI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $COTI_USDT =
       Pair.instance(base: Coin("COTI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ALGO_BUSD =
       Pair.instance(base: Coin("ALGO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTT_BUSD =
       Pair.instance(base: Coin("BTT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TOMO_BUSD =
       Pair.instance(base: Coin("TOMO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XMR_BUSD =
       Pair.instance(base: Coin("XMR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ZEC_BUSD =
       Pair.instance(base: Coin("ZEC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BNBBULL_USDT =
       Pair.instance(base: Coin("BNBBULL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNBBULL_BUSD =
       Pair.instance(base: Coin("BNBBULL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BNBBEAR_USDT =
       Pair.instance(base: Coin("BNBBEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNBBEAR_BUSD =
       Pair.instance(base: Coin("BNBBEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STPT_BNB =
       Pair.instance(base: Coin("STPT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $STPT_BTC =
       Pair.instance(base: Coin("STPT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STPT_USDT =
       Pair.instance(base: Coin("STPT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_ZAR = Pair.instance(base: Coin("BTC"), quote: Coin("ZAR"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_ZAR = Pair.instance(base: Coin("ETH"), quote: Coin("ZAR"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_ZAR = Pair.instance(base: Coin("BNB"), quote: Coin("ZAR"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_ZAR =
       Pair.instance(base: Coin("USDT"), quote: Coin("ZAR"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_ZAR =
       Pair.instance(base: Coin("BUSD"), quote: Coin("ZAR"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_BKRW =
       Pair.instance(base: Coin("BTC"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_BKRW =
       Pair.instance(base: Coin("ETH"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_BKRW =
       Pair.instance(base: Coin("BNB"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $WTC_USDT =
       Pair.instance(base: Coin("WTC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DATA_BUSD =
       Pair.instance(base: Coin("DATA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DATA_USDT =
       Pair.instance(base: Coin("DATA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XZC_USDT =
       Pair.instance(base: Coin("XZC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SOL_BNB = Pair.instance(base: Coin("SOL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SOL_BTC = Pair.instance(base: Coin("SOL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SOL_USDT =
       Pair.instance(base: Coin("SOL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SOL_BUSD =
       Pair.instance(base: Coin("SOL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_IDRT =
       Pair.instance(base: Coin("BTC"), quote: Coin("IDRT"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_IDRT =
       Pair.instance(base: Coin("BNB"), quote: Coin("IDRT"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_IDRT =
       Pair.instance(base: Coin("USDT"), quote: Coin("IDRT"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_IDRT =
       Pair.instance(base: Coin("BUSD"), quote: Coin("IDRT"));
 
+// ignore: non_constant_identifier_names
   static final $CTSI_BTC =
       Pair.instance(base: Coin("CTSI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CTSI_USDT =
       Pair.instance(base: Coin("CTSI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CTSI_BNB =
       Pair.instance(base: Coin("CTSI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CTSI_BUSD =
       Pair.instance(base: Coin("CTSI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $HIVE_BNB =
       Pair.instance(base: Coin("HIVE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $HIVE_BTC =
       Pair.instance(base: Coin("HIVE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HIVE_USDT =
       Pair.instance(base: Coin("HIVE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CHR_BNB = Pair.instance(base: Coin("CHR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CHR_BTC = Pair.instance(base: Coin("CHR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CHR_USDT =
       Pair.instance(base: Coin("CHR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTCUP_USDT =
       Pair.instance(base: Coin("BTCUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTCDOWN_USDT =
       Pair.instance(base: Coin("BTCDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $GXS_USDT =
       Pair.instance(base: Coin("GXS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ARDR_USDT =
       Pair.instance(base: Coin("ARDR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ERD_BUSD =
       Pair.instance(base: Coin("ERD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LEND_USDT =
       Pair.instance(base: Coin("LEND"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HBAR_BUSD =
       Pair.instance(base: Coin("HBAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $MATIC_BUSD =
       Pair.instance(base: Coin("MATIC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WRX_BUSD =
       Pair.instance(base: Coin("WRX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_BUSD =
       Pair.instance(base: Coin("ZIL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $MDT_BNB = Pair.instance(base: Coin("MDT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MDT_BTC = Pair.instance(base: Coin("MDT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MDT_USDT =
       Pair.instance(base: Coin("MDT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $STMX_BNB =
       Pair.instance(base: Coin("STMX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $STMX_BTC =
       Pair.instance(base: Coin("STMX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STMX_ETH =
       Pair.instance(base: Coin("STMX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STMX_USDT =
       Pair.instance(base: Coin("STMX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KNC_BUSD =
       Pair.instance(base: Coin("KNC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $KNC_USDT =
       Pair.instance(base: Coin("KNC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $REP_BUSD =
       Pair.instance(base: Coin("REP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $REP_USDT =
       Pair.instance(base: Coin("REP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LRC_BUSD =
       Pair.instance(base: Coin("LRC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LRC_USDT =
       Pair.instance(base: Coin("LRC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IQ_BNB = Pair.instance(base: Coin("IQ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $IQ_BUSD = Pair.instance(base: Coin("IQ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PNT_BTC = Pair.instance(base: Coin("PNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PNT_USDT =
       Pair.instance(base: Coin("PNT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_GBP = Pair.instance(base: Coin("BTC"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_GBP = Pair.instance(base: Coin("ETH"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_GBP = Pair.instance(base: Coin("XRP"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_GBP = Pair.instance(base: Coin("BNB"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $GBP_BUSD =
       Pair.instance(base: Coin("GBP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DGB_BNB = Pair.instance(base: Coin("DGB"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DGB_BTC = Pair.instance(base: Coin("DGB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DGB_BUSD =
       Pair.instance(base: Coin("DGB"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_UAH = Pair.instance(base: Coin("BTC"), quote: Coin("UAH"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_UAH =
       Pair.instance(base: Coin("USDT"), quote: Coin("UAH"));
 
+// ignore: non_constant_identifier_names
   static final $COMP_BTC =
       Pair.instance(base: Coin("COMP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $COMP_BNB =
       Pair.instance(base: Coin("COMP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $COMP_BUSD =
       Pair.instance(base: Coin("COMP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $COMP_USDT =
       Pair.instance(base: Coin("COMP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_BIDR =
       Pair.instance(base: Coin("BTC"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_BIDR =
       Pair.instance(base: Coin("ETH"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_BIDR =
       Pair.instance(base: Coin("BNB"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_BIDR =
       Pair.instance(base: Coin("BUSD"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_BIDR =
       Pair.instance(base: Coin("USDT"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $BKRW_USDT =
       Pair.instance(base: Coin("BKRW"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BKRW_BUSD =
       Pair.instance(base: Coin("BKRW"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SC_USDT = Pair.instance(base: Coin("SC"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ZEN_USDT =
       Pair.instance(base: Coin("ZEN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_BTC = Pair.instance(base: Coin("SXP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_BNB = Pair.instance(base: Coin("SXP"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_BUSD =
       Pair.instance(base: Coin("SXP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SNX_BTC = Pair.instance(base: Coin("SNX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SNX_BNB = Pair.instance(base: Coin("SNX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SNX_BUSD =
       Pair.instance(base: Coin("SNX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SNX_USDT =
       Pair.instance(base: Coin("SNX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETHUP_USDT =
       Pair.instance(base: Coin("ETHUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETHDOWN_USDT =
       Pair.instance(base: Coin("ETHDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ADAUP_USDT =
       Pair.instance(base: Coin("ADAUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ADADOWN_USDT =
       Pair.instance(base: Coin("ADADOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LINKUP_USDT =
       Pair.instance(base: Coin("LINKUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LINKDOWN_USDT =
       Pair.instance(base: Coin("LINKDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $VTHO_BNB =
       Pair.instance(base: Coin("VTHO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $VTHO_BUSD =
       Pair.instance(base: Coin("VTHO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $VTHO_USDT =
       Pair.instance(base: Coin("VTHO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DCR_BUSD =
       Pair.instance(base: Coin("DCR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DGB_USDT =
       Pair.instance(base: Coin("DGB"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $GBP_USDT =
       Pair.instance(base: Coin("GBP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $STORJ_BUSD =
       Pair.instance(base: Coin("STORJ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_USDT =
       Pair.instance(base: Coin("SXP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IRIS_BNB =
       Pair.instance(base: Coin("IRIS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $IRIS_BTC =
       Pair.instance(base: Coin("IRIS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $IRIS_BUSD =
       Pair.instance(base: Coin("IRIS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $MKR_BNB = Pair.instance(base: Coin("MKR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $MKR_BTC = Pair.instance(base: Coin("MKR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $MKR_USDT =
       Pair.instance(base: Coin("MKR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $MKR_BUSD =
       Pair.instance(base: Coin("MKR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DAI_BNB = Pair.instance(base: Coin("DAI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DAI_BTC = Pair.instance(base: Coin("DAI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DAI_USDT =
       Pair.instance(base: Coin("DAI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DAI_BUSD =
       Pair.instance(base: Coin("DAI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $RUNE_BNB =
       Pair.instance(base: Coin("RUNE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $RUNE_BTC =
       Pair.instance(base: Coin("RUNE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RUNE_BUSD =
       Pair.instance(base: Coin("RUNE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $MANA_BUSD =
       Pair.instance(base: Coin("MANA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_BUSD =
       Pair.instance(base: Coin("DOGE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LEND_BUSD =
       Pair.instance(base: Coin("LEND"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ZRX_BUSD =
       Pair.instance(base: Coin("ZRX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DCR_USDT =
       Pair.instance(base: Coin("DCR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $STORJ_USDT =
       Pair.instance(base: Coin("STORJ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_BKRW =
       Pair.instance(base: Coin("XRP"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_BKRW =
       Pair.instance(base: Coin("ADA"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_AUD = Pair.instance(base: Coin("BTC"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_AUD = Pair.instance(base: Coin("ETH"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $AUD_BUSD =
       Pair.instance(base: Coin("AUD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $FIO_BNB = Pair.instance(base: Coin("FIO"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FIO_BTC = Pair.instance(base: Coin("FIO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FIO_BUSD =
       Pair.instance(base: Coin("FIO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BNBUP_USDT =
       Pair.instance(base: Coin("BNBUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNBDOWN_USDT =
       Pair.instance(base: Coin("BNBDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XTZUP_USDT =
       Pair.instance(base: Coin("XTZUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XTZDOWN_USDT =
       Pair.instance(base: Coin("XTZDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AVA_BNB = Pair.instance(base: Coin("AVA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $AVA_BTC = Pair.instance(base: Coin("AVA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AVA_BUSD =
       Pair.instance(base: Coin("AVA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_BKRW =
       Pair.instance(base: Coin("USDT"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_BKRW =
       Pair.instance(base: Coin("BUSD"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $IOTA_BUSD =
       Pair.instance(base: Coin("IOTA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $MANA_USDT =
       Pair.instance(base: Coin("MANA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_AUD = Pair.instance(base: Coin("XRP"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_AUD = Pair.instance(base: Coin("BNB"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $AUD_USDT =
       Pair.instance(base: Coin("AUD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BAL_BNB = Pair.instance(base: Coin("BAL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BAL_BTC = Pair.instance(base: Coin("BAL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BAL_BUSD =
       Pair.instance(base: Coin("BAL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $YFI_BNB = Pair.instance(base: Coin("YFI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $YFI_BTC = Pair.instance(base: Coin("YFI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $YFI_BUSD =
       Pair.instance(base: Coin("YFI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $YFI_USDT =
       Pair.instance(base: Coin("YFI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BLZ_BUSD =
       Pair.instance(base: Coin("BLZ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $KMD_BUSD =
       Pair.instance(base: Coin("KMD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BAL_USDT =
       Pair.instance(base: Coin("BAL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BLZ_USDT =
       Pair.instance(base: Coin("BLZ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IRIS_USDT =
       Pair.instance(base: Coin("IRIS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KMD_USDT =
       Pair.instance(base: Coin("KMD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_DAI = Pair.instance(base: Coin("BTC"), quote: Coin("DAI"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_DAI = Pair.instance(base: Coin("ETH"), quote: Coin("DAI"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_DAI = Pair.instance(base: Coin("BNB"), quote: Coin("DAI"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_DAI =
       Pair.instance(base: Coin("USDT"), quote: Coin("DAI"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_DAI =
       Pair.instance(base: Coin("BUSD"), quote: Coin("DAI"));
 
+// ignore: non_constant_identifier_names
   static final $JST_BNB = Pair.instance(base: Coin("JST"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $JST_BTC = Pair.instance(base: Coin("JST"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $JST_BUSD =
       Pair.instance(base: Coin("JST"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $JST_USDT =
       Pair.instance(base: Coin("JST"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SRM_BNB = Pair.instance(base: Coin("SRM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SRM_BTC = Pair.instance(base: Coin("SRM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SRM_BUSD =
       Pair.instance(base: Coin("SRM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SRM_USDT =
       Pair.instance(base: Coin("SRM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ANT_BNB = Pair.instance(base: Coin("ANT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ANT_BTC = Pair.instance(base: Coin("ANT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ANT_BUSD =
       Pair.instance(base: Coin("ANT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ANT_USDT =
       Pair.instance(base: Coin("ANT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CRV_BNB = Pair.instance(base: Coin("CRV"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CRV_BTC = Pair.instance(base: Coin("CRV"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CRV_BUSD =
       Pair.instance(base: Coin("CRV"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $CRV_USDT =
       Pair.instance(base: Coin("CRV"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SAND_BNB =
       Pair.instance(base: Coin("SAND"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SAND_BTC =
       Pair.instance(base: Coin("SAND"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SAND_USDT =
       Pair.instance(base: Coin("SAND"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SAND_BUSD =
       Pair.instance(base: Coin("SAND"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $OCEAN_BNB =
       Pair.instance(base: Coin("OCEAN"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $OCEAN_BTC =
       Pair.instance(base: Coin("OCEAN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OCEAN_BUSD =
       Pair.instance(base: Coin("OCEAN"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $OCEAN_USDT =
       Pair.instance(base: Coin("OCEAN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NMR_BNB = Pair.instance(base: Coin("NMR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NMR_BTC = Pair.instance(base: Coin("NMR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NMR_BUSD =
       Pair.instance(base: Coin("NMR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NMR_USDT =
       Pair.instance(base: Coin("NMR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_BNB = Pair.instance(base: Coin("DOT"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_BTC = Pair.instance(base: Coin("DOT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_BUSD =
       Pair.instance(base: Coin("DOT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_USDT =
       Pair.instance(base: Coin("DOT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LUNA_BNB =
       Pair.instance(base: Coin("LUNA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $LUNA_BTC =
       Pair.instance(base: Coin("LUNA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LUNA_BUSD =
       Pair.instance(base: Coin("LUNA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LUNA_USDT =
       Pair.instance(base: Coin("LUNA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $IDEX_BTC =
       Pair.instance(base: Coin("IDEX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $IDEX_BUSD =
       Pair.instance(base: Coin("IDEX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $RSR_BNB = Pair.instance(base: Coin("RSR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $RSR_BTC = Pair.instance(base: Coin("RSR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RSR_BUSD =
       Pair.instance(base: Coin("RSR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $RSR_USDT =
       Pair.instance(base: Coin("RSR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $PAXG_BNB =
       Pair.instance(base: Coin("PAXG"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PAXG_BTC =
       Pair.instance(base: Coin("PAXG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PAXG_BUSD =
       Pair.instance(base: Coin("PAXG"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PAXG_USDT =
       Pair.instance(base: Coin("PAXG"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WNXM_BNB =
       Pair.instance(base: Coin("WNXM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WNXM_BTC =
       Pair.instance(base: Coin("WNXM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WNXM_BUSD =
       Pair.instance(base: Coin("WNXM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WNXM_USDT =
       Pair.instance(base: Coin("WNXM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRB_BNB = Pair.instance(base: Coin("TRB"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $TRB_BTC = Pair.instance(base: Coin("TRB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TRB_BUSD =
       Pair.instance(base: Coin("TRB"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TRB_USDT =
       Pair.instance(base: Coin("TRB"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_NGN = Pair.instance(base: Coin("ETH"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_BIDR =
       Pair.instance(base: Coin("DOT"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_AUD =
       Pair.instance(base: Coin("LINK"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_AUD = Pair.instance(base: Coin("SXP"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $BZRX_BNB =
       Pair.instance(base: Coin("BZRX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BZRX_BTC =
       Pair.instance(base: Coin("BZRX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BZRX_BUSD =
       Pair.instance(base: Coin("BZRX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BZRX_USDT =
       Pair.instance(base: Coin("BZRX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WBTC_BTC =
       Pair.instance(base: Coin("WBTC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $WBTC_ETH =
       Pair.instance(base: Coin("WBTC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHI_BNB =
       Pair.instance(base: Coin("SUSHI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHI_BTC =
       Pair.instance(base: Coin("SUSHI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHI_BUSD =
       Pair.instance(base: Coin("SUSHI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHI_USDT =
       Pair.instance(base: Coin("SUSHI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $YFII_BNB =
       Pair.instance(base: Coin("YFII"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $YFII_BTC =
       Pair.instance(base: Coin("YFII"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $YFII_BUSD =
       Pair.instance(base: Coin("YFII"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $YFII_USDT =
       Pair.instance(base: Coin("YFII"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KSM_BNB = Pair.instance(base: Coin("KSM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $KSM_BTC = Pair.instance(base: Coin("KSM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $KSM_BUSD =
       Pair.instance(base: Coin("KSM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $KSM_USDT =
       Pair.instance(base: Coin("KSM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EGLD_BNB =
       Pair.instance(base: Coin("EGLD"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $EGLD_BTC =
       Pair.instance(base: Coin("EGLD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $EGLD_BUSD =
       Pair.instance(base: Coin("EGLD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EGLD_USDT =
       Pair.instance(base: Coin("EGLD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DIA_BNB = Pair.instance(base: Coin("DIA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $DIA_BTC = Pair.instance(base: Coin("DIA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $DIA_BUSD =
       Pair.instance(base: Coin("DIA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DIA_USDT =
       Pair.instance(base: Coin("DIA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $RUNE_USDT =
       Pair.instance(base: Coin("RUNE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FIO_USDT =
       Pair.instance(base: Coin("FIO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $UMA_BTC = Pair.instance(base: Coin("UMA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $UMA_USDT =
       Pair.instance(base: Coin("UMA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EOSUP_USDT =
       Pair.instance(base: Coin("EOSUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $EOSDOWN_USDT =
       Pair.instance(base: Coin("EOSDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRXUP_USDT =
       Pair.instance(base: Coin("TRXUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRXDOWN_USDT =
       Pair.instance(base: Coin("TRXDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRPUP_USDT =
       Pair.instance(base: Coin("XRPUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XRPDOWN_USDT =
       Pair.instance(base: Coin("XRPDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOTUP_USDT =
       Pair.instance(base: Coin("DOTUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOTDOWN_USDT =
       Pair.instance(base: Coin("DOTDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SRM_BIDR =
       Pair.instance(base: Coin("SRM"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_BIDR =
       Pair.instance(base: Coin("ONE"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_TRY =
       Pair.instance(base: Coin("LINK"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_NGN =
       Pair.instance(base: Coin("USDT"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $BEL_BNB = Pair.instance(base: Coin("BEL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BEL_BTC = Pair.instance(base: Coin("BEL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BEL_BUSD =
       Pair.instance(base: Coin("BEL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BEL_USDT =
       Pair.instance(base: Coin("BEL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $WING_BNB =
       Pair.instance(base: Coin("WING"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $WING_BTC =
       Pair.instance(base: Coin("WING"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SWRV_BNB =
       Pair.instance(base: Coin("SWRV"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SWRV_BUSD =
       Pair.instance(base: Coin("SWRV"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WING_BUSD =
       Pair.instance(base: Coin("WING"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $WING_USDT =
       Pair.instance(base: Coin("WING"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LTCUP_USDT =
       Pair.instance(base: Coin("LTCUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LTCDOWN_USDT =
       Pair.instance(base: Coin("LTCDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LEND_BKRW =
       Pair.instance(base: Coin("LEND"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_EUR = Pair.instance(base: Coin("SXP"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $CREAM_BNB =
       Pair.instance(base: Coin("CREAM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CREAM_BUSD =
       Pair.instance(base: Coin("CREAM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $UNI_BNB = Pair.instance(base: Coin("UNI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $UNI_BTC = Pair.instance(base: Coin("UNI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $UNI_BUSD =
       Pair.instance(base: Coin("UNI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $UNI_USDT =
       Pair.instance(base: Coin("UNI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $NBS_BTC = Pair.instance(base: Coin("NBS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NBS_USDT =
       Pair.instance(base: Coin("NBS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $OXT_BTC = Pair.instance(base: Coin("OXT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OXT_USDT =
       Pair.instance(base: Coin("OXT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SUN_BTC = Pair.instance(base: Coin("SUN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SUN_USDT =
       Pair.instance(base: Coin("SUN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AVAX_BNB =
       Pair.instance(base: Coin("AVAX"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $AVAX_BTC =
       Pair.instance(base: Coin("AVAX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AVAX_BUSD =
       Pair.instance(base: Coin("AVAX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AVAX_USDT =
       Pair.instance(base: Coin("AVAX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HNT_BTC = Pair.instance(base: Coin("HNT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HNT_USDT =
       Pair.instance(base: Coin("HNT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BAKE_BNB =
       Pair.instance(base: Coin("BAKE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BURGER_BNB =
       Pair.instance(base: Coin("BURGER"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_BIDR =
       Pair.instance(base: Coin("SXP"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_BKRW =
       Pair.instance(base: Coin("LINK"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $FLM_BNB = Pair.instance(base: Coin("FLM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FLM_BTC = Pair.instance(base: Coin("FLM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FLM_BUSD =
       Pair.instance(base: Coin("FLM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $FLM_USDT =
       Pair.instance(base: Coin("FLM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SCRT_BTC =
       Pair.instance(base: Coin("SCRT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SCRT_ETH =
       Pair.instance(base: Coin("SCRT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CAKE_BNB =
       Pair.instance(base: Coin("CAKE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CAKE_BUSD =
       Pair.instance(base: Coin("CAKE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SPARTA_BNB =
       Pair.instance(base: Coin("SPARTA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $UNIUP_USDT =
       Pair.instance(base: Coin("UNIUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $UNIDOWN_USDT =
       Pair.instance(base: Coin("UNIDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ORN_BTC = Pair.instance(base: Coin("ORN"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ORN_USDT =
       Pair.instance(base: Coin("ORN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_NGN = Pair.instance(base: Coin("TRX"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_TRY = Pair.instance(base: Coin("SXP"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $UTK_BTC = Pair.instance(base: Coin("UTK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $UTK_USDT =
       Pair.instance(base: Coin("UTK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XVS_BNB = Pair.instance(base: Coin("XVS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $XVS_BTC = Pair.instance(base: Coin("XVS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $XVS_BUSD =
       Pair.instance(base: Coin("XVS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XVS_USDT =
       Pair.instance(base: Coin("XVS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ALPHA_BNB =
       Pair.instance(base: Coin("ALPHA"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $ALPHA_BTC =
       Pair.instance(base: Coin("ALPHA"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ALPHA_BUSD =
       Pair.instance(base: Coin("ALPHA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ALPHA_USDT =
       Pair.instance(base: Coin("ALPHA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $VIDT_BTC =
       Pair.instance(base: Coin("VIDT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $VIDT_BUSD =
       Pair.instance(base: Coin("VIDT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_BNB =
       Pair.instance(base: Coin("AAVE"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_BRL = Pair.instance(base: Coin("BTC"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_BRL =
       Pair.instance(base: Coin("USDT"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_BTC =
       Pair.instance(base: Coin("AAVE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_ETH =
       Pair.instance(base: Coin("AAVE"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_BUSD =
       Pair.instance(base: Coin("AAVE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_USDT =
       Pair.instance(base: Coin("AAVE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AAVE_BKRW =
       Pair.instance(base: Coin("AAVE"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $NEAR_BNB =
       Pair.instance(base: Coin("NEAR"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $NEAR_BTC =
       Pair.instance(base: Coin("NEAR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $NEAR_BUSD =
       Pair.instance(base: Coin("NEAR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $NEAR_USDT =
       Pair.instance(base: Coin("NEAR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SXPUP_USDT =
       Pair.instance(base: Coin("SXPUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SXPDOWN_USDT =
       Pair.instance(base: Coin("SXPDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_BKRW =
       Pair.instance(base: Coin("DOT"), quote: Coin("BKRW"));
 
+// ignore: non_constant_identifier_names
   static final $SXP_GBP = Pair.instance(base: Coin("SXP"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $FIL_BNB = Pair.instance(base: Coin("FIL"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $FIL_BTC = Pair.instance(base: Coin("FIL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FIL_BUSD =
       Pair.instance(base: Coin("FIL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $FIL_USDT =
       Pair.instance(base: Coin("FIL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FILUP_USDT =
       Pair.instance(base: Coin("FILUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FILDOWN_USDT =
       Pair.instance(base: Coin("FILDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $YFIUP_USDT =
       Pair.instance(base: Coin("YFIUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $YFIDOWN_USDT =
       Pair.instance(base: Coin("YFIDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $INJ_BNB = Pair.instance(base: Coin("INJ"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $INJ_BTC = Pair.instance(base: Coin("INJ"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $INJ_BUSD =
       Pair.instance(base: Coin("INJ"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $INJ_USDT =
       Pair.instance(base: Coin("INJ"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AERGO_BTC =
       Pair.instance(base: Coin("AERGO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AERGO_BUSD =
       Pair.instance(base: Coin("AERGO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_EUR =
       Pair.instance(base: Coin("LINK"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $ONE_BUSD =
       Pair.instance(base: Coin("ONE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EASY_ETH =
       Pair.instance(base: Coin("EASY"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $AUDIO_BTC =
       Pair.instance(base: Coin("AUDIO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AUDIO_BUSD =
       Pair.instance(base: Coin("AUDIO"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AUDIO_USDT =
       Pair.instance(base: Coin("AUDIO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CTK_BNB = Pair.instance(base: Coin("CTK"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $CTK_BTC = Pair.instance(base: Coin("CTK"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CTK_BUSD =
       Pair.instance(base: Coin("CTK"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $CTK_USDT =
       Pair.instance(base: Coin("CTK"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCHUP_USDT =
       Pair.instance(base: Coin("BCHUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCHDOWN_USDT =
       Pair.instance(base: Coin("BCHDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BOT_BTC = Pair.instance(base: Coin("BOT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BOT_BUSD =
       Pair.instance(base: Coin("BOT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ETH_BRL = Pair.instance(base: Coin("ETH"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_EUR = Pair.instance(base: Coin("DOT"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $AKRO_BTC =
       Pair.instance(base: Coin("AKRO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AKRO_USDT =
       Pair.instance(base: Coin("AKRO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $KP3R_BNB =
       Pair.instance(base: Coin("KP3R"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $KP3R_BUSD =
       Pair.instance(base: Coin("KP3R"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AXS_BNB = Pair.instance(base: Coin("AXS"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $AXS_BTC = Pair.instance(base: Coin("AXS"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $AXS_BUSD =
       Pair.instance(base: Coin("AXS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AXS_USDT =
       Pair.instance(base: Coin("AXS"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HARD_BNB =
       Pair.instance(base: Coin("HARD"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $HARD_BTC =
       Pair.instance(base: Coin("HARD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $HARD_BUSD =
       Pair.instance(base: Coin("HARD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $HARD_USDT =
       Pair.instance(base: Coin("HARD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BNB_BRL = Pair.instance(base: Coin("BNB"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_EUR = Pair.instance(base: Coin("LTC"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $RENBTC_BTC =
       Pair.instance(base: Coin("RENBTC"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RENBTC_ETH =
       Pair.instance(base: Coin("RENBTC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DNT_BUSD =
       Pair.instance(base: Coin("DNT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $DNT_USDT =
       Pair.instance(base: Coin("DNT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SLP_ETH = Pair.instance(base: Coin("SLP"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $ADA_EUR = Pair.instance(base: Coin("ADA"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_NGN = Pair.instance(base: Coin("LTC"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $CVP_ETH = Pair.instance(base: Coin("CVP"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $CVP_BUSD =
       Pair.instance(base: Coin("CVP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STRAX_BTC =
       Pair.instance(base: Coin("STRAX"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $STRAX_ETH =
       Pair.instance(base: Coin("STRAX"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $STRAX_BUSD =
       Pair.instance(base: Coin("STRAX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $STRAX_USDT =
       Pair.instance(base: Coin("STRAX"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FOR_BTC = Pair.instance(base: Coin("FOR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FOR_BUSD =
       Pair.instance(base: Coin("FOR"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $UNFI_BNB =
       Pair.instance(base: Coin("UNFI"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $UNFI_BTC =
       Pair.instance(base: Coin("UNFI"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $UNFI_BUSD =
       Pair.instance(base: Coin("UNFI"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $UNFI_USDT =
       Pair.instance(base: Coin("UNFI"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FRONT_ETH =
       Pair.instance(base: Coin("FRONT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $FRONT_BUSD =
       Pair.instance(base: Coin("FRONT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BCHA_BUSD =
       Pair.instance(base: Coin("BCHA"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ROSE_BTC =
       Pair.instance(base: Coin("ROSE"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ROSE_BUSD =
       Pair.instance(base: Coin("ROSE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $ROSE_USDT =
       Pair.instance(base: Coin("ROSE"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AVAX_TRY =
       Pair.instance(base: Coin("AVAX"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_BRL =
       Pair.instance(base: Coin("BUSD"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $AVA_USDT =
       Pair.instance(base: Coin("AVA"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SYS_BUSD =
       Pair.instance(base: Coin("SYS"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XEM_USDT =
       Pair.instance(base: Coin("XEM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $HEGIC_ETH =
       Pair.instance(base: Coin("HEGIC"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $HEGIC_BUSD =
       Pair.instance(base: Coin("HEGIC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $AAVEUP_USDT =
       Pair.instance(base: Coin("AAVEUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $AAVEDOWN_USDT =
       Pair.instance(base: Coin("AAVEDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $PROM_BNB =
       Pair.instance(base: Coin("PROM"), quote: Coin("BNB"));
 
+// ignore: non_constant_identifier_names
   static final $PROM_BUSD =
       Pair.instance(base: Coin("PROM"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_BRL = Pair.instance(base: Coin("XRP"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $XRP_NGN = Pair.instance(base: Coin("XRP"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $SKL_BTC = Pair.instance(base: Coin("SKL"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SKL_BUSD =
       Pair.instance(base: Coin("SKL"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SKL_USDT =
       Pair.instance(base: Coin("SKL"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BCH_EUR = Pair.instance(base: Coin("BCH"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $YFI_EUR = Pair.instance(base: Coin("YFI"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $ZIL_BIDR =
       Pair.instance(base: Coin("ZIL"), quote: Coin("BIDR"));
 
+// ignore: non_constant_identifier_names
   static final $SUSD_BTC =
       Pair.instance(base: Coin("SUSD"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SUSD_ETH =
       Pair.instance(base: Coin("SUSD"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $SUSD_USDT =
       Pair.instance(base: Coin("SUSD"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $COVER_ETH =
       Pair.instance(base: Coin("COVER"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $COVER_BUSD =
       Pair.instance(base: Coin("COVER"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $GLM_BTC = Pair.instance(base: Coin("GLM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GLM_ETH = Pair.instance(base: Coin("GLM"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GHST_ETH =
       Pair.instance(base: Coin("GHST"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GHST_BUSD =
       Pair.instance(base: Coin("GHST"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHIUP_USDT =
       Pair.instance(base: Coin("SUSHIUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $SUSHIDOWN_USDT =
       Pair.instance(base: Coin("SUSHIDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XLMUP_USDT =
       Pair.instance(base: Coin("XLMUP"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $XLMDOWN_USDT =
       Pair.instance(base: Coin("XLMDOWN"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_BRL =
       Pair.instance(base: Coin("LINK"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_NGN =
       Pair.instance(base: Coin("LINK"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_RUB = Pair.instance(base: Coin("LTC"), quote: Coin("RUB"));
 
+// ignore: non_constant_identifier_names
   static final $TRX_TRY = Pair.instance(base: Coin("TRX"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_EUR = Pair.instance(base: Coin("XLM"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $DF_ETH = Pair.instance(base: Coin("DF"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DF_BUSD = Pair.instance(base: Coin("DF"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $GRT_BTC = Pair.instance(base: Coin("GRT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $GRT_ETH = Pair.instance(base: Coin("GRT"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $GRT_USDT =
       Pair.instance(base: Coin("GRT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $JUV_BTC = Pair.instance(base: Coin("JUV"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $JUV_BUSD =
       Pair.instance(base: Coin("JUV"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $JUV_USDT =
       Pair.instance(base: Coin("JUV"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $PSG_BTC = Pair.instance(base: Coin("PSG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $PSG_BUSD =
       Pair.instance(base: Coin("PSG"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PSG_USDT =
       Pair.instance(base: Coin("PSG"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_BVND =
       Pair.instance(base: Coin("BUSD"), quote: Coin("BVND"));
 
+// ignore: non_constant_identifier_names
   static final $USDT_BVND =
       Pair.instance(base: Coin("USDT"), quote: Coin("BVND"));
 
+// ignore: non_constant_identifier_names
   static final $1INCH_BTC =
       Pair.instance(base: Coin("1INCH"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $1INCH_USDT =
       Pair.instance(base: Coin("1INCH"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $REEF_BTC =
       Pair.instance(base: Coin("REEF"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $REEF_USDT =
       Pair.instance(base: Coin("REEF"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $OG_BTC = Pair.instance(base: Coin("OG"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $OG_USDT = Pair.instance(base: Coin("OG"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ATM_BTC = Pair.instance(base: Coin("ATM"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ATM_USDT =
       Pair.instance(base: Coin("ATM"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $ASR_BTC = Pair.instance(base: Coin("ASR"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $ASR_USDT =
       Pair.instance(base: Coin("ASR"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CELO_BTC =
       Pair.instance(base: Coin("CELO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CELO_USDT =
       Pair.instance(base: Coin("CELO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $RIF_BTC = Pair.instance(base: Coin("RIF"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $RIF_USDT =
       Pair.instance(base: Coin("RIF"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $CHZ_TRY = Pair.instance(base: Coin("CHZ"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $XLM_TRY = Pair.instance(base: Coin("XLM"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $LINK_GBP =
       Pair.instance(base: Coin("LINK"), quote: Coin("GBP"));
 
+// ignore: non_constant_identifier_names
   static final $GRT_EUR = Pair.instance(base: Coin("GRT"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $BTCST_BTC =
       Pair.instance(base: Coin("BTCST"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $BTCST_BUSD =
       Pair.instance(base: Coin("BTCST"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $BTCST_USDT =
       Pair.instance(base: Coin("BTCST"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TRU_BTC = Pair.instance(base: Coin("TRU"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TRU_BUSD =
       Pair.instance(base: Coin("TRU"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TRU_USDT =
       Pair.instance(base: Coin("TRU"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $DEXE_ETH =
       Pair.instance(base: Coin("DEXE"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DEXE_BUSD =
       Pair.instance(base: Coin("DEXE"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $EOS_EUR = Pair.instance(base: Coin("EOS"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $LTC_BRL = Pair.instance(base: Coin("LTC"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $USDC_BUSD =
       Pair.instance(base: Coin("USDC"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TUSD_BUSD =
       Pair.instance(base: Coin("TUSD"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $PAX_BUSD =
       Pair.instance(base: Coin("PAX"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $CKB_BTC = Pair.instance(base: Coin("CKB"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $CKB_BUSD =
       Pair.instance(base: Coin("CKB"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $CKB_USDT =
       Pair.instance(base: Coin("CKB"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $TWT_BTC = Pair.instance(base: Coin("TWT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $TWT_BUSD =
       Pair.instance(base: Coin("TWT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $TWT_USDT =
       Pair.instance(base: Coin("TWT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $FIRO_BTC =
       Pair.instance(base: Coin("FIRO"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $FIRO_ETH =
       Pair.instance(base: Coin("FIRO"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $FIRO_USDT =
       Pair.instance(base: Coin("FIRO"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BETH_ETH =
       Pair.instance(base: Coin("BETH"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_EUR =
       Pair.instance(base: Coin("DOGE"), quote: Coin("EUR"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_TRY =
       Pair.instance(base: Coin("DOGE"), quote: Coin("TRY"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_AUD =
       Pair.instance(base: Coin("DOGE"), quote: Coin("AUD"));
 
+// ignore: non_constant_identifier_names
   static final $DOGE_BRL =
       Pair.instance(base: Coin("DOGE"), quote: Coin("BRL"));
 
+// ignore: non_constant_identifier_names
   static final $DOT_NGN = Pair.instance(base: Coin("DOT"), quote: Coin("NGN"));
 
+// ignore: non_constant_identifier_names
   static final $PROS_ETH =
       Pair.instance(base: Coin("PROS"), quote: Coin("ETH"));
 
+// ignore: non_constant_identifier_names
   static final $LIT_BTC = Pair.instance(base: Coin("LIT"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $LIT_BUSD =
       Pair.instance(base: Coin("LIT"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $LIT_USDT =
       Pair.instance(base: Coin("LIT"), quote: Coin("USDT"));
 
+// ignore: non_constant_identifier_names
   static final $BTC_VAI = Pair.instance(base: Coin("BTC"), quote: Coin("VAI"));
 
+// ignore: non_constant_identifier_names
   static final $BUSD_VAI =
       Pair.instance(base: Coin("BUSD"), quote: Coin("VAI"));
 
+// ignore: non_constant_identifier_names
   static final $SFP_BTC = Pair.instance(base: Coin("SFP"), quote: Coin("BTC"));
 
+// ignore: non_constant_identifier_names
   static final $SFP_BUSD =
       Pair.instance(base: Coin("SFP"), quote: Coin("BUSD"));
 
+// ignore: non_constant_identifier_names
   static final $SFP_USDT =
       Pair.instance(base: Coin("SFP"), quote: Coin("USDT"));
 

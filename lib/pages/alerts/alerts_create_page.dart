@@ -1,17 +1,27 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:provider/provider.dart';
 
-class AlertsCreatePage extends StatelessWidget {
+class AlertsCreatePage extends StatefulWidget {
+  final AlertEntity alert;
+
+  AlertsCreatePage({Key key, this.alert}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => AlertsCreatePageState();
+}
+
+class AlertsCreatePageState extends State<AlertsCreatePage> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AlertsCreatePageModel>(
-            create: (context) => AlertsCreatePageModel()..init()),
+            create: (context) => AlertsCreatePageModel(widget.alert)..init()),
       ],
       builder: (context, child) {
         final model = Provider.of<AlertsCreatePageModel>(context);
@@ -70,20 +80,20 @@ class AlertsCreatePage extends StatelessWidget {
                   "${E.currency(model.limitPrice)} ${E.percentageOf(model.limitPrice, model.currentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.currentPrice))}"),
               // Text("${E.percentageOf(model.limitPrice, model.currentPrice)}"),
 
-              ToggleButtons(
-                children: [
-                  for (final priceLimitModifier in model.priceLimitModifiers)
-                    Text(E.percentage(
-                      priceLimitModifier,
-                      decimalDigits: 0,
-                      forcePositiveSign: priceLimitModifier != 0,
-                    )),
-                ],
-                isSelected:
-                    model.priceLimitModifiers.map((e) => false).toList(),
-                onPressed: (index) => model.applyPriceLimitModifier(
-                    model.priceLimitModifiers.elementAt(index)),
-              ),
+              // ToggleButtons(
+              //   children: [
+              //     for (final priceLimitModifier in model.priceLimitModifiers)
+              //       Text(E.percentage(
+              //         priceLimitModifier,
+              //         decimalDigits: 0,
+              //         forcePositiveSign: priceLimitModifier != 0,
+              //       )),
+              //   ],
+              //   isSelected:
+              //       model.priceLimitModifiers.map((e) => false).toList(),
+              //   onPressed: (index) => model.applyPriceLimitModifier(
+              //       model.priceLimitModifiers.elementAt(index)),
+              // ),
 
               ///
               ///
@@ -98,17 +108,35 @@ class AlertsCreatePage extends StatelessWidget {
             ]),
 
             /// COMMIT & CANCEL
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                    child: Text("CANCEL"),
-                    onPressed: () => model.cancelAlarm(context)),
-                TextButton(
-                    child: Text("OK"),
-                    onPressed: () => model.commitAlarm(context)),
-              ],
-            )
+            model.when<Widget>(
+                creating: () => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                            child: Icon(Icons.delete),
+                            onPressed: null),
+                        TextButton(
+                            child: Text("CANCEL"),
+                            onPressed: () => model.cancelAlarm(context)),
+                        TextButton(
+                            child: Text("OK"),
+                            onPressed: () => model.commitAlarm(context)),
+                      ],
+                    ),
+                ediding: () => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                            child: Icon(Icons.delete),
+                            onPressed: () => model.cancelAlarm(context)),
+                        TextButton(
+                            child: Icon(Icons.close),
+                            onPressed: () => model.cancelAlarm(context)),
+                        TextButton(
+                            child: Icon(Icons.check),
+                            onPressed: () => model.commitAlarm(context)),
+                      ],
+                    )),
           ],
           // ),
           // ],

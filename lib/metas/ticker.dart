@@ -10,7 +10,7 @@ class Ticker {
   final Exchange exchange;
   final Pair pair;
   double price;
-  DateTime date;
+  DateTime updatedAt;
 
   String get key => '${exchange.id}:${pair.key}';
 
@@ -18,18 +18,26 @@ class Ticker {
     this.exchange,
     this.pair,
     this.price,
-    this.date,
+    this.updatedAt,
   }) {
-    assert(this.pair != null, "ticker.pair nao pode ser null");
-    assert(this.price != null, "ticker.price nao pode ser null");
-    assert(this.date != null, "ticker.date nao pode ser null");
+    assert(this.pair != null, "pair nao pode ser null");
+    assert(this.price != null, "price nao pode ser null");
+    assert(this.updatedAt != null, "updatedAt nao pode ser null");
   }
 
   Map<String, dynamic> toJson() => _$TickerToJson(this);
 
   static Ticker fromJson(json) => _$TickerFromJson(json);
 
-  TickerEntity toEntity() => TickerEntity(key, exchange.id, pair.base?.symbol, pair.quote?.symbol, date.millisecondsSinceEpoch, price);
+  //TODO: remover .toEntity() e criar/utilizar TickerEntity.from(Ticker)
+  TickerEntity toEntity() => TickerEntity(
+        key,
+        exchange.id,
+        pair.base?.symbol,
+        pair.quote?.symbol,
+        updatedAt.millisecondsSinceEpoch,
+        price,
+      );
 
   @override
   String toString() => 'Ticker($key)';

@@ -42,10 +42,8 @@ class BackgroundServiceRepository {
   }
 
   // ignore: non_constant_identifier_names
-  void handleMessage__tickers(TickersMessage message) async {
-    for (final ticker in message.tickers) {
-      app().updateTicker(ticker);
-    }
+  void handleMessage__tickers(TickersMessage message) {
+    app().updateTickers(message.tickers ?? []);
   }
 
   static BackgroundServiceBridge getPlatformBackgroundServiceBridge() {

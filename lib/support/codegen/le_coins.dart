@@ -76,6 +76,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
       for (final coin in knownCoins) {
         final field = cb.FieldBuilder()
           ..name = "\$${coin.symbol}"
+          ..docs.addAll(['// ignore: non_constant_identifier_names'])
           ..static = true
           ..modifier = cb.FieldModifier.constant
           ..assignment = cb.Code(
@@ -124,6 +125,7 @@ class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
       for (final pair in knownPairs)
         cb.Field((f) => f
           ..name = "\$${pair.base}_${pair.quote}"
+          ..docs.addAll(['// ignore: non_constant_identifier_names'])
           ..static = true
           ..modifier = cb.FieldModifier.final$
           ..assignment = cb.Code(

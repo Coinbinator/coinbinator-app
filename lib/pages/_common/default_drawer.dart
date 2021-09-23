@@ -25,11 +25,11 @@ class DefaultDrawer extends StatelessWidget {
             //   title: Text('Home'),
             //   onTap: () => {},
             // ),
-            ListTile(
-              leading: Icon(Icons.shopping_cart),
-              title: Text('Cart'),
-              onTap: () => {Navigator.of(context).pop()},
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.shopping_cart),
+            //   title: Text('Cart'),
+            //   onTap: () => {Navigator.of(context).pop()},
+            // ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Settings'),

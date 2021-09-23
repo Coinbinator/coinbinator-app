@@ -18,17 +18,12 @@ class PortfolioDetailsPage extends StatelessWidget {
         ChangeNotifierProvider<PortfolioDetailsModel>(
             create: (context) =>
                 PortfolioDetailsModel(context, accountId)..init()),
-                
       ],
       builder: (context, child) {
         final model = context.watch<PortfolioDetailsModel>();
 
-        // if (!model.initialized) {
-        //   return Container();
-        // }
-
         return RefreshIndicator(
-          onRefresh: () => model.updatePortfolios(),
+          onRefresh: () => model.refresh(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: ListView(
@@ -39,90 +34,65 @@ class PortfolioDetailsPage extends StatelessWidget {
                 //     " accounts: ${portfolioModel.portfolioResumes.length}"
                 //     ""),
                 _buildPortfolioHoldingsResume(context),
+                ...model.when(
 
-                if (!model.initialized)
-                  ...[]
-                else if (model.portfolioResume == null ||
-                    model.portfolioResume.coins.isEmpty) ...[
-                  _buildEmptyPortfolio(context),
-                ] else ...[
-                  ///
-                  ///
-                  ///
+                    ///
+                    initialize: () => [],
 
-                  Card(
-                    child: Column(
-                      children: [
-                        ///
-                        IgnorePointer(
-                          child: DataTable(
-                              dividerThickness: 0,
-                              horizontalMargin: 4,
-                              showCheckboxColumn: false,
-                              columns: _buildPortfolioDataTableColumns(context),
-                              rows: [
-                                for (final asset
-                                    in model.getPortifolioMainAssets()) ...[
-                                  _buildPortfolioDataRow(context, asset),
-                                ],
-                              ]),
-                        ),
+                    ///
+                    emptyPorfilio: () => [
+                          _buildEmptyPortfolio(context),
+                        ],
 
-                        ///
-                        _buildToggleSubAssets(context),
+                    ///
+                    ready: () => [
+                          Card(
+                            child: Column(
+                              children: [
+                                ///
+                                IgnorePointer(
+                                  child: DataTable(
+                                      dividerThickness: 0,
+                                      horizontalMargin: 4,
+                                      showCheckboxColumn: false,
+                                      columns: _buildPortfolioDataTableColumns(
+                                          context),
+                                      rows: [
+                                        for (final asset in model
+                                            .getPortifolioMainAssets()) ...[
+                                          _buildPortfolioDataRow(
+                                              context, asset),
+                                        ],
+                                      ]),
+                                ),
 
-                        ///
-                        if (model.displaySubAssets)
-                          IgnorePointer(
-                            child: DataTable(
-                                dividerThickness: 0,
-                                horizontalMargin: 4,
-                                //NOTE: we will hide this table header
-                                headingRowHeight: 0,
-                                showCheckboxColumn: false,
-                                columns:
-                                    _buildPortfolioDataTableColumns(context),
-                                rows: [
-                                  for (final asset
-                                      in model.getPortifolioSubAssets()) ...[
-                                    _buildPortfolioDataRow(context, asset),
-                                  ],
-                                ]),
-                          ),
-                      ],
-                    ),
-                  )
+                                ///
+                                _buildToggleSubAssets(context),
 
-                  ///
-                  ///
-                  ///
-
-                  // Table(
-                  //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
-                  //   columnWidths: {
-                  //     1: IntrinsicColumnWidth(),
-                  //     2: IntrinsicColumnWidth(),
-                  //     3: IntrinsicColumnWidth(),
-                  //   },
-                  //   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  //   children: [
-                  //     _buildPortfolioTableHeader(),
-                  //     for (final coin in model.portfolioResume.coins) ...[
-                  //       _buildPortfolioTableRow(context, coin)
-                  //     ]
-                  //   ],
-                  // ),
-                ],
-
-                ///
-
-                /// Orders
-                // Table(
-                //   children: [
-                //     for (final order in model.orders) ...[_buildPortfolioTableRow(context, coin)]
-                //       TableRow()
-                //   ],
-                // ),
+                                ///
+                                if (model.displaySubAssets)
+                                  IgnorePointer(
+                                    child: DataTable(
+                                        dividerThickness: 0,
+                                        horizontalMargin: 4,
+                                        //NOTE: we will hide this table header
+                                        headingRowHeight: 0,
+                                        showCheckboxColumn: false,
+                                        columns:
+                                            _buildPortfolioDataTableColumns(
+                                                context),
+                                        rows: [
+                                          for (final asset in model
+                                              .getPortifolioSubAssets()) ...[
+                                            _buildPortfolioDataRow(
+                                                context, asset),
+                                          ],
+                                        ]),
+                                  ),
+                              ],
+                            ),
+                          )
+                        ]),
               ],
             ),
           ),
@@ -251,77 +221,4 @@ class PortfolioDetailsPage extends StatelessWidget {
       }),
     );
   }
-
-  //region DEPRECATED
-
-  @deprecated
-  TableRow _buildPortfolioTableHeader() {
-    return TableRow(children: [
-      /// SYMBOL
-      Padding(
-        padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text('Symbol', style: LeColors.t12m),
-        ),
-      ),
-
-      /// VALUE
-      Padding(
-        padding: const EdgeInsets.fromLTRB(22, 8, 8, 0),
-        child: Align(
-          alignment: Alignment.centerRight,
-          child: Text('Value', style: LeColors.t12m),
-        ),
-      ),
-    ]);
-  }
-
-  @deprecated
-  TableRow _buildPortfolioTableRow(
-      BuildContext context, PortfolioAccountResumeAsset coin) {
-    final model = Provider.of<PortfolioDetailsModel>(context);
-    final coinIndex = model.portfolioResume.coins.indexOf(coin);
-
-    return TableRow(
-      decoration: BoxDecoration(
-        color: (coinIndex % 2) == 0 ? null : LeColors.grey.withAlpha(0x11),
-      ),
-      children: [
-        /// SYMBOL
-        Padding(
-          padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(coin.coin.symbol),
-                Text(coin.coin.name, style: LeColors.t09m),
-              ],
-            ),
-          ),
-        ),
-
-        /// VALUE
-        Padding(
-          padding: const EdgeInsets.fromLTRB(22, 8, 8, 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              //
-              SelectableText(E.currency(coin.usdRate),
-                  maxLines: 1, style: LeColors.t22b),
-              //
-              Text(E.currency(coin.amount, symbol: coin.coin.symbol + " "),
-                  style: LeColors.t12m)
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  //endregion
-
 }

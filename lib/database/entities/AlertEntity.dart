@@ -8,9 +8,9 @@ class AlertEntity {
 
   final Coin coin;
 
-  final double referencePrice;
+  double referencePrice;
 
-  final double limitPrice;
+  double limitPrice;
 
   int triggerState;
 

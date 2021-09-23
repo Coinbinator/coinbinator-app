@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 
 const String TEST_BINANCE_API_KEY = 'TEST_BINANCE_API_KEY';
 const String TEST_BINANCE_API_SECRET = 'TEST_BINANCE_API_SECRET';
@@ -11,7 +10,7 @@ const String TEST_MERCADO_BITCOIN_TAPI_SECRET =
 /// INITIAL APP ROUTE
 const String ROUTE_ROOT = '/';
 
-///
+/// WATCHING PAGE ROUTE
 const String ROUTE_WATCHING = '/';
 
 ///

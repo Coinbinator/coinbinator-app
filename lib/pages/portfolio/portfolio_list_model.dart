@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/support/flutter/ProviderUtil.dart';
+import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
 import 'package:provider/provider.dart';
 
 class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
@@ -32,7 +33,8 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
   }
 
   Future<void> reloadAccounts() async {
-    final busyToken = context.read<PortfolioModel>().busyToken();
+    final busyToken =
+        context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
 
     accounts = await app().getAccounts();
 
@@ -42,7 +44,7 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
 
   Future<void> updatePortfolios() async {
     final busyToken = context
-        .read<PortfolioModel>()
+        .read<LeAppMainProgressIndicatorNotifier>()
         .busyToken(messagee: "Updating Portifolios");
 
     updatingPortfolios = true;

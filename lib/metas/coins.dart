@@ -1,6 +1,5 @@
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/support/codegen/le_coins_annotations.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
 part 'coins.le.coins.dart';
 
