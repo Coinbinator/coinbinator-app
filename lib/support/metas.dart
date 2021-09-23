@@ -2,7 +2,14 @@ import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 
 final Map<Coin, Set<Coin>> coinAliases = {
-  Coins.$USD: {Coins.$USD, Coins.$USDT, Coins.$USDC, Coins.$TUSD},
+  Coins.$USD: {
+    Coins.$USD,
+    Coins.$USDT,
+    Coins.$USDC,
+    Coins.$TUSD,
+    Coins.$SUSD,
+    Coins.$BUSD,
+  },
 };
 
 extension CoinEx on Coin {

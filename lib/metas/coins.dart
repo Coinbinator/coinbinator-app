@@ -48,3 +48,7 @@ Coin _getCoin(dynamic value) {
 Map<String, Coin> _getAll() {
   return Coins._coins;
 }
+
+extension CoinSugar on Coin {
+  bool get isUnknown => _unknownCoins.containsKey(symbol);
+}

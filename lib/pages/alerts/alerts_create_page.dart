@@ -2,9 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/e.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_select/smart_select.dart';
 
 class AlertsCreatePage extends StatefulWidget {
   final AlertEntity alert;
@@ -27,46 +33,19 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
         final model = Provider.of<AlertsCreatePageModel>(context);
 
         return SimpleDialog(
-          // semanticContainer: true,
-
           children: [
+            ...model.when(
+              creating: () => [
+                _buildCoinSelector(context),
+              ],
+              editing: () => [
+                _buildCoinSelector(context),
+              ],
+            ),
             // ListView(
             // shrinkWrap: true,
             // children: [
             /// SYMBOL / PAIR
-            Column(children: [
-              Text("When:"),
-              ToggleButtons(
-                children: [
-                  for (final coin in model.commonCoins) ...[
-                    Text(coin.symbol,
-                        style: Theme.of(context).textTheme.headline5),
-                  ],
-                  Row(
-                    children: [
-                      if (model.userCoin != null) ...[
-                        Text("${model.userCoin.name} ",
-                            style: Theme.of(context).textTheme.headline5),
-                        Icon(Icons.change_history_rounded),
-                      ],
-                      if (model.userCoin == null) ...[
-                        Icon(Icons.search),
-                      ],
-                    ],
-                  )
-                ],
-                isSelected: [
-                  ...model.commonCoins.map((e) => e == model.selectedCoin),
-                  false,
-                ],
-                onPressed: (index) {
-                  if (index < model.commonCoins.length)
-                    return model
-                        .setSelectedCoin(model.commonCoins.elementAt(index));
-                },
-              ),
-              // Text("BTC"),
-            ]),
 
             /// PRICE LIMIT
             Column(children: [
@@ -78,24 +57,7 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
 
               Text(
                   "${E.currency(model.limitPrice)} ${E.percentageOf(model.limitPrice, model.currentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.currentPrice))}"),
-              // Text("${E.percentageOf(model.limitPrice, model.currentPrice)}"),
 
-              // ToggleButtons(
-              //   children: [
-              //     for (final priceLimitModifier in model.priceLimitModifiers)
-              //       Text(E.percentage(
-              //         priceLimitModifier,
-              //         decimalDigits: 0,
-              //         forcePositiveSign: priceLimitModifier != 0,
-              //       )),
-              //   ],
-              //   isSelected:
-              //       model.priceLimitModifiers.map((e) => false).toList(),
-              //   onPressed: (index) => model.applyPriceLimitModifier(
-              //       model.priceLimitModifiers.elementAt(index)),
-              // ),
-
-              ///
               ///
               Slider(
                 value: max(min(model.limitPriceVariation, 1), -1),
@@ -108,40 +70,79 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
             ]),
 
             /// COMMIT & CANCEL
-            model.when<Widget>(
-                creating: () => Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                            child: Icon(Icons.delete),
-                            onPressed: null),
-                        TextButton(
-                            child: Text("CANCEL"),
-                            onPressed: () => model.cancelAlarm(context)),
-                        TextButton(
-                            child: Text("OK"),
-                            onPressed: () => model.commitAlarm(context)),
-                      ],
-                    ),
-                ediding: () => Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                            child: Icon(Icons.delete),
-                            onPressed: () => model.removeAlarm(context)),
-                        TextButton(
-                            child: Icon(Icons.close),
-                            onPressed: () => model.cancelAlarm(context)),
-                        TextButton(
-                            child: Icon(Icons.check),
-                            onPressed: () => model.commitAlarm(context)),
-                      ],
-                    )),
+            ...model.when(
+              creating: () => <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(child: Icon(Icons.delete), onPressed: null),
+                    TextButton(
+                        child: Icon(Icons.close),
+                        onPressed: () => model.cancelAlarm(context)),
+                    TextButton(
+                        child: Icon(Icons.check),
+                        onPressed: () => model.commitAlarm(context)),
+                  ],
+                )
+              ],
+              editing: () => <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                        child: Icon(Icons.delete),
+                        onPressed: () => model.removeAlarm(context)),
+                    TextButton(
+                        child: Icon(Icons.close),
+                        onPressed: () => model.cancelAlarm(context)),
+                    TextButton(
+                        child: Icon(Icons.check),
+                        onPressed: () => model.commitAlarm(context)),
+                  ],
+                )
+              ],
+            ),
           ],
-          // ),
-          // ],
         );
       },
+    );
+  }
+
+  Widget _buildCoinSelector(BuildContext context) {
+    final model = context.watch<AlertsCreatePageModel>();
+
+    return Column(
+      children: [
+        Text("When"),
+        SmartSelect<Coin>.single(
+          title: "Select a symbol",
+          value: null,
+          onChange: (state) => model.setSelectedCoin(state.value),
+          modalFilter: true,
+          modalFilterAuto: true,
+          choiceItems: [
+            for (final coin in Pairs.getAll()
+                .where((element) =>
+                    !element.base.isUSD &&
+                    !element.base.isUnknown &&
+                    element.quote.isUSD)
+                .map((e) => e.base)
+                .toSet())
+              S2Choice<Coin>(
+                  title: coin.symbol, subtitle: coin.name, value: coin),
+          ],
+          tileBuilder: (BuildContext context, S2SingleState select) =>
+              TextButton(
+            onPressed: () => select.showModal(),
+            child: Column(
+              children: [
+                Text(model.selectedCoin.symbol),
+                Text(model.selectedCoin.name)
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

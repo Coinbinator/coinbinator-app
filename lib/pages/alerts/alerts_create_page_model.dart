@@ -132,12 +132,12 @@ class AlertsCreatePageModel extends ChangeNotifier {
     Navigator.of(context).pop();
   }
 
-  T when<T>({
-    T Function() creating,
-    T Function() ediding,
+  List<Widget> when({
+    List<Widget> Function() creating,
+    List<Widget> Function() editing,
   }) {
-    if (alert != null) return ediding();
+    if (alert != null) return editing?.call() ?? [];
 
-    return creating();
+    return creating?.call() ?? [];
   }
 }

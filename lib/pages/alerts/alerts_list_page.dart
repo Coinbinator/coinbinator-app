@@ -93,7 +93,7 @@ class AlertsListPageState extends State<StatefulWidget> {
       onSelectChanged: (selected) {
          Navigator.of(context).push(getAlertEditPageRoute(context, alert));
       },
-      // selected: model.isItemSelected(alert),
+      selected: alert.isActive,
       cells: [
         DataCell(Column(
           children: [
