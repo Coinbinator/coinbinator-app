@@ -50,7 +50,6 @@ class _DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate 
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: LeColors.white.shade50,
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Row(

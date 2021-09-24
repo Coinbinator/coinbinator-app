@@ -9,6 +9,9 @@ import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
+import 'package:tuple/tuple.dart';
 
 class BackgroundServiceManager {
   final BackgroundServiceBridge _bridge;
@@ -24,8 +27,8 @@ class BackgroundServiceManager {
   Map<Pair, double> binanceCurrentPrices = {};
 
   start() async {
-    Timer.periodic(Duration(seconds: 5), _tick);
-    Timer.periodic(Duration(seconds: 5), _checkAlerts);
+    Timer.periodic(Duration(seconds: 30), _tick);
+    Timer.periodic(Duration(seconds: 30), _checkAlerts);
   }
 
   _tick(Timer timer) async {
@@ -169,28 +172,20 @@ class BackgroundServiceManager {
   }
 
   Future<void> _checkAlerts(Timer timer) async {
-    final activeAlerts = <AlertEntity>[];
+    final activeAlerts = <Tuple2<double, AlertEntity>>[];
 
     for (AlertEntity alert in await app().appDao.findAllAlerts()) {
       final ticker = app().tickers.getTicker(
-          Exchanges.Binance, Pairs.getPair(alert.coin.symbol + 'USDT'));
+            Exchanges.Binance,
+            Pairs.getPair2(alert.coin.symbol, CoinsEx.USD_ALIASES),
+          );
 
       if (ticker == null) continue;
 
       // print("checking $alert");
 
-      if (alert.referencePrice < alert.limitPrice &&
-          alert.limitPrice > ticker.price) {
-        activeAlerts.add(alert);
-        // print(
-        //     "  ${alert.coin} is active at ${alert.limitPrice} from ${ticker.price}");
-        // instance<AlarmingRepository>().oneShot(
-        //     Duration.zero, ALARM_ID_ALERT_ACTIVE, () => {},
-        //     alarmClock: true, wakeup: true);
-      }
-      if (alert.referencePrice > alert.limitPrice &&
-          alert.limitPrice < ticker.price) {
-        activeAlerts.add(alert);
+      if (alert.testTrigger(ticker.price)) {
+        activeAlerts.add(Tuple2(ticker.price, alert));
       }
 
       // print(ticker);
@@ -200,6 +195,16 @@ class BackgroundServiceManager {
       if (alertAlarmAt == null ||
           DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
         alertAlarmAt = DateTime.now();
+
+        instance<SpeechRepository>()
+            .speak("You have ${activeAlerts.length} triggered.");
+
+        final price = activeAlerts.first.item1;
+        final alert = activeAlerts.first.item2;
+
+        instance<SpeechRepository>().speak(alert.describe(price));
+
+        //instance<SpeechRepository>().speak("Hello");
 
         // FlutterRingtonePlayer.play(
         //   android: AndroidSounds.notification,

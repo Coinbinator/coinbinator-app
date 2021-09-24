@@ -13,9 +13,7 @@ import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 
 class AlertsListPageModel extends ChangeNotifier
-    with
-        ModelUtilMixin,
-        AbstractAppTickerListener {
+    with ModelUtilMixin, AbstractAppTickerListener {
   ///
   StreamSubscription<List<AlertEntity>> alertsStreamSubscription;
 

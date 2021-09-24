@@ -41,4 +41,11 @@ final MAIN_APP_WIDGET = GlobalKey<State<MaterialApp>>();
 // ignore: non_constant_identifier_names
 final MAIN_NAVIGATOR_KEY = GlobalKey<NavigatorState>();
 
-
+/// The market direction (bullish) rising, (bearish) dipping
+/// 
+/// References:
+/// https://www.investopedia.com/insights/digging-deeper-bull-and-bear-markets/
+enum MarketDirection {
+  bullish,
+  bearish,
+}

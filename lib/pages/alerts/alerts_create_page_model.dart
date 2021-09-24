@@ -1,21 +1,20 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
 
 class AlertsCreatePageModel extends ChangeNotifier {
   AlertEntity alert;
 
   List<Coin> commonCoins = <Coin>[
     Coins.$BTC,
-    Coins.$ETH,
-    Coins.$XRP,
-    Coins.$ADA,
   ];
 
   List<double> priceLimitModifiers = <double>[
@@ -32,15 +31,16 @@ class AlertsCreatePageModel extends ChangeNotifier {
     0 + 1.00,
   ];
 
-  Coin userCoin;
-
   Coin selectedCoin;
 
-  double currentPrice = 0;
+  double selectedCoinCurrentPrice = 0;
+
+  MarketDirection limitDirection = MarketDirection.bearish;
 
   double limitPrice = 0;
 
-  double get _currentPriceNotZero => currentPrice <= 0 ? 100 : currentPrice;
+  double get _currentPriceNotZero =>
+      selectedCoinCurrentPrice <= 0 ? 100 : selectedCoinCurrentPrice;
 
   double get limitPriceVariation {
     return limitPrice == 0 ? -1 : (limitPrice / _currentPriceNotZero - 1);
@@ -56,7 +56,7 @@ class AlertsCreatePageModel extends ChangeNotifier {
   init() async {
     if (alert != null) {
       await setSelectedCoin(alert.coin);
-      currentPrice = alert.referencePrice;
+      limitDirection = alert.limitDirection;
       limitPrice = alert.limitPrice;
 
       notifyListeners();
@@ -72,29 +72,41 @@ class AlertsCreatePageModel extends ChangeNotifier {
   dispose() {
     alert = null;
     commonCoins = null;
-    priceLimitModifiers = null;
-    userCoin = null;
-    currentPrice = null;
+    limitDirection = null;
     limitPrice = null;
+    priceLimitModifiers = null;
+    selectedCoin = null;
+    selectedCoinCurrentPrice = null;
     super.dispose();
   }
+
+  Set<Coin> get availableCoins => Pairs.getAll()
+      .where((element) =>
+          !element.base.isUSD && !element.base.isUnknown && element.quote.isUSD)
+      .map((e) => e.base)
+      .toSet()
+        ..add(selectedCoin);
 
   setSelectedCoin(Coin value) async {
     selectedCoin = value;
 
-    final ticker = app()
-        .tickers
-        .getTicker(Exchanges.Binance, Pairs.getPair(value.symbol + "USDT"));
+    final ticker = app().tickers.getTicker(
+        Exchanges.Binance, Pairs.getPair2(value.symbol, CoinsEx.USD_ALIASES));
 
-    currentPrice = ticker?.price ?? -1;
+    selectedCoinCurrentPrice = ticker?.price ?? -1;
     limitPrice = ticker?.price ?? _currentPriceNotZero;
 
     notifyListeners();
   }
 
+  setLimitDirection(MarketDirection value) {
+    limitDirection = value;
+    notifyListeners();
+  }
+
   applyPriceLimitModifier(double value) {
     if (value == 0) {
-      limitPrice = currentPrice;
+      limitPrice = selectedCoinCurrentPrice;
       notifyListeners();
       return;
     }
@@ -110,15 +122,17 @@ class AlertsCreatePageModel extends ChangeNotifier {
     if (alert == null) {
       await app().persistAlertEntity(AlertEntity(
         coin: selectedCoin,
-        referencePrice: currentPrice,
+        // referencePrice: selectedCoinCurrentPrice,
+        limitDirection: limitDirection,
         limitPrice: limitPrice,
       ));
       Navigator.of(context).pop();
       return;
     }
     await app().persistAlertEntity(alert
-      // ..coin = selectedCoin
-      ..referencePrice = currentPrice
+      ..coin = selectedCoin
+      //..referencePrice = selectedCoinCurrentPrice
+      ..limitDirection = limitDirection
       ..limitPrice = limitPrice);
     Navigator.of(context).pop();
   }
@@ -132,9 +146,9 @@ class AlertsCreatePageModel extends ChangeNotifier {
     Navigator.of(context).pop();
   }
 
-  List<Widget> when({
-    List<Widget> Function() creating,
-    List<Widget> Function() editing,
+  T when<T>({
+    T Function() creating,
+    T Function() editing,
   }) {
     if (alert != null) return editing?.call() ?? [];
 

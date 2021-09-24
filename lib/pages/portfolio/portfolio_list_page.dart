@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
@@ -59,7 +58,17 @@ class PortifolioListPageState extends State<PortifolioListPage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  OutlinedButton(
+                      onPressed: () =>
+                          context.read<LeAppModel>().nextColorSchema(),
+                      child:
+                          Text("(${context.read<LeAppModel>().i} + 1) next")),
+                  OutlinedButton(
+                      onPressed: () => context.read<LeAppModel>()
+                        ..i = -1
+                        ..nextColorSchema(),
+                      child: Text(" reset")),
                 ],
                 // Table(
                 //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),
@@ -101,7 +110,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
         : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
     return Card(
-      color: LeColors.white.shade50,
+      // color: LeColors.white.shade50,
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -172,71 +181,4 @@ class PortifolioListPageState extends State<PortifolioListPage> {
       ),
     );
   }
-
-  //region DEPRECATED
-
-  @deprecated
-  TableRow _buildPortfolioTableHeader() {
-    return TableRow(children: [
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Text('Exchange', style: LeColors.t12m),
-      ),
-      // Align(
-      //   alignment: Alignment.centerRight,
-      //   child: Text('Symbols', style: LeColors.t12m),
-      // ),
-      Align(
-        alignment: Alignment.centerRight,
-        child: Text('Value', style: LeColors.t12m),
-      ),
-      Align(
-        alignment: Alignment.center,
-        child: Text('', style: LeColors.t18m),
-      ),
-    ]);
-  }
-
-  @deprecated
-  TableRow _buildPortfolioTableRow(
-      BuildContext context, PortfolioAccountResume portfolio) {
-    return TableRow(children: [
-      /// EXCHANGE
-      Align(
-        alignment: Alignment.centerLeft,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(portfolio.displayName, style: LeColors.t18m),
-            Text('${portfolio.coins.length} assets', style: LeColors.t12m)
-          ],
-        ),
-      ),
-
-      /// VALUE
-      Padding(
-        padding: const EdgeInsets.fromLTRB(22, 8, 0, 8),
-        child: Align(
-          alignment: Alignment.centerRight,
-          child: SelectableText(E.currency(portfolio.totalUsd),
-              maxLines: 1, style: LeColors.t16m),
-        ),
-      ),
-
-      /// ACTIONS
-      Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-        child: IconButton(
-          icon: Icon(Icons.chevron_right),
-          onPressed: () => Navigator.of(context).pushNamed(
-              ROUTE_PORTFOLIO_DETAILS,
-              arguments: PortfolioDetailsRouteArguments(portfolio.account.id)),
-        ),
-      ),
-    ]);
-  }
-
-  //endregion
-
 }

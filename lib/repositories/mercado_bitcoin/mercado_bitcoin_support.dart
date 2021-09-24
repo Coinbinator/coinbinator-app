@@ -13,7 +13,11 @@ class MercadoBitcoinAccountInfo {
   @JsonKey(name: 'server_unix_timestamp')
   String serverUnixTimestamp;
 
-  static MercadoBitcoinAccountInfo fromJson(json) => _$MercadoBitcoinAccountInfoFromJson(json);
+  static MercadoBitcoinAccountInfo fromJson(json) =>
+      _$MercadoBitcoinAccountInfoFromJson(json);
+
+  static Map<String, dynamic> toJson(MercadoBitcoinAccountInfo instance) =>
+      _$MercadoBitcoinAccountInfoToJson(instance);
 }
 
 @JsonSerializable()
@@ -24,7 +28,8 @@ class MercadoBitcoinAccountResponseData {
   @JsonKey(name: 'withdrawal_limits')
   Map<String, MercadoBitcoinAccountWithdrawalLimitsEntry> withdrawalLimits;
 
-  static MercadoBitcoinAccountResponseData fromJson(json) => _$MercadoBitcoinAccountResponseDataFromJson(json);
+  static MercadoBitcoinAccountResponseData fromJson(json) =>
+      _$MercadoBitcoinAccountResponseDataFromJson(json);
 }
 
 @JsonSerializable()
@@ -38,7 +43,8 @@ class MercadoBitcoinAccountBalanceEntry {
   @JsonKey(name: 'amount_open_orders', defaultValue: 0)
   dynamic amountOpenOrders;
 
-  static MercadoBitcoinAccountBalanceEntry fromJson(json) => _$MercadoBitcoinAccountBalanceEntryFromJson(json);
+  static MercadoBitcoinAccountBalanceEntry fromJson(json) =>
+      _$MercadoBitcoinAccountBalanceEntryFromJson(json);
 }
 
 @JsonSerializable()
@@ -49,7 +55,8 @@ class MercadoBitcoinAccountWithdrawalLimitsEntry {
   @JsonKey(name: 'total')
   dynamic total;
 
-  static MercadoBitcoinAccountWithdrawalLimitsEntry fromJson(json) => _$MercadoBitcoinAccountWithdrawalLimitsEntryFromJson(json);
+  static MercadoBitcoinAccountWithdrawalLimitsEntry fromJson(json) =>
+      _$MercadoBitcoinAccountWithdrawalLimitsEntryFromJson(json);
 }
 
 @JsonSerializable()
@@ -63,9 +70,12 @@ class MercadoBitcoinListOrdersResponse {
   @JsonKey(name: 'server_unix_timestamp')
   dynamic serverUnixTimestamp;
 
-  static MercadoBitcoinListOrdersResponse fromJson(json) => _$MercadoBitcoinListOrdersResponseFromJson(json);
+  static MercadoBitcoinListOrdersResponse fromJson(json) =>
+      _$MercadoBitcoinListOrdersResponseFromJson(json);
 
-  static Map<String, dynamic> toJson(MercadoBitcoinListOrdersResponse instance) => _$MercadoBitcoinListOrdersResponseToJson(instance);
+  static Map<String, dynamic> toJson(
+          MercadoBitcoinListOrdersResponse instance) =>
+      _$MercadoBitcoinListOrdersResponseToJson(instance);
 }
 
 @JsonSerializable()
@@ -73,7 +83,8 @@ class MercadoBitcoinListOrdersResponseData {
   @JsonKey(name: 'orders')
   List<MercadoBitcoinListOrdersOrder> orders;
 
-  static MercadoBitcoinListOrdersResponseData fromJson(json) => _$MercadoBitcoinListOrdersResponseDataFromJson(json);
+  static MercadoBitcoinListOrdersResponseData fromJson(json) =>
+      _$MercadoBitcoinListOrdersResponseDataFromJson(json);
 }
 
 @JsonSerializable()
@@ -117,5 +128,6 @@ class MercadoBitcoinListOrdersOrder {
   @JsonKey(name: 'operations')
   dynamic operations;
 
-  static MercadoBitcoinListOrdersOrder fromJson(json) => _$MercadoBitcoinListOrdersOrderFromJson(json);
+  static MercadoBitcoinListOrdersOrder fromJson(json) =>
+      _$MercadoBitcoinListOrdersOrderFromJson(json);
 }

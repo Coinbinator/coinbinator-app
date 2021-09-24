@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
 
 @Entity(tableName: 'alerts')
@@ -6,9 +7,9 @@ class AlertEntity {
   @PrimaryKey(autoGenerate: true)
   final int id;
 
-  final Coin coin;
+  Coin coin;
 
-  double referencePrice;
+  MarketDirection limitDirection;
 
   double limitPrice;
 
@@ -19,19 +20,15 @@ class AlertEntity {
   AlertEntity({
     this.id,
     this.coin,
-    this.referencePrice,
+    this.limitDirection,
     this.limitPrice,
     this.triggerState = AlertEntityState.STATE_IDLE,
     this.triggerAt,
   });
 
-  bool get isBullish {
-    return referencePrice < limitPrice;
-  }
+  bool get isBullish => limitDirection == MarketDirection.bullish;
 
-  bool get isBearish {
-    return referencePrice > limitPrice;
-  }
+  bool get isBearish => limitDirection == MarketDirection.bearish;
 
   bool get isActive => triggerState == AlertEntityState.STATE_ACTIVE;
 
@@ -41,6 +38,15 @@ class AlertEntity {
     if (isBearish && price <= limitPrice) return true;
 
     return false;
+  }
+
+  String describe(double price) {
+    final normPrice = price < 100 ? price : price.round();
+    final normLimitPrice = limitPrice < 100 ? limitPrice : limitPrice.round();
+    final percentage =  ((limitPrice/price - 1) * 100).round();
+
+    return "${coin.name} is ${isBearish ? 'bellow' : 'above'} \$$normLimitPrice, currently at \$$normPrice. ${percentage > 2 ? 'with a $percentage variation' :''}";
+    // return "${coin.name} está ${isBearish ? 'abaixo' : 'acima'} de $normLimitPrice dollars, no valor atual de $normPrice dollars.";
   }
 }
 

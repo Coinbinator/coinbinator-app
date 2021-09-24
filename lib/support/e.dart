@@ -1,5 +1,4 @@
 import 'package:intl/intl.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 
 abstract class E {
   ///

@@ -82,7 +82,7 @@ class _$AppDatabase extends AppDatabase {
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `accounts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` TEXT, `extras` TEXT)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `referencePrice` REAL, `limitPrice` REAL, `triggerState` INTEGER, `triggerAt` INTEGER)');
+            'CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `limitDirection` INTEGER, `limitPrice` REAL, `triggerState` INTEGER, `triggerAt` INTEGER)');
         await database.execute(
             'CREATE TABLE IF NOT EXISTS `tickers` (`id` TEXT, `exchange` TEXT, `base` TEXT, `quote` TEXT, `updatedAt` INTEGER, `price` REAL, PRIMARY KEY (`id`))');
         await database.execute(
@@ -129,7 +129,8 @@ class _$AppDao extends AppDao {
             (AlertEntity item) => <String, dynamic>{
                   'id': item.id,
                   'coin': _coinConverter.encode(item.coin),
-                  'referencePrice': item.referencePrice,
+                  'limitDirection':
+                      _marketDirectionConverter.encode(item.limitDirection),
                   'limitPrice': item.limitPrice,
                   'triggerState': item.triggerState,
                   'triggerAt': _dateTimeConverter.encode(item.triggerAt)
@@ -154,7 +155,8 @@ class _$AppDao extends AppDao {
             (AlertEntity item) => <String, dynamic>{
                   'id': item.id,
                   'coin': _coinConverter.encode(item.coin),
-                  'referencePrice': item.referencePrice,
+                  'limitDirection':
+                      _marketDirectionConverter.encode(item.limitDirection),
                   'limitPrice': item.limitPrice,
                   'triggerState': item.triggerState,
                   'triggerAt': _dateTimeConverter.encode(item.triggerAt)
@@ -177,7 +179,8 @@ class _$AppDao extends AppDao {
             (AlertEntity item) => <String, dynamic>{
                   'id': item.id,
                   'coin': _coinConverter.encode(item.coin),
-                  'referencePrice': item.referencePrice,
+                  'limitDirection':
+                      _marketDirectionConverter.encode(item.limitDirection),
                   'limitPrice': item.limitPrice,
                   'triggerState': item.triggerState,
                   'triggerAt': _dateTimeConverter.encode(item.triggerAt)
@@ -256,7 +259,8 @@ class _$AppDao extends AppDao {
         mapper: (Map<String, dynamic> row) => AlertEntity(
             id: row['id'] as int,
             coin: _coinConverter.decode(row['coin'] as String),
-            referencePrice: row['referencePrice'] as double,
+            limitDirection:
+                _marketDirectionConverter.decode(row['limitDirection'] as int),
             limitPrice: row['limitPrice'] as double,
             triggerState: row['triggerState'] as int,
             triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
@@ -270,7 +274,8 @@ class _$AppDao extends AppDao {
         mapper: (Map<String, dynamic> row) => AlertEntity(
             id: row['id'] as int,
             coin: _coinConverter.decode(row['coin'] as String),
-            referencePrice: row['referencePrice'] as double,
+            limitDirection:
+                _marketDirectionConverter.decode(row['limitDirection'] as int),
             limitPrice: row['limitPrice'] as double,
             triggerState: row['triggerState'] as int,
             triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
@@ -285,7 +290,8 @@ class _$AppDao extends AppDao {
         mapper: (Map<String, dynamic> row) => AlertEntity(
             id: row['id'] as int,
             coin: _coinConverter.decode(row['coin'] as String),
-            referencePrice: row['referencePrice'] as double,
+            limitDirection:
+                _marketDirectionConverter.decode(row['limitDirection'] as int),
             limitPrice: row['limitPrice'] as double,
             triggerState: row['triggerState'] as int,
             triggerAt: _dateTimeConverter.decode(row['triggerAt'] as int)));
@@ -355,3 +361,4 @@ class _$AppDao extends AppDao {
 // ignore_for_file: unused_element
 final _coinConverter = CoinConverter();
 final _dateTimeConverter = DateTimeConverter();
+final _marketDirectionConverter = MarketDirectionConverter();

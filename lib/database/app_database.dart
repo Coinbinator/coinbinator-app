@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:floor/floor.dart';
 import 'package:flutter/foundation.dart';
-import 'package:le_crypto_alerts/database/converters/CoinConverter.dart';
-import 'package:le_crypto_alerts/database/converters/DateTimeConverter%20.dart';
+import 'package:le_crypto_alerts/database/converters/coin_converter.dart';
+import 'package:le_crypto_alerts/database/converters/date_time_converter%20.dart';
+import 'package:le_crypto_alerts/database/converters/market_direction_converter.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
 import 'package:le_crypto_alerts/database/entities/AccountEntity.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
@@ -15,7 +16,7 @@ import 'package:sqflite/sqflite.dart' as sqflite;
 
 part 'app_database.g.dart';
 
-@TypeConverters([CoinConverter, DateTimeConverter])
+@TypeConverters([CoinConverter, DateTimeConverter, MarketDirectionConverter])
 @Database(
     version: 1,
     entities: [AccountEntity, AlertEntity, TickerEntity, TickerWatchEntity])
@@ -23,11 +24,10 @@ abstract class AppDatabase extends FloorDatabase {
   AppDao get appDao;
 
   static build() async {
-    // Replicating the process on ```$FloorAppDatabase.databaseBuilder```
-    // because it is incompatible with the linux (and possible all desktops platforms)
-
+    /// Replicating the process on ```$FloorAppDatabase.databaseBuilder```
+    /// because it is incompatible with the linux (and possible all desktops platforms)
     final databasePath =
-        join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default_1.db');
+        join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default_2.db');
 
     debugPrint("database: $databasePath");
 

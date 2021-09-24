@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
@@ -7,6 +6,8 @@ import 'package:le_crypto_alerts/pages/_common/default_custom_scroll_view.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/_common/noop_model.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page_model.dart';
+import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
@@ -32,7 +33,9 @@ class AlertsListPageState extends State<StatefulWidget> {
             icon: Icons.alarm,
             title: " Alarms",
             actions: [
-              IconButton(icon: Icon(Icons.more_vert), onPressed: () => {})
+              IconButton(
+                  icon: Icon(Icons.more_vert),
+                  onPressed: () => instance<SpeechRepository>().speak("Hello"))
             ],
           ),
           body: defaultCustomScrollView(
@@ -91,7 +94,7 @@ class AlertsListPageState extends State<StatefulWidget> {
 
     return DataRow(
       onSelectChanged: (selected) {
-         Navigator.of(context).push(getAlertEditPageRoute(context, alert));
+        Navigator.of(context).push(getAlertEditPageRoute(context, alert));
       },
       selected: alert.isActive,
       cells: [

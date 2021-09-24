@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
+import 'package:le_crypto_alerts/support/theme/color_schema_tests.dart';
+import 'package:le_crypto_alerts/support/theme/theme_darker.dart';
+import 'package:le_crypto_alerts/support/theme/random_color_scheme.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
-import 'package:provider/provider.dart';
 
 class LeAppModel extends ChangeNotifier {
   List<AbstractExchangeAccount> accounts = [];
@@ -13,12 +15,16 @@ class LeAppModel extends ChangeNotifier {
   List<AlertEntity> currentActiveAlerts = [];
   StreamSubscription<List<AlertEntity>> currentActiveAlertsSubscription;
 
+  int i = 0;
+  ColorScheme colorSchema = colorSchemaTests()[0];
+  ThemeData themeData = DarkerThemeData.darker();
+
   void init() async {
     accounts = await app().getAccounts();
 
     _updateAlerts(app().alerts);
-    currentActiveAlertsSubscription =
-        app().alertsStream.listen((alerts) => _updateAlerts(alerts));
+    // currentActiveAlertsSubscription =
+    //     app().alertsStream.listen((alerts) => _updateAlerts(alerts));
 
     notifyListeners();
   }
@@ -35,6 +41,20 @@ class LeAppModel extends ChangeNotifier {
     currentActiveAlerts = value.where((element) => element.isActive).toList();
     notifyListeners();
   }
+
+  shufflerColors() {
+    colorSchema = randomColorScheme();
+    themeData = ThemeData.from(colorScheme: colorSchema);
+    notifyListeners();
+  }
+
+  nextColorSchema() {
+    i = (i + 1) % colorSchemaTests().length;
+    colorSchema = colorSchemaTests()[i];
+    ThemeData.from(colorScheme: colorSchema);
+
+    notifyListeners();
+  }
 }
 
 class LeAppMainProgressIndicatorNotifier extends ChangeNotifier {
@@ -47,11 +67,11 @@ class LeAppMainProgressIndicatorNotifier extends ChangeNotifier {
   }) {
     final token = BusyToken(_releaseToken, message: messagee);
 
-    tokens.add(token);
+    // tokens.add(token);
 
-    try {
-      notifyListeners();
-    } catch (e) {}
+    // try {
+    //   notifyListeners();
+    // } catch (e) {}
 
     return token;
   }
@@ -59,8 +79,8 @@ class LeAppMainProgressIndicatorNotifier extends ChangeNotifier {
   _releaseToken(final BusyToken token) {
     tokens.remove(token);
 
-    try {
-      notifyListeners();
-    } catch (e) {}
+    // try {
+    //   notifyListeners();
+    // } catch (e) {}
   }
 }

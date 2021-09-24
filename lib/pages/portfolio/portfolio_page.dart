@@ -3,7 +3,6 @@ import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
-import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +22,6 @@ class PortfolioPageState extends State<PortfolioPage> {
       child: ChangeNotifierProvider<PortfolioModel>(
         create: (BuildContext context) => PortfolioModel(),
         builder: (BuildContext context, _) {
-          final model = Provider.of<PortfolioModel>(context, listen: false);
-          // model.lockUntilPostFrame();
-
           return Scaffold(
             drawer: DefaultDrawer(),
             appBar: defaultAppBar(

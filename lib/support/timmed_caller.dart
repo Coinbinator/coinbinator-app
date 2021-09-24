@@ -4,7 +4,6 @@ class TimmedCaller {
   Duration _delay;
   Function _action;
 
-  bool _dirty = false;
   DateTime _lastCall;
   Timer _timer;
 
@@ -14,13 +13,11 @@ class TimmedCaller {
 
   void call() {
     if (_lastCall != null && DateTime.now().difference(_lastCall) > _delay) {
-      _dirty = true;
       // _timer.
       return;
     }
 
     _action.call();
-    _dirty = false;
     _lastCall = DateTime.now();
   }
 
@@ -34,7 +31,6 @@ class TimmedCaller {
 
     _timer?.cancel();
     _timer = null;
-    _dirty = false;
     _lastCall = null;
   }
 }

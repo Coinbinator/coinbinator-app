@@ -11,9 +11,9 @@ PreferredSizeWidget defaultAppBar({
   // bool working: false,
 }) {
   return AppBar(
-    actionsIconTheme: IconThemeData(
-      color: LeColors.white,
-    ),
+    // actionsIconTheme: IconThemeData(
+    //   color: LeColors.white,
+    // ),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

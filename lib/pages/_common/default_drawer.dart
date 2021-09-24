@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/constants.dart';
+import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
+import 'package:provider/provider.dart';
 
 class DefaultDrawer extends StatelessWidget {
   @override
@@ -35,7 +38,10 @@ class DefaultDrawer extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+                Provider.of<LeAppModel>(MAIN_NAVIGATOR_KEY.currentContext, listen: false )
+                    .shufflerColors();
+                //
+                // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
               },
             ),
             // ListTile(

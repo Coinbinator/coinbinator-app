@@ -111,7 +111,6 @@ class PortfolioDetailsPage extends StatelessWidget {
         model.portfolioResume == null ? "" : model.portfolioResume.displayName;
 
     return Card(
-      color: LeColors.white.shade50,
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(8),

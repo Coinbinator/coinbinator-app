@@ -5,7 +5,6 @@ import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/pages/le_app_models.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
 import 'package:provider/provider.dart';
