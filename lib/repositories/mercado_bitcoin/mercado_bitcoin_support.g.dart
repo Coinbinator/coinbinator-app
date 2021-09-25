@@ -72,7 +72,8 @@ Map<String, dynamic> _$MercadoBitcoinListOrdersResponseToJson(MercadoBitcoinList
     };
 
 MercadoBitcoinListOrdersResponseData _$MercadoBitcoinListOrdersResponseDataFromJson(Map<String, dynamic> json) {
-  return MercadoBitcoinListOrdersResponseData()..orders = (json['orders'] as List)?.map((e) => e == null ? null : MercadoBitcoinListOrdersOrder.fromJson(e as Map<String, dynamic>))?.toList();
+  return MercadoBitcoinListOrdersResponseData()
+    ..orders = (json['orders'] as List)?.map((e) => e == null ? null : MercadoBitcoinListOrdersOrder.fromJson(e as Map<String, dynamic>))?.toList();
 }
 
 Map<String, dynamic> _$MercadoBitcoinListOrdersResponseDataToJson(MercadoBitcoinListOrdersResponseData instance) => <String, dynamic>{

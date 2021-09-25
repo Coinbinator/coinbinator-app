@@ -49,11 +49,16 @@ class PortfolioDetailsPage extends StatelessWidget {
                               children: [
                                 ///
                                 IgnorePointer(
-                                  child: DataTable(dividerThickness: 0, horizontalMargin: 4, showCheckboxColumn: false, columns: _buildPortfolioDataTableColumns(context), rows: [
-                                    for (final asset in model.getPortifolioMainAssets()) ...[
-                                      _buildPortfolioDataRow(context, asset),
-                                    ],
-                                  ]),
+                                  child: DataTable(
+                                      dividerThickness: 0,
+                                      horizontalMargin: 4,
+                                      showCheckboxColumn: false,
+                                      columns: _buildPortfolioDataTableColumns(context),
+                                      rows: [
+                                        for (final asset in model.getPortifolioMainAssets()) ...[
+                                          _buildPortfolioDataRow(context, asset),
+                                        ],
+                                      ]),
                                 ),
 
                                 ///

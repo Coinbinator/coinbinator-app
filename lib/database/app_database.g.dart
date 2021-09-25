@@ -74,8 +74,10 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute('CREATE TABLE IF NOT EXISTS `accounts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` TEXT, `extras` TEXT)');
-        await database.execute('CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `limitDirection` INTEGER, `limitPrice` REAL, `triggerState` INTEGER, `triggerAt` INTEGER)');
-        await database.execute('CREATE TABLE IF NOT EXISTS `tickers` (`id` TEXT, `exchange` TEXT, `base` TEXT, `quote` TEXT, `updatedAt` INTEGER, `price` REAL, PRIMARY KEY (`id`))');
+        await database.execute(
+            'CREATE TABLE IF NOT EXISTS `alerts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `coin` TEXT, `limitDirection` INTEGER, `limitPrice` REAL, `triggerState` INTEGER, `triggerAt` INTEGER)');
+        await database.execute(
+            'CREATE TABLE IF NOT EXISTS `tickers` (`id` TEXT, `exchange` TEXT, `base` TEXT, `quote` TEXT, `updatedAt` INTEGER, `price` REAL, PRIMARY KEY (`id`))');
         await database.execute('CREATE TABLE IF NOT EXISTS `ticker_watches` (`id` TEXT, `exchange` TEXT, `base` TEXT, `quote` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
@@ -93,8 +95,19 @@ class _$AppDatabase extends AppDatabase {
 class _$AppDao extends AppDao {
   _$AppDao(this.database, this.changeListener)
       : _queryAdapter = QueryAdapter(database, changeListener),
-        _tickerEntityInsertionAdapter = InsertionAdapter(database, 'tickers', (TickerEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote, 'updatedAt': item.updatedAt, 'price': item.price}),
-        _tickerWatchEntityInsertionAdapter = InsertionAdapter(database, 'ticker_watches', (TickerWatchEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote}),
+        _tickerEntityInsertionAdapter = InsertionAdapter(
+            database,
+            'tickers',
+            (TickerEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'exchange': item.exchange,
+                  'base': item.base,
+                  'quote': item.quote,
+                  'updatedAt': item.updatedAt,
+                  'price': item.price
+                }),
+        _tickerWatchEntityInsertionAdapter = InsertionAdapter(database, 'ticker_watches',
+            (TickerWatchEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote}),
         _alertEntityInsertionAdapter = InsertionAdapter(
             database,
             'alerts',
@@ -107,7 +120,18 @@ class _$AppDao extends AppDao {
                   'triggerAt': _dateTimeConverter.encode(item.triggerAt)
                 },
             changeListener),
-        _tickerEntityUpdateAdapter = UpdateAdapter(database, 'tickers', ['id'], (TickerEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote, 'updatedAt': item.updatedAt, 'price': item.price}),
+        _tickerEntityUpdateAdapter = UpdateAdapter(
+            database,
+            'tickers',
+            ['id'],
+            (TickerEntity item) => <String, dynamic>{
+                  'id': item.id,
+                  'exchange': item.exchange,
+                  'base': item.base,
+                  'quote': item.quote,
+                  'updatedAt': item.updatedAt,
+                  'price': item.price
+                }),
         _alertEntityUpdateAdapter = UpdateAdapter(
             database,
             'alerts',
@@ -121,7 +145,8 @@ class _$AppDao extends AppDao {
                   'triggerAt': _dateTimeConverter.encode(item.triggerAt)
                 },
             changeListener),
-        _tickerWatchEntityDeletionAdapter = DeletionAdapter(database, 'ticker_watches', ['id'], (TickerWatchEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote}),
+        _tickerWatchEntityDeletionAdapter = DeletionAdapter(database, 'ticker_watches', ['id'],
+            (TickerWatchEntity item) => <String, dynamic>{'id': item.id, 'exchange': item.exchange, 'base': item.base, 'quote': item.quote}),
         _alertEntityDeletionAdapter = DeletionAdapter(
             database,
             'alerts',
@@ -158,23 +183,30 @@ class _$AppDao extends AppDao {
 
   @override
   Future<List<TickerEntity>> findTickers() async {
-    return _queryAdapter.queryList('SELECT * FROM tickers', mapper: (Map<String, dynamic> row) => TickerEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String, row['updatedAt'] as int, row['price'] as double));
+    return _queryAdapter.queryList('SELECT * FROM tickers',
+        mapper: (Map<String, dynamic> row) => TickerEntity(
+            row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String, row['updatedAt'] as int, row['price'] as double));
   }
 
   @override
   Future<TickerEntity> findTickerById(String id) async {
     return _queryAdapter.query('SELECT * FROM tickers WHERE id = ?',
-        arguments: <dynamic>[id], mapper: (Map<String, dynamic> row) => TickerEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String, row['updatedAt'] as int, row['price'] as double));
+        arguments: <dynamic>[id],
+        mapper: (Map<String, dynamic> row) => TickerEntity(
+            row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String, row['updatedAt'] as int, row['price'] as double));
   }
 
   @override
   Future<List<TickerWatchEntity>> findAllTickerWatches() async {
-    return _queryAdapter.queryList('SELECT * FROM ticker_watches', mapper: (Map<String, dynamic> row) => TickerWatchEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String));
+    return _queryAdapter.queryList('SELECT * FROM ticker_watches',
+        mapper: (Map<String, dynamic> row) => TickerWatchEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String));
   }
 
   @override
   Future<TickerWatchEntity> findTickerWatchById(String id) async {
-    return _queryAdapter.query('SELECT * FROM ticker_watches WHERE id = ?', arguments: <dynamic>[id], mapper: (Map<String, dynamic> row) => TickerWatchEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String));
+    return _queryAdapter.query('SELECT * FROM ticker_watches WHERE id = ?',
+        arguments: <dynamic>[id],
+        mapper: (Map<String, dynamic> row) => TickerWatchEntity(row['id'] as String, row['exchange'] as String, row['base'] as String, row['quote'] as String));
   }
 
   @override

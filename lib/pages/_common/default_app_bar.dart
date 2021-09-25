@@ -24,7 +24,8 @@ PreferredSizeWidget defaultAppBar({
     ),
     actions: actions,
     bottom: _SpecialLeAppMainProgressIndicatorConsumer(
-      builder: (BuildContext context, LeAppMainProgressIndicatorNotifier model, Widget widget) => DefaultLinearProgressIndicatorSized(value: model.isWorking ? null : 0),
+      builder: (BuildContext context, LeAppMainProgressIndicatorNotifier model, Widget widget) =>
+          DefaultLinearProgressIndicatorSized(value: model.isWorking ? null : 0),
     ),
   );
 }

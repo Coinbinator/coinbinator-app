@@ -126,7 +126,8 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
 
       Text("${E.currency(model.limitPrice)}"),
 
-      Text(" ${E.percentageOf(model.limitPrice, model.selectedCoinCurrentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.selectedCoinCurrentPrice))} of current price"),
+      Text(
+          " ${E.percentageOf(model.limitPrice, model.selectedCoinCurrentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.selectedCoinCurrentPrice))} of current price"),
 
       ///
       Slider(
