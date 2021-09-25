@@ -15,12 +15,7 @@ class _RouteInfo {
 
   final String Function(BuildContext context) notification;
 
-  const _RouteInfo(
-      {this.routeName,
-      this.routeBuilder,
-      this.label,
-      this.icon,
-      this.notification});
+  const _RouteInfo({this.routeName, this.routeBuilder, this.label, this.icon, this.notification});
 
   bool isExactRouteName(String value) {
     return routeName == value;
@@ -94,8 +89,7 @@ final _routesInfos = [
     label: "Alerts",
     icon: Icon(Icons.access_alarm),
     notification: (BuildContext context) {
-      final currentActiveAlertsCount =
-          Provider.of<LeAppModel>(context).currentActiveAlerts.length;
+      final currentActiveAlertsCount = Provider.of<LeAppModel>(context).currentActiveAlerts.length;
       if (currentActiveAlertsCount > 0) return "$currentActiveAlertsCount";
       return null;
     },
@@ -116,13 +110,9 @@ class DefaultBottomNavigationBar extends StatelessWidget {
     final route = ModalRoute.of(context);
     final routeName = route?.settings?.name;
 
-    final exactRouteInfoEntry = _routesInfosEntries.firstWhere(
-        (element) => element.value.isExactRouteName(routeName),
-        orElse: () => null);
+    final exactRouteInfoEntry = _routesInfosEntries.firstWhere((element) => element.value.isExactRouteName(routeName), orElse: () => null);
 
-    final nestedRouteInfoEntry = _routesInfosEntries.firstWhere(
-        (element) => element.value.isNestedRouteName(routeName),
-        orElse: () => null);
+    final nestedRouteInfoEntry = _routesInfosEntries.firstWhere((element) => element.value.isNestedRouteName(routeName), orElse: () => null);
 
     return BottomNavigationBar(
       currentIndex: exactRouteInfoEntry?.key ?? nestedRouteInfoEntry?.key ?? 0,

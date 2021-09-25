@@ -32,8 +32,7 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
   }
 
   Future<void> reloadAccounts() async {
-    final busyToken =
-        context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
+    final busyToken = context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
 
     accounts = await app().getAccounts();
 
@@ -42,16 +41,13 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
   }
 
   Future<void> updatePortfolios() async {
-    final busyToken = context
-        .read<LeAppMainProgressIndicatorNotifier>()
-        .busyToken(messagee: "Updating Portifolios");
+    final busyToken = context.read<LeAppMainProgressIndicatorNotifier>().busyToken(messagee: "Updating Portifolios");
 
     updatingPortfolios = true;
     notifyListeners();
 
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    final portifolioResumesFutures =
-        accounts.map((account) => app().getAccountPortfolioResume(account));
+    final portifolioResumesFutures = accounts.map((account) => app().getAccountPortfolioResume(account));
     portfolioResumes = await Future.wait(portifolioResumesFutures);
 
     updatedPortfoliosAt = DateTime.now();

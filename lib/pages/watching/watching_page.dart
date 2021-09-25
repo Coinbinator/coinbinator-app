@@ -11,8 +11,7 @@ class WatchingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider<WatchingPageModel>(
-              create: (context) => WatchingPageModel()..init()),
+          ChangeNotifierProvider<WatchingPageModel>(create: (context) => WatchingPageModel()..init()),
         ],
         builder: (context, child) {
           final model = Provider.of<WatchingPageModel>(context);
@@ -125,40 +124,22 @@ class _PopupMenuCustomItem extends State<PopupMenuCustomItem> {
       children: [
         Row(
           children: [
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("USD"),
-                    child: Text("Add pair watch"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("USD"), child: Text("Add pair watch"))),
           ],
         ),
         Text("Show prices in:"),
         Row(
           children: [
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("USD"),
-                    child: Text("USD"))),
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("BTC"),
-                    child: Text("BTC"))),
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("BRL"),
-                    child: Text("BRL"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("USD"), child: Text("USD"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("BTC"), child: Text("BTC"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("BRL"), child: Text("BRL"))),
           ],
         ),
         Text("Sort by:"),
         Row(
           children: [
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("name"),
-                    child: Text("name"))),
-            Expanded(
-                child: OutlinedButton(
-                    onPressed: () => Navigator.of(context).pop("price"),
-                    child: Text("price"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("name"), child: Text("name"))),
+            Expanded(child: OutlinedButton(onPressed: () => Navigator.of(context).pop("price"), child: Text("price"))),
             // FlatButton(onPressed: () => null, child: Text("BTC"), color: LeColors.accent),
           ],
         ),

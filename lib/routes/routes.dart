@@ -50,8 +50,7 @@ Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
   );
 }
 
-Route getPortifolioDetailsPageRoute(
-    final BuildContext context, final PortfolioAccountResume portifolio) {
+Route getPortifolioDetailsPageRoute(final BuildContext context, final PortfolioAccountResume portifolio) {
   assert(context != null);
   assert(portifolio != null);
 

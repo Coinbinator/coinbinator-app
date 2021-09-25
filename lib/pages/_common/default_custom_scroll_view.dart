@@ -47,8 +47,7 @@ class _DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate 
   }
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(4.0),

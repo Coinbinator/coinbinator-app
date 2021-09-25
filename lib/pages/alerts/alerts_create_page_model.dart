@@ -39,8 +39,7 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
   double limitPrice = 0;
 
-  double get _currentPriceNotZero =>
-      selectedCoinCurrentPrice <= 0 ? 100 : selectedCoinCurrentPrice;
+  double get _currentPriceNotZero => selectedCoinCurrentPrice <= 0 ? 100 : selectedCoinCurrentPrice;
 
   double get limitPriceVariation {
     return limitPrice == 0 ? -1 : (limitPrice / _currentPriceNotZero - 1);
@@ -80,18 +79,20 @@ class AlertsCreatePageModel extends ChangeNotifier {
     super.dispose();
   }
 
-  Set<Coin> get availableCoins => Pairs.getAll()
-      .where((element) =>
-          !element.base.isUSD && !element.base.isUnknown && element.quote.isUSD)
-      .map((e) => e.base)
-      .toSet()
-        ..add(selectedCoin);
+  Set<Coin> get availableCoins {
+    return Pairs.getAll()
+        .where((element) {
+          return !element.base.isUSD && !element.base.isUnknown && element.quote.isUSD;
+        })
+        .map((e) => e.base)
+        .toSet()
+          ..add(selectedCoin);
+  }
 
   setSelectedCoin(Coin value) async {
     selectedCoin = value;
 
-    final ticker = app().tickers.getTicker(
-        Exchanges.Binance, Pairs.getPair2(value.symbol, CoinsEx.USD_ALIASES));
+    final ticker = app().tickers.getTicker(Exchanges.Binance, Pairs.getPair2(value.symbol, CoinsEx.USD_ALIASES));
 
     selectedCoinCurrentPrice = ticker?.price ?? -1;
     limitPrice = ticker?.price ?? _currentPriceNotZero;

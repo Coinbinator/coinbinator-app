@@ -4,8 +4,7 @@ const String TEST_BINANCE_API_KEY = 'TEST_BINANCE_API_KEY';
 const String TEST_BINANCE_API_SECRET = 'TEST_BINANCE_API_SECRET';
 
 const String TEST_MERCADO_BITCOIN_TAPI_ID = 'TEST_MERCADO_BITCOIN_TAPI_ID';
-const String TEST_MERCADO_BITCOIN_TAPI_SECRET =
-    'TEST_MERCADO_BITCOIN_TAPI_SECRET';
+const String TEST_MERCADO_BITCOIN_TAPI_SECRET = 'TEST_MERCADO_BITCOIN_TAPI_SECRET';
 
 /// INITIAL APP ROUTE
 const String ROUTE_ROOT = '/';
@@ -42,7 +41,7 @@ final MAIN_APP_WIDGET = GlobalKey<State<MaterialApp>>();
 final MAIN_NAVIGATOR_KEY = GlobalKey<NavigatorState>();
 
 /// The market direction (bullish) rising, (bearish) dipping
-/// 
+///
 /// References:
 /// https://www.investopedia.com/insights/digging-deeper-bull-and-bear-markets/
 enum MarketDirection {

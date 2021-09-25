@@ -141,8 +141,7 @@ class BackgroundServiceManager {
         //NOTE:
         // checking if the price changed, before notify main app
         final tickerLastPrice = binanceCurrentPrices[exchangeTicker.lePair];
-        if (tickerLastPrice != null &&
-            tickerLastPrice == double.tryParse(exchangeTicker.price)) continue;
+        if (tickerLastPrice != null && tickerLastPrice == double.tryParse(exchangeTicker.price)) continue;
 
         final staticTicker = app().tickers.getTicker(
               Exchanges.Binance,
@@ -192,12 +191,10 @@ class BackgroundServiceManager {
     }
 
     if (activeAlerts.isNotEmpty) {
-      if (alertAlarmAt == null ||
-          DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
+      if (alertAlarmAt == null || DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
         alertAlarmAt = DateTime.now();
 
-        instance<SpeechRepository>()
-            .speak("You have ${activeAlerts.length} triggered.");
+        instance<SpeechRepository>().speak("You have ${activeAlerts.length} triggered.");
 
         final price = activeAlerts.first.item1;
         final alert = activeAlerts.first.item2;
@@ -250,8 +247,8 @@ class BackgroundServiceManager {
 }
 
 // asdadadadasda() {
-  // print(
-  //     " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
-  // print(
-  //     "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
+// print(
+//     " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
+// print(
+//     "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
 // }

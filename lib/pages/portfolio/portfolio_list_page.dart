@@ -16,9 +16,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioListModel>(
-            create: (BuildContext context) =>
-                new PortfolioListModel(context)..init()),
+        ChangeNotifierProvider<PortfolioListModel>(create: (BuildContext context) => new PortfolioListModel(context)..init()),
       ],
       builder: (context, child) {
         final model = Provider.of<PortfolioListModel>(context);
@@ -59,11 +57,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
                       ],
                     ),
                   ),
-                  OutlinedButton(
-                      onPressed: () =>
-                          context.read<LeAppModel>().nextColorSchema(),
-                      child:
-                          Text("(${context.read<LeAppModel>().i} + 1) next")),
+                  OutlinedButton(onPressed: () => context.read<LeAppModel>().nextColorSchema(), child: Text("(${context.read<LeAppModel>().i} + 1) next")),
                   OutlinedButton(
                       onPressed: () => context.read<LeAppModel>()
                         ..i = -1
@@ -105,9 +99,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
 
   Widget _buildPortfolioHoldingsResume(BuildContext context) {
     final model = context.read<PortfolioListModel>();
-    final double holdingsTotalAmount = model.portfolioResumes.isEmpty
-        ? 0
-        : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
+    final double holdingsTotalAmount = model.portfolioResumes.isEmpty ? 0 : model.portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
     return Card(
       // color: LeColors.white.shade50,
@@ -118,8 +110,7 @@ class PortifolioListPageState extends State<PortifolioListPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('My holdings'),
-            SelectableText('${E.currency(holdingsTotalAmount)}',
-                maxLines: 1, style: LeColors.t26b),
+            SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
           ],
         ),
       ),
@@ -138,30 +129,23 @@ class PortifolioListPageState extends State<PortifolioListPage> {
     ];
   }
 
-  DataRow _buildPortfolioDataRow(
-      BuildContext context, PortfolioAccountResume portfolio) {
+  DataRow _buildPortfolioDataRow(BuildContext context, PortfolioAccountResume portfolio) {
     return DataRow(
         onSelectChanged: (selected) {
-          if (selected)
-            Navigator.of(context)
-                .push(getPortifolioDetailsPageRoute(context, portfolio));
+          if (selected) Navigator.of(context).push(getPortifolioDetailsPageRoute(context, portfolio));
         },
         cells: [
           /// EXCHANGE
           DataCell(Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(portfolio.displayName, style: LeColors.t18m),
-              Text('${portfolio.coins.length} assets', style: LeColors.t12m)
-            ],
+            children: [Text(portfolio.displayName, style: LeColors.t18m), Text('${portfolio.coins.length} assets', style: LeColors.t12m)],
           )),
 
           /// VALUE
           DataCell(Align(
             alignment: Alignment.centerRight,
-            child: SelectableText(E.currency(portfolio.totalUsd),
-                maxLines: 1, style: LeColors.t16m),
+            child: SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t16m),
           )),
         ]);
   }

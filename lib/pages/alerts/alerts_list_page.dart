@@ -32,11 +32,7 @@ class AlertsListPageState extends State<StatefulWidget> {
           appBar: defaultAppBar(
             icon: Icons.alarm,
             title: " Alarms",
-            actions: [
-              IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () => instance<SpeechRepository>().speak("Hello"))
-            ],
+            actions: [IconButton(icon: Icon(Icons.more_vert), onPressed: () => instance<SpeechRepository>().speak("Hello"))],
           ),
           body: defaultCustomScrollView(
             context: context,
@@ -62,22 +58,16 @@ class AlertsListPageState extends State<StatefulWidget> {
                 return SliverList(
                   delegate: SliverChildListDelegate([
                     ///
-                    DataTable(
-                        dividerThickness: 0,
-                        horizontalMargin: 4,
-                        headingRowHeight: 0,
-                        showCheckboxColumn: false,
-                        columns: [
-                          DataColumn(label: Text(".")),
-                          DataColumn(label: Text(".")),
-                          DataColumn(label: Text("."), numeric: true),
-                          DataColumn(label: Text(".")),
-                        ],
-                        rows: [
-                          for (final alert in model.alerts) ...[
-                            _buildDataRow(context, alert),
-                          ],
-                        ]),
+                    DataTable(dividerThickness: 0, horizontalMargin: 4, headingRowHeight: 0, showCheckboxColumn: false, columns: [
+                      DataColumn(label: Text(".")),
+                      DataColumn(label: Text(".")),
+                      DataColumn(label: Text("."), numeric: true),
+                      DataColumn(label: Text(".")),
+                    ], rows: [
+                      for (final alert in model.alerts) ...[
+                        _buildDataRow(context, alert),
+                      ],
+                    ]),
                   ]),
                 );
               }),

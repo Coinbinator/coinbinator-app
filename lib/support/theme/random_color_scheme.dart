@@ -13,8 +13,7 @@ const _kSurface = 'surface';
 const _kBackground = 'background';
 
 /// Method to generate a random Color Scheme that's either light or dark.
-ColorScheme randomColorScheme(
-    {int seed, bool isDark = true, bool shouldPrint = true}) {
+ColorScheme randomColorScheme({int seed, bool isDark = true, bool shouldPrint = true}) {
   if (isDark) {
     return randomColorSchemeDark(seed: seed, shouldPrint: shouldPrint);
   } else {

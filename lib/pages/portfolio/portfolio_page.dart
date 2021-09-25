@@ -64,8 +64,7 @@ class PortfolioPageState extends State<PortfolioPage> {
     //       );
     // }
 
-    return (BuildContext context) =>
-        Container(child: Text("Route not found: ${settings.name}"));
+    return (BuildContext context) => Container(child: Text("Route not found: ${settings.name}"));
     //throw Exception('Invalid route: ${settings.name}');
   }
 }

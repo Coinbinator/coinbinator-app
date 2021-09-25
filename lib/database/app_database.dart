@@ -17,17 +17,14 @@ import 'package:sqflite/sqflite.dart' as sqflite;
 part 'app_database.g.dart';
 
 @TypeConverters([CoinConverter, DateTimeConverter, MarketDirectionConverter])
-@Database(
-    version: 1,
-    entities: [AccountEntity, AlertEntity, TickerEntity, TickerWatchEntity])
+@Database(version: 1, entities: [AccountEntity, AlertEntity, TickerEntity, TickerWatchEntity])
 abstract class AppDatabase extends FloorDatabase {
   AppDao get appDao;
 
   static build() async {
     /// Replicating the process on ```$FloorAppDatabase.databaseBuilder```
     /// because it is incompatible with the linux (and possible all desktops platforms)
-    final databasePath =
-        join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default_2.db');
+    final databasePath = join(await sqfliteDatabaseFactory.getDatabasesPath(), 'default_2.db');
 
     debugPrint("database: $databasePath");
 

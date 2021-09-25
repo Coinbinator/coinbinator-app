@@ -30,8 +30,7 @@ class WatchListView extends StatelessWidget {
             // TextButton(
             //     onPressed: () => Navigator.of(context).pop(),
             //     child: Text("asd")),
-            buildListItem(context, tickerWatch,
-                app().tickers.getTickerFromTickerWatch(tickerWatch)),
+            buildListItem(context, tickerWatch, app().tickers.getTickerFromTickerWatch(tickerWatch)),
           ],
         ]))
       ],
@@ -50,14 +49,8 @@ class WatchListView extends StatelessWidget {
     final style2 = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 16);
     final style3 = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 12);
 
-    final stylePositive = Theme.of(context)
-        .textTheme
-        .bodyText2
-        .copyWith(fontSize: 12, color: Colors.green);
-    final styleNegative = Theme.of(context)
-        .textTheme
-        .bodyText2
-        .copyWith(fontSize: 12, color: Colors.red);
+    final stylePositive = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 12, color: Colors.green);
+    final styleNegative = Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 12, color: Colors.red);
 
     // final watchListViewModel = Provider.of<WatchListViewModel>(context, listen: true);
     // return ListTile(title: Text(tickerWatch.key));
@@ -67,14 +60,11 @@ class WatchListView extends StatelessWidget {
         model.selectTickerWatch(tickerWatch);
       },
       onTap: () {
-        if (model.selectingTickerWatches())
-          return model.toggleTickerWatch(tickerWatch);
+        if (model.selectingTickerWatches()) return model.toggleTickerWatch(tickerWatch);
       },
       child: Card(
           margin: EdgeInsets.all(4),
-          color: model.selectedTickerWatches.contains(tickerWatch.key)
-              ? Colors.amberAccent
-              : null,
+          color: model.selectedTickerWatches.contains(tickerWatch.key) ? Colors.amberAccent : null,
           child: Padding(
             padding: EdgeInsets.all(4),
             child: Row(
@@ -84,18 +74,14 @@ class WatchListView extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(children: [
-                        TextSpan(
-                            style: style1, text: tickerWatch.pair.base?.symbol),
+                        TextSpan(style: style1, text: tickerWatch.pair.base?.symbol),
                         TextSpan(style: style2, text: '/'),
-                        TextSpan(
-                            style: style2,
-                            text: tickerWatch.pair.quote?.symbol),
+                        TextSpan(style: style2, text: tickerWatch.pair.quote?.symbol),
                       ]),
                     ),
                     RichText(
                       text: TextSpan(children: [
-                        TextSpan(
-                            style: style3, text: tickerWatch.exchange.name),
+                        TextSpan(style: style3, text: tickerWatch.exchange.name),
                       ]),
                     ),
                   ],
@@ -104,16 +90,12 @@ class WatchListView extends StatelessWidget {
                   if (ticker != null) ...[
                     RichText(
                       // text: TextSpan(style: style1, text: "${E.currency(ticker.price, decimalDigits: 2, symbol: 'USD', name: 'Dolar', locale: 'en_us')}"),
-                      text: TextSpan(
-                          style: style1,
-                          text: "${E.currency(ticker.price, symbol: "")}"),
+                      text: TextSpan(style: style1, text: "${E.currency(ticker.price, symbol: "")}"),
                     ),
                     RichText(
                       // text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),
                       // text: TextSpan(style: stylePositive, text: '"+1.4% 24h"'),
-                      text: TextSpan(
-                          style: stylePositive,
-                          text: ticker.pair.quote?.symbol),
+                      text: TextSpan(style: stylePositive, text: ticker.pair.quote?.symbol),
                     ),
                   ],
                 ]),

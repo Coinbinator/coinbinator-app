@@ -29,8 +29,7 @@ class Pair {
     assert(quote != null, "pair.quote nao pode ser null");
   }
 
-  factory Pair({dynamic base, dynamic quote}) =>
-      Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
+  factory Pair({dynamic base, dynamic quote}) => Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
 
   bool eq(Pair pair) {
     if (pair == this) return true;

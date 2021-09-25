@@ -53,8 +53,7 @@ class _AppRepository with AlertsAppContext {
 
   final tickers = Tickers();
 
-  final _tickerListeners =
-      List<AbstractAppTickerListener>.empty(growable: true);
+  final _tickerListeners = List<AbstractAppTickerListener>.empty(growable: true);
 
   List<AbstractAppTickerListener> get tickerListeners => _tickerListeners;
 
@@ -87,8 +86,7 @@ class _AppRepository with AlertsAppContext {
   }
 
   T instance<T>() {
-    if (T is PortfolioListModel)
-      throw Exception("deprecated models em singleton");
+    if (T is PortfolioListModel) throw Exception("deprecated models em singleton");
 
     return _singletons[T];
   }
@@ -116,8 +114,7 @@ class _AppRepository with AlertsAppContext {
     assert(config.test_binance_api_secret != null);
 
     config.test_mercado_bitcoin_tapi_id = env[TEST_MERCADO_BITCOIN_TAPI_ID];
-    config.test_mercado_bitcoin_tapi_secret =
-        env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
+    config.test_mercado_bitcoin_tapi_secret = env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
     assert(config.test_mercado_bitcoin_tapi_id != null);
     assert(config.test_mercado_bitcoin_tapi_secret != null);
   }
@@ -143,20 +140,16 @@ class _AppRepository with AlertsAppContext {
 
   Future<AbstractExchangeAccount> getAccountById(int accountId) async {
     final accounts = await getAccounts();
-    return accounts.firstWhere((account) => account.id == accountId,
-        orElse: () => null);
+    return accounts.firstWhere((account) => account.id == accountId, orElse: () => null);
   }
 
-  Future<PortfolioAccountResume> getAccountPortfolioResume(
-      AbstractExchangeAccount account) async {
+  Future<PortfolioAccountResume> getAccountPortfolioResume(AbstractExchangeAccount account) async {
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
     if (account is BinanceAccount) {
-      return instance<BinanceRepository>()
-          .getAccountPortfolioResume(account: account);
+      return instance<BinanceRepository>().getAccountPortfolioResume(account: account);
     }
     if (account is MercadoBitcoinAccount) {
-      return instance<MercadoBitcoinRepository>()
-          .getAccountPortfolioResume(account: account);
+      return instance<MercadoBitcoinRepository>().getAccountPortfolioResume(account: account);
     }
     throw Exception("tipo de conta desconhecido");
   }
@@ -196,9 +189,7 @@ class _AppRepository with AlertsAppContext {
     Set<AlertEntity> updatePendingAlerts = {};
 
     for (final alert in alerts) {
-      final ticker = tickers.getTicker(
-          Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES),
-          createOnMissing: true);
+      final ticker = tickers.getTicker(Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES), createOnMissing: true);
 
       // NOTE:
       // validating ticker state
@@ -226,8 +217,7 @@ class _AppRepository with AlertsAppContext {
         if (alert.testTrigger(ticker.price)) continue;
         if (now.difference(alert.triggerAt).inSeconds <= 10) continue;
 
-        updatePendingAlerts
-            .add(alert..triggerState = AlertEntityState.STATE_IDLE);
+        updatePendingAlerts.add(alert..triggerState = AlertEntityState.STATE_IDLE);
         continue;
       }
     }
@@ -259,8 +249,7 @@ class _AppRepository with AlertsAppContext {
     //NOTE: desabilitando todos os pares que não forem USD
     if (!newTicker.pair.quote.isUSD) return false;
 
-    final staticTicker = tickers.getTicker(newTicker.exchange, newTicker.pair,
-        createOnMissing: true);
+    final staticTicker = tickers.getTicker(newTicker.exchange, newTicker.pair, createOnMissing: true);
     final tickerChanged = staticTicker.price != newTicker.price;
 
     staticTicker.price = newTicker.price;

@@ -40,37 +40,26 @@ abstract class LeColors {
     900: Color(0xff606064),
   });
 
-  static const MaterialAccentColor accent =
-      MaterialAccentColor(0XFFF1942B, <int, Color>{
+  static const MaterialAccentColor accent = MaterialAccentColor(0XFFF1942B, <int, Color>{
     100: Color(0xFFF0AA3A),
     200: Color(0xFFF1942B),
     400: Color(0xFFF17F1C),
     700: Color(0xFFF2690D),
   });
 
-  static const TextStyle t09m =
-      TextStyle(fontSize: 9, color: Color(0xffA0A0A9));
-  static const TextStyle t12m =
-      TextStyle(fontSize: 12, color: Color(0xffA0A0A9));
+  static const TextStyle t09m = TextStyle(fontSize: 9, color: Color(0xffA0A0A9));
+  static const TextStyle t12m = TextStyle(fontSize: 12, color: Color(0xffA0A0A9));
   static const TextStyle t16 = TextStyle(fontSize: 16);
-  static const TextStyle t16m =
-      TextStyle(fontSize: 16, color: Color(0xffA0A0A9));
-  static const TextStyle t16b =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+  static const TextStyle t16m = TextStyle(fontSize: 16, color: Color(0xffA0A0A9));
+  static const TextStyle t16b = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
   static const TextStyle t18 = TextStyle(fontSize: 18);
-  static const TextStyle t18m =
-      TextStyle(fontSize: 18, color: Color(0xffA0A0A9));
-  static const TextStyle t18b =
-      TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
-  static const TextStyle t22b =
-      TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
-  static const TextStyle t26b =
-      TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
+  static const TextStyle t18m = TextStyle(fontSize: 18, color: Color(0xffA0A0A9));
+  static const TextStyle t18b = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+  static const TextStyle t22b = TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
+  static const TextStyle t26b = TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
 
   static Color parseColor(value) {
-    if (value is String)
-      return new Color(
-          int.parse(value.substring(1, 7), radix: 16) + 0xFF000000);
+    if (value is String) return new Color(int.parse(value.substring(1, 7), radix: 16) + 0xFF000000);
 
     if (value is Color) return value;
 

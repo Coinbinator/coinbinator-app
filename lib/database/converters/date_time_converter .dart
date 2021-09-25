@@ -1,10 +1,9 @@
 import 'package:floor/floor.dart';
 
-
 class DateTimeConverter extends TypeConverter<DateTime, int> {
   @override
   DateTime decode(int databaseValue) {
-    if( databaseValue == null) return null;
+    if (databaseValue == null) return null;
     return DateTime.fromMillisecondsSinceEpoch(databaseValue);
   }
 

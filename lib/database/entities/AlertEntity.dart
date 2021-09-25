@@ -43,9 +43,9 @@ class AlertEntity {
   String describe(double price) {
     final normPrice = price < 100 ? price : price.round();
     final normLimitPrice = limitPrice < 100 ? limitPrice : limitPrice.round();
-    final percentage =  ((limitPrice/price - 1) * 100).round();
+    final percentage = ((limitPrice / price - 1) * 100).round();
 
-    return "${coin.name} is ${isBearish ? 'bellow' : 'above'} \$$normLimitPrice, currently at \$$normPrice. ${percentage > 2 ? 'with a $percentage variation' :''}";
+    return "${coin.name} is ${isBearish ? 'bellow' : 'above'} \$$normLimitPrice, currently at \$$normPrice. ${percentage > 2 ? 'with a $percentage variation' : ''}";
     // return "${coin.name} está ${isBearish ? 'abaixo' : 'acima'} de $normLimitPrice dollars, no valor atual de $normPrice dollars.";
   }
 }

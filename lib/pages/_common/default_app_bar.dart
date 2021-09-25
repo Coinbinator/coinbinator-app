@@ -19,32 +19,23 @@ PreferredSizeWidget defaultAppBar({
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         if (icon != null) Icon(icon),
-        if (title != null && title.trim().isNotEmpty)
-          Text(title, style: LeColors.t22b),
+        if (title != null && title.trim().isNotEmpty) Text(title, style: LeColors.t22b),
       ],
     ),
     actions: actions,
     bottom: _SpecialLeAppMainProgressIndicatorConsumer(
-      builder: (BuildContext context, LeAppMainProgressIndicatorNotifier model,
-              Widget widget) =>
-          DefaultLinearProgressIndicatorSized(
-              value: model.isWorking ? null : 0),
+      builder: (BuildContext context, LeAppMainProgressIndicatorNotifier model, Widget widget) => DefaultLinearProgressIndicatorSized(value: model.isWorking ? null : 0),
     ),
   );
 }
 
-class _SpecialLeAppMainProgressIndicatorConsumer
-    extends Consumer<LeAppMainProgressIndicatorNotifier>
-    implements PreferredSizeWidget {
+class _SpecialLeAppMainProgressIndicatorConsumer extends Consumer<LeAppMainProgressIndicatorNotifier> implements PreferredSizeWidget {
   @override
   final Size preferredSize = Size(double.infinity, 6);
 
   _SpecialLeAppMainProgressIndicatorConsumer({
     Key key,
-    @required
-        final Widget Function(BuildContext context,
-                LeAppMainProgressIndicatorNotifier value, Widget child)
-            builder,
+    @required final Widget Function(BuildContext context, LeAppMainProgressIndicatorNotifier value, Widget child) builder,
     Widget child,
   })  : assert(builder != null),
         super(key: key, builder: builder, child: child);

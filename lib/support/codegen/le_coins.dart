@@ -26,27 +26,20 @@ class _LePairGeneratorCoin {
 }
 
 List<_LeCoinsGeneratorCoin> _loadKnownCoins() {
-  final coinsJson =
-      File.fromRawPath(utf8.encode("meta/known_coins.json")).readAsStringSync();
-  final coins = (json.decode(coinsJson) as List)
-      .map((e) => _LeCoinsGeneratorCoin(symbol: e["coin"], name: e["name"]))
-      .toList();
+  final coinsJson = File.fromRawPath(utf8.encode("meta/known_coins.json")).readAsStringSync();
+  final coins = (json.decode(coinsJson) as List).map((e) => _LeCoinsGeneratorCoin(symbol: e["coin"], name: e["name"])).toList();
   return coins;
 }
 
 List<_LePairGeneratorCoin> _loadKnownPairs() {
-  final pairsJson =
-      File.fromRawPath(utf8.encode("meta/known_pairs.json")).readAsStringSync();
-  final pairs = (json.decode(pairsJson) as List)
-      .map((e) => _LePairGeneratorCoin(base: e["base"], quote: e["quote"]))
-      .toList();
+  final pairsJson = File.fromRawPath(utf8.encode("meta/known_pairs.json")).readAsStringSync();
+  final pairs = (json.decode(pairsJson) as List).map((e) => _LePairGeneratorCoin(base: e["base"], quote: e["quote"])).toList();
   return pairs;
 }
 
 class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
   @override
-  Future<String> generateForAnnotatedElement(
-      Element element, ConstantReader annotation, BuildStep buildStep) async {
+  Future<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) async {
     final knownCoins = _loadKnownCoins();
 
     final coinsClass = cb.Class((c) {
@@ -57,16 +50,14 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
         ..name = "all"
         ..static = true
         ..type = cb.MethodType.getter
-        ..returns = cb.refer(
-            "Map<String, Coin>", 'package:le_crypto_alerts/support/utils.dart')
+        ..returns = cb.refer("Map<String, Coin>", 'package:le_crypto_alerts/support/utils.dart')
         ..body = cb.Code("return _getAll();")));
 
       // Get Coin
       c.methods.add(cb.Method.returnsVoid((m) => m
         ..name = "getCoin"
         ..static = true
-        ..returns =
-            cb.refer("Coin", 'package:le_crypto_alerts/support/utils.dart')
+        ..returns = cb.refer("Coin", 'package:le_crypto_alerts/support/utils.dart')
         ..requiredParameters.add(cb.Parameter((p) => p
           ..name = "value"
           ..type = cb.refer("dynamic")))
@@ -79,8 +70,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
           ..docs.addAll(['// ignore: non_constant_identifier_names'])
           ..static = true
           ..modifier = cb.FieldModifier.constant
-          ..assignment = cb.Code(
-              'const Coin.instance(name:"${coin.name}", symbol:"${coin.symbol}")');
+          ..assignment = cb.Code('const Coin.instance(name:"${coin.name}", symbol:"${coin.symbol}")');
 
         c.fields.add(field.build());
       }
@@ -91,9 +81,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
         ..modifier = cb.FieldModifier.constant
         ..assignment = cb.Code([
           "{",
-          knownCoins
-              .map((coin) => '"${coin.symbol}": \$${coin.symbol}')
-              .join(",\n"),
+          knownCoins.map((coin) => '"${coin.symbol}": \$${coin.symbol}').join(",\n"),
           "}",
         ].join("\n"));
 
@@ -107,8 +95,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
 
     //NOTE: a
     generated = generated.replaceAll("void getCoin", "Coin getCoin");
-    generated =
-        generated.replaceAll("void get all", "Map<String, Coin> get all");
+    generated = generated.replaceAll("void get all", "Map<String, Coin> get all");
 
     return generated;
   }
@@ -116,8 +103,7 @@ class LeCoinsGenerator extends GeneratorForAnnotation<LeCoinsAnnotation> {
 
 class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
   @override
-  Future<String> generateForAnnotatedElement(
-      Element element, ConstantReader annotation, BuildStep buildStep) async {
+  Future<String> generateForAnnotatedElement(Element element, ConstantReader annotation, BuildStep buildStep) async {
     // final knownCoins = _loadKnownCoins();
     final knownPairs = _loadKnownPairs();
 
@@ -128,8 +114,7 @@ class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
           ..docs.addAll(['// ignore: non_constant_identifier_names'])
           ..static = true
           ..modifier = cb.FieldModifier.final$
-          ..assignment = cb.Code(
-              'Pair.instance(base:Coin("${pair.base}"), quote:Coin("${pair.quote}"))'))
+          ..assignment = cb.Code('Pair.instance(base:Coin("${pair.base}"), quote:Coin("${pair.quote}"))'))
     ];
 
     final pairAliasesField = cb.Field((f) => f
@@ -148,8 +133,7 @@ class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
     final getAllMethod = cb.Method.returnsVoid((method) => method
       ..name = "getAll"
       ..static = true
-      ..returns =
-          cb.refer("List<Pair>", 'package:le_crypto_alerts/metas/pair.dart')
+      ..returns = cb.refer("List<Pair>", 'package:le_crypto_alerts/metas/pair.dart')
       ..body = cb.Code("return _getAll();"));
 
     final getPairMethod = cb.Method.returnsVoid((method) => method
@@ -195,8 +179,6 @@ class LePairsGenerator extends GeneratorForAnnotation<LePairsAnnotation> {
   }
 }
 
-Builder leCoinsBuilder(BuilderOptions options) =>
-    PartBuilder([LeCoinsGenerator()], '.le.coins.dart');
+Builder leCoinsBuilder(BuilderOptions options) => PartBuilder([LeCoinsGenerator()], '.le.coins.dart');
 
-Builder lePairsBuilder(BuilderOptions options) =>
-    PartBuilder([LePairsGenerator()], '.le.pairs.dart');
+Builder lePairsBuilder(BuilderOptions options) => PartBuilder([LePairsGenerator()], '.le.pairs.dart');

@@ -18,16 +18,13 @@ class Rates {
     assert(base != null, "base nao pode ser null");
     assert(quote != null, "quote nao pode ser null");
 
-    final rate = rates.firstWhere(
-        (element) => element.base == base && element.quote == quote,
-        orElse: () => null);
+    final rate = rates.firstWhere((element) => element.base == base && element.quote == quote, orElse: () => null);
     if (rate != null) {
       rate.price = price;
       return;
     }
 
-    final newRate = Rate(
-        base: Coins.getCoin(base.symbol), quote: Coins.getCoin(quote.symbol));
+    final newRate = Rate(base: Coins.getCoin(base.symbol), quote: Coins.getCoin(quote.symbol));
     rates.add(newRate);
     newRate.price = price;
   }
@@ -46,17 +43,13 @@ class Rates {
     if (fromAlias.intersection(toAlias).isNotEmpty) return 1 * amount;
 
     /// They have a direct link ( base ==> quote )
-    final base0 = rates.firstWhere(
-        (rate) => fromAlias.contains(rate.base) && toAlias.contains(rate.quote),
-        orElse: () => null);
+    final base0 = rates.firstWhere((rate) => fromAlias.contains(rate.base) && toAlias.contains(rate.quote), orElse: () => null);
     if (base0 != null) {
       return base0.price * amount;
     }
 
     /// They have a direct link ( quote ==> base  )
-    final quote0 = rates.firstWhere(
-        (rate) => toAlias.contains(rate.base) && fromAlias.contains(rate.quote),
-        orElse: () => null);
+    final quote0 = rates.firstWhere((rate) => toAlias.contains(rate.base) && fromAlias.contains(rate.quote), orElse: () => null);
     if (quote0 != null) {
       return (1 / quote0.price) * amount;
     }

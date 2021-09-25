@@ -16,10 +16,7 @@ class _AndroidAlarmingRepository extends AlarmingRepository {
     bool wakeup = false,
     bool rescheduleOnReboot = false,
   }) async {
-    return AndroidAlarmManager.periodic(duration, id, callback,
-        startAt: startAt,
-        wakeup: wakeup,
-        rescheduleOnReboot: rescheduleOnReboot);
+    return AndroidAlarmManager.periodic(duration, id, callback, startAt: startAt, wakeup: wakeup, rescheduleOnReboot: rescheduleOnReboot);
   }
 
   @override

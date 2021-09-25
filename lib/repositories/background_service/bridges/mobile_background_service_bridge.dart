@@ -13,10 +13,8 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
 
   bool _initialized = false;
 
-  MobileBackgroundServiceBridge({scope: BackgroundServiceBridgeScope})
-      : super(scope: scope) {
-    if (instance != null)
-      throw Exception("Tentando criar multiplos mobile background managers.");
+  MobileBackgroundServiceBridge({scope: BackgroundServiceBridgeScope}) : super(scope: scope) {
+    if (instance != null) throw Exception("Tentando criar multiplos mobile background managers.");
     instance = this;
   }
 
@@ -28,11 +26,8 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
 
     /// INITIALIZE application bridge
     if (scope == BackgroundServiceBridgeScope.APPLICATION) {
-      await FlutterBackgroundService.initialize(
-          flutterBackgroundService__onStart);
-      FlutterBackgroundService()
-        ..onDataReceived
-            .listen(flutterBackgroundService__onDataReceived__fromService);
+      await FlutterBackgroundService.initialize(flutterBackgroundService__onStart);
+      FlutterBackgroundService()..onDataReceived.listen(flutterBackgroundService__onDataReceived__fromService);
       return;
     }
 
@@ -41,8 +36,7 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
       FlutterBackgroundService()
         ..setForegroundMode(true)
         ..setAutoStartOnBootMode(true)
-        ..onDataReceived
-            .listen(flutterBackgroundService__onDataReceived__fromApplication);
+        ..onDataReceived.listen(flutterBackgroundService__onDataReceived__fromApplication);
 
       _manager = BackgroundServiceManager(this);
       _manager.start();
@@ -61,8 +55,7 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
   }
 
   bool _mutedTypes(Map<String, dynamic> event) {
-    if ([MessageTypes.PING, MessageTypes.PONG, MessageTypes.TICKERS]
-        .contains(event['type'])) return true;
+    if ([MessageTypes.PING, MessageTypes.PONG, MessageTypes.TICKERS].contains(event['type'])) return true;
     return false;
   }
 
@@ -99,20 +92,17 @@ void flutterBackgroundService__onStart() async {
   await app().loadConfig();
 
   print('creating service bridge');
-  final bridge = MobileBackgroundServiceBridge(
-      scope: BackgroundServiceBridgeScope.SERVICE);
+  final bridge = MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.SERVICE);
   await bridge.initialize();
 }
 
 // ignore: non_constant_identifier_names
-void flutterBackgroundService__onDataReceived__fromApplication(
-    Map<String, dynamic> event) {
+void flutterBackgroundService__onDataReceived__fromApplication(Map<String, dynamic> event) {
   MobileBackgroundServiceBridge.instance.onDataReceivedFromApplication(event);
 }
 
 // ignore: non_constant_identifier_names
-void flutterBackgroundService__onDataReceived__fromService(
-    Map<String, dynamic> event) {
+void flutterBackgroundService__onDataReceived__fromService(Map<String, dynamic> event) {
   MobileBackgroundServiceBridge.instance.onDataReceivedFromService(event);
 }
 // print("($_scope): message received.");

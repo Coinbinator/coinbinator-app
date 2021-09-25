@@ -12,8 +12,7 @@ import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 
-class AlertsListPageModel extends ChangeNotifier
-    with ModelUtilMixin, AbstractAppTickerListener {
+class AlertsListPageModel extends ChangeNotifier with ModelUtilMixin, AbstractAppTickerListener {
   ///
   StreamSubscription<List<AlertEntity>> alertsStreamSubscription;
 
@@ -65,12 +64,7 @@ class AlertsListPageModel extends ChangeNotifier
 
     for (final alert in newAlerts) {
       alertsCoins.add(alert.coin);
-      coinsCurrentPrices[alert.coin] = app()
-              .tickers
-              .getTicker(Exchanges.Binance,
-                  Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES))
-              ?.price ??
-          null;
+      coinsCurrentPrices[alert.coin] = app().tickers.getTicker(Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES))?.price ?? null;
     }
 
     notifyListeners();

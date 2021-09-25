@@ -32,8 +32,7 @@ class LeAppState extends State<LeApp> {
                     theme: Provider.of<LeAppModel>(context).themeData,
                     // initialRoute: ROUTE_ROOT,
                     onGenerateInitialRoutes: _onGenerateInitialRoutes,
-                    onGenerateRoute: (settings) =>
-                        _onGenerateRoute(context, settings),
+                    onGenerateRoute: (settings) => _onGenerateRoute(context, settings),
                   ));
         });
   }
@@ -41,12 +40,10 @@ class LeAppState extends State<LeApp> {
   List<SingleChildWidget> _buildProviders(BuildContext context) {
     return [
       ///APP MODEL PROVIDER
-      ChangeNotifierProvider<LeAppModel>(
-          create: (context) => LeAppModel()..init()),
+      ChangeNotifierProvider<LeAppModel>(create: (context) => LeAppModel()..init()),
 
       //MAIN PROGRESS INDICATOR
-      ChangeNotifierProvider<LeAppMainProgressIndicatorNotifier>(
-          create: (context) => LeAppMainProgressIndicatorNotifier()),
+      ChangeNotifierProvider<LeAppMainProgressIndicatorNotifier>(create: (context) => LeAppMainProgressIndicatorNotifier()),
 
       ///SPLASH MODEL PROVIDER
       ChangeNotifierProvider<SplashModel>(
@@ -54,8 +51,7 @@ class LeAppState extends State<LeApp> {
       ),
 
       /// ALERTS MODEL PROVIDER
-      ChangeNotifierProvider<AlertsListPageModel>(
-          create: (context) => AlertsListPageModel()..init()),
+      ChangeNotifierProvider<AlertsListPageModel>(create: (context) => AlertsListPageModel()..init()),
     ];
   }
 
@@ -65,11 +61,8 @@ class LeAppState extends State<LeApp> {
     ];
   }
 
-  Route<dynamic> _onGenerateRoute(
-      BuildContext context, RouteSettings settings) {
+  Route<dynamic> _onGenerateRoute(BuildContext context, RouteSettings settings) {
     /// UNKNOW
-    return MaterialPageRoute(
-        builder: (_) => Container(
-            child: Text("Unknow Route, name: ${settings?.name}, $settings")));
+    return MaterialPageRoute(builder: (_) => Container(child: Text("Unknow Route, name: ${settings?.name}, $settings")));
   }
 }

@@ -8,13 +8,11 @@ DesktopBackgroundServiceBridge _serviceBridge;
 BackgroundServiceManager _manager;
 
 class DesktopBackgroundServiceBridge extends BackgroundServiceBridge {
-  DesktopBackgroundServiceBridge({scope: BackgroundServiceBridgeScope})
-      : super(scope: scope) {
+  DesktopBackgroundServiceBridge({scope: BackgroundServiceBridgeScope}) : super(scope: scope) {
     /// APPLICATION SCOPE
     if (scope == BackgroundServiceBridgeScope.APPLICATION) {
       _applicationBridge = this;
-      _serviceBridge = DesktopBackgroundServiceBridge(
-          scope: BackgroundServiceBridgeScope.SERVICE);
+      _serviceBridge = DesktopBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.SERVICE);
     }
   }
 

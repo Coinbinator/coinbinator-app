@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/pages/splash/splash_model.dart';
 import 'package:provider/provider.dart';

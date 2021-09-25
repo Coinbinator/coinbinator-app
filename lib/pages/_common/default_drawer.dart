@@ -38,8 +38,7 @@ class DefaultDrawer extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 Navigator.of(context).pop();
-                Provider.of<LeAppModel>(MAIN_NAVIGATOR_KEY.currentContext, listen: false )
-                    .shufflerColors();
+                Provider.of<LeAppModel>(MAIN_NAVIGATOR_KEY.currentContext, listen: false).shufflerColors();
                 //
                 // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
               },

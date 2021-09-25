@@ -18,9 +18,7 @@ Future<void> main() async {
   runApp(LeApp());
 
   /// shorhand para atualizacao das mensagens do Splash
-  _say(String message) => MAIN_APP_WIDGET?.currentContext
-      ?.read<SplashModel>()
-      ?.setInitializetionMessage(message);
+  _say(String message) => MAIN_APP_WIDGET?.currentContext?.read<SplashModel>()?.setInitializetionMessage(message);
 
   Future.microtask(() async {
     _say("Loading configurations...");

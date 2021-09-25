@@ -15,9 +15,7 @@ class PortfolioDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioDetailsModel>(
-            create: (context) =>
-                PortfolioDetailsModel(context, accountId)..init()),
+        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => PortfolioDetailsModel(context, accountId)..init()),
       ],
       builder: (context, child) {
         final model = context.watch<PortfolioDetailsModel>();
@@ -51,19 +49,11 @@ class PortfolioDetailsPage extends StatelessWidget {
                               children: [
                                 ///
                                 IgnorePointer(
-                                  child: DataTable(
-                                      dividerThickness: 0,
-                                      horizontalMargin: 4,
-                                      showCheckboxColumn: false,
-                                      columns: _buildPortfolioDataTableColumns(
-                                          context),
-                                      rows: [
-                                        for (final asset in model
-                                            .getPortifolioMainAssets()) ...[
-                                          _buildPortfolioDataRow(
-                                              context, asset),
-                                        ],
-                                      ]),
+                                  child: DataTable(dividerThickness: 0, horizontalMargin: 4, showCheckboxColumn: false, columns: _buildPortfolioDataTableColumns(context), rows: [
+                                    for (final asset in model.getPortifolioMainAssets()) ...[
+                                      _buildPortfolioDataRow(context, asset),
+                                    ],
+                                  ]),
                                 ),
 
                                 ///
@@ -78,14 +68,10 @@ class PortfolioDetailsPage extends StatelessWidget {
                                         //NOTE: we will hide this table header
                                         headingRowHeight: 0,
                                         showCheckboxColumn: false,
-                                        columns:
-                                            _buildPortfolioDataTableColumns(
-                                                context),
+                                        columns: _buildPortfolioDataTableColumns(context),
                                         rows: [
-                                          for (final asset in model
-                                              .getPortifolioSubAssets()) ...[
-                                            _buildPortfolioDataRow(
-                                                context, asset),
+                                          for (final asset in model.getPortifolioSubAssets()) ...[
+                                            _buildPortfolioDataRow(context, asset),
                                           ],
                                         ]),
                                   ),
@@ -104,11 +90,9 @@ class PortfolioDetailsPage extends StatelessWidget {
   Widget _buildPortfolioHoldingsResume(BuildContext context) {
     final model = context.watch<PortfolioDetailsModel>();
 
-    final holdingsTotalAmount =
-        model.portfolioResume == null ? 0 : model.portfolioResume.totalUsd;
+    final holdingsTotalAmount = model.portfolioResume == null ? 0 : model.portfolioResume.totalUsd;
 
-    final displayName =
-        model.portfolioResume == null ? "" : model.portfolioResume.displayName;
+    final displayName = model.portfolioResume == null ? "" : model.portfolioResume.displayName;
 
     return Card(
       elevation: 2,
@@ -125,13 +109,10 @@ class PortfolioDetailsPage extends StatelessWidget {
                 if (model.portfolioResume == null) Text('My Portfolios / ...'),
 
                 ///
-                if (model.portfolioResume != null)
-                  Text(
-                      'My Portfolios / "${model.portfolioResume.displayName}"'),
+                if (model.portfolioResume != null) Text('My Portfolios / "${model.portfolioResume.displayName}"'),
 
                 ///
-                SelectableText('${E.currency(holdingsTotalAmount)}',
-                    maxLines: 1, style: LeColors.t26b),
+                SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
               ],
             ),
             IconButton(
@@ -157,8 +138,7 @@ class PortfolioDetailsPage extends StatelessWidget {
     ];
   }
 
-  DataRow _buildPortfolioDataRow(
-      BuildContext context, PortfolioAccountResumeAsset asset) {
+  DataRow _buildPortfolioDataRow(BuildContext context, PortfolioAccountResumeAsset asset) {
     return DataRow(selected: false,
         // onSelectChanged: (selected) {
         //   // if (selected)

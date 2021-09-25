@@ -27,8 +27,7 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AlertsCreatePageModel>(
-            create: (context) => AlertsCreatePageModel(widget.alert)..init()),
+        ChangeNotifierProvider<AlertsCreatePageModel>(create: (context) => AlertsCreatePageModel(widget.alert)..init()),
       ],
       builder: (context, child) {
         final model = Provider.of<AlertsCreatePageModel>(context);
@@ -66,12 +65,9 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
           modalFilter: true,
           modalFilterAuto: true,
           choiceItems: [
-            for (final coin in model.availableCoins)
-              S2Choice<Coin>(
-                  title: coin.symbol, subtitle: coin.name, value: coin),
+            for (final coin in model.availableCoins) S2Choice<Coin>(title: coin.symbol, subtitle: coin.name, value: coin),
           ],
-          tileBuilder: (BuildContext context, S2SingleState select) =>
-              OutlinedButton(
+          tileBuilder: (BuildContext context, S2SingleState select) => OutlinedButton(
             onPressed: () => select.showModal(),
             child: Column(
               children: [
@@ -81,9 +77,8 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
             ),
           ),
           builder: S2SingleBuilder<Coin>(
-            choice: (BuildContext context, S2Choice choice, String search) =>
-                ListTile(
-                  enabled: true,
+            choice: (BuildContext context, S2Choice choice, String search) => ListTile(
+              enabled: true,
               onTap: () => choice.select(true),
               title: Text(choice.title),
               subtitle: Text(choice.subtitle),
@@ -131,8 +126,7 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
 
       Text("${E.currency(model.limitPrice)}"),
 
-      Text(
-          " ${E.percentageOf(model.limitPrice, model.selectedCoinCurrentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.selectedCoinCurrentPrice))} of current price"),
+      Text(" ${E.percentageOf(model.limitPrice, model.selectedCoinCurrentPrice, decimalDigits: 2, forcePositiveSign: (model.limitPrice != model.selectedCoinCurrentPrice))} of current price"),
 
       ///
       Slider(
@@ -154,21 +148,15 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
       children: [
         //DELETE
         if (model.alert != null)
-          TextButton(
-              child: Icon(Icons.delete),
-              onPressed: () => model.removeAlarm(context))
+          TextButton(child: Icon(Icons.delete), onPressed: () => model.removeAlarm(context))
         else
           TextButton(
             onPressed: null,
             child: Text(""),
           ),
 
-        TextButton(
-            child: Icon(Icons.close),
-            onPressed: () => model.cancelAlarm(context)),
-        TextButton(
-            child: Icon(Icons.check),
-            onPressed: () => model.commitAlarm(context)),
+        TextButton(child: Icon(Icons.close), onPressed: () => model.cancelAlarm(context)),
+        TextButton(child: Icon(Icons.check), onPressed: () => model.commitAlarm(context)),
       ],
     );
   }

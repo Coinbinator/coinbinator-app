@@ -42,8 +42,7 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
   }
 
   Future<void> refresh() async {
-    final busyToken =
-        context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
+    final busyToken = context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
     refreshing = true;
 
     account = await app().getAccountById(accountId);

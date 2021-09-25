@@ -42,8 +42,7 @@ abstract class AppDao {
   @Query("SELECT * FROM alerts")
   Stream<List<AlertEntity>> findAllAlertsAsStream();
 
-  @Query(
-      'SELECT * FROM alerts WHERE triggerState=${AlertEntityState.STATE_ACTIVE}')
+  @Query('SELECT * FROM alerts WHERE triggerState=${AlertEntityState.STATE_ACTIVE}')
   Stream<List<AlertEntity>> findActiveAlertsAsStream();
 
   @insert

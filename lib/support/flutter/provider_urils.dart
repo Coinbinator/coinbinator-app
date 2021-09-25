@@ -1,4 +1,3 @@
-
 enum ModelStatus {
   UNINITIALIZED,
   INITIALIZING,

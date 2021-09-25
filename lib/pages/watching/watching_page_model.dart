@@ -48,9 +48,7 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
 
   FutureOr<void> addTickerWatch(TickerWatch tickerWatch) async {
     //TODO: adicionar suporte ao multiplas exchanges no watch list
-    var watchingTicker = watchingTickers.firstWhere(
-        (element) => element.pair.eq(tickerWatch.pair),
-        orElse: () => null);
+    var watchingTicker = watchingTickers.firstWhere((element) => element.pair.eq(tickerWatch.pair), orElse: () => null);
 
     if (watchingTicker != null) return;
 
@@ -74,8 +72,7 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
           null,
         ));
 
-    watchingTickers
-        .removeWhere((_tickerWatch) => _tickerWatch.key == tickerWatch.key);
+    watchingTickers.removeWhere((_tickerWatch) => _tickerWatch.key == tickerWatch.key);
     watchingTickerTickers.remove(tickerWatch);
     notifyListeners();
   }
@@ -116,8 +113,7 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   }
 
   void selectAllTickers() {
-    watchingTickers
-        .forEach((tickerWatch) => selectedTickerWatches.add(tickerWatch.key));
+    watchingTickers.forEach((tickerWatch) => selectedTickerWatches.add(tickerWatch.key));
     notifyListeners();
   }
 
@@ -147,18 +143,13 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
     final selectedPair = await Navigator.of(context).push(new AddWatchModal());
     if (selectedPair == null) return;
 
-    addTickerWatch(
-        TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
+    addTickerWatch(TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
     notifyListeners();
   }
 
   @override
   FutureOr<void> onTicker(Ticker ticker) async {
-    final watchTicker = watchingTickers.firstWhere(
-        (element) =>
-            element.exchange.id == ticker.exchange.id &&
-            element.pair.eq(ticker.pair),
-        orElse: () => null);
+    final watchTicker = watchingTickers.firstWhere((element) => element.exchange.id == ticker.exchange.id && element.pair.eq(ticker.pair), orElse: () => null);
 
     if (watchTicker == null) return;
 

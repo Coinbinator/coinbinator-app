@@ -37,8 +37,7 @@ class BackgroundServiceRepository {
 
   // ignore: non_constant_identifier_names
   void handleMessage__ticker(TickerMessage message) {
-    throw UnimplementedError(
-        "Handling of ${MessageTypes.TICKERS} is not completed");
+    throw UnimplementedError("Handling of ${MessageTypes.TICKERS} is not completed");
   }
 
   // ignore: non_constant_identifier_names
@@ -48,14 +47,10 @@ class BackgroundServiceRepository {
 
   static BackgroundServiceBridge getPlatformBackgroundServiceBridge() {
     /// Mobile
-    if (Platform.isAndroid)
-      return MobileBackgroundServiceBridge(
-          scope: BackgroundServiceBridgeScope.APPLICATION);
+    if (Platform.isAndroid) return MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// Desktop
-    if (Platform.isLinux)
-      return DesktopBackgroundServiceBridge(
-          scope: BackgroundServiceBridgeScope.APPLICATION);
+    if (Platform.isLinux) return DesktopBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.APPLICATION);
 
     /// not supported platform
     throw Exception("plataforma nao suportada");

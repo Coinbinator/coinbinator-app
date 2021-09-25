@@ -8,15 +8,13 @@ part of 'coins.dart';
 
 class Coins {
   // ignore: non_constant_identifier_names
-  static const $STPT = const Coin.instance(
-      name: "Standard Tokenization Protocol", symbol: "STPT");
+  static const $STPT = const Coin.instance(name: "Standard Tokenization Protocol", symbol: "STPT");
 
 // ignore: non_constant_identifier_names
   static const $MXN = const Coin.instance(name: "Mexican Peso", symbol: "MXN");
 
 // ignore: non_constant_identifier_names
-  static const $UGX =
-      const Coin.instance(name: "Uganda Shilling", symbol: "UGX");
+  static const $UGX = const Coin.instance(name: "Uganda Shilling", symbol: "UGX");
 
 // ignore: non_constant_identifier_names
   static const $RENBTC = const Coin.instance(name: "renBTC", symbol: "RENBTC");
@@ -25,8 +23,7 @@ class Coins {
   static const $GLM = const Coin.instance(name: "Golem", symbol: "GLM");
 
 // ignore: non_constant_identifier_names
-  static const $NEAR =
-      const Coin.instance(name: "NEAR Protocol", symbol: "NEAR");
+  static const $NEAR = const Coin.instance(name: "NEAR Protocol", symbol: "NEAR");
 
 // ignore: non_constant_identifier_names
   static const $AUDIO = const Coin.instance(name: "Audius", symbol: "AUDIO");
@@ -35,15 +32,13 @@ class Coins {
   static const $HNT = const Coin.instance(name: "Helium", symbol: "HNT");
 
 // ignore: non_constant_identifier_names
-  static const $ADADOWN =
-      const Coin.instance(name: "ADADOWN", symbol: "ADADOWN");
+  static const $ADADOWN = const Coin.instance(name: "ADADOWN", symbol: "ADADOWN");
 
 // ignore: non_constant_identifier_names
   static const $CDT = const Coin.instance(name: "Blox", symbol: "CDT");
 
 // ignore: non_constant_identifier_names
-  static const $SPARTA =
-      const Coin.instance(name: "Spartan Protocol", symbol: "SPARTA");
+  static const $SPARTA = const Coin.instance(name: "Spartan Protocol", symbol: "SPARTA");
 
 // ignore: non_constant_identifier_names
   static const $SUSD = const Coin.instance(name: "sUSD", symbol: "SUSD");
@@ -61,8 +56,7 @@ class Coins {
   static const $ZRX = const Coin.instance(name: "0x", symbol: "ZRX");
 
 // ignore: non_constant_identifier_names
-  static const $BCD =
-      const Coin.instance(name: "Bitcoin Diamond", symbol: "BCD");
+  static const $BCD = const Coin.instance(name: "Bitcoin Diamond", symbol: "BCD");
 
 // ignore: non_constant_identifier_names
   static const $EASY = const Coin.instance(name: "EasyFi", symbol: "EASY");
@@ -98,12 +92,10 @@ class Coins {
   static const $TRIG = const Coin.instance(name: "Triggers", symbol: "TRIG");
 
 // ignore: non_constant_identifier_names
-  static const $RCN =
-      const Coin.instance(name: "Ripio Credit Network", symbol: "RCN");
+  static const $RCN = const Coin.instance(name: "Ripio Credit Network", symbol: "RCN");
 
 // ignore: non_constant_identifier_names
-  static const $COVER =
-      const Coin.instance(name: "COVER Protocol", symbol: "COVER");
+  static const $COVER = const Coin.instance(name: "COVER Protocol", symbol: "COVER");
 
 // ignore: non_constant_identifier_names
   static const $FLM = const Coin.instance(name: "Flamingo", symbol: "FLM");
@@ -127,8 +119,7 @@ class Coins {
   static const $DIA = const Coin.instance(name: "DIA", symbol: "DIA");
 
 // ignore: non_constant_identifier_names
-  static const $RDN =
-      const Coin.instance(name: "Raiden Network Token", symbol: "RDN");
+  static const $RDN = const Coin.instance(name: "Raiden Network Token", symbol: "RDN");
 
 // ignore: non_constant_identifier_names
   static const $ARDR = const Coin.instance(name: "Ardor", symbol: "ARDR");
@@ -140,20 +131,16 @@ class Coins {
   static const $NEBL = const Coin.instance(name: "Neblio", symbol: "NEBL");
 
 // ignore: non_constant_identifier_names
-  static const $BEL =
-      const Coin.instance(name: "Bella Protocol", symbol: "BEL");
+  static const $BEL = const Coin.instance(name: "Bella Protocol", symbol: "BEL");
 
 // ignore: non_constant_identifier_names
-  static const $JUV =
-      const Coin.instance(name: "Juventus Fan Token", symbol: "JUV");
+  static const $JUV = const Coin.instance(name: "Juventus Fan Token", symbol: "JUV");
 
 // ignore: non_constant_identifier_names
-  static const $GRTDOWN =
-      const Coin.instance(name: "GRTDOWN", symbol: "GRTDOWN");
+  static const $GRTDOWN = const Coin.instance(name: "GRTDOWN", symbol: "GRTDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $VTHO =
-      const Coin.instance(name: "VeThor Token", symbol: "VTHO");
+  static const $VTHO = const Coin.instance(name: "VeThor Token", symbol: "VTHO");
 
 // ignore: non_constant_identifier_names
   static const $SALT = const Coin.instance(name: "Salt", symbol: "SALT");
@@ -171,8 +158,7 @@ class Coins {
   static const $ELF = const Coin.instance(name: "aelf", symbol: "ELF");
 
 // ignore: non_constant_identifier_names
-  static const $REQ =
-      const Coin.instance(name: "Request Network", symbol: "REQ");
+  static const $REQ = const Coin.instance(name: "Request Network", symbol: "REQ");
 
 // ignore: non_constant_identifier_names
   static const $STORJ = const Coin.instance(name: "Storj", symbol: "STORJ");
@@ -181,19 +167,16 @@ class Coins {
   static const $ADD = const Coin.instance(name: "ADD", symbol: "ADD");
 
 // ignore: non_constant_identifier_names
-  static const $BZRX =
-      const Coin.instance(name: "bZx Protocol", symbol: "BZRX");
+  static const $BZRX = const Coin.instance(name: "bZx Protocol", symbol: "BZRX");
 
 // ignore: non_constant_identifier_names
-  static const $SGT =
-      const Coin.instance(name: "snglsDAO Governance Token", symbol: "SGT");
+  static const $SGT = const Coin.instance(name: "snglsDAO Governance Token", symbol: "SGT");
 
 // ignore: non_constant_identifier_names
   static const $DF = const Coin.instance(name: "dForce", symbol: "DF");
 
 // ignore: non_constant_identifier_names
-  static const $EOSDOWN =
-      const Coin.instance(name: "EOSDOWN", symbol: "EOSDOWN");
+  static const $EOSDOWN = const Coin.instance(name: "EOSDOWN", symbol: "EOSDOWN");
 
 // ignore: non_constant_identifier_names
   static const $PAXG = const Coin.instance(name: "PAX Gold", symbol: "PAXG");
@@ -202,19 +185,16 @@ class Coins {
   static const $YOYO = const Coin.instance(name: "YOYOW", symbol: "YOYO");
 
 // ignore: non_constant_identifier_names
-  static const $PAX =
-      const Coin.instance(name: "Paxos Standard", symbol: "PAX");
+  static const $PAX = const Coin.instance(name: "Paxos Standard", symbol: "PAX");
 
 // ignore: non_constant_identifier_names
   static const $CHR = const Coin.instance(name: "Chromia", symbol: "CHR");
 
 // ignore: non_constant_identifier_names
-  static const $VND =
-      const Coin.instance(name: "Vietnamese Dong", symbol: "VND");
+  static const $VND = const Coin.instance(name: "Vietnamese Dong", symbol: "VND");
 
 // ignore: non_constant_identifier_names
-  static const $BCHDOWN =
-      const Coin.instance(name: "BCHDOWN", symbol: "BCHDOWN");
+  static const $BCHDOWN = const Coin.instance(name: "BCHDOWN", symbol: "BCHDOWN");
 
 // ignore: non_constant_identifier_names
   static const $WAVES = const Coin.instance(name: "Waves", symbol: "WAVES");
@@ -235,8 +215,7 @@ class Coins {
   static const $SAND = const Coin.instance(name: "The Sandbox", symbol: "SAND");
 
 // ignore: non_constant_identifier_names
-  static const $OCEAN =
-      const Coin.instance(name: "Ocean Protocol", symbol: "OCEAN");
+  static const $OCEAN = const Coin.instance(name: "Ocean Protocol", symbol: "OCEAN");
 
 // ignore: non_constant_identifier_names
   static const $FOR = const Coin.instance(name: "ForTube", symbol: "FOR");
@@ -254,22 +233,19 @@ class Coins {
   static const $WABI = const Coin.instance(name: "TAEL", symbol: "WABI");
 
 // ignore: non_constant_identifier_names
-  static const $IDRT =
-      const Coin.instance(name: "Rupiah Token", symbol: "IDRT");
+  static const $IDRT = const Coin.instance(name: "Rupiah Token", symbol: "IDRT");
 
 // ignore: non_constant_identifier_names
   static const $ENJ = const Coin.instance(name: "Enjin Coin", symbol: "ENJ");
 
 // ignore: non_constant_identifier_names
-  static const $UNIDOWN =
-      const Coin.instance(name: "UNIDOWN", symbol: "UNIDOWN");
+  static const $UNIDOWN = const Coin.instance(name: "UNIDOWN", symbol: "UNIDOWN");
 
 // ignore: non_constant_identifier_names
   static const $YFII = const Coin.instance(name: "DFI.Money", symbol: "YFII");
 
 // ignore: non_constant_identifier_names
-  static const $KZT =
-      const Coin.instance(name: "Kazakhstani Tenge", symbol: "KZT");
+  static const $KZT = const Coin.instance(name: "Kazakhstani Tenge", symbol: "KZT");
 
 // ignore: non_constant_identifier_names
   static const $OAX = const Coin.instance(name: "openANX", symbol: "OAX");
@@ -281,12 +257,10 @@ class Coins {
   static const $GRS = const Coin.instance(name: "Groestlcoin", symbol: "GRS");
 
 // ignore: non_constant_identifier_names
-  static const $HARD =
-      const Coin.instance(name: "HARD Protocol", symbol: "HARD");
+  static const $HARD = const Coin.instance(name: "HARD Protocol", symbol: "HARD");
 
 // ignore: non_constant_identifier_names
-  static const $TFUEL =
-      const Coin.instance(name: "Theta Fuel", symbol: "TFUEL");
+  static const $TFUEL = const Coin.instance(name: "Theta Fuel", symbol: "TFUEL");
 
 // ignore: non_constant_identifier_names
   static const $LEND = const Coin.instance(name: "Aave", symbol: "LEND");
@@ -304,12 +278,10 @@ class Coins {
   static const $UNI = const Coin.instance(name: "Uniswap", symbol: "UNI");
 
 // ignore: non_constant_identifier_names
-  static const $BTCDOWN =
-      const Coin.instance(name: "BTCDOWN", symbol: "BTCDOWN");
+  static const $BTCDOWN = const Coin.instance(name: "BTCDOWN", symbol: "BTCDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $SBTC =
-      const Coin.instance(name: "Super Bitcoin", symbol: "SBTC");
+  static const $SBTC = const Coin.instance(name: "Super Bitcoin", symbol: "SBTC");
 
 // ignore: non_constant_identifier_names
   static const $CKB = const Coin.instance(name: "CKB", symbol: "CKB");
@@ -324,16 +296,13 @@ class Coins {
   static const $LUNA = const Coin.instance(name: "Terra", symbol: "LUNA");
 
 // ignore: non_constant_identifier_names
-  static const $ETHDOWN =
-      const Coin.instance(name: "ETHDOWN", symbol: "ETHDOWN");
+  static const $ETHDOWN = const Coin.instance(name: "ETHDOWN", symbol: "ETHDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $AGI =
-      const Coin.instance(name: "SingularityNET", symbol: "AGI");
+  static const $AGI = const Coin.instance(name: "SingularityNET", symbol: "AGI");
 
 // ignore: non_constant_identifier_names
-  static const $BCHA =
-      const Coin.instance(name: "Bitcoin Cash ABC", symbol: "BCHA");
+  static const $BCHA = const Coin.instance(name: "Bitcoin Cash ABC", symbol: "BCHA");
 
 // ignore: non_constant_identifier_names
   static const $EON = const Coin.instance(name: "EOS Network", symbol: "EON");
@@ -348,12 +317,10 @@ class Coins {
   static const $GO = const Coin.instance(name: "GoChain", symbol: "GO");
 
 // ignore: non_constant_identifier_names
-  static const $NCASH =
-      const Coin.instance(name: "Nucleus Vision", symbol: "NCASH");
+  static const $NCASH = const Coin.instance(name: "Nucleus Vision", symbol: "NCASH");
 
 // ignore: non_constant_identifier_names
-  static const $RIF =
-      const Coin.instance(name: "RSK Infrastructure Framework", symbol: "RIF");
+  static const $RIF = const Coin.instance(name: "RSK Infrastructure Framework", symbol: "RIF");
 
 // ignore: non_constant_identifier_names
   static const $SKL = const Coin.instance(name: "SKALE Network", symbol: "SKL");
@@ -362,8 +329,7 @@ class Coins {
   static const $PEN = const Coin.instance(name: "Peruvian sol", symbol: "PEN");
 
 // ignore: non_constant_identifier_names
-  static const $SXPDOWN =
-      const Coin.instance(name: "SXPDOWN", symbol: "SXPDOWN");
+  static const $SXPDOWN = const Coin.instance(name: "SXPDOWN", symbol: "SXPDOWN");
 
 // ignore: non_constant_identifier_names
   static const $HC = const Coin.instance(name: "HyperCash", symbol: "HC");
@@ -372,8 +338,7 @@ class Coins {
   static const $SKY = const Coin.instance(name: "Skycoin", symbol: "SKY");
 
 // ignore: non_constant_identifier_names
-  static const $BURGER =
-      const Coin.instance(name: "Burger Swap", symbol: "BURGER");
+  static const $BURGER = const Coin.instance(name: "Burger Swap", symbol: "BURGER");
 
 // ignore: non_constant_identifier_names
   static const $NAS = const Coin.instance(name: "Nebulas", symbol: "NAS");
@@ -397,8 +362,7 @@ class Coins {
   static const $DNT = const Coin.instance(name: "district0x", symbol: "DNT");
 
 // ignore: non_constant_identifier_names
-  static const $XTZDOWN =
-      const Coin.instance(name: "XTZDOWN", symbol: "XTZDOWN");
+  static const $XTZDOWN = const Coin.instance(name: "XTZDOWN", symbol: "XTZDOWN");
 
 // ignore: non_constant_identifier_names
   static const $XVS = const Coin.instance(name: "Venus", symbol: "XVS");
@@ -410,8 +374,7 @@ class Coins {
   static const $BVND = const Coin.instance(name: "BVND", symbol: "BVND");
 
 // ignore: non_constant_identifier_names
-  static const $SLP =
-      const Coin.instance(name: "Small Love Potion", symbol: "SLP");
+  static const $SLP = const Coin.instance(name: "Small Love Potion", symbol: "SLP");
 
 // ignore: non_constant_identifier_names
   static const $TNT = const Coin.instance(name: "Tierion", symbol: "TNT");
@@ -444,8 +407,7 @@ class Coins {
   static const $CND = const Coin.instance(name: "Cindicator", symbol: "CND");
 
 // ignore: non_constant_identifier_names
-  static const $UNFI =
-      const Coin.instance(name: "Unifi Protocol DAO", symbol: "UNFI");
+  static const $UNFI = const Coin.instance(name: "Unifi Protocol DAO", symbol: "UNFI");
 
 // ignore: non_constant_identifier_names
   static const $FTM = const Coin.instance(name: "Fantom", symbol: "FTM");
@@ -454,8 +416,7 @@ class Coins {
   static const $POWR = const Coin.instance(name: "PowerLedger", symbol: "POWR");
 
 // ignore: non_constant_identifier_names
-  static const $GVT =
-      const Coin.instance(name: "Genesis Vision", symbol: "GVT");
+  static const $GVT = const Coin.instance(name: "Genesis Vision", symbol: "GVT");
 
 // ignore: non_constant_identifier_names
   static const $WINGS = const Coin.instance(name: "WINGS", symbol: "WINGS");
@@ -467,12 +428,10 @@ class Coins {
   static const $RLC = const Coin.instance(name: "iExecRLC", symbol: "RLC");
 
 // ignore: non_constant_identifier_names
-  static const $PHB =
-      const Coin.instance(name: "Red Pulse Phoenix Binance", symbol: "PHB");
+  static const $PHB = const Coin.instance(name: "Red Pulse Phoenix Binance", symbol: "PHB");
 
 // ignore: non_constant_identifier_names
-  static const $TRXDOWN =
-      const Coin.instance(name: "TRXDOWN", symbol: "TRXDOWN");
+  static const $TRXDOWN = const Coin.instance(name: "TRXDOWN", symbol: "TRXDOWN");
 
 // ignore: non_constant_identifier_names
   static const $ATOM = const Coin.instance(name: "Cosmos", symbol: "ATOM");
@@ -496,12 +455,10 @@ class Coins {
   static const $SNT = const Coin.instance(name: "Status", symbol: "SNT");
 
 // ignore: non_constant_identifier_names
-  static const $SNX =
-      const Coin.instance(name: "Synthetix Network Token", symbol: "SNX");
+  static const $SNX = const Coin.instance(name: "Synthetix Network Token", symbol: "SNX");
 
 // ignore: non_constant_identifier_names
-  static const $LTCDOWN =
-      const Coin.instance(name: "LTCDOWN", symbol: "LTCDOWN");
+  static const $LTCDOWN = const Coin.instance(name: "LTCDOWN", symbol: "LTCDOWN");
 
 // ignore: non_constant_identifier_names
   static const $FUN = const Coin.instance(name: "FunFair", symbol: "FUN");
@@ -516,12 +473,10 @@ class Coins {
   static const $QKC = const Coin.instance(name: "QuarkChain", symbol: "QKC");
 
 // ignore: non_constant_identifier_names
-  static const $SUSHIUP =
-      const Coin.instance(name: "SUSHIUP", symbol: "SUSHIUP");
+  static const $SUSHIUP = const Coin.instance(name: "SUSHIUP", symbol: "SUSHIUP");
 
 // ignore: non_constant_identifier_names
-  static const $ROSE =
-      const Coin.instance(name: "Oasis Network", symbol: "ROSE");
+  static const $ROSE = const Coin.instance(name: "Oasis Network", symbol: "ROSE");
 
 // ignore: non_constant_identifier_names
   static const $SOL = const Coin.instance(name: "Solana", symbol: "SOL");
@@ -530,8 +485,7 @@ class Coins {
   static const $TRXUP = const Coin.instance(name: "TRXUP", symbol: "TRXUP");
 
 // ignore: non_constant_identifier_names
-  static const $ETC =
-      const Coin.instance(name: "Ethereum Classic", symbol: "ETC");
+  static const $ETC = const Coin.instance(name: "Ethereum Classic", symbol: "ETC");
 
 // ignore: non_constant_identifier_names
   static const $ETF = const Coin.instance(name: "ETF", symbol: "ETF");
@@ -540,8 +494,7 @@ class Coins {
   static const $BNB = const Coin.instance(name: "BNB", symbol: "BNB");
 
 // ignore: non_constant_identifier_names
-  static const $CELR =
-      const Coin.instance(name: "Celer Network", symbol: "CELR");
+  static const $CELR = const Coin.instance(name: "Celer Network", symbol: "CELR");
 
 // ignore: non_constant_identifier_names
   static const $OGN = const Coin.instance(name: "OriginToken", symbol: "OGN");
@@ -574,8 +527,7 @@ class Coins {
   static const $QLC = const Coin.instance(name: "QLC Chain", symbol: "QLC");
 
 // ignore: non_constant_identifier_names
-  static const $MDA =
-      const Coin.instance(name: "Moeda Loyalty Points", symbol: "MDA");
+  static const $MDA = const Coin.instance(name: "Moeda Loyalty Points", symbol: "MDA");
 
 // ignore: non_constant_identifier_names
   static const $UTK = const Coin.instance(name: "Utrust", symbol: "UTK");
@@ -605,12 +557,10 @@ class Coins {
   static const $TRX = const Coin.instance(name: "TRON", symbol: "TRX");
 
 // ignore: non_constant_identifier_names
-  static const $MDT =
-      const Coin.instance(name: "Measurable Data Token", symbol: "MDT");
+  static const $MDT = const Coin.instance(name: "Measurable Data Token", symbol: "MDT");
 
 // ignore: non_constant_identifier_names
-  static const $XRPDOWN =
-      const Coin.instance(name: "XRPDOWN", symbol: "XRPDOWN");
+  static const $XRPDOWN = const Coin.instance(name: "XRPDOWN", symbol: "XRPDOWN");
 
 // ignore: non_constant_identifier_names
   static const $AERGO = const Coin.instance(name: "Aergo", symbol: "AERGO");
@@ -625,16 +575,13 @@ class Coins {
   static const $NULS = const Coin.instance(name: "Nuls", symbol: "NULS");
 
 // ignore: non_constant_identifier_names
-  static const $NGN =
-      const Coin.instance(name: "Nigerian Naira", symbol: "NGN");
+  static const $NGN = const Coin.instance(name: "Nigerian Naira", symbol: "NGN");
 
 // ignore: non_constant_identifier_names
-  static const $EGLD =
-      const Coin.instance(name: "Elrond eGold", symbol: "EGLD");
+  static const $EGLD = const Coin.instance(name: "Elrond eGold", symbol: "EGLD");
 
 // ignore: non_constant_identifier_names
-  static const $ANTOLD =
-      const Coin.instance(name: "Old Aragon", symbol: "ANTOLD");
+  static const $ANTOLD = const Coin.instance(name: "Old Aragon", symbol: "ANTOLD");
 
 // ignore: non_constant_identifier_names
   static const $CRV = const Coin.instance(name: "Curve", symbol: "CRV");
@@ -679,19 +626,16 @@ class Coins {
   static const $ARPA = const Coin.instance(name: "ARPA Chain", symbol: "ARPA");
 
 // ignore: non_constant_identifier_names
-  static const $DOTDOWN =
-      const Coin.instance(name: "DOTDOWN", symbol: "DOTDOWN");
+  static const $DOTDOWN = const Coin.instance(name: "DOTDOWN", symbol: "DOTDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $BRL =
-      const Coin.instance(name: "Brazilian Real", symbol: "BRL");
+  static const $BRL = const Coin.instance(name: "Brazilian Real", symbol: "BRL");
 
 // ignore: non_constant_identifier_names
   static const $CTR = const Coin.instance(name: "Centra", symbol: "CTR");
 
 // ignore: non_constant_identifier_names
-  static const $MATIC =
-      const Coin.instance(name: "MATIC Network", symbol: "MATIC");
+  static const $MATIC = const Coin.instance(name: "MATIC Network", symbol: "MATIC");
 
 // ignore: non_constant_identifier_names
   static const $IOTX = const Coin.instance(name: "IoTeX", symbol: "IOTX");
@@ -700,8 +644,7 @@ class Coins {
   static const $FRONT = const Coin.instance(name: "Frontier", symbol: "FRONT");
 
 // ignore: non_constant_identifier_names
-  static const $ZAR =
-      const Coin.instance(name: "South African Rand", symbol: "ZAR");
+  static const $ZAR = const Coin.instance(name: "South African Rand", symbol: "ZAR");
 
 // ignore: non_constant_identifier_names
   static const $DOCK = const Coin.instance(name: "DOCK", symbol: "DOCK");
@@ -716,8 +659,7 @@ class Coins {
   static const $DENT = const Coin.instance(name: "DENT", symbol: "DENT");
 
 // ignore: non_constant_identifier_names
-  static const $BCPT =
-      const Coin.instance(name: "BlockMason Credit Protocol", symbol: "BCPT");
+  static const $BCPT = const Coin.instance(name: "BlockMason Credit Protocol", symbol: "BCPT");
 
 // ignore: non_constant_identifier_names
   static const $VIBE = const Coin.instance(name: "VIBE", symbol: "VIBE");
@@ -753,15 +695,13 @@ class Coins {
   static const $BTC = const Coin.instance(name: "Bitcoin", symbol: "BTC");
 
 // ignore: non_constant_identifier_names
-  static const $TWT =
-      const Coin.instance(name: "Trust Wallet Token", symbol: "TWT");
+  static const $TWT = const Coin.instance(name: "Trust Wallet Token", symbol: "TWT");
 
 // ignore: non_constant_identifier_names
   static const $NKN = const Coin.instance(name: "NKN", symbol: "NKN");
 
 // ignore: non_constant_identifier_names
-  static const $RSR =
-      const Coin.instance(name: "Reserve Rights", symbol: "RSR");
+  static const $RSR = const Coin.instance(name: "Reserve Rights", symbol: "RSR");
 
 // ignore: non_constant_identifier_names
   static const $CVC = const Coin.instance(name: "Civic", symbol: "CVC");
@@ -770,15 +710,13 @@ class Coins {
   static const $IOTA = const Coin.instance(name: "MIOTA", symbol: "IOTA");
 
 // ignore: non_constant_identifier_names
-  static const $REEF =
-      const Coin.instance(name: "Reef Finance", symbol: "REEF");
+  static const $REEF = const Coin.instance(name: "Reef Finance", symbol: "REEF");
 
 // ignore: non_constant_identifier_names
   static const $BTG = const Coin.instance(name: "Bitcoin Gold", symbol: "BTG");
 
 // ignore: non_constant_identifier_names
-  static const $KES =
-      const Coin.instance(name: "Kenya Shilling", symbol: "KES");
+  static const $KES = const Coin.instance(name: "Kenya Shilling", symbol: "KES");
 
 // ignore: non_constant_identifier_names
   static const $ARK = const Coin.instance(name: "Ark", symbol: "ARK");
@@ -805,8 +743,7 @@ class Coins {
   static const $ONE = const Coin.instance(name: "Harmony", symbol: "ONE");
 
 // ignore: non_constant_identifier_names
-  static const $LINKDOWN =
-      const Coin.instance(name: "LINKDOWN", symbol: "LINKDOWN");
+  static const $LINKDOWN = const Coin.instance(name: "LINKDOWN", symbol: "LINKDOWN");
 
 // ignore: non_constant_identifier_names
   static const $ONG = const Coin.instance(name: "Ontology Gas", symbol: "ONG");
@@ -824,8 +761,7 @@ class Coins {
   static const $SC = const Coin.instance(name: "Siacoin", symbol: "SC");
 
 // ignore: non_constant_identifier_names
-  static const $WBTC =
-      const Coin.instance(name: "Wrapped Bitcoin", symbol: "WBTC");
+  static const $WBTC = const Coin.instance(name: "Wrapped Bitcoin", symbol: "WBTC");
 
 // ignore: non_constant_identifier_names
   static const $ONT = const Coin.instance(name: "Ontology", symbol: "ONT");
@@ -843,8 +779,7 @@ class Coins {
   static const $PIVX = const Coin.instance(name: "PIVX", symbol: "PIVX");
 
 // ignore: non_constant_identifier_names
-  static const $ASR =
-      const Coin.instance(name: "AS Roma Fan Token", symbol: "ASR");
+  static const $ASR = const Coin.instance(name: "AS Roma Fan Token", symbol: "ASR");
 
 // ignore: non_constant_identifier_names
   static const $FIRO = const Coin.instance(name: "Firo", symbol: "FIRO");
@@ -853,15 +788,13 @@ class Coins {
   static const $AST = const Coin.instance(name: "AirSwap", symbol: "AST");
 
 // ignore: non_constant_identifier_names
-  static const $MANA =
-      const Coin.instance(name: "Decentraland", symbol: "MANA");
+  static const $MANA = const Coin.instance(name: "Decentraland", symbol: "MANA");
 
 // ignore: non_constant_identifier_names
   static const $DOTUP = const Coin.instance(name: "DOTUP", symbol: "DOTUP");
 
 // ignore: non_constant_identifier_names
-  static const $MEETONE =
-      const Coin.instance(name: "MEETONE", symbol: "MEETONE");
+  static const $MEETONE = const Coin.instance(name: "MEETONE", symbol: "MEETONE");
 
 // ignore: non_constant_identifier_names
   static const $QSP = const Coin.instance(name: "Quantstamp", symbol: "QSP");
@@ -882,8 +815,7 @@ class Coins {
   static const $ZEC = const Coin.instance(name: "Zcash", symbol: "ZEC");
 
 // ignore: non_constant_identifier_names
-  static const $ATM =
-      const Coin.instance(name: "Atlético de Madrid Fan Token", symbol: "ATM");
+  static const $ATM = const Coin.instance(name: "Atlético de Madrid Fan Token", symbol: "ATM");
 
 // ignore: non_constant_identifier_names
   static const $APPC = const Coin.instance(name: "AppCoins", symbol: "APPC");
@@ -895,8 +827,7 @@ class Coins {
   static const $ICX = const Coin.instance(name: "ICON", symbol: "ICX");
 
 // ignore: non_constant_identifier_names
-  static const $LOOM =
-      const Coin.instance(name: "Loom Network", symbol: "LOOM");
+  static const $LOOM = const Coin.instance(name: "Loom Network", symbol: "LOOM");
 
 // ignore: non_constant_identifier_names
   static const $ZEN = const Coin.instance(name: "Horizen", symbol: "ZEN");
@@ -905,12 +836,10 @@ class Coins {
   static const $KP3R = const Coin.instance(name: "Keep3rV1", symbol: "KP3R");
 
 // ignore: non_constant_identifier_names
-  static const $DUSK =
-      const Coin.instance(name: "Dusk Network", symbol: "DUSK");
+  static const $DUSK = const Coin.instance(name: "Dusk Network", symbol: "DUSK");
 
 // ignore: non_constant_identifier_names
-  static const $ALPHA =
-      const Coin.instance(name: "Alpha Finance Lab", symbol: "ALPHA");
+  static const $ALPHA = const Coin.instance(name: "Alpha Finance Lab", symbol: "ALPHA");
 
 // ignore: non_constant_identifier_names
   static const $DOGE = const Coin.instance(name: "Dogecoin", symbol: "DOGE");
@@ -919,22 +848,19 @@ class Coins {
   static const $SXP = const Coin.instance(name: "Swipe", symbol: "SXP");
 
 // ignore: non_constant_identifier_names
-  static const $HBAR =
-      const Coin.instance(name: "Hedera Hashgraph", symbol: "HBAR");
+  static const $HBAR = const Coin.instance(name: "Hedera Hashgraph", symbol: "HBAR");
 
 // ignore: non_constant_identifier_names
   static const $RVN = const Coin.instance(name: "Ravencoin", symbol: "RVN");
 
 // ignore: non_constant_identifier_names
-  static const $AUD =
-      const Coin.instance(name: "Australia Dollar", symbol: "AUD");
+  static const $AUD = const Coin.instance(name: "Australia Dollar", symbol: "AUD");
 
 // ignore: non_constant_identifier_names
   static const $NANO = const Coin.instance(name: "NANO", symbol: "NANO");
 
 // ignore: non_constant_identifier_names
-  static const $IDR =
-      const Coin.instance(name: "Indonesian Rupiah", symbol: "IDR");
+  static const $IDR = const Coin.instance(name: "Indonesian Rupiah", symbol: "IDR");
 
 // ignore: non_constant_identifier_names
   static const $CTSI = const Coin.instance(name: "Cartesi", symbol: "CTSI");
@@ -943,20 +869,16 @@ class Coins {
   static const $KAVA = const Coin.instance(name: "Kava", symbol: "KAVA");
 
 // ignore: non_constant_identifier_names
-  static const $PSG =
-      const Coin.instance(name: "Paris Saint-Germain Fan Token", symbol: "PSG");
+  static const $PSG = const Coin.instance(name: "Paris Saint-Germain Fan Token", symbol: "PSG");
 
 // ignore: non_constant_identifier_names
-  static const $HCC =
-      const Coin.instance(name: "HealthCare Chain", symbol: "HCC");
+  static const $HCC = const Coin.instance(name: "HealthCare Chain", symbol: "HCC");
 
 // ignore: non_constant_identifier_names
-  static const $VIDT =
-      const Coin.instance(name: "VIDT Datalink", symbol: "VIDT");
+  static const $VIDT = const Coin.instance(name: "VIDT Datalink", symbol: "VIDT");
 
 // ignore: non_constant_identifier_names
-  static const $NOK =
-      const Coin.instance(name: "Norwegian Kroner ", symbol: "NOK");
+  static const $NOK = const Coin.instance(name: "Norwegian Kroner ", symbol: "NOK");
 
 // ignore: non_constant_identifier_names
   static const $AVA = const Coin.instance(name: "Travala.com", symbol: "AVA");
@@ -980,12 +902,10 @@ class Coins {
   static const $STRAT = const Coin.instance(name: "Stratis", symbol: "STRAT");
 
 // ignore: non_constant_identifier_names
-  static const $AAVEDOWN =
-      const Coin.instance(name: "AAVEDOWN", symbol: "AAVEDOWN");
+  static const $AAVEDOWN = const Coin.instance(name: "AAVEDOWN", symbol: "AAVEDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $THETA =
-      const Coin.instance(name: "Theta Token", symbol: "THETA");
+  static const $THETA = const Coin.instance(name: "Theta Token", symbol: "THETA");
 
 // ignore: non_constant_identifier_names
   static const $BCHUP = const Coin.instance(name: "BCHUP", symbol: "BCHUP");
@@ -994,12 +914,10 @@ class Coins {
   static const $WAN = const Coin.instance(name: "Wanchain", symbol: "WAN");
 
 // ignore: non_constant_identifier_names
-  static const $XLMDOWN =
-      const Coin.instance(name: "XLMDOWN", symbol: "XLMDOWN");
+  static const $XLMDOWN = const Coin.instance(name: "XLMDOWN", symbol: "XLMDOWN");
 
 // ignore: non_constant_identifier_names
-  static const $ORN =
-      const Coin.instance(name: "Orion Protocol", symbol: "ORN");
+  static const $ORN = const Coin.instance(name: "Orion Protocol", symbol: "ORN");
 
 // ignore: non_constant_identifier_names
   static const $PERL = const Coin.instance(name: "Perlin", symbol: "PERL");
@@ -1008,8 +926,7 @@ class Coins {
   static const $AAVE = const Coin.instance(name: "Aave", symbol: "AAVE");
 
 // ignore: non_constant_identifier_names
-  static const $GBP =
-      const Coin.instance(name: "Pound Sterling", symbol: "GBP");
+  static const $GBP = const Coin.instance(name: "Pound Sterling", symbol: "GBP");
 
 // ignore: non_constant_identifier_names
   static const $LLT = const Coin.instance(name: "LLToken", symbol: "LLT");
@@ -1018,15 +935,13 @@ class Coins {
   static const $SXPUP = const Coin.instance(name: "SXPUP", symbol: "SXPUP");
 
 // ignore: non_constant_identifier_names
-  static const $YFIDOWN =
-      const Coin.instance(name: "YFIDOWN", symbol: "YFIDOWN");
+  static const $YFIDOWN = const Coin.instance(name: "YFIDOWN", symbol: "YFIDOWN");
 
 // ignore: non_constant_identifier_names
   static const $YFI = const Coin.instance(name: "yearn.finance", symbol: "YFI");
 
 // ignore: non_constant_identifier_names
-  static const $PERLOLD =
-      const Coin.instance(name: "Perlin Old Token", symbol: "PERLOLD");
+  static const $PERLOLD = const Coin.instance(name: "Perlin Old Token", symbol: "PERLOLD");
 
 // ignore: non_constant_identifier_names
   static const $MOD = const Coin.instance(name: "Modum", symbol: "MOD");
@@ -1056,22 +971,19 @@ class Coins {
   static const $BIDR = const Coin.instance(name: "BIDR", symbol: "BIDR");
 
 // ignore: non_constant_identifier_names
-  static const $BCHSV =
-      const Coin.instance(name: "Bitcoin Cash SV", symbol: "BCHSV");
+  static const $BCHSV = const Coin.instance(name: "Bitcoin Cash SV", symbol: "BCHSV");
 
 // ignore: non_constant_identifier_names
   static const $AAVEUP = const Coin.instance(name: "AAVEUP", symbol: "AAVEUP");
 
 // ignore: non_constant_identifier_names
-  static const $SUSHIDOWN =
-      const Coin.instance(name: "SUSHIDOWN", symbol: "SUSHIDOWN");
+  static const $SUSHIDOWN = const Coin.instance(name: "SUSHIDOWN", symbol: "SUSHIDOWN");
 
 // ignore: non_constant_identifier_names
   static const $COMP = const Coin.instance(name: "Compound", symbol: "COMP");
 
 // ignore: non_constant_identifier_names
-  static const $ETHBNT =
-      const Coin.instance(name: "BNT Smart Token Relay", symbol: "ETHBNT");
+  static const $ETHBNT = const Coin.instance(name: "BNT Smart Token Relay", symbol: "ETHBNT");
 
 // ignore: non_constant_identifier_names
   static const $RUNE = const Coin.instance(name: "THORChain", symbol: "RUNE");
@@ -1086,8 +998,7 @@ class Coins {
   static const $IDEX = const Coin.instance(name: "IDEX", symbol: "IDEX");
 
 // ignore: non_constant_identifier_names
-  static const $BNBDOWN =
-      const Coin.instance(name: "BNBDOWN", symbol: "BNBDOWN");
+  static const $BNBDOWN = const Coin.instance(name: "BNBDOWN", symbol: "BNBDOWN");
 
 // ignore: non_constant_identifier_names
   static const $DEXE = const Coin.instance(name: "DeXe", symbol: "DEXE");
@@ -1096,8 +1007,7 @@ class Coins {
   static const $AVAX = const Coin.instance(name: "Avalanche", symbol: "AVAX");
 
 // ignore: non_constant_identifier_names
-  static const $UAH =
-      const Coin.instance(name: "Ukraine Hryvnia", symbol: "UAH");
+  static const $UAH = const Coin.instance(name: "Ukraine Hryvnia", symbol: "UAH");
 
 // ignore: non_constant_identifier_names
   static const $KNC = const Coin.instance(name: "KyberNetwork", symbol: "KNC");
@@ -1139,8 +1049,7 @@ class Coins {
   static const $REPV1 = const Coin.instance(name: "Augur", symbol: "REPV1");
 
 // ignore: non_constant_identifier_names
-  static const $ADXOLD =
-      const Coin.instance(name: "AdEx Old Token", symbol: "ADXOLD");
+  static const $ADXOLD = const Coin.instance(name: "AdEx Old Token", symbol: "ADXOLD");
 
 // ignore: non_constant_identifier_names
   static const $MTH = const Coin.instance(name: "Monetha", symbol: "MTH");
@@ -1170,12 +1079,10 @@ class Coins {
   static const $GHS = const Coin.instance(name: "Ghanaian cedi", symbol: "GHS");
 
 // ignore: non_constant_identifier_names
-  static const $BTCST = const Coin.instance(
-      name: "Bitcoin Standard Hashrate Token", symbol: "BTCST");
+  static const $BTCST = const Coin.instance(name: "Bitcoin Standard Hashrate Token", symbol: "BTCST");
 
 // ignore: non_constant_identifier_names
-  static const $HKD =
-      const Coin.instance(name: "Hong Kong Dollar", symbol: "HKD");
+  static const $HKD = const Coin.instance(name: "Hong Kong Dollar", symbol: "HKD");
 
 // ignore: non_constant_identifier_names
   static const $LSK = const Coin.instance(name: "Lisk", symbol: "LSK");
@@ -1187,12 +1094,10 @@ class Coins {
   static const $DCR = const Coin.instance(name: "Decred", symbol: "DCR");
 
 // ignore: non_constant_identifier_names
-  static const $CREAM =
-      const Coin.instance(name: "Cream Finance", symbol: "CREAM");
+  static const $CREAM = const Coin.instance(name: "Cream Finance", symbol: "CREAM");
 
 // ignore: non_constant_identifier_names
-  static const $DATA =
-      const Coin.instance(name: "Streamr DATAcoin", symbol: "DATA");
+  static const $DATA = const Coin.instance(name: "Streamr DATAcoin", symbol: "DATA");
 
 // ignore: non_constant_identifier_names
   static const $FILUP = const Coin.instance(name: "FILUP", symbol: "FILUP");
@@ -1213,12 +1118,10 @@ class Coins {
   static const $LTCUP = const Coin.instance(name: "LTCUP", symbol: "LTCUP");
 
 // ignore: non_constant_identifier_names
-  static const $INJ =
-      const Coin.instance(name: "Injective Protocol", symbol: "INJ");
+  static const $INJ = const Coin.instance(name: "Injective Protocol", symbol: "INJ");
 
 // ignore: non_constant_identifier_names
-  static const $TCT =
-      const Coin.instance(name: "TokenClub Token", symbol: "TCT");
+  static const $TCT = const Coin.instance(name: "TokenClub Token", symbol: "TCT");
 
 // ignore: non_constant_identifier_names
   static const $LTO = const Coin.instance(name: "LTO Network", symbol: "LTO");
@@ -1233,12 +1136,10 @@ class Coins {
   static const $CBK = const Coin.instance(name: "Cobak", symbol: "CBK");
 
 // ignore: non_constant_identifier_names
-  static const $CBM =
-      const Coin.instance(name: "Crypto Bonus Miles Token", symbol: "CBM");
+  static const $CBM = const Coin.instance(name: "Crypto Bonus Miles Token", symbol: "CBM");
 
 // ignore: non_constant_identifier_names
-  static const $XLM =
-      const Coin.instance(name: "Stellar Lumens", symbol: "XLM");
+  static const $XLM = const Coin.instance(name: "Stellar Lumens", symbol: "XLM");
 
 // ignore: non_constant_identifier_names
   static const $LINK = const Coin.instance(name: "ChainLink", symbol: "LINK");
@@ -1247,8 +1148,7 @@ class Coins {
   static const $QTUM = const Coin.instance(name: "Qtum", symbol: "QTUM");
 
 // ignore: non_constant_identifier_names
-  static const $FILDOWN =
-      const Coin.instance(name: "FILDOWN", symbol: "FILDOWN");
+  static const $FILDOWN = const Coin.instance(name: "FILDOWN", symbol: "FILDOWN");
 
 // ignore: non_constant_identifier_names
   static const $LUN = const Coin.instance(name: "Lunyr", symbol: "LUN");
@@ -1278,8 +1178,7 @@ class Coins {
   static const $VIA = const Coin.instance(name: "Viacoin", symbol: "VIA");
 
 // ignore: non_constant_identifier_names
-  static const $BAT =
-      const Coin.instance(name: "Basic Attention Token", symbol: "BAT");
+  static const $BAT = const Coin.instance(name: "Basic Attention Token", symbol: "BAT");
 
 // ignore: non_constant_identifier_names
   static const $AKRO = const Coin.instance(name: "Akropolis", symbol: "AKRO");

@@ -11,17 +11,13 @@ class Tickers {
   Ticker getTicker(Exchange exchange, Pair pair, {createOnMissing: false}) {
     if (exchange == null || pair == null) return null;
 
-    final ticker = _tickers.firstWhere(
-        (element) =>
-            element.exchange.id == exchange.id && element.pair.eq(pair),
-        orElse: () => null);
+    final ticker = _tickers.firstWhere((element) => element.exchange.id == exchange.id && element.pair.eq(pair), orElse: () => null);
 
     if (ticker != null) return ticker;
 
     if (createOnMissing == false) return null;
 
-    final newTicker =
-        Ticker(exchange: exchange, pair: pair, updatedAt: DateTime.now(), price: -1);
+    final newTicker = Ticker(exchange: exchange, pair: pair, updatedAt: DateTime.now(), price: -1);
 
     _tickers.add(newTicker);
 
