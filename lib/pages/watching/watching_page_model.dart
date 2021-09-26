@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
@@ -11,21 +12,32 @@ import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
 import 'package:le_crypto_alerts/pages/watching/_add_watch_dialog.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
 
 class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   bool initialized = false;
 
-  final List<TickerWatch> watchingTickers = [];
+  List<TickerWatch> watchingTickers = [];
 
-  final Map<TickerWatch, Ticker> watchingTickerTickers = {};
+  Map<TickerWatch, Ticker> watchingTickerTickers = {};
 
   Set<String> selectedTickerWatches = Set<String>();
 
+  Iterable<Pair> get availablePairs {
+    return Pairs.getAll().where((pair) {
+      if (pair.base.isUSD || pair.quote != Coins.$USDT) return false;
+      return true;
+    });
+  }
+
   init() async {
-    if (app().appDao == null) return;
+    await Future.doWhile(() async {
+      if (app().isReady) return false;
+      await Future.delayed(Duration(milliseconds: 300));
+      return true;
+    });
 
     if (this.initialized) return;
-
     this.initialized = true;
 
     app().tickerListeners.add(this);
@@ -43,6 +55,9 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   @override
   void dispose() {
     app().tickerListeners.remove(this);
+    watchingTickers = null;
+    watchingTickerTickers = null;
+    selectedTickerWatches = null;
     super.dispose();
   }
 
@@ -102,7 +117,6 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
       notifyListeners();
       return;
     }
-
     selectedTickerWatches.add(tickerWatch.key);
     notifyListeners();
   }
@@ -139,13 +153,13 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
     notifyListeners();
   }
 
-  Future<void> startAddTickerWatch(BuildContext context) async {
-    final selectedPair = await Navigator.of(context).push(new AddWatchModal());
-    if (selectedPair == null) return;
+  // Future<void> startAddTickerWatch(BuildContext context) async {
+  //   final selectedPair = await Navigator.of(context).push(new AddWatchModal());
+  //   if (selectedPair == null) return;
 
-    addTickerWatch(TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
-    notifyListeners();
-  }
+  //   addTickerWatch(TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
+  //   notifyListeners();
+  // }
 
   @override
   FutureOr<void> onTicker(Ticker ticker) async {

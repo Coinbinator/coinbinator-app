@@ -31,6 +31,11 @@ Route getPortifolioListPageRoute() {
 }
 
 Route getAlertCreatePageRoute(BuildContext context) {
+  return MaterialPageRoute(
+    settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
+    builder: (context) => AlertsCreatePage(),
+  );
+
   return DialogRoute(
     context: context,
     settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
@@ -41,6 +46,11 @@ Route getAlertCreatePageRoute(BuildContext context) {
 
 Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
   assert(alert?.id != null, "alert.id should not be null");
+
+  return MaterialPageRoute(
+    settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
+    builder: (context) => AlertsCreatePage(alert: alert),
+  );
 
   return DialogRoute(
     context: context,

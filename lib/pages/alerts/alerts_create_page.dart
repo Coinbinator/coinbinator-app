@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
-import 'package:le_crypto_alerts/metas/coins.dart';
-import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
 import 'package:le_crypto_alerts/support/e.dart';
-import 'package:le_crypto_alerts/support/metas.dart';
 import 'package:le_crypto_alerts/support/theme/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_select/smart_select.dart';
@@ -32,22 +29,35 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
       builder: (context, child) {
         final model = Provider.of<AlertsCreatePageModel>(context);
 
+        final body = [
+          _buildCoinSelector(context),
+          Column(children: [
+            Text("Current at:"),
+            Text("${E.currency(model.selectedCoinCurrentPrice)}"),
+          ]),
+          _buildPriceLimitTrending(context),
+          _buildPriceLimitInput(context),
+          _buildPageActionButtons(context),
+        ];
+
+        if (ModalRoute.of(context) is MaterialPageRoute) {
+          return Scaffold(
+            extendBody: true,
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: body,
+            ),
+          );
+        }
+
         return SimpleDialog(
           titlePadding: DIALOG_TITLE_PADDING,
           title: model.when<Widget>(
             creating: () => Text("Create new alert"),
             editing: () => Text("Edit alert"),
           ),
-          children: [
-            _buildCoinSelector(context),
-            Column(children: [
-              Text("Current at:"),
-              Text("${E.currency(model.selectedCoinCurrentPrice)}"),
-            ]),
-            _buildPriceLimitTrending(context),
-            _buildPriceLimitInput(context),
-            _buildPageActionButtons(context),
-          ],
+          children: body,
         );
       },
     );
@@ -147,16 +157,16 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        //DELETE
+        // REMOVE
         if (model.alert != null)
           TextButton(child: Icon(Icons.delete), onPressed: () => model.removeAlarm(context))
         else
-          TextButton(
-            onPressed: null,
-            child: Text(""),
-          ),
+          TextButton(onPressed: null, child: Text("")),
 
+        // CANCEL
         TextButton(child: Icon(Icons.close), onPressed: () => model.cancelAlarm(context)),
+
+        // COMMIT
         TextButton(child: Icon(Icons.check), onPressed: () => model.commitAlarm(context)),
       ],
     );

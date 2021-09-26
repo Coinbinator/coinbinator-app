@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/settings/settings_page.dart';
+import 'package:le_crypto_alerts/pages/theme/theme_page.dart';
 import 'package:provider/provider.dart';
 
 class DefaultDrawer extends StatelessWidget {
@@ -41,6 +42,16 @@ class DefaultDrawer extends StatelessWidget {
                 Provider.of<LeAppModel>(MAIN_NAVIGATOR_KEY.currentContext, listen: false).shufflerColors();
                 //
                 // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Theme'),
+              onTap: () {
+                Navigator.of(context).pop();
+                // Provider.of<LeAppModel>(MAIN_NAVIGATOR_KEY.currentContext, listen: false).shufflerColors();
+                //
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ThemePage()));
               },
             ),
             // ListTile(

@@ -28,6 +28,8 @@ Future<void> main() async {
     await instance<AlarmingRepository>().initialize();
     await instance<BackgroundServiceRepository>().initialize();
 
+    app().ready(true);
+
     _say("Complete.");
     if (MAIN_NAVIGATOR_KEY.currentState != null) {
       MAIN_NAVIGATOR_KEY.currentState.push(getWatchingPageRoute());

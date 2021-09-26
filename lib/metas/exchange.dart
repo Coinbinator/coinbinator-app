@@ -11,7 +11,7 @@ class Exchange {
 
   const Exchange._internal({this.id, this.name});
 
-  factory Exchange(id) => Exchanges._getExchange(id);
+  factory Exchange(value) => Exchanges._getExchange(value);
 
   Map<String, dynamic> toJson() => _$ExchangeToJson(this);
 
@@ -27,18 +27,21 @@ abstract class Exchanges {
   static const Coinbase = Exchange._internal(id: 'COINBASE', name: "Coinbase");
   static const MercadoBitcoin = Exchange._internal(id: "MERCADO_BITCOIN", name: "MercadoBitcoin");
 
+  static const all = [
+    Binance,
+    Coinbase,
+    MercadoBitcoin,
+  ];
+
   static _getExchange(dynamic value) {
     if (value == null) return null;
 
-    if (value == Binance) return Binance;
-    if (value == Binance.id) return Binance;
+    for (final exchange in all) {
+      if (value == exchange) return exchange;
+      if (value == exchange.id) return exchange;
+      if (value == exchange.name) return exchange;
+    }
 
-    if (value == Coinbase) return Coinbase;
-    if (value == Coinbase.id) return Coinbase;
-
-    if (value == MercadoBitcoin) return MercadoBitcoin;
-    if (value == MercadoBitcoin.id) return MercadoBitcoin;
-
-    throw Exception("Exchange não encontrada: $value}");
+    throw Exception('Invalid exchange value: "$value"');
   }
 }

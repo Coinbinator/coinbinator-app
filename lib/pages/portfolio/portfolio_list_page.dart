@@ -57,12 +57,12 @@ class PortifolioListPageState extends State<PortifolioListPage> {
                       ],
                     ),
                   ),
-                  OutlinedButton(onPressed: () => context.read<LeAppModel>().nextColorSchema(), child: Text("(${context.read<LeAppModel>().i} + 1) next")),
-                  OutlinedButton(
-                      onPressed: () => context.read<LeAppModel>()
-                        ..i = -1
-                        ..nextColorSchema(),
-                      child: Text(" reset")),
+                  // OutlinedButton(onPressed: () => context.read<LeAppModel>().nextColorSchema(), child: Text("(${context.read<LeAppModel>().i} + 1) next")),
+                  // OutlinedButton(
+                  //     onPressed: () => context.read<LeAppModel>()
+                  //       ..i = -1
+                  //       ..nextColorSchema(),
+                  //     child: Text(" reset")),
                 ],
                 // Table(
                 //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),

@@ -138,7 +138,7 @@ class AlertsCreatePageModel extends ChangeNotifier {
     Navigator.of(context).pop();
   }
 
-  cancelAlarm(BuildContext context) {
+  cancelAlarm(BuildContext context) async {
     Navigator.of(context).pop();
   }
 

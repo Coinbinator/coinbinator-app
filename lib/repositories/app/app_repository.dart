@@ -45,6 +45,10 @@ class _AppRepository with AlertsAppContext {
 
   AppDatabase _persistence;
 
+  bool _ready = false;
+
+  bool get isReady => _ready;
+
   AppDatabase get persistence => _persistence;
 
   AppDao get appDao => _persistence?.appDao;
@@ -261,5 +265,10 @@ class _AppRepository with AlertsAppContext {
     }
 
     return tickerChanged;
+  }
+
+  void ready(bool value) {
+    if (_ready == true) return;
+    _ready = value;
   }
 }

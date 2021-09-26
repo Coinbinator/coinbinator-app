@@ -48,21 +48,17 @@ class AlertsListPageState extends State<StatefulWidget> {
               ),
             ],
 
-            /// LIST
+            /// ITEMS
             slivers: [
-              Consumer<AlertsListPageModel>(builder: (
-                BuildContext build,
-                AlertsListPageModel model,
-                widget,
-              ) {
+              Consumer<AlertsListPageModel>(builder: (BuildContext build, AlertsListPageModel model, widget) {
                 return SliverList(
                   delegate: SliverChildListDelegate([
                     ///
                     DataTable(dividerThickness: 0, horizontalMargin: 4, headingRowHeight: 0, showCheckboxColumn: false, columns: [
                       DataColumn(label: Text(".")),
-                      DataColumn(label: Text(".")),
+                      // DataColumn(label: Text(".")),
                       DataColumn(label: Text("."), numeric: true),
-                      DataColumn(label: Text(".")),
+                      // DataColumn(label: Text(".")),
                     ], rows: [
                       for (final alert in model.alerts) ...[
                         _buildDataRow(context, alert),
@@ -100,37 +96,41 @@ class AlertsListPageState extends State<StatefulWidget> {
             ),
           ],
         )),
-        DataCell(Row(mainAxisSize: MainAxisSize.min, children: [
-          if (alert.isBullish) Icon(Icons.trending_up, color: Colors.green),
-          if (alert.isBearish)
-            Icon(
-              Icons.trending_down,
-              color: Colors.red,
-            ),
-        ])),
-        DataCell(Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        // DataCell(Row(mainAxisSize: MainAxisSize.min, children: [
+        //   if (alert.isBullish) Icon(Icons.trending_up, color: Colors.green),
+        //   if (alert.isBearish) Icon(Icons.trending_down, color: Colors.red),
+        // ])),
+        DataCell(Row(
           children: [
-            Text("l: " + E.currencyAlt(alert.limitPrice)),
-            Text(
-              E.amountVariationResume(
-                prefix: 'c:',
-                amount: model.coinsCurrentPrices[alert.coin],
-                base: alert.limitPrice,
-              ),
-              maxLines: 1,
+            // Icon(Icons.arrow_downward),
+            if (alert.isBullish) Icon(Icons.arrow_upward, color: Colors.green),
+            if (alert.isBearish) Icon(Icons.arrow_downward, color: Colors.red),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("l: " + E.currencyAlt(alert.limitPrice)),
+                Text(
+                  E.amountVariationResume(
+                    prefix: 'c:',
+                    amount: model.coinsCurrentPrices[alert.coin],
+                    base: alert.limitPrice,
+                  ),
+                  maxLines: 1,
+                ),
+              ],
             ),
           ],
         )),
-        DataCell(Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.zero,
-            child: value(() {
-              if (alert.isActive) return Icon(Icons.alarm_on);
+        // DataCell(Container(
+        //   padding: EdgeInsets.zero,
+        //   margin: EdgeInsets.zero,
+        //   child: value(() {
+        //     if (alert.isActive) return Icon(Icons.alarm_on);
 
-              return Opacity(opacity: .4, child: Icon(Icons.alarm_on));
-            }))),
+        //     return Opacity(opacity: .4, child: Icon(Icons.alarm_on));
+        //   }),
+        // )),
       ],
     );
   }

@@ -27,8 +27,8 @@ class BackgroundServiceManager {
   Map<Pair, double> binanceCurrentPrices = {};
 
   start() async {
-    Timer.periodic(Duration(seconds: 30), _tick);
-    Timer.periodic(Duration(seconds: 30), _checkAlerts);
+    Timer.periodic(Duration(seconds: 5), _tick);
+    Timer.periodic(Duration(seconds: 5), _checkAlerts);
   }
 
   _tick(Timer timer) async {
@@ -55,14 +55,13 @@ class BackgroundServiceManager {
     _bridge.sendData({'type': 'ping'});
 
     final accounts = await app().getAccounts();
-    final watchingModel = WatchingPageModel();
-    await watchingModel.init();
+    final tickerWatches = await app().appDao.findAllTickerWatches();
 
     // print(watchingModel.watchingTickers);
 
     final exchanges = Set<Exchange>.from([
       ...accounts.map((e) => e.getExchange()),
-      ...watchingModel.watchingTickers.map((e) => e.exchange),
+      ...tickerWatches.map((e) => Exchange(e.exchange)),
     ]);
 
     for (final exchange in exchanges) {

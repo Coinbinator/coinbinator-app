@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
+import 'package:le_crypto_alerts/support/theme/constants.dart';
 
 Widget defaultCustomScrollView({
   @required BuildContext context,
@@ -20,8 +21,8 @@ Widget defaultCustomScrollView({
           ),
         ),
       ...slivers,
-      if (sliversBuilder != null) ...sliversBuilder(context)
-    ],
+      //if (sliversBuilder != null) ...sliversBuilder(context)
+    ]..removeWhere((element) => element == null),
   );
 }
 
@@ -49,6 +50,20 @@ class _DefaultCustomListViewMenuDelegate extends SliverPersistentHeaderDelegate 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
+      //color: ElevationOverlay.applyOverlay(context, Theme.of(context).primaryColor, 4.0),
+      // color: Theme.of(context).primaryColor,
+      // color: Theme.of(context).backgroundColor,
+      decoration: BoxDecoration(
+        color: ElevationOverlay.applyOverlay(context, Theme.of(context).bottomAppBarColor, 2.0),
+        boxShadow: [
+          BoxShadow(
+            spreadRadius: 2,
+            blurRadius: 3,
+            offset: Offset(0, 0),
+            color: Colors.black38,
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Row(
