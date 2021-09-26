@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/pages/_smart_select/s2_basic_list_tile.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page_model.dart';
 import 'package:le_crypto_alerts/support/e.dart';
 import 'package:le_crypto_alerts/support/theme/constants.dart';
+import 'package:le_crypto_alerts/support/theme/theme_common.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_select/smart_select.dart';
 
@@ -69,32 +71,31 @@ class AlertsCreatePageState extends State<AlertsCreatePage> {
       children: [
         Text("When"),
         SmartSelect<Coin>.single(
+          /// SELECT --> STATE
           title: "Select a symbol",
           value: model.selectedCoin,
           onChange: (state) => model.setSelectedCoin(state.value),
-          modalFilter: true,
-          modalFilterAuto: true,
           choiceItems: [
             for (final coin in model.availableCoins) S2Choice<Coin>(title: coin.symbol, subtitle: coin.name, value: coin),
           ],
-          tileBuilder: (BuildContext context, S2SingleState select) => OutlinedButton(
-            onPressed: () => select.showModal(),
-            child: Column(
-              children: [
-                Text(model.selectedCoin.symbol),
-                Text(model.selectedCoin.name),
-              ],
-            ),
-          ),
+
+          /// SELECT --> BUILDERS
           builder: S2SingleBuilder<Coin>(
-            choice: (BuildContext context, S2Choice choice, String search) => ListTile(
-              enabled: true,
-              onTap: () => choice.select(true),
-              title: Text(choice.title),
-              subtitle: Text(choice.subtitle),
-              leading: null,
+            tile: (BuildContext context, S2SingleState choice) => OutlinedButton(
+              onPressed: () => choice.showModal(),
+              child: Column(
+                children: [
+                  Text(choice?.value?.symbol),
+                  Text(choice?.value?.name),
+                ],
+              ),
             ),
+            choice: (BuildContext context, S2Choice choice, String search) => S2_BasicListTile(choice: choice, search: search),
           ),
+
+          /// SELECT --> configs
+          modalFilter: true,
+          modalFilterAuto: true,
         ),
       ],
     );
