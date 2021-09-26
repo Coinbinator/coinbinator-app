@@ -5,6 +5,7 @@ import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
+import 'package:le_crypto_alerts/support/theme/theme_darker.dart';
 import 'package:provider/provider.dart';
 
 class PortifolioListPage extends StatefulWidget {
@@ -58,11 +59,11 @@ class PortifolioListPageState extends State<PortifolioListPage> {
                     ),
                   ),
                   // OutlinedButton(onPressed: () => context.read<LeAppModel>().nextColorSchema(), child: Text("(${context.read<LeAppModel>().i} + 1) next")),
-                  // OutlinedButton(
-                  //     onPressed: () => context.read<LeAppModel>()
-                  //       ..i = -1
-                  //       ..nextColorSchema(),
-                  //     child: Text(" reset")),
+                  OutlinedButton(
+                      onPressed: () => context.read<LeAppModel>()
+                        ..themeData = DarkerThemeData.darker()
+                        ..nextColorSchema(),
+                      child: Text(" reset")),
                 ],
                 // Table(
                 //   // border: TableBorder.symmetric(inside: BorderSide(width: 1, color: Colors.blue), outside: BorderSide(width: 1)),

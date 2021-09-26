@@ -4,22 +4,32 @@ import 'package:le_crypto_alerts/support/theme/color_schema_tests.dart';
 import 'package:le_crypto_alerts/support/theme/theme_common.dart';
 
 extension DarkerThemeData on ThemeData {
-  static ThemeData darker() => //
-      ThemeData.from(colorScheme: colorSchemaTests()[0], textTheme: TextTheme().apply(fontFamily: 'alpha')).copyWithDark().copyWithCommonThemeData();
+  static final defaultTextThme = ThemeData(fontFamily: 'alpha', brightness: Brightness.dark).textTheme;
+
+  static ThemeData darker() =>
+
+      /// Creating the base [ThemeData]
+      ThemeData.from(colorScheme: colorSchemaTests()[0], textTheme: defaultTextThme)
+
+          /// So apparently [ThemeData.from(colorScheme)] color wont define the [AppBarTheme] and we need to set it manualy
+          .copyWith(appBarTheme: AppBarTheme(textTheme: defaultTextThme))
+
+          ///
+          .copyWithCommonThemeData();
 
   ThemeData copyWithDark() {
-    final TextTheme defaultTheme = Typography.material2018(platform: defaultTargetPlatform).white;
+    // final TextTheme defaultTheme = Typography.material2018(platform: defaultTargetPlatform).white;
 
-    Color(0xfff8c36a);
+    // Color(0xfff8c36a);
 
-    final textTheme = this.textTheme.copyWith(
-          subtitle1: defaultTheme.subtitle1,
-          subtitle2: defaultTheme.subtitle2,
-        );
+    // final textTheme = this.textTheme.copyWith(
+    //       subtitle1: defaultTheme.subtitle1,
+    //       subtitle2: defaultTheme.subtitle2,
+    //     );
 
     return copyWith(
-      textTheme: textTheme,
-    );
+        // textTheme: textTheme,
+        );
   }
 
   /// BuildContext context

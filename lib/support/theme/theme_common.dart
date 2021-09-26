@@ -11,27 +11,26 @@ extension CommonThemeData on ThemeData {
     Color decorationColor,
     TextDecorationStyle decorationStyle,
   }) {
-    textTheme.apply(
-      fontFamily: fontFamily,
-      fontSizeFactor: fontSizeFactor,
-      fontSizeDelta: fontSizeDelta,
-      displayColor: displayColor,
-      bodyColor: bodyColor,
-      decoration: decoration,
-      decorationColor: decorationColor,
-      decorationStyle: decorationStyle,
-    );
     return copyWith(
-      textTheme: textTheme,
+      textTheme: textTheme.apply(
+        fontFamily: fontFamily,
+        fontSizeFactor: fontSizeFactor,
+        fontSizeDelta: fontSizeDelta,
+        displayColor: displayColor,
+        bodyColor: bodyColor,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+      ),
     );
   }
 
   ThemeData copyWithCommonThemeData() {
     final appBarTheme = (this.appBarTheme ?? AppBarTheme()).copyWith(
       centerTitle: false,
-      textTheme: (this.appBarTheme.textTheme ?? TextTheme()).copyWith(
-        headline1: TextStyle(height: 10.0),
-      ),
+      // textTheme: (this.appBarTheme.textTheme ?? TextTheme()).copyWith(
+      //   headline1: TextStyle(height: 10.0),
+      // ),
     );
 
     final dialogTheme = this.dialogTheme.copyWith();
