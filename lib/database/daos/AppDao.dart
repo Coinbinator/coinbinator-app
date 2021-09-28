@@ -1,7 +1,7 @@
 import 'package:floor/floor.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
-import 'package:le_crypto_alerts/database/entities/TickerEntity.dart';
-import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
+import 'package:le_crypto_alerts/database/entities/ticker_entity.dart';
+import 'package:le_crypto_alerts/database/entities/ticker_watch_entity.dart';
 
 @dao
 abstract class AppDao {

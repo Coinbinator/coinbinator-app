@@ -19,7 +19,7 @@ Future askConfirmation(
   // set up the buttons
 
   if (title == null) title = Text("Confirm");
-  if (content == null) content = Text("R U SURE?");
+  // if (content == null) content = Text("R U SURE?");
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(

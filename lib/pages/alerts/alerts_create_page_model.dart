@@ -2,13 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
+import 'package:path/path.dart';
 
 class AlertsCreatePageModel extends ChangeNotifier {
   AlertEntity alert;
@@ -35,18 +36,25 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
   double selectedCoinCurrentPrice = 0;
 
-  MarketDirection limitDirection = MarketDirection.bearish;
+  MarketDirection limitDirection = MarketDirection.bullish;
 
   double limitPrice = 0;
 
   double get _currentPriceNotZero => selectedCoinCurrentPrice <= 0 ? 100 : selectedCoinCurrentPrice;
 
   double get limitPriceVariation {
-    return limitPrice == 0 ? -1 : (limitPrice / _currentPriceNotZero - 1);
+    if (limitPrice == 0) return 0;
+    final variation = limitPrice / _currentPriceNotZero;
+    if( variation > limitPriceVariationMax)  return limitPriceVariationMax;
+    if( variation < limitPriceVariationMin)  return limitPriceVariationMin;
+    return variation;
   }
 
+  double get limitPriceVariationMin => limitDirection == MarketDirection.bullish ? 1 : 0;
+  double get limitPriceVariationMax => limitDirection == MarketDirection.bullish ? 3 : 1;
+
   set limitPriceVariation(double value) {
-    limitPrice = _currentPriceNotZero + _currentPriceNotZero * value;
+    limitPrice = _currentPriceNotZero * value;
     notifyListeners();
   }
 
@@ -102,6 +110,7 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
   setLimitDirection(MarketDirection value) {
     limitDirection = value;
+    limitPrice = _currentPriceNotZero;
     notifyListeners();
   }
 

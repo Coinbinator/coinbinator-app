@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'exchange.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createFactory: true)
 class Exchange {
   final String id;
 
@@ -11,7 +11,7 @@ class Exchange {
 
   const Exchange._internal({this.id, this.name});
 
-  factory Exchange(value) => Exchanges._getExchange(value);
+  factory Exchange(id) => Exchanges._getExchange(id);
 
   Map<String, dynamic> toJson() => _$ExchangeToJson(this);
 

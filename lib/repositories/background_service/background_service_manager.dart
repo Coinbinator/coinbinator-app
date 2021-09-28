@@ -1,18 +1,25 @@
 import 'dart:async';
 
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:bringtoforeground/bringtoforeground.dart';
+import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
+import 'package:le_crypto_alerts/metas/alert_trugger_info.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
-import 'package:le_crypto_alerts/pages/watching/watching_page_model.dart';
+import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
+import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 import 'package:tuple/tuple.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 
+///
+/// The backgund process program
 class BackgroundServiceManager {
   final BackgroundServiceBridge _bridge;
 
@@ -25,6 +32,8 @@ class BackgroundServiceManager {
   BackgroundServiceManager(this._bridge) : super();
 
   Map<Pair, double> binanceCurrentPrices = {};
+
+  bool _isCheckingAlerts = false;
 
   start() async {
     Timer.periodic(Duration(seconds: 5), _tick);
@@ -170,54 +179,69 @@ class BackgroundServiceManager {
   }
 
   Future<void> _checkAlerts(Timer timer) async {
-    final activeAlerts = <Tuple2<double, AlertEntity>>[];
+    if (_isCheckingAlerts) return;
+    try {
+      _isCheckingAlerts = true;
+      final activeAlerts = <AlertTriggerInfo>[];
 
-    for (AlertEntity alert in await app().appDao.findAllAlerts()) {
-      final ticker = app().tickers.getTicker(
-            Exchanges.Binance,
-            Pairs.getPair2(alert.coin.symbol, CoinsEx.USD_ALIASES),
-          );
+      for (AlertEntity alert in await app().appDao.findAllAlerts()) {
+        final ticker = app().tickers.getTicker(
+              Exchanges.Binance,
+              Pairs.getPair2(alert.coin.symbol, CoinsEx.USD_ALIASES),
+            );
 
-      if (ticker == null) continue;
+        if (ticker == null) continue;
 
-      // print("checking $alert");
+        // print("checking $alert");
 
-      if (alert.testTrigger(ticker.price)) {
-        activeAlerts.add(Tuple2(ticker.price, alert));
+        if (alert.testTrigger(ticker.price)) {
+          activeAlerts.add(AlertTriggerInfo(
+            alert: alert,
+            price: ticker.price,
+          ));
+        }
       }
 
-      // print(ticker);
-    }
+      if (activeAlerts.isNotEmpty) {
+        if (alertAlarmAt == null || DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
+          alertAlarmAt = DateTime.now();
 
-    if (activeAlerts.isNotEmpty) {
-      if (alertAlarmAt == null || DateTime.now().difference(alertAlarmAt).inSeconds >= 5) {
-        alertAlarmAt = DateTime.now();
+      // app().appDao.updateAlert(alert)
 
-        instance<SpeechRepository>().speak("You have ${activeAlerts.length} triggered.");
 
-        final price = activeAlerts.first.item1;
-        final alert = activeAlerts.first.item2;
+          _bridge.sendData({
+            "type": MessageTypes.ACTIVE_ALERTS,
+            "data": ActiveAlertsMessage(activeAlerts.map((e) => e.alert.id).toList()),
+          });
 
-        instance<SpeechRepository>().speak(alert.describe(price));
+          // Bringtoforeground.bringAppToForeground();
+          //runApp(LeApp());
 
-        //instance<SpeechRepository>().speak("Hello");
+          // await Future.wait([
+          //   instance<VibrateRepository>().vibrateWithPauses(),
+          //   instance<SpeechRepository>().speak("You have ${activeAlerts.length} alert triggered."),
+          // ]);
 
-        // FlutterRingtonePlayer.play(
-        //   android: AndroidSounds.notification,
-        //   ios: IosSounds.glass,
-        //   looping: false, // Android only - API >= 28
-        //   volume: 0.1, // Android only - API >= 28
-        //   asAlarm: true, // Android only - all APIs
-        // );
-
-        // asdadadadasda();
-        // instance<AlarmingRepository>().oneShot(
-        //     Duration(seconds: 2), ALARM_ID_ALERT_ACTIVE, asdadadadasda,
-        //     wakeup: true, exact: true, allowWhileIdle: true, alarmClock: true);
+          //instance<SpeechRepository>().speak(alert.describe(price));
+          //instance<SpeechRepository>().speak("Hello");
+          // FlutterRingtonePlayer.play(
+          //   android: AndroidSounds.notification,
+          //   ios: IosSounds.glass,
+          //   looping: false, // Android only - API >= 28
+          //   volume: 0.1, // Android only - API >= 28
+          //   asAlarm: true, // Android only - all APIs
+          // );
+          // asdadadadasda();
+          // instance<AlarmingRepository>().oneShot(
+          //     Duration(seconds: 2), ALARM_ID_ALERT_ACTIVE, asdadadadasda,
+          //     wakeup: true, exact: true, allowWhileIdle: true, alarmClock: true);
+        }
       }
+    } catch (e) {
+      throw e;
+    } finally {
+      _isCheckingAlerts = false;
     }
-
-    // print("check alerts");
   }
 
   void _serviceOnDataReceived(Map<String, dynamic> event) async {

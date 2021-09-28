@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/theme/color_schema_tests.dart';

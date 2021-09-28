@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  bringtoforeground:
+    dependency: "direct main"
+    description:
+      name: bringtoforeground
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   build:
     dependency: transitive
     description:
@@ -312,6 +319,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  flutter_vibrate:
+    dependency: "direct main"
+    description:
+      name: flutter_vibrate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -679,6 +693,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0+2"
+  system_alert_window:
+    dependency: "direct main"
+    description:
+      name: system_alert_window
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.0+1"
   term_glyph:
     dependency: transitive
     description:

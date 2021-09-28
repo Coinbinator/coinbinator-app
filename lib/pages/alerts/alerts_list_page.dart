@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_custom_scroll_view.dart';
 import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/_common/noop_model.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page_model.dart';
-import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
-import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
-import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
 class AlertsListPage extends StatefulWidget {
@@ -20,6 +17,8 @@ class AlertsListPage extends StatefulWidget {
 }
 
 class AlertsListPageState extends State<StatefulWidget> {
+  final scafoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -28,25 +27,26 @@ class AlertsListPageState extends State<StatefulWidget> {
       ],
       builder: (context, child) {
         return Scaffold(
+          key: scafoldKey,
           drawer: DefaultDrawer(),
           appBar: defaultAppBar(
             icon: Icons.alarm,
-            title: " Alarms",
-            actions: [IconButton(icon: Icon(Icons.more_vert), onPressed: () => instance<SpeechRepository>().speak("Hello"))],
+            title: " Alerts",
+            actions: [
+              // IconButton(icon: Icon(Icons.more_vert), onPressed: () => instance<SpeechRepository>().speak("Hello")),
+              IconButton(icon: Icon(Icons.add), onPressed: () => showAlertCreatePageRoute(context)),
+            ],
           ),
           body: defaultCustomScrollView(
             context: context,
 
             /// MENU
-            menuChildren: [
-              OutlinedButton(
-                onPressed: () {
-                  final route = getAlertCreatePageRoute(context);
-                  Navigator.of(context).push(route);
-                },
-                child: Text("new alert"),
-              ),
-            ],
+            // menuChildren: [
+            //   OutlinedButton(
+            //     onPressed: () => showAlertCreatePageRoute(context),
+            //     child: Text("new alert"),
+            //   ),
+            // ],
 
             /// ITEMS
             slivers: [
@@ -79,9 +79,7 @@ class AlertsListPageState extends State<StatefulWidget> {
     final model = context.watch<AlertsListPageModel>();
 
     return DataRow(
-      onSelectChanged: (selected) {
-        Navigator.of(context).push(getAlertEditPageRoute(context, alert));
-      },
+      onSelectChanged: (selected) => showAlertEditPageRoute(context, alert),
       selected: alert.isActive,
       cells: [
         DataCell(Column(

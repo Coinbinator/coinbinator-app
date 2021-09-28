@@ -9,6 +9,11 @@ extension CommonThemeData on ThemeData {
         centerTitle: false,
       ),
 
+  sliderTheme: (sliderTheme ?? SliderThemeData()).copyWith(
+    activeTrackColor: primaryColor.withAlpha(60),
+    inactiveTrackColor: primaryColor.withAlpha(60),
+  ),
+
       /// toggleButtonsTheme
       toggleButtonsTheme: toggleButtonsTheme.copyWith(
         borderRadius: BorderRadius.all(Radius.circular(4)),

@@ -33,6 +33,7 @@ class AlertEntity {
   bool get isActive => triggerState == AlertEntityState.STATE_ACTIVE;
 
   bool testTrigger(double price) {
+    return true;
     if (price == null) return false;
     if (isBullish && price >= limitPrice) return true;
     if (isBearish && price <= limitPrice) return true;

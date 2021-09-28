@@ -1,12 +1,14 @@
 import 'dart:async';
 
+import 'package:bringtoforeground/bringtoforeground.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/database/daos/AppDao.dart';
 import 'package:le_crypto_alerts/database/app_database.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
@@ -15,6 +17,7 @@ import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
+import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/app/_alerts_app_context.dart';
@@ -22,6 +25,7 @@ import 'package:le_crypto_alerts/repositories/background_service/background_serv
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
 import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
+import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/metas/rates.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
@@ -82,6 +86,7 @@ class _AppRepository with AlertsAppContext {
       AlarmingRepository: AlarmingRepository.getPlatformRepositoryInstance(),
       BackgroundServiceRepository: BackgroundServiceRepository(),
       SpeechRepository: SpeechRepository(),
+      VibrateRepository: VibrateRepository(),
 
       /// Exchanges
       BinanceRepository: BinanceRepository(),
@@ -270,5 +275,14 @@ class _AppRepository with AlertsAppContext {
   void ready(bool value) {
     if (_ready == true) return;
     _ready = value;
+  }
+
+  void receivedActiveAlerts(List<AlertEntity> activeAlerts) async {
+    Bringtoforeground.bringAppToForeground();
+    
+
+    if (MAIN_NAVIGATOR_KEY.currentState == null) {
+      // Bringtoforeground.bringAppToForeground();
+    }
   }
 }

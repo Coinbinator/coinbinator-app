@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';

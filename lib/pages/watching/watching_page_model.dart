@@ -2,14 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/database/entities/TickerWatchEntity.dart';
+import 'package:le_crypto_alerts/database/entities/ticker_watch_entity.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
-import 'package:le_crypto_alerts/pages/watching/_add_watch_dialog.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
@@ -132,10 +131,11 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
   }
 
   Future<void> deleteSelectedTickers(BuildContext context) async {
+    //NOTE: confirmation should be on the widget state
     bool confirm = await askConfirmation(
       context,
-      title: Text("Remove pair watch?"),
-      content: Text("Remove ${selectedTickerWatches.length} pairs watches?"),
+      title: Text("Remove ${selectedTickerWatches.length} symbol from wacht list?"),
+      // content: Text("Remove ${selectedTickerWatches.length} pairs watches?"),
     );
 
     if (!confirm) {

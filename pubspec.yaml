@@ -54,6 +54,9 @@ dependencies:
   smart_select: ^4.3.2
   hsluv: ^1.1.2
   tuple: ^2.0.0
+  flutter_vibrate: ^1.1.0
+  bringtoforeground: ^0.0.2
+  system_alert_window: ^0.5.0+1
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:le_crypto_alerts/database/entities/TickerEntity.dart';
+import 'package:le_crypto_alerts/database/entities/ticker_entity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 

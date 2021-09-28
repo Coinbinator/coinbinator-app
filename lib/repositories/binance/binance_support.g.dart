@@ -13,21 +13,30 @@ BinanceTickerPrice _$BinanceTickerPriceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BinanceTickerPriceToJson(BinanceTickerPrice instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceTickerPriceToJson(BinanceTickerPrice instance) =>
+    <String, dynamic>{
       'symbol': instance.symbol,
       'price': instance.price,
     };
 
-BinanceExchangeInformation _$BinanceExchangeInformationFromJson(Map<String, dynamic> json) {
+BinanceExchangeInformation _$BinanceExchangeInformationFromJson(
+    Map<String, dynamic> json) {
   return BinanceExchangeInformation()
     ..timezone = json['timezone'] as String
     ..serverTime = json['serverTime'] as int
     ..rateLimits = json['rateLimits'] as List
     ..exchangeFilters = json['exchangeFilters'] as List
-    ..symbols = (json['symbols'] as List)?.map((e) => e == null ? null : BinanceExchangeInformationSymbol.fromJson(e as Map<String, dynamic>))?.toList();
+    ..symbols = (json['symbols'] as List)
+        ?.map((e) => e == null
+            ? null
+            : BinanceExchangeInformationSymbol.fromJson(
+                e as Map<String, dynamic>))
+        ?.toList();
 }
 
-Map<String, dynamic> _$BinanceExchangeInformationToJson(BinanceExchangeInformation instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceExchangeInformationToJson(
+        BinanceExchangeInformation instance) =>
+    <String, dynamic>{
       'timezone': instance.timezone,
       'serverTime': instance.serverTime,
       'rateLimits': instance.rateLimits,
@@ -35,7 +44,8 @@ Map<String, dynamic> _$BinanceExchangeInformationToJson(BinanceExchangeInformati
       'symbols': instance.symbols,
     };
 
-BinanceExchangeInformationSymbol _$BinanceExchangeInformationSymbolFromJson(Map<String, dynamic> json) {
+BinanceExchangeInformationSymbol _$BinanceExchangeInformationSymbolFromJson(
+    Map<String, dynamic> json) {
   return BinanceExchangeInformationSymbol()
     ..symbol = json['symbol'] as String
     ..status = json['status'] as String
@@ -46,17 +56,26 @@ BinanceExchangeInformationSymbol _$BinanceExchangeInformationSymbolFromJson(Map<
     ..quoteAssetPrecision = json['quoteAssetPrecision'] as int
     ..baseCommissionPrecision = json['baseCommissionPrecision'] as int
     ..quoteCommissionPrecision = json['quoteCommissionPrecision'] as int
-    ..orderTypes = (json['orderTypes'] as List)?.map((e) => e as String)?.toList()
+    ..orderTypes =
+        (json['orderTypes'] as List)?.map((e) => e as String)?.toList()
     ..icebergAllowed = json['icebergAllowed'] as bool
     ..ocoAllowed = json['ocoAllowed'] as bool
     ..quoteOrderQtyMarketAllowed = json['quoteOrderQtyMarketAllowed'] as bool
     ..isSpotTradingAllowed = json['isSpotTradingAllowed'] as bool
     ..isMarginTradingAllowed = json['isMarginTradingAllowed'] as bool
-    ..filters = (json['filters'] as List)?.map((e) => e == null ? null : BinanceExchangeInformationSymbolFilters.fromJson(e as Map<String, dynamic>))?.toList()
-    ..permissions = (json['permissions'] as List)?.map((e) => e as String)?.toList();
+    ..filters = (json['filters'] as List)
+        ?.map((e) => e == null
+            ? null
+            : BinanceExchangeInformationSymbolFilters.fromJson(
+                e as Map<String, dynamic>))
+        ?.toList()
+    ..permissions =
+        (json['permissions'] as List)?.map((e) => e as String)?.toList();
 }
 
-Map<String, dynamic> _$BinanceExchangeInformationSymbolToJson(BinanceExchangeInformationSymbol instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceExchangeInformationSymbolToJson(
+        BinanceExchangeInformationSymbol instance) =>
+    <String, dynamic>{
       'symbol': instance.symbol,
       'status': instance.status,
       'baseAsset': instance.baseAsset,
@@ -76,7 +95,9 @@ Map<String, dynamic> _$BinanceExchangeInformationSymbolToJson(BinanceExchangeInf
       'permissions': instance.permissions,
     };
 
-BinanceExchangeInformationSymbolFilters _$BinanceExchangeInformationSymbolFiltersFromJson(Map<String, dynamic> json) {
+BinanceExchangeInformationSymbolFilters
+    _$BinanceExchangeInformationSymbolFiltersFromJson(
+        Map<String, dynamic> json) {
   return BinanceExchangeInformationSymbolFilters()
     ..filterType = json['filterType']
     ..minPrice = json['minPrice']
@@ -95,7 +116,9 @@ BinanceExchangeInformationSymbolFilters _$BinanceExchangeInformationSymbolFilter
     ..maxNumAlgoOrders = json['maxNumAlgoOrders'];
 }
 
-Map<String, dynamic> _$BinanceExchangeInformationSymbolFiltersToJson(BinanceExchangeInformationSymbolFilters instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceExchangeInformationSymbolFiltersToJson(
+        BinanceExchangeInformationSymbolFilters instance) =>
+    <String, dynamic>{
       'filterType': instance.filterType,
       'minPrice': instance.minPrice,
       'maxPrice': instance.maxPrice,
@@ -131,7 +154,9 @@ BinanceCapitalConfig _$BinanceCapitalConfigFromJson(Map<String, dynamic> json) {
     ..networkList = json['networkList'] as List;
 }
 
-Map<String, dynamic> _$BinanceCapitalConfigToJson(BinanceCapitalConfig instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceCapitalConfigToJson(
+        BinanceCapitalConfig instance) =>
+    <String, dynamic>{
       'coin': instance.coin,
       'depositAllEnable': instance.depositAllEnable,
       'withdrawAllEnable': instance.withdrawAllEnable,
@@ -165,7 +190,8 @@ BinanceTrade _$BinanceTradeFromJson(Map<String, dynamic> json) {
     ..isBestMatch = booleanFromJson(json['isBestMatch']);
 }
 
-Map<String, dynamic> _$BinanceTradeToJson(BinanceTrade instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceTradeToJson(BinanceTrade instance) =>
+    <String, dynamic>{
       'symbol': instance.symbol,
       'id': instance.id,
       'orderId': instance.orderId,
@@ -190,7 +216,8 @@ BinanceOrder _$BinanceOrderFromJson(Map<String, dynamic> json) {
     ..price = double.tryParse(json['price'] as String)
     ..origQty = double.tryParse(json['origQty'] as String)
     ..executedQty = double.tryParse(json['executedQty'] as String)
-    ..cummulativeQuoteQty = double.tryParse(json['cummulativeQuoteQty'] as String)
+    ..cummulativeQuoteQty =
+        double.tryParse(json['cummulativeQuoteQty'] as String)
     ..status = json['status'] as String
     ..timeInForce = json['timeInForce'] as String
     ..type = json['type'] as String
@@ -203,7 +230,8 @@ BinanceOrder _$BinanceOrderFromJson(Map<String, dynamic> json) {
     ..origQuoteOrderQty = double.tryParse(json['origQuoteOrderQty'] as String);
 }
 
-Map<String, dynamic> _$BinanceOrderToJson(BinanceOrder instance) => <String, dynamic>{
+Map<String, dynamic> _$BinanceOrderToJson(BinanceOrder instance) =>
+    <String, dynamic>{
       'symbol': instance.symbol,
       'orderId': instance.orderId,
       'orderListId': instance.orderListId,

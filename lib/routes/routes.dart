@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
-import 'package:le_crypto_alerts/database/entities/AlertEntity.dart';
+import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page.dart';
@@ -36,12 +36,22 @@ Route getAlertCreatePageRoute(BuildContext context) {
     builder: (context) => AlertsCreatePage(),
   );
 
-  return DialogRoute(
+  // return DialogRoute(
+  //   context: context,
+  //   settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
+  //   useSafeArea: true,
+  //   builder: (context) => AlertsCreatePage(),
+  // );
+}
+
+Future<T> showAlertCreatePageRoute<T>(BuildContext context) {
+  return showModalBottomSheet<T>(
     context: context,
-    settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
-    useSafeArea: true,
     builder: (context) => AlertsCreatePage(),
   );
+
+  //final route = getAlertCreatePageRoute(context);
+  //Navigator.of(context).push(route);
 }
 
 Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
@@ -52,12 +62,22 @@ Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
     builder: (context) => AlertsCreatePage(alert: alert),
   );
 
-  return DialogRoute(
+  // return DialogRoute(
+  //   context: context,
+  //   settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
+  //   useSafeArea: true,
+  //   builder: (context) => AlertsCreatePage(alert: alert),
+  // );
+}
+
+Future<T> showAlertEditPageRoute<T>(BuildContext context, AlertEntity alert) {
+  return showModalBottomSheet<T>(
     context: context,
-    settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
-    useSafeArea: true,
     builder: (context) => AlertsCreatePage(alert: alert),
   );
+
+  //final route = getAlertEditPageRoute(context, alert);
+  //Navigator.of(context).push(route);
 }
 
 Route getPortifolioDetailsPageRoute(final BuildContext context, final PortfolioAccountResume portifolio) {

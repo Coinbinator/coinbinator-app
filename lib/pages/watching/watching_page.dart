@@ -83,7 +83,7 @@ class WatchingPageState extends State<WatchingPage> {
   }
 
   List<Widget> _appBarActions(BuildContext context) {
-    return null;
+    
     final model = Provider.of<WatchingPageModel>(context);
     final actions = <Widget>[];
 
@@ -107,19 +107,28 @@ class WatchingPageState extends State<WatchingPage> {
     }
 
     if (!model.selectingTickerWatches()) {
-      actions.add(PopupMenuButton(
-        initialValue: "BTC",
-        itemBuilder: (context) => [
-          // PopupMenuCustomItem(),
-        ],
-        onSelected: (value) => print(value),
-      ));
+
+      actions.add(IconButton(
+          icon: Icon(Icons.add), //Text("new watch"),
+          onPressed: () async {
+            addWatchSelectKey?.currentState?.showModal();
+          }));
+
+    //   actions.add(PopupMenuButton(
+    //     initialValue: "BTC",
+    //     itemBuilder: (context) => [
+    //       // PopupMenuCustomItem(),
+    //     ],
+    //     onSelected: (value) => print(value),
+    //   ));
     }
 
     return actions;
   }
 
   List<Widget> _buildMenuChildren(BuildContext context) {
+    return [];
+
     final model = Provider.of<WatchingPageModel>(context);
     final actions = <Widget>[];
 

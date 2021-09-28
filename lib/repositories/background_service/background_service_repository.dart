@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/desktop_background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/mobile_background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 
+/// The "foreground connectiotor" to the background.
+/// Receives the messages from background and directs to the right process
 class BackgroundServiceRepository {
   BackgroundServiceBridge _bridge;
 
@@ -28,6 +29,9 @@ class BackgroundServiceRepository {
       case MessageTypes.TICKERS:
         handleMessage__tickers(TickersMessage.fromJson(data));
         return;
+      case MessageTypes.ACTIVE_ALERTS:
+        handleMessage__activeAlerts(ActiveAlertsMessage.fromJson(data));
+        return;
     }
 
     //
@@ -43,6 +47,14 @@ class BackgroundServiceRepository {
   // ignore: non_constant_identifier_names
   void handleMessage__tickers(TickersMessage message) {
     app().updateTickers(message.tickers ?? []);
+  }
+
+  // ignore: non_constant_identifier_names
+  void handleMessage__activeAlerts(ActiveAlertsMessage message) async {
+    final alerts = await app().appDao.findAllAlerts();
+    app().receivedActiveAlerts(
+      alerts..retainWhere((element) => message.alertsIds.contains(element.id)),
+    );
   }
 
   static BackgroundServiceBridge getPlatformBackgroundServiceBridge() {
