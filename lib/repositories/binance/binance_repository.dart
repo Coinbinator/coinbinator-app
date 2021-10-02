@@ -1,19 +1,24 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_orders_resume.dart';
-import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 import 'package:le_crypto_alerts/support/abstract_exchange_repository.dart';
 import 'package:le_crypto_alerts/support/e.dart';
+import 'package:le_crypto_alerts/support/metas.dart';
 import 'package:sembast/timestamp.dart';
+import 'package:web_socket_channel/io.dart';
+
+part '_binance_websocket_mixin.dart';
 
 String _convertPairToString(Pair value) => value == null ? null : "${value.base.symbol}${value.quote.symbol}";
 
@@ -26,7 +31,14 @@ Pair _convertStringToPair(String value) {
   throw Exception('Unable to convert string ($value) to pair instance');
 }
 
-class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
+Pair _tryConvertStringToPair(String value) {
+  try {
+    return _convertStringToPair(value);
+  } catch (e) {}
+  return null;
+}
+
+class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with _BinanceWebSocket {
   int _serverTimeDelta;
 
   Timestamp _ratesUpdatedAt;
@@ -240,12 +252,6 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> {
       app().rates.updateRate(ticker.lePair.baseCoin, ticker.lePair.quoteCoin, double.tryParse(ticker.price));
     }
     _ratesUpdatedAt = Timestamp.now();
-  }
-
-  @deprecated
-  String convertPairToSymbol(Pair pair) {
-    if (pair == null) return null;
-    return pair.base.symbol + pair.quote.symbol;
   }
 
   Future<PortfolioAccountResume> getAccountPortfolioResume({BinanceAccount account}) async {

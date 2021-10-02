@@ -8,7 +8,7 @@ void main() {
   testWidgets('Tests the app_repository', (WidgetTester tester) async {
     expect(app(), app(), reason: "app() deve retornar a mesma insntancia para todas as chamadas");
 
-    await app().loadConfig();
+    await app().init();
 
     expect(app().config.test_binance_api_key, env[TEST_BINANCE_API_KEY], reason: "Binance test api key nao foi carregada corretamente");
     expect(app().config.test_binance_api_secret, env[TEST_BINANCE_API_SECRET], reason: 'Binance test api secret nao foi carregado corretamente');

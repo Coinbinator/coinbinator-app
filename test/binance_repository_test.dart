@@ -6,7 +6,7 @@ import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_support.dart';
 
 Future<void> _init() async {
-  await app().loadConfig();
+  await app().init();
 }
 
 void main() {

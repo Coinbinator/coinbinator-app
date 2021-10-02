@@ -57,6 +57,9 @@ dependencies:
   flutter_vibrate: ^1.1.0
   bringtoforeground: ^0.0.2
   system_alert_window: ^0.5.0+1
+  floating_bubbles: ^2.1.1
+  uni_links: ^0.5.1
+  web_socket_channel: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -8,7 +8,7 @@ part 'ticker.g.dart';
 @JsonSerializable()
 class Ticker {
   final Exchange exchange;
-  final Pair pair;
+  Pair pair;
   double price;
   DateTime updatedAt;
 
@@ -22,22 +22,13 @@ class Ticker {
   }) {
     assert(this.pair != null, "pair nao pode ser null");
     assert(this.price != null, "price nao pode ser null");
-    assert(this.updatedAt != null, "updatedAt nao pode ser null");
+    // assert(this.updatedAt != null, "updatedAt nao pode ser null");
+    if (this.updatedAt == null) this.updatedAt = DateTime.now();
   }
 
   Map<String, dynamic> toJson() => _$TickerToJson(this);
 
   static Ticker fromJson(json) => _$TickerFromJson(json);
-
-  //TODO: remover .toEntity() e criar/utilizar TickerEntity.from(Ticker)
-  TickerEntity toEntity() => TickerEntity(
-        key,
-        exchange.id,
-        pair.base?.symbol,
-        pair.quote?.symbol,
-        updatedAt.millisecondsSinceEpoch,
-        price,
-      );
 
   @override
   String toString() => 'Ticker($key)';

@@ -185,9 +185,9 @@ BinanceTrade _$BinanceTradeFromJson(Map<String, dynamic> json) {
     ..commission = double.tryParse(json['commission'] as String)
     ..commissionAsset = json['commissionAsset']
     ..time = json['time'] as int
-    ..isBuyer = booleanFromJson(json['isBuyer'])
-    ..isMaker = booleanFromJson(json['isMaker'])
-    ..isBestMatch = booleanFromJson(json['isBestMatch']);
+    ..isBuyer = _booleanFromJson(json['isBuyer'])
+    ..isMaker = _booleanFromJson(json['isMaker'])
+    ..isBestMatch = _booleanFromJson(json['isBestMatch']);
 }
 
 Map<String, dynamic> _$BinanceTradeToJson(BinanceTrade instance) =>
@@ -250,4 +250,76 @@ Map<String, dynamic> _$BinanceOrderToJson(BinanceOrder instance) =>
       'updateTime': instance.updateTime,
       'isWorking': instance.isWorking,
       'origQuoteOrderQty': instance.origQuoteOrderQty,
+    };
+
+BinanceWs24hrTicker _$BinanceWs24hrTickerFromJson(Map<String, dynamic> json) {
+  return BinanceWs24hrTicker()
+    ..eventType = json['e']
+    ..eventTime = json['E']
+    ..symbol = _pairFromJson(json['s'] as String)
+    ..pricechange = json['p']
+    ..priceChangePercent = json['P']
+    ..weightedAveragePrice = json['w']
+    ..firstTrade = json['x']
+    ..lastPrice = json['c']
+    ..lastQuantity = json['Q']
+    ..bestBidPrice = json['b']
+    ..bestBidQuantity = json['B']
+    ..bestAskPrice = json['a']
+    ..bestAskQuantity = json['A']
+    ..openPrice = json['o']
+    ..highPrice = json['h']
+    ..lowPrice = json['l']
+    ..totalTradedBaseAssetVolume = json['v']
+    ..totalTradedQuoteAssetBolume = json['q']
+    ..statisticsOpenTime = json['O']
+    ..statisticsCloseTime = json['C']
+    ..firstTradeId = json['F']
+    ..lastTradeId = json['L']
+    ..totalNumberOfTrades = json['n'];
+}
+
+Map<String, dynamic> _$BinanceWs24hrTickerToJson(
+        BinanceWs24hrTicker instance) =>
+    <String, dynamic>{
+      'e': instance.eventType,
+      'E': instance.eventTime,
+      's': instance.symbol,
+      'p': instance.pricechange,
+      'P': instance.priceChangePercent,
+      'w': instance.weightedAveragePrice,
+      'x': instance.firstTrade,
+      'c': instance.lastPrice,
+      'Q': instance.lastQuantity,
+      'b': instance.bestBidPrice,
+      'B': instance.bestBidQuantity,
+      'a': instance.bestAskPrice,
+      'A': instance.bestAskQuantity,
+      'o': instance.openPrice,
+      'h': instance.highPrice,
+      'l': instance.lowPrice,
+      'v': instance.totalTradedBaseAssetVolume,
+      'q': instance.totalTradedQuoteAssetBolume,
+      'O': instance.statisticsOpenTime,
+      'C': instance.statisticsCloseTime,
+      'F': instance.firstTradeId,
+      'L': instance.lastTradeId,
+      'n': instance.totalNumberOfTrades,
+    };
+
+BinanceWsNormalTicker _$BinanceWsNormalTickerFromJson(
+    Map<String, dynamic> json) {
+  return BinanceWsNormalTicker(
+    pair: _pairFromJson(json['s'] as String),
+    price: double.tryParse(json['c'] as String),
+    updatedAt: json['updatedAt'],
+  );
+}
+
+Map<String, dynamic> _$BinanceWsNormalTickerToJson(
+        BinanceWsNormalTicker instance) =>
+    <String, dynamic>{
+      'updatedAt': instance.updatedAt?.toIso8601String(),
+      's': instance.pair,
+      'c': instance.price,
     };

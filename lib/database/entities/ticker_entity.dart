@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+import 'package:le_crypto_alerts/metas/ticker.dart';
 
 @Entity(tableName: 'tickers')
 class TickerEntity {
@@ -23,4 +24,15 @@ class TickerEntity {
     this.updatedAt,
     this.price,
   );
+
+  factory TickerEntity.fromTicker(Ticker ticker) => ticker == null
+      ? null
+      : TickerEntity(
+          ticker.key,
+          ticker.exchange.id,
+          ticker.pair.base?.symbol,
+          ticker.pair.quote?.symbol,
+          ticker.updatedAt.millisecondsSinceEpoch,
+          ticker.price,
+        );
 }

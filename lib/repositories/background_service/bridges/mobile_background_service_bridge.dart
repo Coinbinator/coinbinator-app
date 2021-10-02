@@ -69,7 +69,7 @@ class MobileBackgroundServiceBridge extends BackgroundServiceBridge {
       sendData({"type": MessageTypes.PONG});
     }
 
-    app().instance<BackgroundServiceRepository>().handleMessage(event);
+    // app().instance<BackgroundServiceRepository>().handleMessage(event);
   }
 
   void onDataReceivedFromApplication(Map<String, dynamic> event) {
@@ -89,7 +89,7 @@ void flutterBackgroundService__onStart() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   print('app loading config');
-  await app().loadConfig();
+  await app().init();
 
   print('creating service bridge');
   final bridge = MobileBackgroundServiceBridge(scope: BackgroundServiceBridgeScope.SERVICE);

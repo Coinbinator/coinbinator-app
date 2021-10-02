@@ -17,11 +17,9 @@ import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
-import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
+import 'package:le_crypto_alerts/pages/splash/splash_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
-import 'package:le_crypto_alerts/repositories/app/_alerts_app_context.dart';
-import 'package:le_crypto_alerts/repositories/background_service/background_service_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
 import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
@@ -29,19 +27,14 @@ import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/metas/rates.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
+import 'package:provider/provider.dart';
 
-part '_support.dart';
+part '_app_repository_support.dart';
 
-_AppRepository app() {
-  return _AppRepository._instance;
-}
-
-T instance<T>() => _AppRepository._instance._singletons[T];
-
-class _AppRepository with AlertsAppContext {
+class _AppRepository {
   static final _instance = _AppRepository();
 
-  bool _configLoaded = false;
+  _AppRepositoryState _state = _AppRepositoryState.UNINITIALIZED;
 
   final config = _AppConfig();
 
@@ -49,9 +42,7 @@ class _AppRepository with AlertsAppContext {
 
   AppDatabase _persistence;
 
-  bool _ready = false;
-
-  bool get isReady => _ready;
+  bool get isReady => _state == _AppRepositoryState.INITIALIZED;
 
   AppDatabase get persistence => _persistence;
 
@@ -66,6 +57,8 @@ class _AppRepository with AlertsAppContext {
   List<AbstractAppTickerListener> get tickerListeners => _tickerListeners;
 
   final rates = Rates();
+
+  DateTime updateAlertsStateAt = DateTime.now();
 
   // alert entity stream
   Stream<List<AlertEntity>> alertsStream;
@@ -84,7 +77,7 @@ class _AppRepository with AlertsAppContext {
     this._singletons.addAll({
       /// CORE
       AlarmingRepository: AlarmingRepository.getPlatformRepositoryInstance(),
-      BackgroundServiceRepository: BackgroundServiceRepository(),
+      // BackgroundServiceRepository: BackgroundServiceRepository(), //TODO: background processes needs an entire review
       SpeechRepository: SpeechRepository(),
       VibrateRepository: VibrateRepository(),
 
@@ -100,37 +93,53 @@ class _AppRepository with AlertsAppContext {
     return _singletons[T];
   }
 
-  Future<void> loadConfig() async {
-    if (_configLoaded) return;
-    _configLoaded = true;
+  Future<void> init() async {
+    if (_state != _AppRepositoryState.UNINITIALIZED) return;
+    _state = _AppRepositoryState.INITIALIZING;
 
-    await DotEnv.load(fileName: ".env");
+    /// shorhand para atualizacao das mensagens do Splash
+    _say(String message) => MAIN_APP_WIDGET?.currentContext?.read<SplashModel>()?.setInitializetionMessage(message);
 
-    // building database
-    _persistence = await AppDatabase.build();
+    try {
+      _say("Loading configurations...");
+      await DotEnv.load(fileName: ".env");
 
-    // creating global listeners
-    alertsStream = appDao.findAllAlertsAsStream();
-    alertsStreamSubscription = alertsStream.listen((event) {
-      setAlerts(event);
-    });
-    setAlerts(await alertsStream.first);
+      // building database
+      _persistence = await AppDatabase.build();
 
-    // debug accounts
-    config.test_binance_api_key = env[TEST_BINANCE_API_KEY];
-    config.test_binance_api_secret = env[TEST_BINANCE_API_SECRET];
-    assert(config.test_binance_api_key != null);
-    assert(config.test_binance_api_secret != null);
+      // creating global listeners
+      alertsStream = appDao.findAllAlertsAsStream();
+      alertsStreamSubscription = alertsStream.listen((event) {
+        setAlerts(event);
+      });
+      setAlerts(await alertsStream.first);
 
-    config.test_mercado_bitcoin_tapi_id = env[TEST_MERCADO_BITCOIN_TAPI_ID];
-    config.test_mercado_bitcoin_tapi_secret = env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
-    assert(config.test_mercado_bitcoin_tapi_id != null);
-    assert(config.test_mercado_bitcoin_tapi_secret != null);
+      //SSOCKET LISTENERS
+      instance<BinanceRepository>().listenToNormalTickers(_onNormalTickerListener);
+
+      // debug accounts
+      config.test_binance_api_key = env[TEST_BINANCE_API_KEY];
+      config.test_binance_api_secret = env[TEST_BINANCE_API_SECRET];
+      assert(config.test_binance_api_key != null);
+      assert(config.test_binance_api_secret != null);
+
+      config.test_mercado_bitcoin_tapi_id = env[TEST_MERCADO_BITCOIN_TAPI_ID];
+      config.test_mercado_bitcoin_tapi_secret = env[TEST_MERCADO_BITCOIN_TAPI_SECRET];
+      assert(config.test_mercado_bitcoin_tapi_id != null);
+      assert(config.test_mercado_bitcoin_tapi_secret != null);
+
+      _say("Starting internal objects...");
+      // await instance<AlarmingRepository>().initialize();
+      // await instance<BackgroundServiceRepository>().initialize();
+
+    } catch (e) {
+      debugPrint("Error trying to initialize app repository");
+      throw e;
+    }
+
+    _state = _AppRepositoryState.INITIALIZED;
+    _say("Complete.");
   }
-
-  /// ACCOUNTS
-  /// ACCOUNTS
-  /// ACCOUNTS
 
   Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
@@ -165,20 +174,18 @@ class _AppRepository with AlertsAppContext {
 
   getAccountPortfolioTransactions(AbstractExchangeAccount account) async {}
 
-  /// ALERTS
-  /// ALERTS
-  /// ALERTS
+  Future<int> persistAlertEntity(AlertEntity alert) async {
+    if (alert == null) return 0;
 
-  persistAlertEntity(AlertEntity alert) async {
-    if (alert == null) return;
     if (alert.id == null || alert.id <= 0) {
       return await app().appDao.insertAlert(alert);
     }
+
     return await app().appDao.updateAlert(alert);
   }
 
-  removeAlertEntity(AlertEntity alert) async {
-    if (alert == null) return;
+  Future<int> removeAlertEntity(AlertEntity alert) async {
+    if (alert == null) return 0;
     return await app().appDao.deleteAlert(alert);
   }
 
@@ -187,9 +194,7 @@ class _AppRepository with AlertsAppContext {
     this.alerts = value;
   }
 
-  DateTime updateAlertsStateAt = DateTime.now();
-
-  updateAlertsState() async {
+  Future<void> updateAlertsState() async {
     //TODO: refactor to be a throttled function and not a IS/ISNOT thing
     final now = DateTime.now();
     if (now.difference(updateAlertsStateAt).inSeconds < 5) return;
@@ -236,10 +241,6 @@ class _AppRepository with AlertsAppContext {
     }
   }
 
-  /// TICKERS
-  /// TICKERS
-  /// TICKERS
-
   bool updateTickers(Iterable<Ticker> newTickers) {
     debugPrint("Updating ${newTickers.length} tickers");
 
@@ -247,6 +248,7 @@ class _AppRepository with AlertsAppContext {
     for (final ticker in newTickers) {
       anyTickerChanged = updateTicker(ticker) || anyTickerChanged;
     }
+
     if (anyTickerChanged) updateAlertsState();
     return anyTickerChanged;
   }
@@ -272,14 +274,13 @@ class _AppRepository with AlertsAppContext {
     return tickerChanged;
   }
 
-  void ready(bool value) {
-    if (_ready == true) return;
-    _ready = value;
+  void _onNormalTickerListener(List<Ticker> tickers) {
+    updateTickers(tickers);
   }
 
+  @deprecated
   void receivedActiveAlerts(List<AlertEntity> activeAlerts) async {
     Bringtoforeground.bringAppToForeground();
-    
 
     if (MAIN_NAVIGATOR_KEY.currentState == null) {
       // Bringtoforeground.bringAppToForeground();
