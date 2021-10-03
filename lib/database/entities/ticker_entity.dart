@@ -33,6 +33,6 @@ class TickerEntity {
           ticker.pair.base?.symbol,
           ticker.pair.quote?.symbol,
           ticker.updatedAt.millisecondsSinceEpoch,
-          ticker.price,
+          ticker.closePrice,
         );
 }

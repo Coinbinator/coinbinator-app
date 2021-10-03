@@ -96,7 +96,7 @@ final _routesInfos = [
   ),
   _RouteInfo(
     routeName: ROUTE_PORTFOLIO,
-    routeBuilder: getPortifolioListPageRoute,
+    routeBuilder: getPortfolioListPageRoute,
     label: "My Portfolios",
     icon: Icon(Icons.account_balance_wallet),
   ),

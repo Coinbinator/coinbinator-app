@@ -57,8 +57,8 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
     notifyListeners();
   }
 
-  Iterable<PortfolioAccountResumeAsset> getPortifolioMainAssets() {
-    //NOTE: no portifolio or assets available
+  Iterable<PortfolioAccountResumeAsset> getPortfolioMainAssets() {
+    //NOTE: no portfolio or assets available
     if (portfolioResume == null || portfolioResume.coins == null) return [];
 
     return portfolioResume.coins.where((asset) {
@@ -68,8 +68,8 @@ class PortfolioDetailsModel extends ChangeNotifier with ModelUtilMixin {
     });
   }
 
-  Iterable<PortfolioAccountResumeAsset> getPortifolioSubAssets() {
-    //NOTE: no portifolio or assets available
+  Iterable<PortfolioAccountResumeAsset> getPortfolioSubAssets() {
+    //NOTE: no portfolio or assets available
     if (portfolioResume == null || portfolioResume.coins == null) return [];
 
     return portfolioResume.coins.where((asset) {

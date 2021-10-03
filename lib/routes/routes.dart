@@ -23,7 +23,7 @@ Route getAlertListPageRoute() {
   );
 }
 
-Route getPortifolioListPageRoute() {
+Route getPortfolioListPageRoute() {
   return MaterialPageRoute(
     settings: RouteSettings(name: ROUTE_PORTFOLIO),
     builder: (context) => PortfolioPage(),
@@ -80,17 +80,17 @@ Future<T> showAlertEditPageRoute<T>(BuildContext context, AlertEntity alert) {
   //Navigator.of(context).push(route);
 }
 
-Route getPortifolioDetailsPageRoute(final BuildContext context, final PortfolioAccountResume portifolio) {
+Route getPortfolioDetailsPageRoute(final BuildContext context, final PortfolioAccountResume portfolio) {
   assert(context != null);
-  assert(portifolio != null);
+  assert(portfolio != null);
 
   return MaterialPageRoute(
     settings: RouteSettings(
       name: ROUTE_PORTFOLIO_DETAILS,
-      arguments: PortfolioDetailsRouteArguments(portifolio.account.id),
+      arguments: PortfolioDetailsRouteArguments(portfolio.account.id),
     ),
     builder: (BuildContext context) => PortfolioDetailsPage(
-      accountId: portifolio.account.id,
+      accountId: portfolio.account.id,
       // accountId: Navigator.of(context) args?.portfolioId,
     ),
   );

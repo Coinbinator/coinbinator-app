@@ -46,7 +46,7 @@ mixin _BinanceWebSocket {
         continue;
       }
 
-      _normalTickers[pair].price = ticker.price;
+      _normalTickers[pair].closePrice = ticker.closePrice;
     }
   }
 

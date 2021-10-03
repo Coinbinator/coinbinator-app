@@ -45,8 +45,8 @@ class AlertsCreatePageModel extends ChangeNotifier {
   double get limitPriceVariation {
     if (limitPrice == 0) return 0;
     final variation = limitPrice / _currentPriceNotZero;
-    if( variation > limitPriceVariationMax)  return limitPriceVariationMax;
-    if( variation < limitPriceVariationMin)  return limitPriceVariationMin;
+    if (variation > limitPriceVariationMax) return limitPriceVariationMax;
+    if (variation < limitPriceVariationMin) return limitPriceVariationMin;
     return variation;
   }
 
@@ -102,8 +102,8 @@ class AlertsCreatePageModel extends ChangeNotifier {
 
     final ticker = app().tickers.getTicker(Exchanges.Binance, Pairs.getPair2(value.symbol, CoinsEx.USD_ALIASES));
 
-    selectedCoinCurrentPrice = ticker?.price ?? -1;
-    limitPrice = ticker?.price ?? _currentPriceNotZero;
+    selectedCoinCurrentPrice = ticker?.closePrice ?? -1;
+    limitPrice = ticker?.closePrice ?? _currentPriceNotZero;
 
     notifyListeners();
   }

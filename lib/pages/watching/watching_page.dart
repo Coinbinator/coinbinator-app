@@ -223,7 +223,7 @@ class WatchingPageState extends State<WatchingPage> {
                   if (ticker != null) ...[
                     RichText(
                       // text: TextSpan(style: style1, text: "${E.currency(ticker.price, decimalDigits: 2, symbol: 'USD', name: 'Dolar', locale: 'en_us')}"),
-                      text: TextSpan(style: style1, text: "${E.currency(ticker.price, symbol: "")}"),
+                      text: TextSpan(style: style1, text: "${E.currency(ticker.closePrice, symbol: "")}"),
                     ),
                     RichText(
                       // text: TextSpan(style: stylePositive, text: '"+1.4% 24h" ${ticker.date}'),

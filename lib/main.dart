@@ -17,7 +17,8 @@ Future<void> main() async {
     await app().init();
 
     if (MAIN_NAVIGATOR_KEY.currentState != null) {
-      MAIN_NAVIGATOR_KEY.currentState.pushReplacement(getWatchingPageRoute());
+      // MAIN_NAVIGATOR_KEY.currentState.pushReplacement(getWatchingPageRoute());
+      MAIN_NAVIGATOR_KEY.currentState.pushReplacement(getPortfolioListPageRoute());
     }
   });
 }

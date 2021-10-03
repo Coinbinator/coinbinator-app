@@ -159,11 +159,11 @@ class BackgroundServiceManager {
 
         if (staticTicker == null) continue;
 
-        staticTicker.price = double.tryParse(exchangeTicker.price);
+        staticTicker.closePrice = double.tryParse(exchangeTicker.price);
         staticTicker.updatedAt = DateTime.now();
 
         tickers.add(staticTicker);
-        binanceCurrentPrices[exchangeTicker.lePair] = staticTicker.price;
+        binanceCurrentPrices[exchangeTicker.lePair] = staticTicker.closePrice;
       }
 
       if (tickers.isNotEmpty) {
@@ -194,10 +194,10 @@ class BackgroundServiceManager {
 
         // print("checking $alert");
 
-        if (alert.testTrigger(ticker.price)) {
+        if (alert.testTrigger(ticker.closePrice)) {
           activeAlerts.add(AlertTriggerInfo(
             alert: alert,
-            price: ticker.price,
+            price: ticker.closePrice,
           ));
         }
       }

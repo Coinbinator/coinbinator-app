@@ -185,9 +185,9 @@ BinanceTrade _$BinanceTradeFromJson(Map<String, dynamic> json) {
     ..commission = double.tryParse(json['commission'] as String)
     ..commissionAsset = json['commissionAsset']
     ..time = json['time'] as int
-    ..isBuyer = _booleanFromJson(json['isBuyer'])
-    ..isMaker = _booleanFromJson(json['isMaker'])
-    ..isBestMatch = _booleanFromJson(json['isBestMatch']);
+    ..isBuyer = BinanceUtils.booleanFromJson(json['isBuyer'])
+    ..isMaker = BinanceUtils.booleanFromJson(json['isMaker'])
+    ..isBestMatch = BinanceUtils.booleanFromJson(json['isBestMatch']);
 }
 
 Map<String, dynamic> _$BinanceTradeToJson(BinanceTrade instance) =>
@@ -256,7 +256,7 @@ BinanceWs24hrTicker _$BinanceWs24hrTickerFromJson(Map<String, dynamic> json) {
   return BinanceWs24hrTicker()
     ..eventType = json['e']
     ..eventTime = json['E']
-    ..symbol = _pairFromJson(json['s'] as String)
+    ..symbol = BinanceUtils.pairFromJson(json['s'] as String)
     ..pricechange = json['p']
     ..priceChangePercent = json['P']
     ..weightedAveragePrice = json['w']
@@ -310,10 +310,13 @@ Map<String, dynamic> _$BinanceWs24hrTickerToJson(
 BinanceWsNormalTicker _$BinanceWsNormalTickerFromJson(
     Map<String, dynamic> json) {
   return BinanceWsNormalTicker(
-    pair: _pairFromJson(json['s'] as String),
-    price: double.tryParse(json['c'] as String),
+    pair: BinanceUtils.pairFromJson(json['s'] as String),
+    closePrice: double.tryParse(json['c'] as String),
     updatedAt: json['updatedAt'],
-  );
+  )
+    ..openPrice = double.tryParse(json['o'] as String)
+    ..lowPrice = double.tryParse(json['l'] as String)
+    ..highPrice = double.tryParse(json['h'] as String);
 }
 
 Map<String, dynamic> _$BinanceWsNormalTickerToJson(
@@ -321,5 +324,8 @@ Map<String, dynamic> _$BinanceWsNormalTickerToJson(
     <String, dynamic>{
       'updatedAt': instance.updatedAt?.toIso8601String(),
       's': instance.pair,
-      'c': instance.price,
+      'o': instance.openPrice,
+      'c': instance.closePrice,
+      'l': instance.lowPrice,
+      'h': instance.highPrice,
     };

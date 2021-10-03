@@ -1,3 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PortfolioModel extends ChangeNotifier {}
+class PortfolioModel extends ChangeNotifier {
+
+
+
+}

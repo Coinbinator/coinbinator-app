@@ -80,6 +80,7 @@ class AlertsListPageState extends State<StatefulWidget> {
 
     return DataRow(
       onSelectChanged: (selected) => showAlertEditPageRoute(context, alert),
+      
       selected: alert.isActive,
       cells: [
         DataCell(Column(
@@ -108,14 +109,15 @@ class AlertsListPageState extends State<StatefulWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("l: " + E.currencyAlt(alert.limitPrice)),
-                Text(
-                  E.amountVariationResume(
-                    prefix: 'c:',
-                    amount: model.coinsCurrentPrices[alert.coin],
-                    base: alert.limitPrice,
+                if (model.coinCurrentTickers != null)
+                  Text(
+                    E.amountVariationResume(
+                      prefix: 'c:',
+                      amount: model.coinCurrentTickers[alert.coin].closePrice,
+                      base: model.coinCurrentTickers[alert.coin].openPrice,
+                    ),
+                    maxLines: 1,
                   ),
-                  maxLines: 1,
-                ),
               ],
             ),
           ],

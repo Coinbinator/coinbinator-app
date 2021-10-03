@@ -14,16 +14,22 @@ Ticker _$TickerFromJson(Map<String, dynamic> json) {
     pair: json['pair'] == null
         ? null
         : Pair.fromJson(json['pair'] as Map<String, dynamic>),
-    price: (json['price'] as num)?.toDouble(),
+    closePrice: (json['closePrice'] as num)?.toDouble(),
     updatedAt: json['updatedAt'] == null
         ? null
         : DateTime.parse(json['updatedAt'] as String),
-  );
+  )
+    ..openPrice = (json['openPrice'] as num)?.toDouble()
+    ..lowPrice = (json['lowPrice'] as num)?.toDouble()
+    ..highPrice = (json['highPrice'] as num)?.toDouble();
 }
 
 Map<String, dynamic> _$TickerToJson(Ticker instance) => <String, dynamic>{
       'exchange': instance.exchange,
       'pair': instance.pair,
-      'price': instance.price,
+      'openPrice': instance.openPrice,
+      'closePrice': instance.closePrice,
+      'lowPrice': instance.lowPrice,
+      'highPrice': instance.highPrice,
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };

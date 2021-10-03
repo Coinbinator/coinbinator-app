@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/coin.dart';
-import 'package:le_crypto_alerts/metas/exchange.dart';
-import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
@@ -20,11 +18,12 @@ class AlertsListPageModel extends ChangeNotifier with ModelUtilMixin, AbstractAp
   List<AlertEntity> alerts = [];
 
   ///
-  Set<Coin> alertsCoins = {};
+  Set<Coin> coinsOnAlerts = {};
 
   ///
-  Map<Coin, double> coinsCurrentPrices = {};
+  Map<Coin, Ticker> coinCurrentTickers = {};
 
+  ///
   Set<AlertEntity> selectedAlerts = {};
 
   init() async {
@@ -50,8 +49,8 @@ class AlertsListPageModel extends ChangeNotifier with ModelUtilMixin, AbstractAp
     alertsStreamSubscription?.cancel();
     alertsStreamSubscription = null;
     alerts = null;
-    alertsCoins = null;
-    coinsCurrentPrices = null;
+    coinsOnAlerts = null;
+    coinCurrentTickers = null;
     selectedAlerts = null;
     super.dispose();
   }
@@ -59,12 +58,12 @@ class AlertsListPageModel extends ChangeNotifier with ModelUtilMixin, AbstractAp
   setAlerts(List<AlertEntity> newAlerts) {
     this.alerts = newAlerts;
 
-    alertsCoins.clear();
-    coinsCurrentPrices.clear();
+    coinsOnAlerts.clear();
+    coinCurrentTickers.clear();
 
     for (final alert in newAlerts) {
-      alertsCoins.add(alert.coin);
-      coinsCurrentPrices[alert.coin] = app().tickers.getTicker(Exchanges.Binance, Pairs.getPair2(alert.coin, CoinsEx.USD_ALIASES))?.price ?? null;
+      coinsOnAlerts.add(alert.coin);
+      coinCurrentTickers[alert.coin] = Ticker.fromTicker(app().tickers.getTickerForAlertEntity(alert));
     }
 
     notifyListeners();
@@ -75,13 +74,18 @@ class AlertsListPageModel extends ChangeNotifier with ModelUtilMixin, AbstractAp
   }
 
   @override
-  FutureOr<void> onTicker(Ticker ticker) async {
-    if (ticker == null) return;
-    if (!ticker.pair.quoteCoin.isUSD) return;
-    if (!alertsCoins.contains(ticker.pair.baseCoin)) return;
+  FutureOr<void> onTickers(List<Ticker> tickers) async {
+    bool dirty = false;
 
-    coinsCurrentPrices[ticker.pair.baseCoin] = ticker.price;
-    notifyListeners();
+    for (final ticker in tickers) {
+      if (ticker == null) continue;
+      if (!ticker.pair.quoteCoin.isUSD) continue;
+      if (!coinsOnAlerts.contains(ticker.pair.baseCoin)) continue;
+
+      dirty = true;
+    }
+
+    if (dirty) notifyListeners();
   }
 
   @override

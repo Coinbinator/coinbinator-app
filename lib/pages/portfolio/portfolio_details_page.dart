@@ -6,16 +6,21 @@ import 'package:le_crypto_alerts/support/e.dart';
 import 'package:le_crypto_alerts/support/utils.dart';
 import 'package:provider/provider.dart';
 
-class PortfolioDetailsPage extends StatelessWidget {
+class PortfolioDetailsPage extends StatefulWidget {
   final int accountId;
 
   PortfolioDetailsPage({Key key, this.accountId}) : super(key: key);
 
   @override
+  State<StatefulWidget> createState() => PortfolioDetailsPageState();
+}
+
+class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
+  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => PortfolioDetailsModel(context, accountId)..init()),
+        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => PortfolioDetailsModel(context, widget.accountId)..init()),
       ],
       builder: (context, child) {
         final model = context.watch<PortfolioDetailsModel>();
@@ -32,6 +37,7 @@ class PortfolioDetailsPage extends StatelessWidget {
                 //     " accounts: ${portfolioModel.portfolioResumes.length}"
                 //     ""),
                 _buildPortfolioHoldingsResume(context),
+
                 ...model.when(
 
                     ///
@@ -44,45 +50,58 @@ class PortfolioDetailsPage extends StatelessWidget {
 
                     ///
                     ready: () => [
-                          Card(
-                            child: Column(
-                              children: [
-                                ///
-                                IgnorePointer(
-                                  child: DataTable(
-                                      dividerThickness: 0,
-                                      horizontalMargin: 4,
-                                      showCheckboxColumn: false,
-                                      columns: _buildPortfolioDataTableColumns(context),
-                                      rows: [
-                                        for (final asset in model.getPortifolioMainAssets()) ...[
-                                          _buildPortfolioDataRow(context, asset),
-                                        ],
-                                      ]),
-                                ),
+                          ///
+                          for (final asset in model.getPortfolioMainAssets()) ...[
+                            _buildPortfolioAsseetCard(context, asset),
+                          ],
 
-                                ///
-                                _buildToggleSubAssets(context),
+                          _buildToggleSubAssets(context),
 
-                                ///
-                                if (model.displaySubAssets)
-                                  IgnorePointer(
-                                    child: DataTable(
-                                        dividerThickness: 0,
-                                        horizontalMargin: 4,
-                                        //NOTE: we will hide this table header
-                                        headingRowHeight: 0,
-                                        showCheckboxColumn: false,
-                                        columns: _buildPortfolioDataTableColumns(context),
-                                        rows: [
-                                          for (final asset in model.getPortifolioSubAssets()) ...[
-                                            _buildPortfolioDataRow(context, asset),
-                                          ],
-                                        ]),
-                                  ),
-                              ],
-                            ),
-                          )
+                          if (model.displaySubAssets)
+                            for (final asset in model.getPortfolioSubAssets()) ...[
+                              _buildPortfolioAsseetCard(context, asset),
+                            ],
+
+                          ///
+                          // Card(
+                          //   child: Column(
+                          //     children: [
+                          //       ///
+                          //       IgnorePointer(
+                          //         child: DataTable(
+                          //             dividerThickness: 0,
+                          //             horizontalMargin: 4,
+                          //             showCheckboxColumn: false,
+                          //             columns: _buildPortfolioDataTableColumns(context),
+                          //             rows: [
+                          //               for (final asset in model.getPortfolioMainAssets()) ...[
+                          //                 _buildPortfolioDataRow(context, asset),
+                          //               ],
+                          //             ]),
+                          //       ),
+
+                          //       ///
+                          //       _buildToggleSubAssets(context),
+
+                          //       ///
+                          //       if (model.displaySubAssets)
+                          //         IgnorePointer(
+                          //           child: DataTable(
+                          //               dividerThickness: 0,
+                          //               horizontalMargin: 4,
+                          //               //NOTE: we will hide this table header
+                          //               headingRowHeight: 0,
+                          //               showCheckboxColumn: false,
+                          //               columns: _buildPortfolioDataTableColumns(context),
+                          //               rows: [
+                          //                 for (final asset in model.getPortfolioSubAssets()) ...[
+                          //                   _buildPortfolioDataRow(context, asset),
+                          //                 ],
+                          //               ]),
+                          //         ),
+                          //     ],
+                          //   ),
+                          // )
                         ]),
               ],
             ),
@@ -131,6 +150,87 @@ class PortfolioDetailsPage extends StatelessWidget {
     );
   }
 
+  Widget _buildEmptyPortfolio(BuildContext context) {
+    return Container(
+      child: Expanded(
+        child: Column(
+          // mainAxisSize: MainAxisSize.max,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Portfolio has no assets!"),
+            // ElevatedButton(onPressed: () => {}, child: Text("Add new account")),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPortfolioAsseetCard(BuildContext context, PortfolioAccountResumeAsset asset) {
+    final model = context.read<PortfolioDetailsModel>();
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(asset.coin.symbol, style: Theme.of(context).textTheme.headline6),
+            ),
+            // Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// EXCHANGE
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Text(portfolio.displayName, style: LeColors.t18m),
+                    Text('${asset.amount} ${asset.coin.symbol}', style: LeColors.t12m)
+                  ],
+                ),
+
+                /// VALUE
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  // alignment: Alignment.centerRight,
+                  children: [
+                    SelectableText(E.currency(asset.usdRate), maxLines: 1, style: LeColors.t18m),
+                    SelectableText(
+                      "${E.percentage(asset.usdRate / model.portfolioResume.totalUsd)} of portfolio",
+                      maxLines: 1,
+                      style: LeColors.t12m,
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildToggleSubAssets(BuildContext context) {
+    final model = context.watch<PortfolioDetailsModel>();
+
+    ///NOTE: no sub assets to be showun
+    if (model.getPortfolioSubAssets().isEmpty && !model.displaySubAssets) {
+      return Container();
+    }
+
+    return TextButton(
+      onPressed: () => model.toggleDisplaySubAssets(),
+      child: value(() {
+        if (model.displaySubAssets) return Text("hide sub assets");
+        return Text("show ${model.getPortfolioSubAssets().length} sub assets");
+      }),
+    );
+  }
+
+  @deprecated
   List<DataColumn> _buildPortfolioDataTableColumns(BuildContext context) {
     return [
       DataColumn(
@@ -143,12 +243,13 @@ class PortfolioDetailsPage extends StatelessWidget {
     ];
   }
 
+  @deprecated
   DataRow _buildPortfolioDataRow(BuildContext context, PortfolioAccountResumeAsset asset) {
     return DataRow(selected: false,
         // onSelectChanged: (selected) {
         //   // if (selected)
         //   //   Navigator.of(context)
-        //   //       .push(portifolioDetailsPageRoute(context, portfolio));
+        //   //       .push(portfolioDetailsPageRoute(context, portfolio));
         // },
         cells: [
           /// SYMBOL
@@ -171,38 +272,5 @@ class PortfolioDetailsPage extends StatelessWidget {
             ),
           )),
         ]);
-  }
-
-  Widget _buildEmptyPortfolio(BuildContext context) {
-    return Container(
-      child: Expanded(
-        child: Column(
-          // mainAxisSize: MainAxisSize.max,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Portifolio has no assets!"),
-            // ElevatedButton(onPressed: () => {}, child: Text("Add new account")),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildToggleSubAssets(BuildContext context) {
-    final model = context.watch<PortfolioDetailsModel>();
-
-    ///NOTE: no sub assets to be showun
-    if (model.getPortifolioSubAssets().isEmpty && !model.displaySubAssets) {
-      return Container();
-    }
-
-    return TextButton(
-      onPressed: () => model.toggleDisplaySubAssets(),
-      child: value(() {
-        if (model.displaySubAssets) return Text("hide sub assets");
-        return Text("show ${model.getPortifolioSubAssets().length} sub assets");
-      }),
-    );
   }
 }

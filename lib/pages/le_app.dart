@@ -4,8 +4,11 @@ import 'package:le_crypto_alerts/pages/alerts/alerts_list_page_model.dart';
 import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/pages/splash/splash_model.dart';
 import 'package:le_crypto_alerts/pages/splash/splash_page.dart';
+import 'package:le_crypto_alerts/support/leapp_navigator_observer.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
+final leAppRouteObserver = LeAppNavigatorObserver();
 
 class LeApp extends StatefulWidget with RouteAware {
   @override
@@ -13,7 +16,6 @@ class LeApp extends StatefulWidget with RouteAware {
 }
 
 class LeAppState extends State<LeApp> {
-  
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -30,6 +32,7 @@ class LeAppState extends State<LeApp> {
                     key: MAIN_APP_WIDGET,
                     title: 'Le Crypto Alerts',
                     navigatorKey: MAIN_NAVIGATOR_KEY,
+                    navigatorObservers: [leAppRouteObserver],
                     theme: Provider.of<LeAppModel>(context).themeData,
                     // initialRoute: ROUTE_ROOT,
                     onGenerateInitialRoutes: _onGenerateInitialRoutes,

@@ -11,6 +11,7 @@ import 'package:le_crypto_alerts/metas/ticker_watch.dart';
 import 'package:le_crypto_alerts/pages/_common/confirm_dialog.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
+import 'package:le_crypto_alerts/support/flutter/dart_utils.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 
 class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
@@ -42,10 +43,10 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
     app().tickerListeners.add(this);
 
     for (final tickerWatchEntity in await app().appDao.findAllTickerWatches()) {
-      watchingTickers.add(TickerWatch(
-        exchange: Exchange(tickerWatchEntity.exchange),
-        pair: Pairs.getPair2(tickerWatchEntity.base, tickerWatchEntity.quote),
-      ));
+      final tickerWatch = TickerWatch.fromTickerWatchEntity(tickerWatchEntity);
+      watchingTickers.add(tickerWatch);
+      watchingTickerTickers[tickerWatch] = Ticker.fromTickerWatch(tickerWatch);
+      watchingTickerTickers[tickerWatch].apply(app().tickers.getTickerForTickerWatch(tickerWatch));
     }
 
     notifyListeners();
@@ -74,6 +75,7 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
         ));
 
     watchingTickers.add(tickerWatch);
+    watchingTickerTickers[tickerWatch] = Ticker.fromTickerWatch(tickerWatch);
 
     notifyListeners();
   }
@@ -153,26 +155,18 @@ class WatchingPageModel extends ChangeNotifier with AbstractAppTickerListener {
     notifyListeners();
   }
 
-  // Future<void> startAddTickerWatch(BuildContext context) async {
-  //   final selectedPair = await Navigator.of(context).push(new AddWatchModal());
-  //   if (selectedPair == null) return;
-
-  //   addTickerWatch(TickerWatch(exchange: Exchanges.Binance, pair: selectedPair));
-  //   notifyListeners();
-  // }
-
   @override
-  FutureOr<void> onTicker(Ticker ticker) async {
-    final watchTicker = watchingTickers.firstWhere((element) => element.exchange.id == ticker.exchange.id && element.pair.eq(ticker.pair), orElse: () => null);
+  FutureOr<void> onTickers(List<Ticker> tickers) async {
+    for (final ticker in tickers) {
+      final staticWatchTicker = watchingTickers.maybeFirstWhere((watchTicker) {
+        return watchTicker.exchange.id == ticker.exchange.id && watchTicker.pair.eq(ticker.pair);
+      });
+      if (staticWatchTicker == null) continue;
 
-    if (watchTicker == null) return;
+      if (!watchingTickerTickers.containsKey(staticWatchTicker)) watchingTickerTickers[staticWatchTicker] = Ticker.fromTicker(ticker);
 
-    // print("()()()()()()()()()()()()())");
-
-    watchingTickerTickers[watchTicker] = ticker;
-
+      watchingTickerTickers[staticWatchTicker].apply(ticker);
+    }
     notifyListeners();
-
-    // print("+_+_+_+_+_+_+_+_+_+_+_+_");
   }
 }

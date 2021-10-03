@@ -11,24 +11,32 @@ part "binance_support.g.dart";
 
 const String BINANCE_API_URL = "https://api.binance.com";
 
-/// Converts boolish value to real bollean value
-bool _booleanFromJson(dynamic value) {
-  if (value is num && value == 1) return true;
-  if (value is bool && value == true) return true;
+abstract class BinanceUtils {
+  /// Converts booleanish values to real [bool] values
+  static bool booleanFromJson(dynamic value) {
+    if (value == null) return false;
 
-  switch (value) {
-    case "true":
-    case "yes":
-    case "1":
-      return true;
+    if (value is num && value == 1) return true;
+
+    if (value is bool && value == true) return true;
+
+    if (value is String) {
+      switch (value.toLowerCase()) {
+        case "true":
+        case "yes":
+        case "1":
+        case "on":
+          return true;
+      }
+    }
+
+    return false;
   }
 
-  return false;
-}
-
-/// Converts Binance symbol string to [Pair] static instance
-Pair _pairFromJson(String value) {
-  return Pairs.getPair(value);
+  /// Converts Binance symbol string to [Pair] static instance
+  static Pair pairFromJson(String value) {
+    return Pairs.getPair(value);
+  }
 }
 
 @JsonSerializable()
@@ -167,13 +175,13 @@ class BinanceTrade {
   @JsonKey(name: "time")
   int time;
 
-  @JsonKey(name: "isBuyer", fromJson: _booleanFromJson)
+  @JsonKey(name: "isBuyer", fromJson: BinanceUtils.booleanFromJson)
   bool isBuyer;
 
-  @JsonKey(name: "isMaker", fromJson: _booleanFromJson)
+  @JsonKey(name: "isMaker", fromJson: BinanceUtils.booleanFromJson)
   bool isMaker;
 
-  @JsonKey(name: "isBestMatch", fromJson: _booleanFromJson)
+  @JsonKey(name: "isBestMatch", fromJson: BinanceUtils.booleanFromJson)
   bool isBestMatch;
 
   static BinanceTrade fromJson(json) => _$BinanceTradeFromJson(json);
@@ -246,7 +254,7 @@ class BinanceWs24hrTicker {
   @JsonKey(name: "E")
   var eventTime;
 
-  @JsonKey(name: "s", fromJson: _pairFromJson)
+  @JsonKey(name: "s", fromJson: BinanceUtils.pairFromJson)
   Pair symbol;
 
   @JsonKey(name: "p")
@@ -319,7 +327,7 @@ class BinanceWs24hrTicker {
 //   double lastPrice;
 
 //   @override
-//   @JsonKey(name: "s", fromJson: _pairFromJson)
+//   @JsonKey(name: "s", fromJson: pairFromJson)
 //   Pair pair;
 
 //   static BinanceWsMiniTicker fromJson(json) => _$BinanceWsMiniTickerFromJson(json);
@@ -332,17 +340,29 @@ class BinanceWsNormalTicker extends Ticker {
   Exchange exchange = Exchanges.Binance;
 
   @override
-  @JsonKey(name: "s", fromJson: _pairFromJson)
+  @JsonKey(name: "s", fromJson: BinanceUtils.pairFromJson)
   Pair pair;
 
   @override
+  @JsonKey(name: "o", fromJson: double.tryParse)
+  double openPrice;
+
+  @override
   @JsonKey(name: "c", fromJson: double.tryParse)
-  double price;
+  double closePrice;
+
+  @override
+  @JsonKey(name: "l", fromJson: double.tryParse)
+  double lowPrice;
+
+  @override
+  @JsonKey(name: "h", fromJson: double.tryParse)
+  double highPrice;
 
   BinanceWsNormalTicker({
     this.exchange = Exchanges.Binance,
     this.pair,
-    this.price,
+    this.closePrice,
     updatedAt,
   }) : super(updatedAt: updatedAt);
 

@@ -1,3 +1,4 @@
+import 'package:le_crypto_alerts/database/entities/ticker_watch_entity.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 
@@ -14,4 +15,11 @@ class TickerWatch {
 
   @override
   String toString() => 'TickerWatch($key)';
+
+  factory TickerWatch.fromTickerWatchEntity(TickerWatchEntity tickerWatchEntity) => tickerWatchEntity == null
+      ? null
+      : TickerWatch(
+          exchange: Exchange(tickerWatchEntity.exchange),
+          pair: Pairs.getPair2(tickerWatchEntity.base, tickerWatchEntity.quote),
+        );
 }

@@ -208,12 +208,12 @@ class _AppRepository {
       // NOTE:
       // validating ticker state
       if (ticker == null) continue;
-      if (ticker.price == null || ticker.price < 0) continue;
+      if (ticker.closePrice == null || ticker.closePrice < 0) continue;
 
       //NOTE:
       // alert is not active so we will test if it should be
       if (!alert.isActive) {
-        if (!alert.testTrigger(ticker.price)) continue;
+        if (!alert.testTrigger(ticker.closePrice)) continue;
 
         alert.triggerState = AlertEntityState.STATE_ACTIVE;
         alert.triggerAt = DateTime.now();
@@ -228,7 +228,7 @@ class _AppRepository {
       // alert is active
       // so we will check if it shoulding be
       if (alert.isActive) {
-        if (alert.testTrigger(ticker.price)) continue;
+        if (alert.testTrigger(ticker.closePrice)) continue;
         if (now.difference(alert.triggerAt).inSeconds <= 10) continue;
 
         updatePendingAlerts.add(alert..triggerState = AlertEntityState.STATE_IDLE);
@@ -244,13 +244,22 @@ class _AppRepository {
   bool updateTickers(Iterable<Ticker> newTickers) {
     debugPrint("Updating ${newTickers.length} tickers");
 
-    bool anyTickerChanged = false;
+    // bool anyTickerChanged = false;
+    List<Ticker> changedTickers = [];
     for (final ticker in newTickers) {
-      anyTickerChanged = updateTicker(ticker) || anyTickerChanged;
+      final tickerChanged = updateTicker(ticker);
+      if (tickerChanged) changedTickers.add(this.tickers.getTicker(ticker.exchange, ticker.pair, createOnMissing: false));
+      // anyTickerChanged = anyTickerChanged || tickerChanged;
     }
 
-    if (anyTickerChanged) updateAlertsState();
-    return anyTickerChanged;
+    if (changedTickers.isNotEmpty) {
+      updateAlertsState();
+
+      //NOTE: notify the ticker listener os the changed tickers
+      _tickerListeners.forEach((listener) => listener.onTickers(changedTickers));
+    }
+
+    return changedTickers.isNotEmpty;
   }
 
   bool updateTicker(
@@ -261,13 +270,12 @@ class _AppRepository {
     if (!newTicker.pair.quote.isUSD) return false;
 
     final staticTicker = tickers.getTicker(newTicker.exchange, newTicker.pair, createOnMissing: true);
-    final tickerChanged = staticTicker.price != newTicker.price;
+    final tickerChanged = staticTicker.hasChanged(newTicker);
 
-    staticTicker.price = newTicker.price;
-    staticTicker.updatedAt = newTicker.updatedAt;
+    staticTicker.apply(newTicker);
 
     if (tickerChanged) {
-      _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
+      // _tickerListeners.forEach((listener) => listener.onTicker(staticTicker));
       if (callUpdateAlertState) updateAlertsState();
     }
 
