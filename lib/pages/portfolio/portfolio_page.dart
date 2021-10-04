@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
-import 'package:le_crypto_alerts/pages/_common/default_drawer.dart';
 import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_model.dart';
@@ -14,7 +13,7 @@ class PortfolioPage extends StatefulWidget {
   State<StatefulWidget> createState() => PortfolioPageState();
 }
 
-final portfolioNavigatorObserver = LeAppNavigatorObserver();
+// final portfolioNavigatorObserver = LeAppNavigatorObserver();
 
 class PortfolioPageState extends State<PortfolioPage> with LeAppNavigatorAware {
   String currentRoute;
@@ -23,24 +22,24 @@ class PortfolioPageState extends State<PortfolioPage> with LeAppNavigatorAware {
   void didChangeDependencies() {
     super.didChangeDependencies();
     leAppRouteObserver.subscribe(this);
-    portfolioNavigatorObserver.subscribe(this);
+    // portfolioNavigatorObserver.subscribe(this);
   }
 
   @override
   dispose() {
     leAppRouteObserver.unsubscribe(this);
-    portfolioNavigatorObserver.unsubscribe(this);
+    // portfolioNavigatorObserver.unsubscribe(this);
     super.dispose();
   }
 
-  @override
-  void didChange(Route<dynamic> route, Route<dynamic> previousRoute) {
-    // print('POPOP  ${previousRoute?.settings?.name ?? ''} ==>  ${route?.settings?.name ?? ''} ');
+  // @override
+  // void didChange(Route<dynamic> route, Route<dynamic> previousRoute) {
+  //   // print('POPOP  ${previousRoute?.settings?.name ?? ''} ==>  ${route?.settings?.name ?? ''} ');
 
-    currentRoute = route?.settings?.name;
+  //   currentRoute = route?.settings?.name;
 
-    // setState(() {});
-  }
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +56,20 @@ class PortfolioPageState extends State<PortfolioPage> with LeAppNavigatorAware {
               icon: Icons.account_balance_wallet,
               title: " My Portfolios",
               // working: model.isWorking,
-              actions: [
-                if (currentRoute == ROUTE_PORTFOLIO) ...[
-                  IconButton(icon: Icon(Icons.refresh), onPressed: () {}),
-                  IconButton(icon: Icon(Icons.add), onPressed: () {}),
-                ],
-                if (currentRoute == ROUTE_PORTFOLIO_DETAILS) ...[
-                  IconButton(icon: Icon(Icons.refresh), onPressed: () {}),
-                ],
-              ],
+              // actions: [
+              //   // TextButton(onPressed: () {}, child: Text(currentRoute ?? '')),
+              //   if (currentRoute == ROUTE_PORTFOLIO) ...[
+              //     IconButton(icon: Icon(Icons.refresh), onPressed: () {}),
+              //     IconButton(icon: Icon(Icons.add), onPressed: () {}),
+              //   ],
+              //   if (currentRoute == ROUTE_PORTFOLIO_DETAILS) ...[
+              //     IconButton(icon: Icon(Icons.refresh), onPressed: () {}),
+              //   ],
+              // ],
             ),
             body: Navigator(
               initialRoute: ROUTE_PORTFOLIO,
-              observers: [portfolioNavigatorObserver],
+              // observers: [portfolioNavigatorObserver]..removeWhere((element) => element == null),
               onGenerateRoute: (settings) {
                 WidgetBuilder builder = _getNavigatorRouteBuilder(settings);
                 return MaterialPageRoute(builder: builder, settings: settings);
