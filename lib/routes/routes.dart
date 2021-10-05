@@ -4,9 +4,9 @@ import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_create_page.dart';
 import 'package:le_crypto_alerts/pages/alerts/alerts_list_page.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_common.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
-import 'package:le_crypto_alerts/pages/portfolio/portfolio_page.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
+import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 
 Route getWatchingPageRoute() {
@@ -26,7 +26,7 @@ Route getAlertListPageRoute() {
 Route getPortfolioListPageRoute() {
   return MaterialPageRoute(
     settings: RouteSettings(name: ROUTE_PORTFOLIO),
-    builder: (context) => PortfolioPage(),
+    builder: (context) => PortfolioListPage(),
   );
 }
 

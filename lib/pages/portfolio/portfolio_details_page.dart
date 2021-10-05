@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
+import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_model.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
@@ -20,92 +22,62 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => PortfolioDetailsModel(context, widget.accountId)..init()),
+        ChangeNotifierProvider<PortfolioDetailsModel>(create: (context) => PortfolioDetailsModel(widget.accountId)..init()),
       ],
       builder: (context, child) {
         final model = context.watch<PortfolioDetailsModel>();
 
-        return RefreshIndicator(
-          onRefresh: () => model.refresh(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: ListView(
-              children: [
-                // Text(""
-                //     " updating: ${portfolioModel.updatingPortfolios}"
-                //     " last update: ${portfolioModel.updatedPortfoliosAt ?? 'unknown'}"
-                //     " accounts: ${portfolioModel.portfolioResumes.length}"
-                //     ""),
-                _buildPortfolioHoldingsResume(context),
+        return Scaffold(
+          // drawer: DefaultDrawer(),
+          appBar: defaultAppBar(
+            icon: Icons.account_balance_wallet,
+            title: [
+              if (model.portfolioResume == null) 'My Portfolios',
+              if (model.portfolioResume != null) 'My Portfolios / ${model.portfolioResume.displayName}',
+            ].first,
+            isWorking: model.isBusy,
+            actions: [
+              IconButton(icon: Icon(Icons.refresh), onPressed: () => model.refresh()),
+            ],
+          ),
+          body: RefreshIndicator(
+            onRefresh: () => model.refresh(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: ListView(
+                children: [
+                  ...model.when(
 
-                ...model.when(
+                      ///
+                      initialize: () => [],
 
-                    ///
-                    initialize: () => [],
-
-                    ///
-                    emptyPorfilio: () => [
-                          _buildEmptyPortfolio(context),
-                        ],
-
-                    ///
-                    ready: () => [
-                          ///
-                          for (final asset in model.getPortfolioMainAssets()) ...[
-                            _buildPortfolioAsseetCard(context, asset),
+                      ///
+                      emptyPorfilio: () => [
+                            _buildEmptyPortfolio(context),
                           ],
 
-                          _buildToggleSubAssets(context),
+                      ///
+                      ready: () => [
+                            ///
+                            _buildPortfolioHoldingsResume(context),
 
-                          if (model.displaySubAssets)
-                            for (final asset in model.getPortfolioSubAssets()) ...[
+                            ///
+                            for (final asset in model.getPortfolioMainAssets()) ...[
                               _buildPortfolioAsseetCard(context, asset),
                             ],
 
-                          ///
-                          // Card(
-                          //   child: Column(
-                          //     children: [
-                          //       ///
-                          //       IgnorePointer(
-                          //         child: DataTable(
-                          //             dividerThickness: 0,
-                          //             horizontalMargin: 4,
-                          //             showCheckboxColumn: false,
-                          //             columns: _buildPortfolioDataTableColumns(context),
-                          //             rows: [
-                          //               for (final asset in model.getPortfolioMainAssets()) ...[
-                          //                 _buildPortfolioDataRow(context, asset),
-                          //               ],
-                          //             ]),
-                          //       ),
+                            _buildSubAssetsToggle(context),
 
-                          //       ///
-                          //       _buildToggleSubAssets(context),
-
-                          //       ///
-                          //       if (model.displaySubAssets)
-                          //         IgnorePointer(
-                          //           child: DataTable(
-                          //               dividerThickness: 0,
-                          //               horizontalMargin: 4,
-                          //               //NOTE: we will hide this table header
-                          //               headingRowHeight: 0,
-                          //               showCheckboxColumn: false,
-                          //               columns: _buildPortfolioDataTableColumns(context),
-                          //               rows: [
-                          //                 for (final asset in model.getPortfolioSubAssets()) ...[
-                          //                   _buildPortfolioDataRow(context, asset),
-                          //                 ],
-                          //               ]),
-                          //         ),
-                          //     ],
-                          //   ),
-                          // )
-                        ]),
-              ],
+                            if (model.displaySubAssets)
+                              for (final asset in model.getPortfolioSubAssets()) ...[
+                                _buildPortfolioAsseetCard(context, asset),
+                              ],
+                          ]),
+                ],
+              ),
             ),
           ),
+          //bottomNavigationBar: DefaultBottomNavigationBar(), //NOTE: other pages had been postponed
         );
       },
     );
@@ -119,7 +91,8 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
     final displayName = model.portfolioResume == null ? "" : model.portfolioResume.displayName;
 
     return Card(
-      elevation: 2,
+      color: Theme.of(context).cardColor.withAlpha(10),
+      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Row(
@@ -129,11 +102,13 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ///
-                if (model.portfolioResume == null) Text('My Portfolios / ...'),
+                Text('Portfolio market value'),
 
                 ///
-                if (model.portfolioResume != null) Text('My Portfolios / "${model.portfolioResume.displayName}"'),
+                // if (model.portfolioResume == null) Text('My Portfolios / ...'),
+
+                ///
+                // if (model.portfolioResume != null) Text('My Portfolios / "${model.portfolioResume.displayName}"'),
 
                 ///
                 SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
@@ -213,7 +188,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
     );
   }
 
-  Widget _buildToggleSubAssets(BuildContext context) {
+  Widget _buildSubAssetsToggle(BuildContext context) {
     final model = context.watch<PortfolioDetailsModel>();
 
     ///NOTE: no sub assets to be showun
@@ -228,49 +203,5 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
         return Text("show ${model.getPortfolioSubAssets().length} sub assets");
       }),
     );
-  }
-
-  @deprecated
-  List<DataColumn> _buildPortfolioDataTableColumns(BuildContext context) {
-    return [
-      DataColumn(
-        label: Text('Symbol', style: LeColors.t12m),
-      ),
-      DataColumn(
-        numeric: true,
-        label: Text('Value', style: LeColors.t12m),
-      ),
-    ];
-  }
-
-  @deprecated
-  DataRow _buildPortfolioDataRow(BuildContext context, PortfolioAccountResumeAsset asset) {
-    return DataRow(selected: false,
-        // onSelectChanged: (selected) {
-        //   // if (selected)
-        //   //   Navigator.of(context)
-        //   //       .push(portfolioDetailsPageRoute(context, portfolio));
-        // },
-        cells: [
-          /// SYMBOL
-          DataCell(Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(asset.coin.symbol, style: LeColors.t18m),
-              Text(asset.coin.name, style: LeColors.t12m),
-            ],
-          )),
-
-          /// VALUE
-          DataCell(Align(
-            alignment: Alignment.centerRight,
-            child: SelectableText(
-              E.currency(asset.usdRate),
-              maxLines: 1,
-              style: LeColors.t16m,
-            ),
-          )),
-        ]);
   }
 }

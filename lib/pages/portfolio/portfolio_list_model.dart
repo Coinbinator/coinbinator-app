@@ -3,14 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
-import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/support/flutter/provider_urils.dart';
-import 'package:provider/provider.dart';
 
-class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
-  final BuildContext context;
-
+class PortfolioListModel extends ChangeNotifier with ModelUtilMixin, BusyModel {
   bool updatingPortfolios = false;
 
   DateTime updatedPortfoliosAt;
@@ -21,44 +17,36 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin {
 
   double get holdingsTotalAmount => portfolioResumes.isEmpty ? 0 : portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
-  PortfolioListModel(this.context);
-
   Future<void> init() async {
-    if (status != ModelStatus.UNINITIALIZED) return;
-    status = ModelStatus.INITIALIZING;
+    await busy(() async {
+      if (status != ModelStatus.UNINITIALIZED) return;
+      status = ModelStatus.INITIALIZING;
 
-    await reloadAccounts();
-    await updatePortfolios();
+      await reloadAccounts();
+      await updatePortfolios();
 
-    status = ModelStatus.INITIALIZED;
+      status = ModelStatus.INITIALIZED;
+    });
   }
 
   Future<void> reloadAccounts() async {
-    final busyToken = context.read<LeAppMainProgressIndicatorNotifier>().busyToken();
-
-    accounts = await app().getAccounts();
-
-    busyToken.release();
-    notifyListeners();
+    await busy(() async {
+      accounts = await app().getAccounts();
+    });
   }
 
   Future<void> updatePortfolios() async {
-    final busyToken = context.read<LeAppMainProgressIndicatorNotifier>().busyToken(messagee: "Updating Portfolios");
+    await busy(() async {
+      //TODO: limit the number of concurrent accounts updating
+      final portfolioResumesFutures = accounts.map((account) => app().getAccountPortfolioResume(account));
+      portfolioResumes = await Future.wait(portfolioResumesFutures);
 
-    updatingPortfolios = true;
-    notifyListeners();
-
-    //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    final portfolioResumesFutures = accounts.map((account) => app().getAccountPortfolioResume(account));
-    portfolioResumes = await Future.wait(portfolioResumesFutures);
-
-    updatedPortfoliosAt = DateTime.now();
-    updatingPortfolios = false;
-    busyToken.release();
-    notifyListeners();
+      updatedPortfoliosAt = DateTime.now();
+      updatingPortfolios = false;
+    });
   }
 
-  Future<void> refresh(BuildContext context) async {
+  Future<void> refresh() async {
     await updatePortfolios();
   }
 }

@@ -10,7 +10,7 @@ PreferredSizeWidget defaultAppBar({
   IconData icon,
   String title = "",
   List<Widget> actions,
-  // bool working: false,
+  bool isWorking: false,
 }) {
   return AppBar(
     toolbarHeight: 40.0,
@@ -33,7 +33,7 @@ PreferredSizeWidget defaultAppBar({
         data: Theme.of(context).forDefaultLinearProgressIndicator(context),
         child: DefaultLinearProgressIndicatorSized(
           backgroundColor: Color(0xff2b2826),
-          value: model.isWorking ? null : 0,
+          value: (isWorking || model.isWorking) ? null : 0,
         ),
       ),
     ),

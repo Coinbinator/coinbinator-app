@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
+import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
@@ -15,107 +17,90 @@ class PortfolioListPageState extends State<PortfolioListPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PortfolioListModel>(create: (BuildContext context) => new PortfolioListModel(context)..init()),
+        ChangeNotifierProvider<PortfolioListModel>(create: (BuildContext context) => new PortfolioListModel()..init()),
       ],
       builder: (context, child) {
         final model = Provider.of<PortfolioListModel>(context);
 
-        return RefreshIndicator(
-          onRefresh: () => model.refresh(context),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: ListView(
-              children: [
-                // Text(""
-                //     " updating: ${model.updatingPortfolios}"
-                //     " last update: ${model.updatedPortfoliosAt ?? 'unknown'}"
-                //     " accounts: ${model.portfolioResumes.length}"
-                //     ""),
+        return Scaffold(
+          // drawer: DefaultDrawer(),
+          appBar: defaultAppBar(
+            icon: Icons.account_balance_wallet,
+            title: " My Portfolios",
+            isWorking: model.isBusy,
+            actions: [
+              IconButton(icon: Icon(Icons.add), onPressed: () {}),
+              IconButton(icon: Icon(Icons.refresh), onPressed: () => model.refresh()),
+              IconButton(icon: Text("USD", style: LeColors.t10m), onPressed: () => model.refresh()),
+            ],
+          ),
+          body: RefreshIndicator(
+            onRefresh: () => model.refresh(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: ListView(
+                children: [
+                  ///
+                  if (!model.initialized) ...[
+                    Container(),
+                  ] else if (model.portfolioResumes.isEmpty) ...[
+                    _buildEmptyPortfolio(context),
+                  ] else if (model.portfolioResumes.isNotEmpty) ...[
+                    _buildPortfolioHoldingsResume(context),
+                    for (final portfolio in model.portfolioResumes) ...[
+                      /// Portfolio Card
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).push(getPortfolioDetailsPageRoute(context, portfolio)),
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(portfolio.displayName, style: Theme.of(context).textTheme.headline6),
+                                ),
+                                // Divider(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    /// EXCHANGE
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        // Text(portfolio.displayName, style: LeColors.t18m),
+                                        Text('${portfolio.coins.length} assets', style: LeColors.t12m)
+                                      ],
+                                    ),
 
-                _buildPortfolioHoldingsResume(context),
-
-                if (!model.initialized) ...[
-                  Container(),
-                ] else if (model.portfolioResumes.isEmpty) ...[
-                  _buildEmptyPortfolio(context),
-                ] else if (model.portfolioResumes.isNotEmpty) ...[
-                  for (final portfolio in model.portfolioResumes) ...[
-                    /// Portfolio Card
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).push(getPortfolioDetailsPageRoute(context, portfolio)),
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(portfolio.displayName, style: Theme.of(context).textTheme.headline6),
-                              ),
-                              // Divider(),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  /// EXCHANGE
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      // Text(portfolio.displayName, style: LeColors.t18m),
-                                      Text('${portfolio.coins.length} assets', style: LeColors.t12m)
-                                    ],
-                                  ),
-
-                                  /// VALUE
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    // alignment: Alignment.centerRight,
-                                    children: [
-                                      SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t18m),
-                                      SelectableText(
-                                        "${E.percentage(portfolio.totalUsd / model.holdingsTotalAmount)} of portfolio",
-                                        maxLines: 1,
-                                        style: LeColors.t12m,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
+                                    /// VALUE
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      // alignment: Alignment.centerRight,
+                                      children: [
+                                        SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t18m),
+                                        SelectableText(
+                                          "${E.percentage(portfolio.totalUsd / model.holdingsTotalAmount)} of portfolio",
+                                          maxLines: 1,
+                                          style: LeColors.t12m,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                    ],
                   ],
-
-                  // Card(
-                  //   child: Column(
-                  //     children: [
-                  //       DataTable(
-                  //         dividerThickness: 0,
-                  //         horizontalMargin: 4,
-                  //         showCheckboxColumn: false,
-                  //         columns: _buildPortfolioDataTableColumns(context),
-                  //         rows: [
-                  //           for (final portfolio in model.portfolioResumes) ...[
-                  //             _buildPortfolioDataRow(context, portfolio),
-                  //           ],
-                  //         ],
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-
-                  /// OutlinedButton(onPressed: () => context.read<LeAppModel>().nextColorSchema(), child: Text("(${context.read<LeAppModel>().i} + 1) next")),
-                  // OutlinedButton(
-                  //     onPressed: () => context.read<LeAppModel>()
-                  //       ..themeData = DarkerThemeData.darker()
-                  //       ..nextColorSchema(),
-                  //     child: Text(" reset")),
                 ],
-              ],
+              ),
             ),
           ),
+          //bottomNavigationBar: DefaultBottomNavigationBar(), //NOTE: other pages had been postponed
         );
       },
     );
@@ -126,7 +111,8 @@ class PortfolioListPageState extends State<PortfolioListPage> {
 
     return Card(
       // color: LeColors.white.shade50,
-      elevation: 2,
+      color: Theme.of(context).cardColor.withAlpha(10),
+      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
