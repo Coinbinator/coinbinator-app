@@ -23,13 +23,6 @@ Route getAlertListPageRoute() {
   );
 }
 
-Route getPortfolioListPageRoute() {
-  return MaterialPageRoute(
-    settings: RouteSettings(name: ROUTE_PORTFOLIO),
-    builder: (context) => PortfolioListPage(),
-  );
-}
-
 Route getAlertCreatePageRoute(BuildContext context) {
   return MaterialPageRoute(
     settings: RouteSettings(name: ROUTE_ALERTS_CREATE),
@@ -44,6 +37,16 @@ Route getAlertCreatePageRoute(BuildContext context) {
   // );
 }
 
+Future<T> showAlertEditPageRoute<T>(BuildContext context, AlertEntity alert) {
+  return showModalBottomSheet<T>(
+    context: context,
+    builder: (context) => AlertsCreatePage(alert: alert),
+  );
+
+  //final route = getAlertEditPageRoute(context, alert);
+  //Navigator.of(context).push(route);
+}
+
 Future<T> showAlertCreatePageRoute<T>(BuildContext context) {
   return showModalBottomSheet<T>(
     context: context,
@@ -54,30 +57,27 @@ Future<T> showAlertCreatePageRoute<T>(BuildContext context) {
   //Navigator.of(context).push(route);
 }
 
-Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
-  assert(alert?.id != null, "alert.id should not be null");
+// Route getAlertEditPageRoute(BuildContext context, AlertEntity alert) {
+//   assert(alert?.id != null, "alert.id should not be null");
 
+//   return MaterialPageRoute(
+//     settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
+//     builder: (context) => AlertsCreatePage(alert: alert),
+//   );
+
+//   // return DialogRoute(
+//   //   context: context,
+//   //   settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
+//   //   useSafeArea: true,
+//   //   builder: (context) => AlertsCreatePage(alert: alert),
+//   // );
+// }
+
+Route getPortfolioListPageRoute() {
   return MaterialPageRoute(
-    settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
-    builder: (context) => AlertsCreatePage(alert: alert),
+    settings: RouteSettings(name: ROUTE_PORTFOLIO),
+    builder: (context) => PortfolioListPage(),
   );
-
-  // return DialogRoute(
-  //   context: context,
-  //   settings: RouteSettings(name: ROUTE_ALERTS_EDIT, arguments: alert?.id),
-  //   useSafeArea: true,
-  //   builder: (context) => AlertsCreatePage(alert: alert),
-  // );
-}
-
-Future<T> showAlertEditPageRoute<T>(BuildContext context, AlertEntity alert) {
-  return showModalBottomSheet<T>(
-    context: context,
-    builder: (context) => AlertsCreatePage(alert: alert),
-  );
-
-  //final route = getAlertEditPageRoute(context, alert);
-  //Navigator.of(context).push(route);
 }
 
 Route getPortfolioDetailsPageRoute(final BuildContext context, final PortfolioAccountResume portfolio) {
