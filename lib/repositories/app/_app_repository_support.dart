@@ -18,6 +18,8 @@ class _AppConfig {
 
   // ignore: non_constant_identifier_names
   String test_mercado_bitcoin_tapi_secret;
+
+  Coin baseCurrency = Coins.$BRL;
 }
 
 T instance<T>() => _AppRepository._instance._singletons[T];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/_common/default_linear_progress_indicator.dart';
 import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
@@ -28,33 +29,44 @@ PreferredSizeWidget defaultAppBar({
       ],
     ),
     actions: actions,
-    bottom: _SpecialLeAppMainProgressIndicatorConsumer(
-      builder: (BuildContext context, LeAppMainProgressIndicatorNotifier model, Widget widget) => Theme(
-        data: Theme.of(context).forDefaultLinearProgressIndicator(context),
+
+    bottom: _SpecialMaterial(
+      child: Theme(
+        data: Theme.of(MAIN_APP_WIDGET.currentContext).forDefaultLinearProgressIndicator(MAIN_APP_WIDGET.currentContext),
         child: DefaultLinearProgressIndicatorSized(
           backgroundColor: Color(0xff2b2826),
-          value: (isWorking || model.isWorking) ? null : 0,
+          value: isWorking ? null : 0,
         ),
       ),
     ),
+
+    // bottom: _SpecialLeAppMainProgressIndicatorConsumer(
+    //   builder: (BuildContext context, Le A p p M a i n P r o g r e s s I n d i c a t o r N o t i f i e r model, Widget widget) => Theme(
+    //     data: Theme.of(context).forDefaultLinearProgressIndicator(context),
+    //     child: DefaultLinearProgressIndicatorSized(
+    //       backgroundColor: Color(0xff2b2826),
+    //       value: (isWorking || model.isWorking) ? null : 0,
+    //     ),
+    //   ),
+    // ),
   );
 }
 
-class _SpecialMeterial extends Material implements PreferredSizeWidget {
+class _SpecialMaterial extends Material implements PreferredSizeWidget {
   @override
   final Size preferredSize = Size(double.infinity, 6);
 
-  _SpecialMeterial({Key key, Widget child}) : super(key: key, color: Color(0xff2b2826), elevation: 4, child: child);
+  _SpecialMaterial({Key key, Widget child}) : super(key: key, color: Color(0xff2b2826), elevation: 4, child: child);
 }
 
-class _SpecialLeAppMainProgressIndicatorConsumer extends Consumer<LeAppMainProgressIndicatorNotifier> implements PreferredSizeWidget {
-  @override
-  final Size preferredSize = Size(double.infinity, 6);
+// class _SpecialLeAppMainProgressIndicatorConsumer extends Consumer<L e A p p M a i n P r o g r e s s I n d i c a t o r N o t i f i er> implements PreferredSizeWidget {
+//   @override
+//   final Size preferredSize = Size(double.infinity, 6);
 
-  _SpecialLeAppMainProgressIndicatorConsumer({
-    Key key,
-    @required final Widget Function(BuildContext context, LeAppMainProgressIndicatorNotifier value, Widget child) builder,
-    Widget child,
-  })  : assert(builder != null),
-        super(key: key, builder: builder, child: child);
-}
+//   _SpecialLeAppMainProgressIndicatorConsumer({
+//     Key key,
+//     @required final Widget Function(BuildContext context, L e A p p M a i n P r o g r e s s I n d i c a t o r N o t i f i er value, Widget child) builder,
+//     Widget child,
+//   })  : assert(builder != null),
+//         super(key: key, builder: builder, child: child);
+// }

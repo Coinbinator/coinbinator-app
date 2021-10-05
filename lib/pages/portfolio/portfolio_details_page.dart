@@ -86,7 +86,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
   Widget _buildPortfolioHoldingsResume(BuildContext context) {
     final model = context.watch<PortfolioDetailsModel>();
 
-    final holdingsTotalAmount = model.portfolioResume == null ? 0 : model.portfolioResume.totalUsd;
+    final holdingsTotalBaseAmount = model.portfolioResume == null ? 0 : model.portfolioResume.totalBase;
 
     final displayName = model.portfolioResume == null ? "" : model.portfolioResume.displayName;
 
@@ -111,7 +111,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                 // if (model.portfolioResume != null) Text('My Portfolios / "${model.portfolioResume.displayName}"'),
 
                 ///
-                SelectableText('${E.currency(holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
+                SelectableText('${E.currency(holdingsTotalBaseAmount)}', maxLines: 1, style: LeColors.t26b),
               ],
             ),
             IconButton(
@@ -174,7 +174,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                   children: [
                     SelectableText(E.currency(asset.usdRate), maxLines: 1, style: LeColors.t18m),
                     SelectableText(
-                      "${E.percentage(asset.usdRate / model.portfolioResume.totalUsd)} of portfolio",
+                      "${E.percentage(asset.usdRate / model.portfolioResume.totalBase)} of portfolio",
                       maxLines: 1,
                       style: LeColors.t12m,
                     ),

@@ -15,7 +15,9 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin, BusyModel {
 
   List<PortfolioAccountResume> portfolioResumes = [];
 
-  double get holdingsTotalAmount => portfolioResumes.isEmpty ? 0 : portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
+  double get holdingsTotalBaseAmount => portfolioResumes.isEmpty ? 0 : portfolioResumes.map((e) => e.totalBase).reduce((a, b) => a + b);
+
+  // double get holdingsTotalAmount => portfolioResumes.isEmpty ? 0 : portfolioResumes.map((e) => e.totalUsd).reduce((a, b) => a + b);
 
   Future<void> init() async {
     await busy(() async {

@@ -240,6 +240,7 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with 
       //TODO: notify erro atualizando rates
       return;
     }
+
     for (final ticker in tickers) {
       if (ticker.lePair == null) {
         //TODO: validar pares desconhecidos
@@ -249,8 +250,10 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with 
         //TODO: validar coins desconecidas
         continue;
       }
+
       app().rates.updateRate(ticker.lePair.baseCoin, ticker.lePair.quoteCoin, double.tryParse(ticker.price));
     }
+
     _ratesUpdatedAt = Timestamp.now();
   }
 
@@ -287,7 +290,8 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with 
         ..coin = coin
         ..amount = portfolioCoinAmount
         ..btcRate = app().rates.getRateFromTo(coin, Coins.$BTC, amount: portfolioCoinAmount)
-        ..usdRate = app().rates.getRateFromTo(coin, Coins.$USD, amount: portfolioCoinAmount);
+        ..usdRate = app().rates.getRateFromTo(coin, Coins.$USD, amount: portfolioCoinAmount)
+        ..brlRate = app().rates.getRateFromTo(coin, Coins.$BRL, amount: portfolioCoinAmount);
 
       return portfolioCoin;
     }).toList();

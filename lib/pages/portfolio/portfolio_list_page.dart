@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/util_select_app_base_currency.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
@@ -13,7 +14,7 @@ class PortfolioListPage extends StatefulWidget {
   State<StatefulWidget> createState() => PortfolioListPageState();
 }
 
-class PortfolioListPageState extends State<PortfolioListPage> {
+class PortfolioListPageState extends State<PortfolioListPage> with CanChangeAppBaseCurrency<PortfolioListPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
@@ -31,7 +32,8 @@ class PortfolioListPageState extends State<PortfolioListPage> {
             actions: [
               IconButton(icon: Icon(Icons.add), onPressed: () {}),
               IconButton(icon: Icon(Icons.refresh), onPressed: () => model.refresh()),
-              IconButton(icon: Text("USD", style: LeColors.t10m), onPressed: () => model.refresh()),
+              appBaseCurrency_appBarButton(),
+              // IconButton(icon: Text("USD", style: LeColors.t10m), onPressed: () => model.refresh()),
             ],
           ),
           body: RefreshIndicator(
@@ -40,6 +42,9 @@ class PortfolioListPageState extends State<PortfolioListPage> {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: ListView(
                 children: [
+                  appBaseCurrency_buildSelector(),
+
+
                   ///
                   if (!model.initialized) ...[
                     Container(),
@@ -79,9 +84,9 @@ class PortfolioListPageState extends State<PortfolioListPage> {
                                       crossAxisAlignment: CrossAxisAlignment.end,
                                       // alignment: Alignment.centerRight,
                                       children: [
-                                        SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t18m),
+                                        SelectableText(E.currency(portfolio.totalBase), maxLines: 1, style: LeColors.t18m),
                                         SelectableText(
-                                          "${E.percentage(portfolio.totalUsd / model.holdingsTotalAmount)} of portfolio",
+                                          "${E.percentage(portfolio.totalBase / model.holdingsTotalBaseAmount)} of portfolio",
                                           maxLines: 1,
                                           style: LeColors.t12m,
                                         ),
@@ -119,7 +124,7 @@ class PortfolioListPageState extends State<PortfolioListPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('My holdings'),
-            SelectableText('${E.currency(model.holdingsTotalAmount)}', maxLines: 1, style: LeColors.t26b),
+            SelectableText('${E.currency(model.holdingsTotalBaseAmount)}', maxLines: 1, style: LeColors.t26b),
           ],
         ),
       ),
@@ -172,7 +177,7 @@ class PortfolioListPageState extends State<PortfolioListPage> {
           /// VALUE
           DataCell(Align(
             alignment: Alignment.centerRight,
-            child: SelectableText(E.currency(portfolio.totalUsd), maxLines: 1, style: LeColors.t16m),
+            child: SelectableText(E.currency(portfolio.totalBase), maxLines: 1, style: LeColors.t16m),
           )),
         ]);
   }

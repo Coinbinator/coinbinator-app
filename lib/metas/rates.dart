@@ -9,6 +9,13 @@ class Rate {
   double price = -1;
 
   Rate({this.base, this.quote});
+
+  bool has(Coin coin) {
+    if (base == coin || quote == coin) return true;
+    return false;
+  }
+
+  toString() => "Rate(${base.symbol}=>${quote.symbol})";
 }
 
 class Rates {
@@ -36,8 +43,8 @@ class Rates {
     /// They are the same
     if (from == to) return 1 * amount;
 
-    final fromAlias = coinAliases[from] ?? {from};
-    final toAlias = coinAliases[to] ?? {to};
+    final fromAlias = coinAliases[from] ?? <Coin>{from};
+    final toAlias = coinAliases[to] ?? <Coin>{to};
 
     /// They are quite the "same"
     if (fromAlias.intersection(toAlias).isNotEmpty) return 1 * amount;
@@ -54,7 +61,30 @@ class Rates {
       return (1 / quote0.price) * amount;
     }
 
+    final rateList = _recSearch(from, to);
+    if (rateList != null && rateList.isNotEmpty) {
+      return rateList.fold(1, (a, rate) => a(rate.base == from ? 1 / rate.price : rate.price)) * amount;
+    }
+
     /// We didin't find the connection
     return -1;
+  }
+
+  List<Rate> _recSearch(Coin from, Coin to, {int level = 0}) {
+    if (level > 3) return <Rate>[];
+
+    final fromRates = rates.where((rate) => rate.has(from));
+
+    var found = <Rate>[];
+
+    for (final rate in fromRates) {
+      final next = rate.quote == from ? rate.base : rate.quote;
+      if (to == next) return [rate];
+
+      final otherFound = _recSearch(next, to, level: level + 1);
+      if (otherFound.isNotEmpty && (found.isEmpty || otherFound.length < found.length)) found = otherFound;
+    }
+
+    return found;
   }
 }

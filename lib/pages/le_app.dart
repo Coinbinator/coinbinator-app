@@ -46,13 +46,8 @@ class LeAppState extends State<LeApp> {
       ///APP MODEL PROVIDER
       ChangeNotifierProvider<LeAppModel>(create: (context) => LeAppModel()..init()),
 
-      //MAIN PROGRESS INDICATOR
-      ChangeNotifierProvider<LeAppMainProgressIndicatorNotifier>(create: (context) => LeAppMainProgressIndicatorNotifier()),
-
       ///SPLASH MODEL PROVIDER
-      ChangeNotifierProvider<SplashModel>(
-        create: (context) => SplashModel(),
-      ),
+      ChangeNotifierProvider<SplashModel>(create: (context) => SplashModel()),
 
       /// ALERTS MODEL PROVIDER
       ChangeNotifierProvider<AlertsListPageModel>(create: (context) => AlertsListPageModel()..init()),

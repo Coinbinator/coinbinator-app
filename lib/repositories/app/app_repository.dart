@@ -12,6 +12,8 @@ import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/binance_account.dart';
 import 'package:le_crypto_alerts/metas/accounts/mercado_bitcoin_account.dart';
+import 'package:le_crypto_alerts/metas/coin.dart';
+import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
@@ -141,6 +143,15 @@ class _AppRepository {
     _say("Complete.");
   }
 
+  Coin getBaseCurrency() {
+    return config.baseCurrency ?? Coins.$USD;
+  }
+
+  Future<void> setBaseCurrency(Coin value) async {
+    //TOOD: add baseCurrency persistence
+    config.baseCurrency = value;
+  }
+
   Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
       BinanceAccount()
@@ -166,9 +177,11 @@ class _AppRepository {
     if (account is BinanceAccount) {
       return instance<BinanceRepository>().getAccountPortfolioResume(account: account);
     }
+    
     if (account is MercadoBitcoinAccount) {
       return instance<MercadoBitcoinRepository>().getAccountPortfolioResume(account: account);
     }
+
     throw Exception("tipo de conta desconhecido");
   }
 

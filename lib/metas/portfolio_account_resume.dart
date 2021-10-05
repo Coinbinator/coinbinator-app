@@ -6,7 +6,9 @@ class PortfolioAccountResume {
 
   List<PortfolioAccountResumeAsset> coins;
 
-  double get totalUsd => coins.map((coin) => coin.usdRate).fold(0, (x, y) => x + y);
+  double get totalBase => coins.map((coin) => coin.baseRate).fold(0, (x, y) => x + y);
+
+  // double get totalUsd => coins.map((coin) => coin.usdRate).fold(0, (x, y) => x + y);
 
   String get displayName {
     if (account.name == null || account.name.isEmpty) {
