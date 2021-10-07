@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume_asset.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
+import 'package:le_crypto_alerts/pages/_common/mixin_can_change_app_base_currency.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_model.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/e.dart';
@@ -17,7 +18,7 @@ class PortfolioDetailsPage extends StatefulWidget {
   State<StatefulWidget> createState() => PortfolioDetailsPageState();
 }
 
-class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
+class PortfolioDetailsPageState extends State<PortfolioDetailsPage> with CanChangeAppBaseCurrency<PortfolioDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -38,6 +39,7 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
             isWorking: model.isBusy,
             actions: [
               IconButton(icon: Icon(Icons.refresh), onPressed: () => model.refresh()),
+              appBaseCurrency_appBarButton(),
             ],
           ),
           body: RefreshIndicator(
@@ -46,6 +48,8 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: ListView(
                 children: [
+                  appBaseCurrency_buildSelector(),
+                  
                   ...model.when(
 
                       ///

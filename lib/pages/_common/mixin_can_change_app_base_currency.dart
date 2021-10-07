@@ -3,10 +3,10 @@ import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
-
 import 'package:provider/provider.dart';
 import 'package:smart_select/smart_select.dart';
 
+/// Common widget utils for global "Base Currency" modification
 mixin CanChangeAppBaseCurrency<T extends StatefulWidget> on State<T> {
   @protected
   final _changeAppBaseCurrencyKey = GlobalKey<S2SingleState<Coin>>();
@@ -16,9 +16,12 @@ mixin CanChangeAppBaseCurrency<T extends StatefulWidget> on State<T> {
     final model = Provider.of<LeAppModel>(context);
 
     return IconButton(
-      icon: Text(model.baseCurrency.symbol, style: LeColors.t10m),
-      onPressed: () => _changeAppBaseCurrencyKey?.currentState?.showModal(),
-    );
+        icon: Text(model.baseCurrency.symbol, style: LeColors.t10m),
+        onPressed: () {
+          assert(_changeAppBaseCurrencyKey?.currentState != null,
+              'Missing changeAppBaseCurrency currentState, did you forgot to place appBaseCurrency_buildSelector() in the render list');
+          _changeAppBaseCurrencyKey?.currentState?.showModal();
+        });
   }
 
   // ignore: non_constant_identifier_names
@@ -31,7 +34,6 @@ mixin CanChangeAppBaseCurrency<T extends StatefulWidget> on State<T> {
       value: model.baseCurrency,
       modalFilter: false,
       modalFilterAuto: false,
-      
       choiceItems: [
         S2Choice<Coin>(title: 'USD', value: Coins.$USD),
         S2Choice<Coin>(title: 'BRL', value: Coins.$BRL),
