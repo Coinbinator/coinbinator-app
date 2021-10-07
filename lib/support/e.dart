@@ -5,7 +5,7 @@ abstract class E {
   static String currency(value, {String locale, String name = '\$', String symbol, int decimalDigits: 2}) {
     final formatter = new NumberFormat.currency(locale: locale, name: name, symbol: symbol, decimalDigits: decimalDigits);
 
-    return formatter.format(value * .8736 * 5);
+    return formatter.format(value);
   }
 
   ///
