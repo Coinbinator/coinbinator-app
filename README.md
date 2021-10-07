@@ -16,6 +16,6 @@ Agnostic crypto portfolio monitor
 
 ### Prints
 
-![./assets/screenshots/portfolio.jpg](/home/leles/Workspace/crypto-alerts/assets/screenshots/portfolio.jpg)
+![portfolio](./assets/screenshots/portfolio.jpg)
 
 
