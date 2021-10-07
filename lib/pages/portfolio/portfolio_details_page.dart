@@ -33,8 +33,9 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> with CanChan
           appBar: defaultAppBar(
             icon: Icons.account_balance_wallet,
             title: [
-              if (model.portfolioResume == null) 'My Portfolios',
-              if (model.portfolioResume != null) 'My Portfolios / ${model.portfolioResume.displayName}',
+              'My Portfolios',
+              // if (model.portfolioResume == null) 'My Portfolios',
+              // if (model.portfolioResume != null) 'My Portfolios / ${model.portfolioResume.displayName}',
             ].first,
             isWorking: model.isBusy,
             actions: [
@@ -49,7 +50,6 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> with CanChan
               child: ListView(
                 children: [
                   appBaseCurrency_buildSelector(),
-                  
                   ...model.when(
 
                       ///
@@ -90,9 +90,9 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> with CanChan
   Widget _buildPortfolioHoldingsResume(BuildContext context) {
     final model = context.watch<PortfolioDetailsModel>();
 
-    final holdingsTotalBaseAmount = model.portfolioResume == null ? 0 : model.portfolioResume.totalBase;
+    final holdingsTotalBaseAmount = model?.portfolioResume?.totalBase ?? 0;
 
-    final displayName = model.portfolioResume == null ? "" : model.portfolioResume.displayName;
+    final displayName = model?.portfolioResume?.displayName ?? "";
 
     return Card(
       color: Theme.of(context).cardColor.withAlpha(10),
@@ -106,13 +106,14 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> with CanChan
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(displayName, style: Theme.of(context).textTheme.headline6),
                 Text('Portfolio market value'),
 
                 ///
                 // if (model.portfolioResume == null) Text('My Portfolios / ...'),
 
                 ///
-                // if (model.portfolioResume != null) Text('My Portfolios / "${model.portfolioResume.displayName}"'),
+                // if (model.portfolioResume != null) Text('My Portfolios / "${displayName}"'),
 
                 ///
                 SelectableText('${E.currency(holdingsTotalBaseAmount)}', maxLines: 1, style: LeColors.t26b),
