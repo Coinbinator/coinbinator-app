@@ -14,3 +14,8 @@ Agnostic crypto portfolio monitor
 * Portfolio statistics
 * Account order history and profit statistics
 
+### Prints
+
+![./assets/screenshots/portfolio.jpg](/home/leles/Workspace/crypto-alerts/assets/screenshots/portfolio.jpg)
+
+
