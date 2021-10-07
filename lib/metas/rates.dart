@@ -1,23 +1,11 @@
 import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
+import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/rate.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 
-class Rate {
-  final Coin base;
-  final Coin quote;
-
-  double price = -1;
-
-  Rate({this.base, this.quote});
-
-  bool has(Coin coin) {
-    if (base == coin || quote == coin) return true;
-    return false;
-  }
-
-  toString() => "Rate(${base.symbol}=>${quote.symbol})";
-}
-
+/// Stores the conversion rate for the known pairs
+/// Provides utilities for [Coin] rates manipulation and conversion
 class Rates {
   final rates = Set<Rate>();
 
@@ -36,6 +24,11 @@ class Rates {
     newRate.price = price;
   }
 
+  /// Returnn the amount (in from [Coin]) converted into the amount in to [Coin]
+  /// using the currently known prices
+  ///
+  /// TODO: validate and test other algos ( for performance improvements )
+  ///
   double getRateFromTo(Coin from, Coin to, {double amount = 1.0}) {
     /// am I a joke?
     if (amount == 0) return 0;
@@ -61,28 +54,41 @@ class Rates {
       return (1 / quote0.price) * amount;
     }
 
-    final rateList = _recSearch(from, to);
+    final rateList = _getRateFromTo__recSearch(from, to);
     if (rateList != null && rateList.isNotEmpty) {
-      return rateList.fold(1, (a, rate) => a(rate.base == from ? 1 / rate.price : rate.price)) * amount;
+      if (Pair.instance(base: from, quote: to).has(Coins.$AAVE)) {
+        to.toString();
+      }
+
+      return rateList.reversed.fold(1, (a, rate) => a * rate.price) * amount;
     }
 
     /// We didin't find the connection
     return -1;
   }
 
-  List<Rate> _recSearch(Coin from, Coin to, {int level = 0}) {
-    if (level > 3) return <Rate>[];
+  /// Execute a recursive search for amount conversion
+  /// Used when we don't have a direct price for the symbol
+  ///
+  /// And we use one or many intermediary "hops".
+  ///
+  /// TODO: theres is room for improvement, like wont lookup the rates already in the stack
+  ///
+  // ignore: non_constant_identifier_names
+  List<Rate> _getRateFromTo__recSearch(Coin from, Coin to, {int level = 0}) {
+    if (level > 3) return null;
 
     final fromRates = rates.where((rate) => rate.has(from));
-
-    var found = <Rate>[];
+    List<Rate> found;
 
     for (final rate in fromRates) {
       final next = rate.quote == from ? rate.base : rate.quote;
       if (to == next) return [rate];
 
-      final otherFound = _recSearch(next, to, level: level + 1);
-      if (otherFound.isNotEmpty && (found.isEmpty || otherFound.length < found.length)) found = otherFound;
+      final otherFound = _getRateFromTo__recSearch(next, to, level: level + 1);
+      if (otherFound != null && (found == null || otherFound.length < found.length - 1)) {
+        found = [rate, ...otherFound];
+      }
     }
 
     return found;

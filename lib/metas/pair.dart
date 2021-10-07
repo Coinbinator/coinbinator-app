@@ -25,11 +25,16 @@ class Pair {
   Coin get quoteCoin => quote; //Coins.getCoin(quote);
 
   Pair.instance({this.base, this.quote}) {
-    assert(base != null, "pair.base nao pode ser null");
-    assert(quote != null, "pair.quote nao pode ser null");
+    assert(base != null, "pair.base cannot be null");
+    assert(quote != null, "pair.quote cannot be null");
   }
 
   factory Pair({dynamic base, dynamic quote}) => Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
+
+  bool has(Coin coin) {
+    if (base == coin || quote == coin) return true;
+    return false;
+  }
 
   bool eq(Pair pair) {
     if (pair == this) return true;

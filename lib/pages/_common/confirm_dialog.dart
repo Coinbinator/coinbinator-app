@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-/// todo: talvez trocar de "confirmação" por "negacao" ( ou criar um alias de negação, para evitar a necessidade de inverter o resultado nos "ifs" )
+/// TODO: swap to "negation" or create ans "not'ed" alias for this function, if is "not'et" we don't need to negate on the caller
 ///
 /// ex.:
 ///   // instead of
 ///   final confirmed = await askConfirmation();
-///   if( !confirmed ) return cancelProcess();
+///   if(!confirmed) return cancelProcess();
 ///
 ///   // it would be
 ///   final denied = await askDenial();
-///   if( denied ) return cancelProcess();
+///   if(denied) return cancelProcess(); 
 ///
 Future askConfirmation(
   BuildContext context, {

@@ -298,7 +298,7 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with 
 
     coins
       ..removeWhere((value) => value == null || value.amount <= 0.0)
-      ..sort((a, b) => a.usdRate < b.usdRate ? 1 : -1);
+      ..sort((a, b) => a.baseRate < b.baseRate ? 1 : -1);
 
     return PortfolioAccountResume()
       ..account = account

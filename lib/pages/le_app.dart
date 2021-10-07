@@ -29,6 +29,7 @@ class LeAppState extends State<LeApp> {
               /// and if we use the context from "MultiProvider" it will not find the nested Localizations
               /// Until I figure this out... it is what it is
               builder: (BuildContext context) => MaterialApp(
+                    debugShowCheckedModeBanner: false,
                     key: MAIN_APP_WIDGET,
                     title: 'Le Crypto Alerts',
                     navigatorKey: MAIN_NAVIGATOR_KEY,

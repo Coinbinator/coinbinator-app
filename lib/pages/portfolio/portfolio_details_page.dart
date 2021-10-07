@@ -172,9 +172,9 @@ class PortfolioDetailsPageState extends State<PortfolioDetailsPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   // alignment: Alignment.centerRight,
                   children: [
-                    SelectableText(E.currency(asset.usdRate), maxLines: 1, style: LeColors.t18m),
+                    SelectableText(E.currency(asset.baseRate), maxLines: 1, style: LeColors.t18m),
                     SelectableText(
-                      "${E.percentage(asset.usdRate / model.portfolioResume.totalBase)} of portfolio",
+                      "${E.percentage(asset.baseRate / model.portfolioResume.totalBase)} of portfolio",
                       maxLines: 1,
                       style: LeColors.t12m,
                     ),

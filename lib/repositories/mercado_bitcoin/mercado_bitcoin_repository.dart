@@ -93,8 +93,9 @@ class MercadoBitcoinRepository extends AbstractExchangeRepository<MercadoBitcoin
           PortfolioAccountResumeAsset()
             ..coin = Coins.getCoin(e.key)
             ..amount = double.tryParse(e.value.total)
-            ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD, amount: double.tryParse(e.value.total))
             ..btcRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$BTC, amount: double.tryParse(e.value.total))
+            ..usdRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$USD, amount: double.tryParse(e.value.total))
+            ..brlRate = app().rates.getRateFromTo(Coins.getCoin(e.key), Coins.$BRL, amount: double.tryParse(e.value.total))
       ]
       //NOTE: removendo registros com balance zero
       ..coins.removeWhere((element) => element.coin == null || element.amount <= 0);
