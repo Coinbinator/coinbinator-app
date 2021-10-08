@@ -80,6 +80,9 @@ class MercadoBitcoinRepository extends AbstractExchangeRepository<MercadoBitcoin
       // 'status_list': '[2, 3]',
       // 'has_fills': 1,
     });
+
+    print(response);
+
     return MercadoBitcoinListOrdersResponse.fromJson(response);
   }
 
@@ -122,27 +125,27 @@ class MercadoBitcoinRepository extends AbstractExchangeRepository<MercadoBitcoin
               ..updatedAt = DateTime.fromMillisecondsSinceEpoch(order.updatedTimestamp * 1000)
       ];
 
-    final listOrders = await tapiListOrders(account: account, pair: Pairs.getPair("BTC/BRL"));
-
-    return PortfolioAccountOrdersResume()
-      ..account = account
-      ..orders = [
-        for (var e in listOrders.responseData.orders)
-          PortfolioAccountOrderResume()
-            ..pair = _tapiConvertStringToPair(e.coinPair)
-            ..type = e.orderType
-            ..status = e.status
-            ..filled = e.hasFills
-            ..quantity = double.tryParse(e.quantity)
-            ..executedQuantity = double.tryParse(e.executedQuantity)
-            ..priceLimit = double.tryParse(e.limitPrice)
-            ..priceAvg = double.tryParse(e.executedPriceAvg)
-            ..createdAt = DateTime.fromMillisecondsSinceEpoch(e.createdTimestamp * 1000)
-            ..updatedAt = DateTime.fromMillisecondsSinceEpoch(e.updatedTimestamp * 1000)
-      ];
+    // final listOrders = await tapiListOrders(account: account, pair: Pairs.getPair("BTC/BRL"));
+    // return PortfolioAccountOrdersResume()
+    //   ..account = account
+    //   ..orders = [
+    //     for (var e in listOrders.responseData.orders)
+    //       PortfolioAccountOrderResume()
+    //         ..pair = _tapiConvertStringToPair(e.coinPair)
+    //         ..type = e.orderType
+    //         ..status = e.status
+    //         ..filled = e.hasFills
+    //         ..quantity = double.tryParse(e.quantity)
+    //         ..executedQuantity = double.tryParse(e.executedQuantity)
+    //         ..priceLimit = double.tryParse(e.limitPrice)
+    //         ..priceAvg = double.tryParse(e.executedPriceAvg)
+    //         ..createdAt = DateTime.fromMillisecondsSinceEpoch(e.createdTimestamp * 1000)
+    //         ..updatedAt = DateTime.fromMillisecondsSinceEpoch(e.updatedTimestamp * 1000)
+    //   ];
   }
 }
 
+/// Mercado Bitcoin pairs
 final List<Pair> _tapiSupportedPairs = ([
   Pairs.getPair('AAVE/BRL'),
   Pairs.getPair('ACMFT/BRL'),
@@ -216,4 +219,5 @@ final List<Pair> _tapiSupportedPairs = ([
   Pairs.getPair('XRP/BRL'),
   Pairs.getPair('YFI/BRL'),
   Pairs.getPair('ZRX/BRL'),
-]).where((element) => element != null).toList(growable: false);
+])
+  ..removeWhere((element) => element == null);

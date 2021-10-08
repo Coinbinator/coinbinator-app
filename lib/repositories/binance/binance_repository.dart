@@ -225,6 +225,8 @@ class BinanceRepository extends AbstractExchangeRepository<BinanceAccount> with 
 
       if (response.statusCode != 200) throw HttpException("Api Error", uri: response.request.uri);
 
+      print(response);
+
       return response.data.map<BinanceOrder>((order) => BinanceOrder.fromJson(order)).toList();
     } catch (e) {
       print("err: getAllOrders");

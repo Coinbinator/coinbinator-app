@@ -16,6 +16,7 @@ import 'package:le_crypto_alerts/metas/coin.dart';
 import 'package:le_crypto_alerts/metas/coins.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
+import 'package:le_crypto_alerts/metas/portfolio_account_orders_resume.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
 import 'package:le_crypto_alerts/metas/tickers.dart';
@@ -28,6 +29,7 @@ import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
 import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
 import 'package:le_crypto_alerts/support/abstract_app_ticker_listener.dart';
 import 'package:le_crypto_alerts/metas/rates.dart';
+import 'package:le_crypto_alerts/support/abstract_exchange_repository.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
 import 'package:provider/provider.dart';
 
@@ -152,6 +154,18 @@ class _AppRepository {
     config.baseCurrency = value;
   }
 
+  AbstractExchangeRepository getExchangeRepository(AbstractExchangeAccount account) {
+    if (account is BinanceAccount) {
+      return instance<BinanceRepository>();
+    }
+
+    if (account is MercadoBitcoinAccount) {
+      return instance<MercadoBitcoinRepository>();
+    }
+
+    throw Exception("tipo de conta desconhecido");
+  }
+
   Future<List<AbstractExchangeAccount>> getAccounts() async {
     return [
       BinanceAccount()
@@ -174,18 +188,12 @@ class _AppRepository {
 
   Future<PortfolioAccountResume> getAccountPortfolioResume(AbstractExchangeAccount account) async {
     //TODO: criar alguma forma de batch ( e limitar o numero de carteiras sendo atualizadas em paraleno )
-    if (account is BinanceAccount) {
-      return instance<BinanceRepository>().getAccountPortfolioResume(account: account);
-    }
-    
-    if (account is MercadoBitcoinAccount) {
-      return instance<MercadoBitcoinRepository>().getAccountPortfolioResume(account: account);
-    }
-
-    throw Exception("tipo de conta desconhecido");
+    return getExchangeRepository(account).getAccountPortfolioResume(account: account);
   }
 
-  getAccountPortfolioTransactions(AbstractExchangeAccount account) async {}
+  Future<PortfolioAccountOrdersResume> getAccountPortfolioTransactions(AbstractExchangeAccount account) async {
+    return getExchangeRepository(account).getAccountOrderHistoryResume(account: account);
+  }
 
   Future<int> persistAlertEntity(AlertEntity alert) async {
     if (alert == null) return 0;
@@ -202,7 +210,7 @@ class _AppRepository {
     return await app().appDao.deleteAlert(alert);
   }
 
-  setAlerts(List<AlertEntity> value) {
+  void setAlerts(List<AlertEntity> value) {
     //TODO: verificar se é necessario atualizar o triggers ( se o valores dispararam nessa troca )
     this.alerts = value;
   }

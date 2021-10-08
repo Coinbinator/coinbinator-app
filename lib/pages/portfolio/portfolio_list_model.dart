@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
@@ -26,6 +28,13 @@ class PortfolioListModel extends ChangeNotifier with ModelUtilMixin, BusyModel {
 
       await reloadAccounts();
       await updatePortfolios();
+
+      final orders = await Future.wait(accounts.map((e) => app().getAccountPortfolioTransactions(e)));
+      orders.toString();
+
+
+      // print(orders);
+      // print(JsonEncoder().convert(orders));
 
       status = ModelStatus.INITIALIZED;
     });
