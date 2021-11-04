@@ -1,22 +1,15 @@
 import 'dart:async';
 
-import 'package:bringtoforeground/bringtoforeground.dart';
-import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/database/entities/alert_entity.dart';
 import 'package:le_crypto_alerts/metas/alert_trugger_info.dart';
 import 'package:le_crypto_alerts/metas/exchange.dart';
 import 'package:le_crypto_alerts/metas/pair.dart';
 import 'package:le_crypto_alerts/metas/ticker.dart';
-import 'package:le_crypto_alerts/pages/le_app.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 import 'package:le_crypto_alerts/repositories/background_service/bridges/background_service_bridge.dart';
 import 'package:le_crypto_alerts/repositories/background_service/messages/messages.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
-import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
-import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
 import 'package:le_crypto_alerts/support/metas.dart';
-import 'package:tuple/tuple.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 ///
 /// The backgund process program

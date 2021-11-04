@@ -1,4 +1,3 @@
-import 'package:floor/floor.dart';
 
 mixin EnumConverter<T> {
   List<T> get values;

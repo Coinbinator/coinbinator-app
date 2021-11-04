@@ -7,7 +7,7 @@ part "coinbinator_support.g.dart";
 abstract class CoinbinatorUtils {
   /// Converts string to [Pair] static instance
   static Pair pairFromJson(String value) {
-    return Pairs.getPair(value);
+    return Pair.createFromString(value, registerIfMissing: true);
   }
 
   /// Converts string to [Exchange] enum value
@@ -28,7 +28,7 @@ class CoinbinatorTicker {
   Pair pair;
 
   @JsonKey(name: "price")
-  var price;
+  String price;
 
   static CoinbinatorTicker fromJson(json) => _$CoinbinatorTickerFromJson(json);
 }

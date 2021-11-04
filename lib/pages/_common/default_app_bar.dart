@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/constants.dart';
 import 'package:le_crypto_alerts/pages/_common/default_linear_progress_indicator.dart';
-import 'package:le_crypto_alerts/pages/le_app_models.dart';
 import 'package:le_crypto_alerts/support/colors.dart';
 import 'package:le_crypto_alerts/support/theme/theme_common.dart';
-import 'package:le_crypto_alerts/support/theme/theme_darker.dart';
-import 'package:provider/provider.dart';
 
 PreferredSizeWidget defaultAppBar({
   IconData icon,

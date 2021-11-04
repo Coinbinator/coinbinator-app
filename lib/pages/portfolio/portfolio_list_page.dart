@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_crypto_alerts/metas/portfolio_account_resume.dart';
 import 'package:le_crypto_alerts/pages/_common/default_app_bar.dart';
-import 'package:le_crypto_alerts/pages/_common/default_bottom_navigation_bar.dart';
 import 'package:le_crypto_alerts/pages/_common/mixin_can_change_app_base_currency.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/routes/routes.dart';
@@ -148,6 +147,7 @@ class PortfolioListPageState extends State<PortfolioListPage> with CanChangeAppB
   }
 
   @Deprecated('removing in favor of card list')
+  // ignore: unused_element
   List<DataColumn> _buildPortfolioDataTableColumns(BuildContext context) {
     return [
       DataColumn(
@@ -161,6 +161,7 @@ class PortfolioListPageState extends State<PortfolioListPage> with CanChangeAppB
   }
 
   @Deprecated('removing in favor of card list')
+  // ignore: unused_element
   DataRow _buildPortfolioDataRow(BuildContext context, PortfolioAccountResume portfolio) {
     return DataRow(
         onSelectChanged: (selected) {

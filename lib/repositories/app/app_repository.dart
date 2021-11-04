@@ -122,7 +122,6 @@ class _AppRepository {
 
       //SOCKET LISTENERS
       instance<CoinbinatorRepository>().listenToTickers(_onCoinbinatorTickers);
-      instance<CoinbinatorRepository>().subscribeToTickers([Ticker(exchange: Exchanges.Binance, pair: Pairs.$BTC_USDT, closePrice: -1)]);
       // instance<BinanceRepository>().listenToNormalTickers(_onNormalTickerListener);
 
       // debug accounts
@@ -140,6 +139,28 @@ class _AppRepository {
       // await instance<AlarmingRepository>().initialize();
       // await instance<BackgroundServiceRepository>().initialize();
 
+      final accounts = await getAccounts();
+      final initialTickers = <Ticker>[];
+
+      for (final account in accounts) {
+        final i = accounts.indexOf(account) + 1;
+        final n = accounts.length;
+
+        _say("Loading account info ($i of $n)...");
+
+        final accountPortifolioResume = await getAccountPortfolioResume(account);
+
+        final accountTickers = accountPortifolioResume.coins.map((coinAsset) => Ticker(
+              exchange: account.getExchange(),
+              pair: Pairs.getPair2(coinAsset.coin, Coins.$USD) ?? Pair.instance(base: coinAsset.coin, quote: Coins.$USD),
+              closePrice: -1,
+            ));
+        initialTickers.addAll(accountTickers);
+      }
+
+      instance<CoinbinatorRepository>().setTickersSubscriptions(initialTickers);
+
+      _say("Complete.");
     } catch (e) {
       debugPrint("Error trying to initialize app repository");
       throw e;

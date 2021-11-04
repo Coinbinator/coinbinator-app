@@ -56,6 +56,7 @@ extension LeAppModel_TempThemeTests on LeAppModel {
   shufflerColors() {
     colorSchema = randomColorScheme();
     themeData = ThemeData.from(colorScheme: colorSchema);
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     notifyListeners();
   }
 
@@ -64,6 +65,7 @@ extension LeAppModel_TempThemeTests on LeAppModel {
     colorSchema = colorSchemaTests()[i];
     ThemeData.from(colorScheme: colorSchema);
 
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     notifyListeners();
   }
 }

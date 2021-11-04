@@ -29,7 +29,41 @@ class Pair {
     assert(quote != null, "pair.quote cannot be null");
   }
 
-  factory Pair({dynamic base, dynamic quote}) => Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
+  factory Pair({
+    dynamic base,
+    dynamic quote,
+    bool registerIfMissing = false,
+  }) {
+    final staticPair = Pairs.getPair(Coin(base).symbol + Coin(quote).symbol);
+    if (staticPair != null) return staticPair;
+
+    if (!registerIfMissing) return null;
+
+    final newPair = Pair.instance(base: Coin(base), quote: Coin(quote));
+
+    Pairs._pairs.putIfAbsent(newPair.key, () => newPair);
+
+    return newPair;
+  }
+
+  factory Pair.createFromString(
+    String value, {
+    bool registerIfMissing = false,
+  }) {
+    final staticPair = Pairs.getPair(value);
+    if (staticPair != null) return staticPair;
+
+    if (!registerIfMissing) return null;
+
+    final parts = value.split(RegExp('\/'));
+    if (parts.length != 2) return null;
+
+    final newPair = Pair.instance(base: Coin(parts[0]), quote: Coin(parts[1]));
+
+    Pairs._pairs.putIfAbsent(newPair.key, () => newPair);
+
+    return newPair;
+  }
 
   bool has(Coin coin) {
     if (base == coin || quote == coin) return true;
