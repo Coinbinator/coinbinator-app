@@ -31,7 +31,7 @@ class LeAppState extends State<LeApp> {
               builder: (BuildContext context) => MaterialApp(
                     debugShowCheckedModeBanner: false,
                     key: MAIN_APP_WIDGET,
-                    title: 'Le Crypto Alerts',
+                    title: 'Coinbinator',
                     navigatorKey: MAIN_NAVIGATOR_KEY,
                     navigatorObservers: [leAppRouteObserver],
                     theme: Provider.of<LeAppModel>(context).themeData,

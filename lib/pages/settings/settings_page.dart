@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:le_crypto_alerts/pages/settings/manage_accounts_page.dart';
+import 'package:le_crypto_alerts/pages/settings/accounts/manage_accounts_list_page.dart';
+
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key key}) : super(key: key);

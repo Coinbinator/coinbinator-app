@@ -268,10 +268,3 @@ class BackgroundServiceManager {
     print('---');
   }
 }
-
-// asdadadadasda() {
-// print(
-//     " 2ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
-// print(
-//     "2 ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ALERT ALARM ");
-// }

@@ -18,7 +18,7 @@ class Pair {
   @JsonKey(toJson: Coin.convertToJson, fromJson: Coin.convertFromJson)
   final Coin quote;
 
-  get key => "$base/$quote";
+  get key => "${base.key}/${quote.key}";
 
   Coin get baseCoin => base; //Coins.getCoin(base);
 

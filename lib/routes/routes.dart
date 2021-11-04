@@ -7,6 +7,7 @@ import 'package:le_crypto_alerts/pages/alerts/alerts_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_details_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_page.dart';
 import 'package:le_crypto_alerts/pages/portfolio/portfolio_support.dart';
+import 'package:le_crypto_alerts/pages/settings/accounts/manage_accounts_list_page.dart';
 import 'package:le_crypto_alerts/pages/watching/watching_page.dart';
 
 Route getWatchingPageRoute() {
@@ -108,4 +109,14 @@ Route getPortfolioDetailsPageRoute(final BuildContext context, final PortfolioAc
 // Navigator.of(context).pushNamed(ROUTE_PORTFOLIO_DETAILS,
 //                 arguments:
 //                     ;
+}
+
+Route getManageAccountsPageRoute() {
+  return MaterialPageRoute(
+    settings: RouteSettings(
+      name: ROUTE_SETTINGS_MANAGE_ACCOUNTS,
+      // arguments: PortfolioDetailsRouteArguments(portfolio.account.id),
+    ),
+    builder: (BuildContext context) => ManageAccountsPage(),
+  );
 }

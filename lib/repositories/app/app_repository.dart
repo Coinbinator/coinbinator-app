@@ -24,6 +24,7 @@ import 'package:le_crypto_alerts/pages/portfolio/portfolio_list_model.dart';
 import 'package:le_crypto_alerts/pages/splash/splash_model.dart';
 import 'package:le_crypto_alerts/repositories/alarming/alarming_repository.dart';
 import 'package:le_crypto_alerts/repositories/binance/binance_repository.dart';
+import 'package:le_crypto_alerts/repositories/coinbinator/coinbinator_repository.dart';
 import 'package:le_crypto_alerts/repositories/mercado_bitcoin/mercado_bitcoin_repository.dart';
 import 'package:le_crypto_alerts/repositories/speech/SpeechRepository.dart';
 import 'package:le_crypto_alerts/repositories/vibrate/vibrate_repository.dart';
@@ -80,6 +81,7 @@ class _AppRepository {
   _AppRepository() {
     this._singletons.addAll({
       /// CORE
+      CoinbinatorRepository: CoinbinatorRepository(),
       AlarmingRepository: AlarmingRepository.getPlatformRepositoryInstance(),
       // BackgroundServiceRepository: BackgroundServiceRepository(), //TODO: background processes needs an entire review
       SpeechRepository: SpeechRepository(),
@@ -118,8 +120,10 @@ class _AppRepository {
       });
       setAlerts(await alertsStream.first);
 
-      //SSOCKET LISTENERS
-      instance<BinanceRepository>().listenToNormalTickers(_onNormalTickerListener);
+      //SOCKET LISTENERS
+      instance<CoinbinatorRepository>().listenToTickers(_onCoinbinatorTickers);
+      instance<CoinbinatorRepository>().subscribeToTickers([Ticker(exchange: Exchanges.Binance, pair: Pairs.$BTC_USDT, closePrice: -1)]);
+      // instance<BinanceRepository>().listenToNormalTickers(_onNormalTickerListener);
 
       // debug accounts
       config.test_binance_api_key = env[TEST_BINANCE_API_KEY];
@@ -302,6 +306,8 @@ class _AppRepository {
 
     return tickerChanged;
   }
+
+  void _onCoinbinatorTickers(List<Ticker> tickers) {}
 
   void _onNormalTickerListener(List<Ticker> tickers) {
     updateTickers(tickers);

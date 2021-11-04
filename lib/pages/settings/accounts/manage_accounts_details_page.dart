@@ -3,8 +3,6 @@ import 'package:le_crypto_alerts/metas/accounts/abstract_exchange_account.dart';
 import 'package:le_crypto_alerts/repositories/app/app_repository.dart';
 
 class ManageAccountsPage extends StatefulWidget {
-  // PortfoliosPage({Key key}) : super(key: key);
-
   @override
   ManageAccountsPageState createState() => ManageAccountsPageState();
 }
@@ -41,7 +39,7 @@ class ManageAccountsPageState extends State<ManageAccountsPage> {
                 title: Text(account.name),
                 subtitle: Text(account.type),
                 onTap: () {
-                  Navigator.of(context).pop();
+                  // Navigator.of(context).pop();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ManageAccountsPage()));
                 },
                 // trailing: Icon(Icons.keyboard_arrow_right),

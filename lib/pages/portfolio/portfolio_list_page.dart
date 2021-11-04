@@ -30,7 +30,8 @@ class PortfolioListPageState extends State<PortfolioListPage> with CanChangeAppB
             title: " My Portfolios",
             isWorking: model.isBusy,
             actions: [
-              IconButton(icon: Icon(Icons.add), onPressed: () => showDialog(context: context, builder: (context) => Text('not implemented yet'))),
+              IconButton(icon: Icon(Icons.settings), onPressed: () => Navigator.of(context).push(getManageAccountsPageRoute())),
+              // IconButton(icon: Icon(Icons.add), onPressed: () => showDialog(context: context, builder: (context) => Text('not implemented yet'))),
               IconButton(icon: Icon(Icons.refresh), onPressed: () => model.refresh()),
               appBaseCurrency_appBarButton(),
               // IconButton(icon: Text("USD", style: LeColors.t10m), onPressed: () => model.refresh()),

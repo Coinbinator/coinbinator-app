@@ -30,6 +30,9 @@ const String ROUTE_ALERTS_EDIT = '/root/alerts/edit';
 ///
 const String ROUTE_SETTINGS = '/settings';
 
+///
+const String ROUTE_SETTINGS_MANAGE_ACCOUNTS = '/settings/accounts';
+
 const int ALARM_ID_DEFAULT = 0;
 const int ALARM_ID_ALERT_ACTIVE = 1;
 const int ALARM_MIN_USER_ALARMS = 1000;

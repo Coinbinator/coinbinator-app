@@ -21,7 +21,7 @@ class Ticker {
 
   DateTime updatedAt;
 
-  String get key => '${exchange.id}:${pair.key}';
+  String get key => '${pair.key}@${exchange.id}';
 
   Ticker({
     this.exchange,
